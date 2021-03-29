@@ -3,9 +3,6 @@
 
 import torch
 import torch.nn as nn
-import torch
-from torch.autograd import Variable
-import copy
 
 
 class Seq2Seq(nn.Module):
@@ -167,7 +164,7 @@ class Beam(object):
 
         # bestScoresId is flattened beam x word array, so calculate which
         # word and beam each score came from
-        prevK = bestScoresId / numWords
+        prevK = bestScoresId // numWords
         self.prevKs.append(prevK)
         self.nextYs.append((bestScoresId - prevK * numWords))
 

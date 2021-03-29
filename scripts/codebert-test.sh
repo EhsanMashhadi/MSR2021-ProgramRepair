@@ -7,11 +7,12 @@ target_length=510
 size=small #Can be: small OR large
 type=unique #Can be: repetition OR unique
 data_dir=../data/codebert/$type/split/$size
-output_dir=saved_models/codebert/msr-repetition-large
+output_dir=saved_models/codebert/$type/$size
 validate_file=$data_dir/src-val.txt,$data_dir/tgt-val.txt
 test_file=$data_dir/src-test.txt,$data_dir/tgt-test.txt
 test_model=$output_dir/checkpoint-best-ppl/pytorch_model.bin
 pretrained_model=./code-bert #CodeBert model path downloaded from Huggingface
+pretrained_model=../../codebert-model/codebert-base
 
 python ../codebert/run.py \
 --do_test \

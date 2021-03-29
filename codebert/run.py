@@ -20,25 +20,25 @@ using a masked language modeling (MLM) loss.
 """
 
 from __future__ import absolute_import
-import os
-import sys
-import bleu
-import pickle
-import torch
-import json
-import random
-import logging
+
 import argparse
-import numpy as np
+import logging
+import os
+import random
 from io import open
 from itertools import cycle
+
+import numpy as np
+import torch
 import torch.nn as nn
-from model import Seq2Seq
-from tqdm import tqdm, trange
-from torch.utils.data import DataLoader, Dataset, SequentialSampler, RandomSampler, TensorDataset
+from torch.utils.data import DataLoader, SequentialSampler, RandomSampler, TensorDataset
 from torch.utils.data.distributed import DistributedSampler
-from transformers import (WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup,
+from tqdm import tqdm
+from transformers import (AdamW, get_linear_schedule_with_warmup,
                           RobertaConfig, RobertaModel, RobertaTokenizer)
+
+from bleu import _bleu
+from model import Seq2Seq
 
 MODEL_CLASSES = {'roberta': (RobertaConfig, RobertaModel, RobertaTokenizer)}
 
@@ -64,23 +64,20 @@ class Example(object):
 def read_examples(filename):
     """Read examples from filename."""
     examples = []
-    with open(filename, encoding="utf-8") as f:
-        for idx, line in enumerate(f):
-            line = line.strip()
-            js = json.loads(line)
-            if 'idx' not in js:
-                js['idx'] = idx
-            code = ' '.join(js['code_tokens']).replace('\n', ' ')
-            code = ' '.join(code.strip().split())
-            nl = ' '.join(js['docstring_tokens']).replace('\n', '')
-            nl = ' '.join(nl.strip().split())
+    assert len(filename.split(',')) == 2
+    src_filename = filename.split(',')[0]
+    trg_filename = filename.split(',')[1]
+    idx = 0
+    with open(src_filename) as f1, open(trg_filename) as f2:
+        for line1, line2 in zip(f1, f2):
             examples.append(
                 Example(
                     idx=idx,
-                    source=code,
-                    target=nl,
+                    source=line1.strip(),
+                    target=line2.strip(),
                 )
             )
+            idx += 1
     return examples
 
 
@@ -106,6 +103,7 @@ def convert_examples_to_features(examples, tokenizer, args, stage=None):
     features = []
     for example_index, example in enumerate(examples):
         # source
+        tokens = tokenizer.tokenize(example.source)
         source_tokens = tokenizer.tokenize(example.source)[:args.max_source_length - 2]
         source_tokens = [tokenizer.cls_token] + source_tokens + [tokenizer.sep_token]
         source_ids = tokenizer.convert_tokens_to_ids(source_tokens)
@@ -126,7 +124,7 @@ def convert_examples_to_features(examples, tokenizer, args, stage=None):
         target_ids += [tokenizer.pad_token_id] * padding_length
         target_mask += [0] * padding_length
 
-        if example_index < 5:
+        if example_index % 5000==0:
             if stage == 'train':
                 logger.info("*** Example ***")
                 logger.info("idx: {}".format(example.idx))
@@ -151,6 +149,26 @@ def convert_examples_to_features(examples, tokenizer, args, stage=None):
     return features
 
 
+def _truncate_seq_pair(tokens_a, tokens_b, tokens_c, max_length):
+    """Truncates a sequence pair in place to the maximum length."""
+
+    # This is a simple heuristic which will always truncate the longer sequence
+    # one token at a time. This makes more sense than truncating an equal percent
+    # of tokens from each, since if one sequence is very short then each token
+    # that's truncated likely contains more information than a longer sequence.
+
+    while True:
+        total_length = len(tokens_a) + len(tokens_b) + len(tokens_c)
+        if total_length <= max_length:
+            break
+        if len(tokens_a) >= len(tokens_b) and len(tokens_a) >= len(tokens_c):
+            tokens_a.pop()
+        elif len(tokens_b) >= len(tokens_a) and len(tokens_b) >= len(tokens_c):
+            tokens_b.pop()
+        else:
+            tokens_c.pop()
+
+
 def set_seed(args):
     """set random seed."""
     random.seed(args.seed)
@@ -168,22 +186,23 @@ def main():
                         help="Model type: e.g. roberta")
     parser.add_argument("--model_name_or_path", default=None, type=str, required=True,
                         help="Path to pre-trained model: e.g. roberta-base")
+    parser.add_argument("--tokenizer_name", default="", required=True,
+                        help="Pretrained tokenizer name or path if not the same as model_name")
     parser.add_argument("--output_dir", default=None, type=str, required=True,
                         help="The output directory where the model predictions and checkpoints will be written.")
     parser.add_argument("--load_model_path", default=None, type=str,
                         help="Path to trained model: Should contain the .bin files")
     ## Other parameters
     parser.add_argument("--train_filename", default=None, type=str,
-                        help="The train filename. Should contain the .jsonl files for this task.")
+                        help="The train filenames (source and target files).")
     parser.add_argument("--dev_filename", default=None, type=str,
-                        help="The dev filename. Should contain the .jsonl files for this task.")
+                        help="The dev filename. (source and target files).")
     parser.add_argument("--test_filename", default=None, type=str,
-                        help="The test filename. Should contain the .jsonl files for this task.")
+                        help="The test filename. (source and target files).")
 
     parser.add_argument("--config_name", default="", type=str,
                         help="Pretrained config name or path if not the same as model_name")
-    parser.add_argument("--tokenizer_name", default="", type=str,
-                        help="Pretrained tokenizer name or path if not the same as model_name")
+
     parser.add_argument("--max_source_length", default=64, type=int,
                         help="The maximum total source sequence length after tokenization. Sequences longer "
                              "than this will be truncated, sequences shorter will be padded.")
@@ -256,8 +275,7 @@ def main():
 
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
     config = config_class.from_pretrained(args.config_name if args.config_name else args.model_name_or_path)
-    tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name if args.tokenizer_name else args.model_name_or_path,
-                                                do_lower_case=args.do_lower_case)
+    tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name, do_lower_case=args.do_lower_case)
 
     # budild model
     encoder = model_class.from_pretrained(args.model_name_or_path, config=config)
@@ -266,6 +284,7 @@ def main():
     model = Seq2Seq(encoder=encoder, decoder=decoder, config=config,
                     beam_size=args.beam_size, max_length=args.max_target_length,
                     sos_id=tokenizer.cls_token_id, eos_id=tokenizer.sep_token_id)
+
     if args.load_model_path is not None:
         logger.info("reload model from {}".format(args.load_model_path))
         model.load_state_dict(torch.load(args.load_model_path))
@@ -323,7 +342,7 @@ def main():
         model.train()
         dev_dataset = {}
         nb_tr_examples, nb_tr_steps, tr_loss, global_step, best_bleu, best_loss = 0, 0, 0, 0, 0, 1e6
-        bar = tqdm(range(num_train_optimization_steps), total=num_train_optimization_steps)
+        bar = range(num_train_optimization_steps)
         train_dataloader = cycle(train_dataloader)
         eval_flag = True
         for step in bar:
@@ -339,7 +358,10 @@ def main():
                 loss = loss / args.gradient_accumulation_steps
             tr_loss += loss.item()
             train_loss = round(tr_loss * args.gradient_accumulation_steps / (nb_tr_steps + 1), 4)
-            bar.set_description("loss {}".format(train_loss))
+            #logger.info("  step {} loss {}".format(global_step + 1, train_loss))
+
+            if (global_step + 1) % 100 == 0:
+                logger.info("  step {} loss {}".format(global_step + 1, train_loss))
             nb_tr_examples += source_ids.size(0)
             nb_tr_steps += 1
             loss.backward()
@@ -357,9 +379,12 @@ def main():
                 tr_loss = 0
                 nb_tr_examples, nb_tr_steps = 0, 0
                 eval_flag = False
+                logger.info("Here1")
                 if 'dev_loss' in dev_dataset:
+                    logger.info("Here2")
                     eval_examples, eval_data = dev_dataset['dev_loss']
                 else:
+                    logger.info("Here3")
                     eval_examples = read_examples(args.dev_filename)
                     eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='dev')
                     all_source_ids = torch.tensor([f.source_ids for f in eval_features], dtype=torch.long)
@@ -418,8 +443,10 @@ def main():
 
                     # Calculate bleu
                 if 'dev_bleu' in dev_dataset:
+                    logger.info("Here4")
                     eval_examples, eval_data = dev_dataset['dev_bleu']
                 else:
+                    logger.info("Here5")
                     eval_examples = read_examples(args.dev_filename)
                     eval_examples = random.sample(eval_examples, min(1000, len(eval_examples)))
                     eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='test')
@@ -430,7 +457,7 @@ def main():
 
                 eval_sampler = SequentialSampler(eval_data)
                 eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size)
-
+                logger.info("Here5.5")
                 model.eval()
                 p = []
                 for batch in eval_dataloader:
@@ -446,17 +473,21 @@ def main():
                             text = tokenizer.decode(t, clean_up_tokenization_spaces=False)
                             p.append(text)
                 model.train()
+                logger.info("Here6")
                 predictions = []
+                accs = []
                 with open(os.path.join(args.output_dir, "dev.output"), 'w') as f, open(
                         os.path.join(args.output_dir, "dev.gold"), 'w') as f1:
                     for ref, gold in zip(p, eval_examples):
                         predictions.append(str(gold.idx) + '\t' + ref)
-                        f.write(str(gold.idx) + '\t' + ref + '\n')
-                        f1.write(str(gold.idx) + '\t' + gold.target + '\n')
+                        f.write(ref + '\n')
+                        f1.write(gold.target + '\n')
+                        accs.append(ref == gold.target)
 
-                (goldMap, predictionMap) = bleu.computeMaps(predictions, os.path.join(args.output_dir, "dev.gold"))
-                dev_bleu = round(bleu.bleuFromMaps(goldMap, predictionMap)[0], 2)
+                dev_bleu = round(
+                    _bleu(os.path.join(args.output_dir, "dev.gold"), os.path.join(args.output_dir, "dev.output")), 2)
                 logger.info("  %s = %s " % ("bleu-4", str(dev_bleu)))
+                logger.info("  %s = %s " % ("xMatch", str(round(np.mean(accs) * 100, 4))))
                 logger.info("  " + "*" * 20)
                 if dev_bleu > best_bleu:
                     logger.info("  Best bleu:%s", dev_bleu)
@@ -471,6 +502,8 @@ def main():
                     torch.save(model_to_save.state_dict(), output_model_file)
 
     if args.do_test:
+        logger.info("Running Test")
+
         files = []
         if args.dev_filename is not None:
             files.append(args.dev_filename)
@@ -504,17 +537,18 @@ def main():
                         p.append(text)
             model.train()
             predictions = []
+            accs = []
             with open(os.path.join(args.output_dir, "test_{}.output".format(str(idx))), 'w') as f, open(
                     os.path.join(args.output_dir, "test_{}.gold".format(str(idx))), 'w') as f1:
                 for ref, gold in zip(p, eval_examples):
                     predictions.append(str(gold.idx) + '\t' + ref)
-                    f.write(str(gold.idx) + '\t' + ref + '\n')
-                    f1.write(str(gold.idx) + '\t' + gold.target + '\n')
-
-            (goldMap, predictionMap) = bleu.computeMaps(predictions,
-                                                        os.path.join(args.output_dir, "test_{}.gold".format(idx)))
-            dev_bleu = round(bleu.bleuFromMaps(goldMap, predictionMap)[0], 2)
+                    f.write(ref + '\n')
+                    f1.write(gold.target + '\n')
+                    accs.append(ref == gold.target)
+            dev_bleu = round(_bleu(os.path.join(args.output_dir, "test_{}.gold".format(str(idx))).format(file),
+                                   os.path.join(args.output_dir, "test_{}.output".format(str(idx))).format(file)), 2)
             logger.info("  %s = %s " % ("bleu-4", str(dev_bleu)))
+            logger.info("  %s = %s " % ("xMatch", str(round(np.mean(accs) * 100, 4))))
             logger.info("  " + "*" * 20)
 
 

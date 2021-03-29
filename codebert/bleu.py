@@ -1,208 +1,134 @@
-#!/usr/bin/python
+# Copyright 2017 Google Inc. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
 
-'''
-This script was adapted from the original version by hieuhoang1972 which is part of MOSES. 
-'''
+"""Python implementation of BLEU and smooth-BLEU.
 
-# $Id: bleu.py 1307 2007-03-14 22:22:36Z hieuhoang1972 $
+This module provides a Python implementation of BLEU and smooth-BLEU.
+Smooth BLEU is computed following the method outlined in the paper:
+Chin-Yew Lin, Franz Josef Och. ORANGE: a method for evaluating automatic
+evaluation metrics for machine translation. COLING 2004.
+"""
 
-'''Provides:
-
-cook_refs(refs, n=4): Transform a list of reference sentences as strings into a form usable by cook_test().
-cook_test(test, refs, n=4): Transform a test sentence as a string (together with the cooked reference sentences) into a form usable by score_cooked().
-score_cooked(alltest, n=4): Score a list of cooked test sentences.
-
-score_set(s, testid, refids, n=4): Interface with dataset.py; calculate BLEU score of testid against refids.
-
-The reason for breaking the BLEU computation into three phases cook_refs(), cook_test(), and score_cooked() is to allow the caller to calculate BLEU scores for multiple test sets as efficiently as possible.
-'''
-
-import sys, math, re, xml.sax.saxutils
-import subprocess
-import os
-
-# Added to bypass NIST-style pre-processing of hyp and ref files -- wade
-nonorm = 0
-
-preserve_case = False
-eff_ref_len = "shortest"
-
-normalize1 = [
-    ('<skipped>', ''),  # strip "skipped" tags
-    (r'-\n', ''),  # strip end-of-line hyphenation and join lines
-    (r'\n', ' '),  # join lines
-    #    (r'(\d)\s+(?=\d)', r'\1'), # join digits
-]
-normalize1 = [(re.compile(pattern), replace) for (pattern, replace) in normalize1]
-
-normalize2 = [
-    (r'([\{-\~\[-\` -\&\(-\+\:-\@\/])', r' \1 '),  # tokenize punctuation. apostrophe is missing
-    (r'([^0-9])([\.,])', r'\1 \2 '),  # tokenize period and comma unless preceded by a digit
-    (r'([\.,])([^0-9])', r' \1 \2'),  # tokenize period and comma unless followed by a digit
-    (r'([0-9])(-)', r'\1 \2 ')  # tokenize dash when preceded by a digit
-]
-normalize2 = [(re.compile(pattern), replace) for (pattern, replace) in normalize2]
+import collections
+import math
 
 
-def normalize(s):
-    '''Normalize and tokenize text. This is lifted from NIST mteval-v11a.pl.'''
-    # Added to bypass NIST-style pre-processing of hyp and ref files -- wade
-    if (nonorm):
-        return s.split()
-    if type(s) is not str:
-        s = " ".join(s)
-    # language-independent part:
-    for (pattern, replace) in normalize1:
-        s = re.sub(pattern, replace, s)
-    s = xml.sax.saxutils.unescape(s, {'&quot;': '"'})
-    # language-dependent part (assuming Western languages):
-    s = " %s " % s
-    if not preserve_case:
-        s = s.lower()  # this might not be identical to the original
-    for (pattern, replace) in normalize2:
-        s = re.sub(pattern, replace, s)
-    return s.split()
+def _get_ngrams(segment, max_order):
+    """Extracts all n-grams upto a given maximum order from an input segment.
+
+    Args:
+      segment: text segment from which n-grams will be extracted.
+      max_order: maximum length in tokens of the n-grams returned by this
+          methods.
+
+    Returns:
+      The Counter containing all n-grams upto max_order in segment
+      with a count of how many times each n-gram occurred.
+    """
+    ngram_counts = collections.Counter()
+    for order in range(1, max_order + 1):
+        for i in range(0, len(segment) - order + 1):
+            ngram = tuple(segment[i:i + order])
+            ngram_counts[ngram] += 1
+    return ngram_counts
 
 
-def count_ngrams(words, n=4):
-    counts = {}
-    for k in range(1, n + 1):
-        for i in range(len(words) - k + 1):
-            ngram = tuple(words[i:i + k])
-            counts[ngram] = counts.get(ngram, 0) + 1
-    return counts
+def compute_bleu(reference_corpus, translation_corpus, max_order=4,
+                 smooth=False):
+    """Computes BLEU score of translated segments against one or more references.
 
+    Args:
+      reference_corpus: list of lists of references for each translation. Each
+          reference should be tokenized into a list of tokens.
+      translation_corpus: list of translations to score. Each translation
+          should be tokenized into a list of tokens.
+      max_order: Maximum n-gram order to use when computing BLEU score.
+      smooth: Whether or not to apply Lin et al. 2004 smoothing.
 
-def cook_refs(refs, n=4):
-    '''Takes a list of reference sentences for a single segment
-    and returns an object that encapsulates everything that BLEU
-    needs to know about them.'''
+    Returns:
+      3-Tuple with the BLEU score, n-gram precisions, geometric mean of n-gram
+      precisions and brevity penalty.
+    """
+    matches_by_order = [0] * max_order
+    possible_matches_by_order = [0] * max_order
+    reference_length = 0
+    translation_length = 0
+    for (references, translation) in zip(reference_corpus,
+                                         translation_corpus):
+        reference_length += min(len(r) for r in references)
+        translation_length += len(translation)
 
-    refs = [normalize(ref) for ref in refs]
-    maxcounts = {}
-    for ref in refs:
-        counts = count_ngrams(ref, n)
-        for (ngram, count) in counts.items():
-            maxcounts[ngram] = max(maxcounts.get(ngram, 0), count)
-    return ([len(ref) for ref in refs], maxcounts)
+        merged_ref_ngram_counts = collections.Counter()
+        for reference in references:
+            merged_ref_ngram_counts |= _get_ngrams(reference, max_order)
+        translation_ngram_counts = _get_ngrams(translation, max_order)
+        overlap = translation_ngram_counts & merged_ref_ngram_counts
+        for ngram in overlap:
+            matches_by_order[len(ngram) - 1] += overlap[ngram]
+        for order in range(1, max_order + 1):
+            possible_matches = len(translation) - order + 1
+            if possible_matches > 0:
+                possible_matches_by_order[order - 1] += possible_matches
 
-
-def cook_test(test, item, n=4):
-    '''Takes a test sentence and returns an object that
-    encapsulates everything that BLEU needs to know about it.'''
-    (reflens, refmaxcounts) = item
-    test = normalize(test)
-    result = {}
-    result["testlen"] = len(test)
-
-    # Calculate effective reference sentence length.
-
-    if eff_ref_len == "shortest":
-        result["reflen"] = min(reflens)
-    elif eff_ref_len == "average":
-        result["reflen"] = float(sum(reflens)) / len(reflens)
-    elif eff_ref_len == "closest":
-        min_diff = None
-        for reflen in reflens:
-            if min_diff is None or abs(reflen - len(test)) < min_diff:
-                min_diff = abs(reflen - len(test))
-                result['reflen'] = reflen
-
-    result["guess"] = [max(len(test) - k + 1, 0) for k in range(1, n + 1)]
-
-    result['correct'] = [0] * n
-    counts = count_ngrams(test, n)
-    for (ngram, count) in counts.items():
-        result["correct"][len(ngram) - 1] += min(refmaxcounts.get(ngram, 0), count)
-
-    return result
-
-
-def score_cooked(allcomps, n=4, ground=0, smooth=1):
-    totalcomps = {'testlen': 0, 'reflen': 0, 'guess': [0] * n, 'correct': [0] * n}
-    for comps in allcomps:
-        for key in ['testlen', 'reflen']:
-            totalcomps[key] += comps[key]
-        for key in ['guess', 'correct']:
-            for k in range(n):
-                totalcomps[key][k] += comps[key][k]
-    logbleu = 0.0
-    all_bleus = []
-    for k in range(n):
-        correct = totalcomps['correct'][k]
-        guess = totalcomps['guess'][k]
-        addsmooth = 0
-        if smooth == 1 and k > 0:
-            addsmooth = 1
-        logbleu += math.log(correct + addsmooth + sys.float_info.min) - math.log(guess + addsmooth + sys.float_info.min)
-        if guess == 0:
-            all_bleus.append(-10000000)
+    precisions = [0] * max_order
+    for i in range(0, max_order):
+        if smooth:
+            precisions[i] = ((matches_by_order[i] + 1.) /
+                             (possible_matches_by_order[i] + 1.))
         else:
-            all_bleus.append(math.log(correct + sys.float_info.min) - math.log(guess))
+            if possible_matches_by_order[i] > 0:
+                precisions[i] = (float(matches_by_order[i]) /
+                                 possible_matches_by_order[i])
+            else:
+                precisions[i] = 0.0
 
-    logbleu /= float(n)
-    all_bleus.insert(0, logbleu)
+    if min(precisions) > 0:
+        p_log_sum = sum((1. / max_order) * math.log(p) for p in precisions)
+        geo_mean = math.exp(p_log_sum)
+    else:
+        geo_mean = 0
 
-    brevPenalty = min(0, 1 - float(totalcomps['reflen'] + 1) / (totalcomps['testlen'] + 1))
-    for i in range(len(all_bleus)):
-        if i == 0:
-            all_bleus[i] += brevPenalty
-        all_bleus[i] = math.exp(all_bleus[i])
-    return all_bleus
+    ratio = float(translation_length) / reference_length
 
+    if ratio > 1.0:
+        bp = 1.
+    else:
+        bp = math.exp(1 - 1. / ratio)
 
-def bleu(refs, candidate, ground=0, smooth=1):
-    refs = cook_refs(refs)
-    test = cook_test(candidate, refs)
-    return score_cooked([test], ground=ground, smooth=smooth)
+    bleu = geo_mean * bp
 
-
-def splitPuncts(line):
-    return ' '.join(re.findall(r"[\w]+|[^\s\w]", line))
-
-
-def computeMaps(predictions, goldfile):
-    predictionMap = {}
-    goldMap = {}
-    gf = open(goldfile, 'r')
-
-    for row in predictions:
-        cols = row.strip().split('\t')
-        if len(cols) == 1:
-            (rid, pred) = (cols[0], '')
-        else:
-            (rid, pred) = (cols[0], cols[1])
-        predictionMap[rid] = [splitPuncts(pred.strip().lower())]
-
-    for row in gf:
-        (rid, pred) = row.split('\t')
-        if rid in predictionMap:  # Only insert if the id exists for the method
-            if rid not in goldMap:
-                goldMap[rid] = []
-            goldMap[rid].append(splitPuncts(pred.strip().lower()))
-
-    sys.stderr.write('Total: ' + str(len(goldMap)) + '\n')
-    return (goldMap, predictionMap)
+    return (bleu, precisions, bp, ratio, translation_length, reference_length)
 
 
-# m1 is the reference map
-# m2 is the prediction map
-def bleuFromMaps(m1, m2):
-    score = [0] * 5
-    num = 0.0
-
-    for key in m1:
-        if key in m2:
-            bl = bleu(m1[key], m2[key][0])
-            score = [score[i] + bl[i] for i in range(0, len(bl))]
-            num += 1
-    return [s * 100.0 / num for s in score]
-
-
-if __name__ == '__main__':
-    reference_file = sys.argv[1]
-    predictions = []
-    for row in sys.stdin:
-        predictions.append(row)
-    (goldMap, predictionMap) = computeMaps(predictions, reference_file)
-    print(bleuFromMaps(goldMap, predictionMap)[0])
+def _bleu(ref_file, trans_file, subword_option=None):
+    max_order = 4
+    smooth = True
+    ref_files = [ref_file]
+    reference_text = []
+    for reference_filename in ref_files:
+        with open(reference_filename) as fh:
+            reference_text.append(fh.readlines())
+    per_segment_references = []
+    for references in zip(*reference_text):
+        reference_list = []
+        for reference in references:
+            reference_list.append(reference.strip().split())
+        per_segment_references.append(reference_list)
+    translations = []
+    with open(trans_file) as fh:
+        for line in fh:
+            translations.append(line.strip().split())
+    bleu_score, _, _, _, _, _ = compute_bleu(per_segment_references, translations, max_order, smooth)
+    return round(100 * bleu_score, 2)
