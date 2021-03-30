@@ -18,9 +18,12 @@ data folder contains multiple folders and files:
     - use current path as `pretrained_model` variable in script files
 2. Clone the repository
     - git clone https://github.com/EhsanMashhadi/MSR2021-ProgramRepair.git
-3. Train the model with MSR data
+3. Install dependencies
+    - pip install torch==1.4.0
+    - pip install transformers==2.5.0
+4. Train the model with MSR data
     - bash ./scripts/codebert/train.sh
-4. Evaluate the model
+5. Evaluate the model
     - bash ./scripts/codebert/test.sh 
         
 ### Running Simple LSTM Experiments

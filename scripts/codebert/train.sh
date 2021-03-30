@@ -15,8 +15,10 @@ train_file=$data_dir/src-train.txt,$data_dir/tgt-train.txt
 validate_file=$data_dir/src-val.txt,$data_dir/tgt-val.txt
 pretrained_model=./code-bert #CodeBert model path downloaded from Huggingface
 pretrained_model=../../codebert-model/codebert-base
+CodeBERT=../../codebert
 
-python ../codebert/run.py \
+
+python $CodeBERT/run.py \
 --do_train \
 --do_eval \
 --model_type roberta \

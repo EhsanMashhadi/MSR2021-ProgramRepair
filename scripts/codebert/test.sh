@@ -13,8 +13,9 @@ test_file=$data_dir/src-test.txt,$data_dir/tgt-test.txt
 test_model=$output_dir/checkpoint-best-ppl/pytorch_model.bin
 pretrained_model=./code-bert #CodeBert model path downloaded from Huggingface
 pretrained_model=../../codebert-model/codebert-base
+CodeBERT=../../codebert
 
-python ../codebert/run.py \
+python $CodeBERT/run.py \
 --do_test \
 --model_type roberta \
 --model_name_or_path $pretrained_model \
