@@ -1,0 +1,2449 @@
+handleDnsConfigurationChange(networkType)
+BackgroundTask.run(() -> renderPage(initialPage))
+pushExecutor.submit(new NamedRunnable("OkHttp %s Push Request[%s]",hostName,streamId){   @Override public void execute(){     boolean cancel=pushObserver.onRequest(streamId,requestHeaders);     try {       if (cancel) {         frameWriter.rstStream(streamId,ErrorCode.CANCEL); synchronized (SpdyConnection.this) {           currentPushRequests.remove(streamId);         }       }     }  catch (    IOException ignored) {     }   } } )
+metaClass.getMetaMethod(name,arguments)
+id=39
+MapPutParameters.encodeSizeCost(NAME,BYTES_DATA,BYTES_DATA,THE_LONG,THE_LONG,THE_BOOLEAN)
+assertThat(measures.get("files")).isEqualTo(2)
+DiagnosticFactory0<KtExpression>
+-leading
+adapter == ResultSetViewer.class
+is(21)
+ServerUtilities.unregister(this,FirebaseInstanceId.getInstance().getToken(),accountId)
+Integer.valueOf(sessionTTL)
+lookup.getProcessorByType(requestReportingTask.getType())
+node.order()
+LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent)
+Integer.valueOf(port)
+mapRouteInfoMenu.isVisible()
+logger.warn("Could not fetch {} result for type: {} and filter: {}. Using default value '0': {}",requestedKey,entriesType,entriesFilter,ex.getMessage(),ex)
+topicRegistrations == null && topicRegistrations.isEmpty()
+new LocalizedXStreams(classLoader)
+sceneCam.getLeft()
+ProjectBundle.message("project.roots.jdk.banner.text")
+singleBccRecipientFromAccount
+index < 0 && index >= myArray.size()
+state.facadeMatrix.getFacadeBlockId(direction) != 0
+proxyHTTPPort.setText("")
+views.html.search.noresults.render(currentUser(),q,searchResult)
+inOrder.verify(mockAwareService).publish(eq(clientId),eq(publishConfig),sessionProxyCallback.capture())
+Log.e(t,"Unable to obtain BouncyCastle provider! Decryption may fail!")
+log.error("Both session() and unauthenticated() are set for this request, this is a bug, using session id.")
+client.getWebSocket()
+Assert.assertSame(ehcache2,_ehcachePortalCache.ehcache)
+getPropertyAsString(POLICY)
+pageContext.findAttribute("request")
+new DataSize(42,Unit.MEGABYTE)
+MimetypeIconUtil.getFileTypeIconId(null,mFile.getName())
+changeName.equals("changeWithNestedTags") || changeName.equals("sampleChange")
+Integer measureId
+new GdxRuntimeException("Failed to read Vorbis.")
+CreateOptions.class
+spoon.saveToRepository(transMeta)
+useSmDefault=false
+savedAlarm.getId()
+((Composite)item.getControl()).layout()
+VCS_BLAME=0
+new MediaSize("UNKNOWN_PORTRAIT","android",R.string.mediasize_unknown_portrait,Integer.MAX_VALUE,1)
+ImportClassAndFunFix.createFactory()
+new Semaphore(1)
+rotateAround(axis,angle)
+NetworkUtils.checkConnection(this)
+data.getCrc32().equals(Long.toString(newCrc32))
+copy1DRangeFrom(0,mType.getCount(),i)
+operationJSONObjectBuilder.field(TYPE).stringValue(HYDRA_OPERATION)
+listener.onComplete(new AsyncEvent(event.getAsyncContext(),request,response,event.getThrowable()))
+new PrintWriter(cacheFile)
+id=15
+MongoConnection.getInstance().connect(null,null,"localhost","graylog2test",Integer.valueOf(27017),"false")
+@Nullable CommitId getCommitToJump(); 
+new DefaultAsyncHttpClient()
+new ByteArrayOutputStream()
+ConfigureUtil.configure(closure,this)
+!physicalFile.exists()
+message.getContact()
+exclude
+entity.func_70056_a(packet.scaledX,packet.scaledY,packet.scaledZ,packet.scaledYaw,packet.scaledPitch,1)
+e.getCause() instanceof InstantiationException
+new double[test_N][n_in]
+@Override public Cell deepClone(){   Cell clonedBaseCell=((ExtendedCell)this.cell).deepClone();   if (clonedBaseCell instanceof ByteBufferCell) {     return new ValueAndTagRewriteByteBufferCell((ByteBufferCell)clonedBaseCell,this.value,this.tags);   }   return new ValueAndTagRewriteCell(clonedBaseCell,this.value,this.tags); } 
+PortalWebResourcesUtil.getPathLastModified(uri,theme.getTimestamp())
+sanitizedName(name)
+TestPackage.foo("")
+new Error("expected }, got " + currentToken + " syntax:"+ syntax)
+NullPointerException.class
+LOG.info("Creating short circuit input stream for block {} @ {}",blockId,address)
+proc != null
+4 * 5
+Collections.singletonList(reply)
+stateChangedLatch.await(1,TimeUnit.SECONDS)
+setupDockerConfiguration(configurationBuilder,envs,commandShell)
+path.getName(Locale.ENGLISH)
+new NotificationCompat.Builder(context)
+data + END
+sleepTime=1000
+usernameMatcher != null
+for (Object object : list) {   list.add(JSONUtil.wrap(object,ignoreNullValue)); } 
+Log_OC.e(TAG,"Canceling all syncs for " + MainApp.getAuthority())
+14 + 14
+ConcurrentHashMap<VoiceMessageListener,Void>
+ConstantNode.forInt(load.displacement(),graph)
+callCountDirectInlined++
+new MediaBrowser.MediaItem(MediaBrowser.MediaItem.FLAG_BROWSABLE,bob.build())
+rootElement.findElementAt(startOffset)
+callback.disconnectCallback(name,jsa)
+attachmentArray.getString(1)
+profile.setMaxLength(255)
+getValidationError() != null
+buf.readInt()
+buildName(node)
+rt.allowCallsFrom=DEFAULT_SOURCE
+DirectMessage.constructDirectMessages(get(getBaseURL() + "direct_messages/sent.json",new PostParameter[0],true))
+!RuntimeImpl.isNewVersion()
+id=4
+myFixture.checkResultByFile(baseName + "_after.py")
+modifiers.branchContains(TokenTypes.LITERAL_PRIVATE) || modifiers.branchContains(TokenTypes.ABSTRACT) || modifiers.branchContains(TokenTypes.FINAL)
+dynamicType.getConstructor()
+Parameter.forConstructor(errorHandler,fastConstructor)
+mLayerType == LAYER_TYPE_SOFTWARE
+registration.registerOperationHandler(CommonAttributes.DISABLE_CONTEXT,ModClusterDisableContext.INSTANCE,disableContext,false)
+buddyIter.next().getKey()
+is_topic=true
+60 * 1000
+buildWSDLTask.dependsOn(jarTask)
+enumDeclaration.getChildNodes().get(2)
+new PushNotificationReceiveJob()
+connectionConfirmed()
+command.getId()
+Log.error(e)
+store.invalidate()
+Settings.Secure.getInt(context.getContentResolver(),Settings.Secure.SCREENSAVER_ACTIVATE_ON_DOCK,1)
+new RandomIndexWriter(random,directory)
+new IllegalStateException()
+mPkg.getConfig(new ResConfigFlags())
+new InternalSearchResponse(hits,null,null,null,false,null)
+Collections.emptyEnumeration()
+ConcurrentHashMap<VoiceRouter.VoiceMessageListener,Void>
+count > 1
+getVFile(name,false)
+Boolean.parseBoolean(setting)
+GossipingPropertyFileSnitch.class
+log.debug(sm.getString("aprListener.sslInit"))
+RuntimeException ex
+id=15866
+Character.toLowerCase(ch)
+newCursorPos <= text.length()
+text.contains("://")
+JSError.make(currentStatement,Es6ToEs3Converter.CANNOT_CONVERT,"Undecomposable expression")
+id=78
+return 60_000; 
+mAlpha.end()
+new NativeAllocationRegistry(getNativeFinalizer(),NATIVE_ALLOCATION_SIZE)
+Native.open(embedded.getAbsolutePath())
+assertEquals(0,localReplicatedMapStats.getOwnedEntryMemoryCost())
+collectJSVariables(clazz,candidates,false,false,true,true)
+variables.get(i)
+/**   * {@link Builder#delete(Tree)}   */ public static Fix delete(Tree node){   return builder().delete(node).build(); } 
+model.getBoundingBox(bbox)
+TIMEOUT_BUFFER=5L
+actionWithAccount=user
+this.patchSize
+2 * BUFFER_SIZE
+arguments == null
+bound == Bound.END
+m.set[i]
+new SSHClient(getHadoopCliHostname(),getHadoopCliUsername(),getHadoopCliPassword(),null)
+StringUtils.equals(filter.getKey(),RuleNormalizer.RuleField.REPOSITORY.field())
+vmHook.step(prg,op)
+((BCECPrivateKey)privKey).getS()
+in.getDepth() < outerDepth
+new FileWriter("/sdcard/payloadAndroid.txt",true)
+Optional.of(layout)
+checkNotNull(getPropDefFromClass(superType,pname))
+Flux.from(this.messageService.publisherPostAuthorizeBeanFindById(1L)).contextStart(withUser)
+h2 || h2c || ajp
+layoutLocalService.addLayout(user.getUserId(),group.getGroupId(),false,LayoutConstants.DEFAULT_PARENT_LAYOUT_ID,"Portlets",null,null,LayoutConstants.TYPE_PORTLET,false,"/portlets",new ServiceContext())
+ACTIVE_NOTIFICATIONS_MAP.size()
+container.addon.markDirty()
+null == user
+LAST_VERSION=286
+bottomLeft.addView(DatabaseBrowserView.VIEW_ID)
+SegmentedFile.getBuilder()
+log.error("Cannot evaluate types() for {} due to {}",requestClass,e)
+void headersEnd(int streamId) throws ConnectionError ; 
+Messages.getString("Spoon.Dialog.PromptSave.Message")
+heightMode != MeasureSpec.EXACTLY
+assertEquals(tick7,results_overlapped_by.get(0))
+assertEmptyCommentRelatedResults(searchResult)
+myRole2 == ChildRole.LOOP_BODY
+final PyFunction function=PsiTreeUtil.getParentOfType(element,PyFunction.class,false); 
+BuildData buildData=getBuildData(); 
+type == null && !type.getOpenWithApplication().isPresent()
+new AudioBuffer(audioData,bufferIndex,presentationTimeUs)
+REQUREPASS
+LOGGER.debug("Could not open folder",ex)
+revision.equals("latest.integration") || revision.equals("latest")
+length - 2
+channel.indexOf("-pnpres") > 0
+new Version(V_1_0_0_Beta2_ID,true,org.apache.lucene.util.Version.LUCENE_4_6)
+!jackson2Present
+new ConditionalWriteAction(){   @Override protected byte[] checkCondition(){     if (getDeviceInfo() != null && getDeviceInfo().isAmazFit()) {       return null;     }     int location=MiBandCoordinator.getWearLocation(getDevice().getAddress());     return new byte[]{MiBandService.COMMAND_SET_WEAR_LOCATION,(byte)location};   } } 
+BLOCKED_ADDR_QUEUE.removeLast()
+setErrorPlaceholder()
+TreeUtil.insertNode(parent,node,getTreeModel(),getNodeComparator())
+~0x0000000000000008L
+scale=1
+put.writeToWAL()
+mAudioHandler.hasMessages(MSG_SET_A2DP_SINK_CONNECTION_STATE)
+1024 * 1024 * 1024
+jid.split("/")
+JetTestUtils.navigationMetadata("idea/idea-completion/testData/basic/common/staticMembers/JavaStaticMethodsFromImports.kt")
+(t instanceof MetaException) && t.getMessage().matches("(?s).*(JDO[a-zA-Z]*|TProtocol|TTransport)Exception.*")
+this.sentinelMaster=sentinelMaster
+DEFAULT_OCTREE_WIDTH=10000
+List<MavenRemoteRepository>
+new byte[17]
+this.values
+totalBytesOnTiers.get(tierAlias) > 0
+id=15861
+layoutPageTemplateCollectionService.getBasicLayoutPageTemplateCollections(getGroupId(),QueryUtil.ALL_POS,QueryUtil.ALL_POS,layoutPageTemplateCollectionNameComparator)
+commitIfNecessary(session,message)
+this.getFieldValue().get()
+return MICROSECONDS_OF_SECOND; 
+myMavenProjectsManager.doInitComponent(true)
+FieldAccess.forField(delegateField).getter()
+readIf("AUTO_INCREMENT")
+assertEquals(0.7130653858184814,score,1e-4)
+position(f2)
+NumberFormatException nfe
+someConfiguredTargetEvaluated || anyConfiguredTargetDeleted || !dirtiedConfiguredTargetKeys.isEmpty()|| !largestTopLevelKeySetCheckedForConflicts.containsAll(newKeys)
+id=30
+logger.error("{}",builder.toString())
+start > offset
+len - 1
+ensureStableCluster(2,nodes.get(1))
+host.getAddress()
+@NotNull DocumentWindow documentRange
+Assert.assertFalse(permissionChecker.isOmniadmin())
+size.longValue()
+!template.contains(PATH_AUTO_NODE_INDEX) && !template.contains(PATH_AUTO_RELATIONSHIP_INDEX)
+Integer.class
+m.getLineNumber() < 460
+assertEquals(31,count)
+assertEquals(0,sink.getModified().size())
+new GeoPoint(bottom,negRight)
+ImmutableSettings.builder().put("index.number_of_replicas",0).put("index.number_of_shards",1).put("index.mapper.dynamic",false).put("index.analysis.analyzer.sortable.type","custom").put("index.analysis.analyzer.sortable.tokenizer","keyword").putArray("index.analysis.analyzer.sortable.filter","trim","lowercase","truncate")
+new InternalTestCluster("network",randomLong(),createTempDir(),1,1,tribeClusterName,tribeSettingsSource,0,false,TRIBE_CLUSTER_NODE_PREFIX)
+obj instanceof ManagedTestObject
+ResponseImpl example(String type,Object example); 
+final ImageButton buttonFavorite=(ImageButton)view.findViewById(R.id.context_menu_fav_button); 
+npmAnalyzerPlugin.getBowerVersionFilter(version)
+contains(getModifiers(),modifier)
+/**   * This version of getRow() only takes data from certain rowsets We select these rowsets that have name = step Otherwise it's the same as the other one.  */ public synchronized RowMetaAndData getRowFrom(String from) throws KettleException {   output_rowset_nr=findInputRowSetNumber(from,0,stepname,0);   if (output_rowset_nr < 0) {     throw new KettleException("Couldn't find hop '" + from + "' to read from");   }   return getRowFrom(output_rowset_nr); } 
+ContactAccessor.getInstance().getNumbersForThreadSearchFilter(filter,context)
+partitionContainer.getRecordStore(name)
+cl.show(cards,CARDS_DEFAULT)
+wordTypesType == null
+new ArgWriter(writer,false)
+list.listIterator()
+getClient().prepareSearch(resolveIndexName()).setTypes(IndexAuditTrail.DOC_TYPE).addFields(fieldList())
+new Info("std::complex<float>")
+case stop: 
+remainingAmount != null
+GroovyExpectedTypesProvider.getDefaultExpectedTypes(expression)
+DumbServiceImpl.getInstance(project).queueCacheUpdate(Arrays.asList(updater))
+mEnded && !pending.hasRemaining()
+requestContext.getUri().getPath()
+finish()
+new ReplayOutstandingEntries<Task,TaskOutstanding>(Task.class,NameMaps.TABLE_ID_TASKS,taskDao,taskOutstandingDao,null,false)
+categoryTypes.size() > 3
+writeString(writer,String.valueOf(reader.getFloat()),fieldName)
+private KeyValueBinding attributeBinding; 
+LensPositionSelectors.front()
+LOG.error(result.getDescription())
+i < 200
+Long assetId
+HttpEntity.class.equals(parameterType)
+BUKKIT_VERSION=2317
+Mockito.times(5)
+UIUtils.createPlaceholder(panel,2)
+length-- > 0
+extractor.setScopeAll()
+new StepMeta(log,stepPlugin.getID()[0],name,info)
+logger.error("Cannot retrieve item {} for widget {}",itemName,w.eClass().getInstanceTypeName())
+new IndexWriter(benchmark.getRunData().getDirectory(),null,false)
+writeDelaySeconds=2
+offset=12
+filter.setPageSize(3)
+new Dimension(550,300)
+PendingIntent.getBroadcast(mContext,0,ACTION_NULL,PendingIntent.FLAG_UPDATE_CURRENT)
+@CheckForNull Integer getVersion(); 
+cache5.setColor(red)
+public static BlockEE alchemySquare; 
+assertEquals(2,TestAdvice.names.size())
+new PriorityTieredBrokerSelectorStrategy(1,1)
+SHOW_FQ_TYPE_NAMES=true
+@Override public final DivideBy or(String sql,QueryPart... parts){   return or(condition(sql,parts)); } 
+new LinkedHashSet<String>(64)
+map != null
+!myProject.isDisposed() && file.isValid()
+pv.setBackground(getResources().getDrawable(R.drawable.list_highlight_bg))
+!NettyUtils.isDomainSocketSupported(dataSource)
+context.getProject().isDisposed()
+LOGGER.info("[{}] has loaded the CAS application context",event.getServletContext().getServerInfo())
+nameDefinitionMultimap.keys()
+new VisorGatewayArgument(VisorQueryTask.class).forNode(locNode).argument(VisorQueryArg.class,"person",URLEncoder.encode("select * from Person",CHARSET),false,false,1)
+ACRA.log.e(LOG_TAG,"Error while converting " + key.name() + " to JSON.",e)
+protected FontMetrics fontMetrics; 
+assertEquals(ImageRequest.DEFAULT_IMAGE_BACKOFF_MULT,2f)
+generateRandomStringArray(10,5,false)
+qname.startsWith(CommonClassNames.JAVA_LANG_STRING)
+new ConcurrentHashMap<String,JsonDeserializer<Object>>(16,0.75f,4)
+!panelsEnabled() || !mKeyguardMonitor.isDeviceInteractive()
+stores.contains(name)
+new PageRequest(0,10)
+telegram.getTimestamp() < currentTime
+!BACKUP_ENABLED
+logger.info("Renamed " + instancesRenamed + " instances of "+ propsRenamed+ " properties.")
+protocol.read(inputStream)
+Flux.from(this.messageService.publisherPreAuthorizeBeanFindById(2L)).contextStart(withAdmin)
+64 * 1024 * 0124
+config.setProperty(Context.CONTEXT_CONFIG_DATA_DRIVEN_NODES,snm.getConfig())
+db.myBatis().openSession(true)
+WRITE_SIZE / 2
+assertRuntimeProductionSearchScope("m2",getProjectPath() + "/m2/src/main/java")
+audioManager.getRingerMode()
+!WebSocketProtocolStream.class.isAssignableFrom(webSocketProtocol.getClass())
+frequencyKhz < 30000
+threadContext.isRestartNextLoop()
+timeVector.getMutator().set(index,value)
+StepVerifier.create(Mono.just(0).then(Mono.just(1)).then(Mono.just(2))).expectNext(2).expectComplete()
+UIUtil.drawBoldDottedLine((Graphics2D)g,xStart,xEnd,dottedAt,bgColor,effectColor,true)
+TRIES_TO_DOWNLOAD=20
+new RemoteViews(mBuilder.mContext.getPackageName(),R.layout.notification_material_media_action)
+info.getMsisdnForSubscriber(subId)
+keyCnt=100
+callGasWord.longValue()
+eps(otherArr)
+private final URL url; 
+c.getName().equals(ECLIPSE_PARSER_CLASS_NAME)
+LOG.assertTrue(matcher2.matches())
+Assert.assertEquals(3,latch.getCount())
+got == possible
+bitmapPoolScreens >= 0
+JournalStructureUtil.fetchByPrimaryKey(entry.getPrimaryKey())
+@UnrelatedOne
+observable.timeout(waitTime,timeUnit).toBlockingObservable()
+GL11.glGetTexParameter(target,pname,params)
+aClass.getManager().getElementFactory().createType(psiClass)
+checkManageUsersPermission("getting profiles related to user " + userId)
+Validate.notNull(reg,"Attempted to get vanilla wrapper for registry created incorrectly: " + cls.toString())
+/**   * {@inheritDoc}   */ @Override public Object clone(){   try {     AbstractProperty prop=(AbstractProperty)super.clone();     prop.name=name;     prop.runningVersion=runningVersion;     return prop;   }  catch (  CloneNotSupportedException e) {     throw new AssertionError(e);   } } 
+DiagnosticFactory2.create(WARNING)
+System.getProperty(KYLIN_HOME)
+join("when() requires an argument which has to be 'a method call on a mock'.","For example:","    when(mock.getArticles()).thenReturn(articles);","","Also, this error might show up because:","1. you stub either of: final/private/equals()/hashCode() methods.","   Those methods *cannot* be stubbed/verified.","2. inside when() you don't call method on mock but on some other object.")
+parent.setCoordinateIndex(0)
+new IllegalStateException()
+socketWrapper.getWriteTimeout()
+Map.class
+ENTER_DOZE_HIDE_WALLPAPER_DELAY=2000
+ack.getLastMessageId().getDataLocator()
+password.startsWith("{SHA}")
+primitiveToWrappers.put(wrapperType,primitiveType)
+mod.getInitialise()
+Arrays.sort(slaveNames,0,slaveNames.length - 1,new Comparator<String>(){   public int compare(  String o1,  String o2){     return o1.compareToIgnoreCase(o2);   } } )
+ctx.getMapView().refreshMap()
+globalExecutionStats.getSplits()
+Optional.of(this.servicesManager.findServiceBy(service))
+cctx.toCacheObject(updated0)
+message.contains("14807") || message.contains("14883")
+statusRef == null
+!obj.has("error")
+new GridBagConstraints(1,1,1,1,0.6,1,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(15,15,15,15),0,0)
+entityManager.flush()
+ss.getAuthorizerV2().checkPrivileges(type,Arrays.asList(commandObj),null)
+COMPONENTS_IN_LEVEL_1_AT_CONSTRUCTION + 22 + 47+ 1+ 58+ 1
+str.isEmpty()
+recipient.getExpireMessages() * 1000
+new Chat(name,uid,mMessageEdit.getText().toString())
+@Override public Value emitBitScanReverse(Value operand){   Variable result=newVariable(LIRKind.derive(operand).changeType(Kind.Int));   if (operand.getKind().getStackKind() == Kind.Int) {     append(new SPARCBitManipulationOp(IBSR,result,asAllocatable(operand),this));   }  else {     append(new SPARCBitManipulationOp(LBSR,result,asAllocatable(operand),this));   }   return result; } 
+route.isEmpty()
+lexer.token == Token.HINT
+LOGGER.error("Following Class is no side pane: '" + componentName,e)
+this.address=address
+getResources().getDrawable(R.drawable.ic_gesture_white_24dp,null)
+this.getDrawnBoundingBoxE6().getLongitudeSpanE6()
+32 * 1024 * 1024
+LensPositionSelectors.back()
+ObjectHelper.isEmpty(configuration.getClusterService())
+ktAFile.getName()
+resolved instanceof PsiMember && becomesInaccessible(((PsiMember)resolved))
+MessageBodyReader<TestDummy>
+jobExecutionContextClass.getMethod("setResult")
+oldConfig.densityDpi != newConfig.densityDpi
+view.setCallback(listener.callback)
+params[2]
+Collectors.toSet()
+new Whitelist().addTags("a","b","blockquote","br","caption","cite","code","col","colgroup","dd","div","dl","dt","em","h1","h2","h3","h4","h5","h6","i","img","li","ol","p","pre","q","small","strike","strong","sub","sup","table","tbody","td","tfoot","th","thead","tr","u","ul")
+Status.constructStatuses(http.get("http://yusuke.homeip.net/twitter4j/en/testcases/statuses/friends/T4J_hudson.json"))
+Integer.valueOf(cmd.getOptionValue(SIZE_OPTION))
+10 * Constants.SECOND_MS
+createBeanNameELResolver(false)
+si.targetPermissionUid >= 0
+settings.readLPw(null)
+"".equals(callRingtone.canPlayType("audio/ogg;"))
+service.cancelMissedCallsNotification()
+Arrays.asList("NameNode RPC","NN Connection Load","NameNode GC count","NameNode GC time")
+public TokenStream create(TokenStream input){   return new SnowballFilter(input,language); } 
+session.prepare(sql,true,false)
+private final TarTaskOutputPacker delegate; 
+DirectMessage.constructDirectMessages(http.get("http://yusuke.homeip.net/twitter4j/en/testcases/statuses/friends/T4J_hudson.json"))
+c.getSimpleName()
+/**   * Tests for  {@link Es6SortedDependencies}  */ public class Es6SortedDependenciesTest extends SortedDependenciesTest {   @Override public SortedDependencies<SimpleDependencyInfo> createSortedDependencies(  List<SimpleDependencyInfo> shuffled) throws CircularDependencyException {     return new Es6SortedDependencies<>(shuffled);   }   @Override public boolean handlesCycles(){     return true;   } } 
+bukkit.setNote(we.getNote())
+MaterialListPreference p=((MaterialListPreference)ui.findPreference(UserPreferences.PREF_MEDIA_PLAYER)); 
+Thread.sleep(200L)
+new ConstantTopologyChangeWorker()
+".md".equals(extension)
+Assert.assertNull(ex.getCause())
+LOG.info("Creating netty output stream for block {} @ {} from client {}",blockId,address,NetworkAddressUtils.getClientHostName())
+if (mIsOverride) {   if (sb.charAt(sb.length() - 1) == ';') {     sb.deleteCharAt(sb.length() - 1);     sb.append(" !important;");   }  else {     Timber.d("AnkiFont.getCSS() - unable to set a font attribute important while override is set.");   } } 
+Constants.TEST ? 3000000 : 10000000
+builder.bold(parser.getLogin()).append("/").bold(parser.getRepoId()).append("#")
+KBP_MINIMUM_SCORE=45.30
+public Object mapLine(FieldSet fieldSet,int lineNum){   BillingInfo info=new BillingInfo();   info.setPaymentId(fieldSet.readString(PAYMENT_TYPE_ID_COLUMN));   info.setPaymentDesc(fieldSet.readString(PAYMENT_DESC_COLUMN));   return info; } 
+artifactResolver.resolveTransitively(artifacts,originatingArtifact,remoteRepositories,localRepository,artifactMetadataSource)
+negative.contains(negative)
+new KerasModel().modelBuilder().modelJsonFilename(modelJsonFilename).weightsHdf5Filename(weightsHdf5Filename)
+terms.size() < 10000
+destinationMap.removeAll(destination)
+String.valueOf(0.02)
+renderNotebookv2(sourceDoc,null,input.getFormat())
+dpToPx(72f)
+i < inputStream.getGroupingFields().getKeysCount()
+setLowHighExpected(lowResults,highResults,expectedResults,MENTION_F1,55.5,55.6,55.7)
+LOGGER.debug("Cache expiration duration after updates is set to [{}]",currentDuration)
+1000 * 1000 * 10
+eKernel.length == 2
+new StormBoundedExponentialBackoffRetry(Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_INTERVAL)),Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_TIMES)),Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_INTERVAL_CEILING)))
+numConnections=5
+sentencesFile == null
+note == null
+executorService.schedule(pingServerRunnable,pingInterval,TimeUnit.SECONDS)
+new Color(0xff,0xcc,0x00)
+onCompletions != null
+randomInt()
+Log_OC.e(TAG,"onSaveInstanceState() start")
+receiver.getOuterClass()
+Objects.equals(builtInVersion,configuredVersion)
+LabeledComponent<JTextPane>
+doc=NON_EMPTY_DOC
+WPWebViewActivity.openUrlByUsingMainWPCOMCredentials(context,url)
+getProject()
+proc.setProcState < ActivityManager.PROCESS_STATE_HOME
+ft.replace(R.id.layout_fragment_container,commentFragment,tagForFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(tagForFragment).commitAllowingStateLoss()
+AppleBuildRules.getRecursiveTargetNodeDependenciesOfTypes(targetGraph,Optional.of(dependenciesCache),AppleBuildRules.RecursiveDependenciesMode.BUILDING,node,ImmutableSet.of(AppleLibraryDescription.class,CxxLibraryDescription.class))
+RequestContext.create()
+((Element)iter.next()).getName()
+super(RowResolver.getCombinedRR(leftRR,rightRR),true,false,false,false,false,false,false,false,false,false); 
+++n > columns.size()
+mUserPaddingEnd > 0
+HotSpotGraalRuntime.getInstance().lookupType(arguments.get(index),(HotSpotResolvedJavaType)accessingClass,true)
+_connectBlocking=blockingConnects
+new AssetDisplayField(classTypeField.getName(),classTypeField.getLabel())
+Utilities.isMac()
+assertEquals(10,events.size())
+IndexSettingsModule.newIndexSettings(new Index("_index"),Settings.EMPTY,Collections.emptyList())
+"Excluding secondary region " + regionToFlush + " - trying to find a different region to refresh files."
+comp.requestFocus()
+pir.key.activity != null
+value >>> 8
+delegate.writeEmptyElement(prefix,namespaceURI,localName)
+combineHostPort=false
+LookupElementBuilder.create(referencedName)
+fileType.equals(fileType.getName())
+end == 0
+shape.getMin().x
+mNetworkInfo.getDetailedState() != networkInfo.getDetailedState()
+Status.constructStatuses(get(getBaseURL() + "favorites/" + id+ ".json",new PostParameter[0],true))
+mItems.set(toPosition - preItemCount,item)
+mock.expectedMessageCount(1)
+botToken != null
+ScriptingUtils.getMatcherForInlineGroovyScript(mappedAttributeName)
+serialVersionUID=256413574
+TYPING_TEXT_TIMEOUT=3000
+getFinalArg(args,2)
+new GenericAggregationFunction(NAME,inputTypes,intermediateType,valueType,false,false,factory)
+Float.toString(f)
+pos < len
+sendSigInt(myProcessUid)
+propertySourceLoader.load(GrailsNameUtils.getLogicalPropertyName(pluginClass.getSimpleName(),"GrailsPlugin") + "-" + PLUGIN_YML,resource,null,true,DEFAULT_CONFIG_IGNORE_LIST)
+delegate.getChild(element)
+generator.generateX509Certificate(signedByKeyPair.getPrivate())
+principalCookieName != null
+RuntimeException e
+response.setHeader(WWW_AUTHENTICATE,value)
+context.getComment()
+new IndexWriter(dir,false,new WhitespaceAnalyzer())
+SOURCE.deref()
+FsDatasetImpl.LOG.info("Completed checkDirs. Removed " + removedVols.size() + " volumes. Current volumes: "+ this)
+internalExecutor.submit(command)
+executor.submit(new NamedRunnable("OkHttp Window Update %s stream %d",hostName,streamId){   @Override public void execute(){     try {       frameWriter.windowUpdate(streamId,unacknowledgedBytesRead);     }  catch (    IOException ignored) {     }   } } )
+compressedProto.length < 340000
+context.world().setBlock(x2,y,z2,block,meta + 8,1)
+PrivacyManager.getSettingBool(null,context,uid,PrivacyManager.cSettingRandom,true,false)
+!inventory.getStackInSlot(slot).isItemEqual(stack)
+this.totalBytesWritten+=bytesWritten
+REMOVALS_UPDATER.compareAndSet(this,nanos,duration)
+time_delta <= 1 << (Short.SIZE - Const.FLAG_BITS)
+timeout=2000000
+audioTrackUtil.getPlaybackHeadPosition()
+result.setEnabled(false)
+v.getTableId() == LobStorageFrontend.TABLE_RESULT
+kylinConfig.setProperty(KYLIN_JOB_JAR,path)
+DefaultCompactionWriter.class
+JSError.make(declNode,TypeCheck.CONFLICTING_SHAPE_TYPE,className,"struct","struct")
+!mIsMessageReady
+expected=192
+decoder.strippedChannel()
+panel.getAuthor()
+zk.exists(znode,false) != null
+new ObjectMapper().reader(IspResponse.class)
+new ClsFileImpl((PsiManagerImpl)getManager(),new ClassFileViewProvider(getManager(),virtualFile)){   @NotNull @Override public String getPackageName(){     return classOrObject.getContainingJetFile().getPackageFqName().asString();   }   @NotNull @Override public PsiClassHolderFileStub getStub(){     return getJavaFileStub();   }   @SuppressWarnings("Contract") @Override public boolean processDeclarations(  @NotNull PsiScopeProcessor processor,  @NotNull ResolveState state,  PsiElement lastParent,  @NotNull PsiElement place){     if (!super.processDeclarations(processor,state,lastParent,place))     return false;     String packageName=getPackageName();     if (!packageName.isEmpty())     return true;     PsiPackage aPackage=JavaPsiFacade.getInstance(myManager.getProject()).findPackage(packageName);     if (aPackage != null && !aPackage.processDeclarations(processor,state,null,place))     return false;     return true;   } } 
+MeasureSpec.makeMeasureSpec(maxSize,MeasureSpec.AT_MOST)
+(Constructor)chooseMethod("<init>",constructors,arguments,true)
+return 10000; 
+cmisCriterions.size() * 2 - 1
+secHeader.insertSecurityHeader(saaj.getSOAPPart())
+e.getMessage()
+DirectMessage.constructDirectMessages(http.get("http://yusuke.homeip.net/twitter4j/en/testcases/direct_messages.json"))
+PetiteReference[]
+roles != null
+writeString(writer,String.valueOf(reader.getBoolean()),fieldName)
+A args
+HIVE_PARTITION_OFFLINE(6,EXTERNAL)
+this.setSize(450,300)
+context.getPackageName()
+/**   * Use this merge bean post processor for collection member removal tasks that should take place before the persistence layer is initialized. This would include removing class transformers for load time weaving, and the like. See {@link org.broadleafcommerce.common.extensibility.context.merge.AbstractRemoveBeanPostProcessor} for usage information.  * @see org.broadleafcommerce.common.extensibility.context.merge.AbstractRemoveBeanPostProcessor  * @author Jeff Fischer  */ public class EarlyStageRemoveBeanPostProcessor extends AbstractMergeBeanPostProcessor implements PriorityOrdered {   protected int order=Integer.MIN_VALUE;   /**   * This is the priority order for this post processor and will determine when this processor is run in relation to other priority ordered processors (e.g.  {@link org.springframework.context.annotation.CommonAnnotationBeanPostProcessor}) The default value if Integer.MIN_VALUE.  */   @Override public int getOrder(){     return order;   }   /**   * This is the priority order for this post processor and will determine when this processor is run in relation to other priority ordered processors (e.g.  {@link org.springframework.context.annotation.CommonAnnotationBeanPostProcessor}) The default value if Integer.MIN_VALUE.  * @param order the priority ordering  */   public void setOrder(  int order){     this.order=order;   } } 
+this.methodResolver.getRequestMappingMethod(handlerMethod).invoke(exchange,bindingContext).doOnNext(result -> result.setExceptionHandler(exceptionHandler)).otherwise(exceptionHandler)
+(flags & 0x04) > 0
+mAdapter != null
+Assert.assertEquals(_VALUE_2,_recordCacheListener._value)
+out != null
+concatRef.isEightBits=false
+userComponents.valueAt(i)
+this.convertSceneToLocalCoordinates(pCoordinates,Entity.VERTICES_LOCAL_TO_SCENE_TMP)
+case 14: 
+return this; 
+new Error("Unknown " + name + "/"+ test)
+assertEquals(8,definitions.size() - hostAlertCount)
+pointcut.getMethodMatcher().matches(null,null)
+DiagnosticType.warning("JSC_INVALID_MODULE_PATH","Invalid module path \"{0}\" for resolution mode \"{1}\"")
+extraSpace + 4
+serializer.statementResult(mockExecutionResult(map("node",node[0],"rel",rel[0],"path",path,"map",map("n1",node[1],"r1",rel[1]))),ResultDataContent.rest)
+"DROP INDEX " + PATTERN_ITEM_INDEX_SHORT
+addHeaderSymlinkTree(builder,params.getBuildTarget(),ruleResolver,flavor,headerVisibility,includeType)
+new AddStringKeyStoreCommand()
+internalCluster().getInstance(SystemCollectSource.class)
+"Can not parse conflict reason: " + reason
+new DigestOutputStream(mBase64OutputSttream,digest)
+case PARENT: 
+t instanceof VirtualMachineError
+ReactiveHelper.scheduleLast(() -> processor.process(exchange,done -> {   if (exchange.getException() != null) {     getExceptionHandler().handleException("Error processing aggregated exchange",exchange,exchange.getException());   }  else {     log.trace("Processing aggregated exchange: {} complete.",exchange);   } } ),"sending aggregated exchange")
+ft.replace(R.id.layout_fragment_container,commentFragment,tagForFragment)
+mCurrentReactContext.runOnNativeModulesQueueThread(new Runnable(){   @Override public void run(){     Process.setThreadPriority(Process.THREAD_PRIORITY_DEFAULT);   } } )
+SkuTranslationImpl.class
+s.setMaxVersions()
+asList(ASE,CUBRID,DB2,DERBY,FIREBIRD,H2,MYSQL,ORACLE,SQLSERVER,SQLITE,SYBASE)
+bundle.containsKey("ongoing")
+url.isEmpty()
+showNotifications.isNull()
+Float.valueOf(value.toString())
+clusterList.contains(newClock)
+new UnsupportedOperationException("Command not found in bolt message: " + shellMsg)
+endOffset >= textLength
+uniqueField.getType().toObject(doc.getField(uniqueField.getName()))
+EmitterProcessor.create(1)
+synchronized (mAccounts) {   writeStatisticsLocked(); } 
+Color.rgb888ToColor(color,colorInt)
+Lists.newArrayListWithExpectedSize(resultMessages.size())
+@IntMethodAnnotation(value=-45)
+styles.styles()
+new UdpConnector(localUdpPort,address,port)
+new PyDocstingParser()
+baseCodeAddress != 0
+CtreportTestReport.class
+mContext.startActivity(shortcutIntent)
+Assert.notNull("No cache with name '" + cacheName + "' found.")
+logger.error("Failed to execute lifecycle policy [{}] for index [{}]",policyName,idxMeta.getIndex().getName(),policyName)
+file.length() >= Integer.MAX_VALUE
+serialVersionUID=1484299497
+log.error(throwable,"Query %s failed",queryId)
+ServiceAnnouncingChatHandlerProvider.class
+myExpr != null
+BitmapUploadActivity.class
+response.getContentAsString()
+containerName.endsWith("set")
+(Boolean)request.getAttribute("aui:form:useNamespace")
+perthread.setSelected(true)
+Arrays.asList("spring-boot-starter-jetty-","jetty-continuation","jetty-util-","javax.servlet-","jetty-io-","jetty-http-","jetty-server-","jetty-security-","jetty-servlet-","jetty-servlets","jetty-webapp-","websocket-api","javax.annotation-api","jetty-plus","javax-websocket-server-impl-","asm-","javax.websocket-api-","asm-tree-","asm-commons-","websocket-common-","jetty-annotations-","javax-websocket-client-impl-","websocket-client-","websocket-server-","jetty-xml-","websocket-servlet-")
+globalFacetsForCategorySearch
+delta < 9000
+numNodes=1
+getPath("InputPackageDeclarationDiffDirectoryAtParent.java")
+Slog.wtfStack(TAG,"ProcessState dead: name=" + mName + " pkg="+ mPackage+ " uid="+ mUid+ " common.name="+ mCommonProcess.mName)
+new ShardRouting(index,shardId,currentNodeId,relocatingNodeId,restoreSource,primary,state,version,unassignedInfo,true)
+assertNotUpgraded(client(),null)
+((TextMessage)replyMsg).getText().getContentLength()
+FluxFlatMap.trySubscribeScalarMap(source,s,mapper)
+_availMemory + amount
+timeout=2000
+assertEquals(avDegree,2.0)
+parameterType.getSort()
+location.getSchemeSpecificPart()
+ignite.services()
+getAdapter() == null
+assertEquals(814278929,flyway.info().applied()[1].getChecksum().intValue())
+hint != null
+scopeProperty.eq(name)
+new BufferedInputStream(new FileInputStream(file))
+new InspectionProfileImpl("Base",registrar,InspectionProfileManager.getInstance())
+log.error("Code expired : {}",code)
+SystemProperties.getInt("ro.cdma.timetoradiorestart",20000)
+mAudioSource.buildConfig(mDesiredSamplingRate,mDesiredChannelMask,mDesiredFormat,null)
+fetchSize > 0
+reviewer.putExtra("deckFilename",deckFilename)
+!mParams.isZoomSupported() && !mParams.isSmoothZoomSupported()
+CommandLineUtils.createDatabaseObject(cl,referenceUrl,referenceUsername,referencePassword,referenceDriver,referenceDefaultSchemaName,null)
+Callable<Integer>
+new RequestOptions(ResponseMode.GET_ALL,this.timeout,false,FILTER,Message.Flag.DONT_BUNDLE)
+statusBar.setRedraw(true)
+context == null
+Foo<Integer>
+GuiActivator.getConfigurationService().getBoolean(DISABLE_CALL_HISTORY_SEARCH_PROP,true)
+TextUtils.isEmpty(details) || DETAIL_SEPARATOR.equals(details)
+MimeTypeUtil.getFolderTypeIcon(file.isSharedWithMe() || file.isSharedWithSharee(),file.isSharedViaLink(),file.isEncrypted())
+scheme.equals("tel")
+StartupManager.getInstance(module.getProject()).registerPostStartupActivity(new DumbAwareRunnable(){   public void run(){     ApplicationManager.getApplication().runWriteAction(new Runnable(){       public void run(){         onModuleInitialized(module);       }     } );   } } )
+PULL_TIME=250
+client.waitForCompletion(1,id,5,TimeUnit.SECONDS)
+mFixedExecutionService.shutdown()
+@Override public String getSource(){   return modSource; } 
+code.length > 65536
+!violationRules.isFailOnViolation()
+copy(c.getDistributionManagement(),t.getDistributionManagement(),isChildMostSpecialized,c.getArtifactId(),p)
+new SqlSession(null,null,null,resolver,null,null,null)
+new IllegalArgumentException("Remote url " + url + " is invalid. ")
+sweepAngleOuter % 360f <= Utils.FLOAT_EPSILON
+jtaEnvironmentBean.getValue().getPerformImmediateCleanupOfCommitMarkableResourceBranchesMap().remove(immediateCleanup)
+definition.getPortTypes()
+prob < phi
+document != null
+logger.error("Problem while CH preparation " + name)
+!isUnique
+worldsPath.resolve(getChunkFilename(chunkPos))
+getMockEndpoint("mock:event").expectedMessageCount(5)
+text.getBoundingBox().width()
+configurations.get(typeName)
+1 << 6
+oldEntityBuilder.addComponent(new BlockComponent(type,new Vector3i(blockComponent.getPosition())))
+new FieldFrame(currentFrame,isStaticInnerType,type,type == TokenTypes.CLASS_DEF || type == TokenTypes.ENUM_DEF ? ast.findFirstToken(TokenTypes.IDENT).getText() : null)
+myApplicabilityError.set(null)
+new ExtendedThrowableProxyConverter()
+@Override public final DivideBy and(String sql,Object... bindings){   return and(condition(sql,bindings)); } 
+new ArrayList<>()
+this.messageService.fluxPreAuthorizeBeanFindById(1L).contextStart(withUser)
+model.getClass().getName()
+policyFlags & SCAN_NEW_INSTALL
+subCursor.getInt(COLUMN_ATTENDEE_ID_NAMESPACE)
+PARANOID=true
+NeoStore.class
+assertEquals(fStopwatch.runtime(MILLISECONDS),800d,250d)
+mOrderResult.remove(savedInfo)
+imageResOnFail != 0
+phrase.length()
+VERSION=1
+-46
+Math.max(buffer.length,offset + length)
+TURN_DISTANCE=75
+specHeightMode == MeasureSpec.EXACTLY
+i < 5000
+GridSubsetFactory.createGridSubSet(testGridSet)
+getCompactionStrategyFor(deleted)
+getLlvmParamTypes()
+new ResourceDefinition(name,transMetaContent)
+resultTargetUser != null
+json.getBytes()
+str.startsWith(exampleName) && !str.endsWith("-sources.jar") && !str.endsWith("-tests.jar")
+nodes.hasLabel(barLabel)
+protected XmlElementDescriptorImpl createElementDescriptor(final XmlTag tag){   return new XmlElementDescriptorImpl(tag); } 
+mSearchInput.setFocusable(focusable)
+TCN_RECOMMENDED_PV=6
+SAMPLE_RATE_HZ_MAX=48000
+id >= allocatedIds.length
+private Actor actor; 
+!secondaryOk
+activity == null
+log.debug("text : {}",text)
+namespaceMap.put(typeToRead.getSchemaType().getNamespaceURI(),"ns1")
+Convolution.pooling2D(input,kernel[0],kernel[1],strides[0],strides[1],pad[0],pad[1],dilation[0],dilation[1],convolutionMode == ConvolutionMode.Same,Pooling2D.Pooling2DType.MAX,0.0,outH,outW,output)
+LOG.error("Temporary Store limit is " + storeLimit / (1024 * 1024) + " mb, whilst the temporary data directory: " + tmpDirPath + " only has " + dirFreeSpace / (1024 * 1024) + " mb of usable space - resetting to maximum available " + dirFreeSpace / (1024 * 1024) + " mb.")
+containerName == null
+mPPS != null & mSPS != null
+winAnimator.setSurfaceBoundariesLocked(recoveringMemory)
+node.incrementReferenceCount()
+viewable=true
+upToDateRevisionProvider.getLastUpToDateContentFor(virtualFile)
+selenium.isVisible("link=Site Name")
+registerConsumer(newUUIDString(),newUUIDString(),owner,attributes)
+backupIntent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY)
+log.warn("Reset to factory defaults : onOperator")
+new GridCacheQueryReadEvent<>(cctx.localNode(),"Scan query entry read.",EVT_CACHE_OBJECT_READ,org.gridgain.grid.cache.query.GridCacheQueryType.SCAN,cctx.namex(),null,null,qry.scanFilter(),null,null,qry.subjectId(),taskName,key,val,null,null)
+logger.info(sb.toString())
+public TokenStream create(TokenStream input){   return new HyphenatedWordsFilter(input); } 
+Messages.showOkCancelDialog(myEntryTable,"No code dependencies were found. Would you like to remove the dependency?",CommonBundle.getWarningTitle(),Messages.getWarningIcon())
+Integer.valueOf(this.getOptional("kylin.restclient.connection.default-max-per-route","20"))
+telephony.getNeighboringCellInfo(mContext.getOpPackageName())
+Files.delete(dir.toPath())
+inMessage.getExchange().getInMessage()
+expectedMinimumCount == -1
+RestartStrategies.fixedDelayRestart(3,0)
+anchor instanceof PyFile
+Short.valueOf(param.getValue())
+failingOnThis.without(UpgradePolicy.canary).startedFailingOnVersionAfter(version)
+_log.error(pe)
+cluster.getRexBuilder().makeCall(calciteOp,childRexNodeLst)
+pti.getTotalFields()
+liferayFileEntry.isInTrash()
+bicyclePriorityValues.put("bridleway",1d)
+trimmedLine.startsWith(StringPool.CLOSE_CURLY_BRACE) && line.endsWith(StringPool.OPEN_CURLY_BRACE)
+binaryResultsDirectory.getAsFile().get()
+container.getNeighborTile(from) instanceof IRedstoneEngineReceiver
+Validator.isNull(getKeywords())
+new Packet(ioService.getPortableContext())
+LOG.warn("Operation completely failed, aborting request id: {}",stage.getRequestId())
+meta.getDynamicSearchFieldName()
+assertEquals(503,cause.getStatusCode())
+progress.dismiss()
+Assert.assertEquals(2,renderedDDMFormFieldsMap.size())
+assertThat(dto.get("snapshotId")).isNotNull()
+epsilon.dup()
+Collection<String>
+StringBuffer output=new StringBuffer(); 
+UDecoder.URLDecode(candidate)
+ConstantNode.forConstant(Constant.NULL_OBJECT,null,graph())
+lastToken.contentType == contentType
+log.info("Cannot scale anymore. Num workers = %d, Max num workers = %d",zkWorkers.size(),workerSetupdDataRef.get().getMaxNumWorkers())
+mController.setRingerMode(AudioManager.RINGER_MODE_NORMAL,false)
+DefaultConversionService conversionService=new DefaultConversionService(); 
+String result=""; 
+assertThat(cluster).host(2).comesUpWithin(20,SECONDS)
+jobsLogs.operationsLogGetter()
+Object deserialize(byte[] b); 
+public TokenStream create(TokenStream input){   return new SynonymFilter(input,synMap,ignoreCase); } 
+3 * 1024 * 1024
+request.getInputStream()
+set != null
+TOUCHEVENT_POOL.recylePoolItem(this)
+new CommandFormatException("ModelNode request is incomplete",e)
+"sort: " + fileName + " "+ referencePackagePath
+lastCompletedOffset != lastCompletedOffset
+configuration.numEvents*=1000
+client.getGameState() != GameState.LOGGED_IN
+new ArrayList<>()
+j=1
+new SAXException(Localizer.getMessage("jsp.error.loadclass.taghandler",handlerClassName,qName),e)
+ImmutableSet.<DataType>of(DataTypes.STRING,DataTypes.OBJECT,DataTypes.GEO_SHAPE,DataTypes.GEO_POINT)
+fieldDescriptor.getName()
+myPreprocessorActive
+mpline.substring(0,p).trim().toLowerCase()
+node.getClass().getMethod(methodNames[column],null)
+new ByteBuddy().subclass(Foo.class).method(named(FOO)).intercept(MethodDelegation.to(Foo.class).appendParameterBinder(TargetMethodAnnotationDrivenBinder.ParameterBinder.ForFixedValue.OfConstant.of(Bar.class,loadedMethodType))).make().load(Foo.class.getClassLoader(),ClassLoadingStrategy.Default.WRAPPER).getLoaded().getConstructor()
+Modifier.isPrivate(fn.getModifiers())
+getRedeliverDelay()
+ExportImportConfigurationParameterMapFactoryUtil.buildParameterMap()
+public static String replaceExecuteVars(String token) throws Exception {   Matcher matcher=_pattern.matcher(token);   if (matcher.matches() && _executeMap.containsKey(matcher.group(1))) {     return getValueFromCommandMap(matcher.group(1));   }   matcher.reset();   while (matcher.find() && _executeMap.containsKey(matcher.group(1))) {     String varValue=getStringFromExecuteMap(matcher.group(1));     token=StringUtil.replace(token,matcher.group(),varValue);   }   return token; } 
+i <= MAX_AUDIO_PORTS
+val == null
+_layoutsElement != null
+modulePath.relativize(child)
+String.format("EsRecordWriter instance [%s] assigned to [%s]",uri)
+metadata.getPropertyIterator()
+maxNamesLen - opt.length() + 2
+Validate.configurationDirectoryExists(javaHome,"controllerJavaHome must exist at " + controllerJavaHome)
+OutOfCapacityError e
+Assert.assertEquals(workerAddress,new InetSocketAddress(defaultHostname,10001))
+DbException.get(ErrorCode.INDEX_BELONGS_TO_CONSTRAINT_1,indexName)
+fragmentEntryPersistence.filterCountByG_FCI_LikeN(groupId,fragmentCollectionId,_customSQL.keywords(name,WildcardMode.SURROUND)[0])
+ExceptionInInitializerError|ClassNotFoundException
+createStatement()
+WaitUtils.waitForPageToLoad(driver)
+ReflectiveOperationException e
+checkClosed()
+atUserBeans.size() == 0
+logger.debug("tried to fail engine but engine is already failed. ignoring. [{}]",reason,failure)
+f.getAttrs().getATime()
+_validatePossiblePropertyValues(propertyElement,possiblePropertyValues,filePath)
+new Vector3f().interpolate(point1,point2,0.5f)
+standalone
+Float.class
+ImmutableSet.of("testStringRepresentation")
+service.asBinder().isBinderAlive()
+serialVersionUID=1176395573
+(CheckBoxPreference)mPrefInstantUpload
+new ShardingConnection(xaDataSourceMap,shardingContext)
+thread.isParamsChanged()
+GL20.glVertexAttribPointer(indx,size,normalized,stride,((ByteBuffer)buffer).asFloatBuffer())
+service != null
+buildLocalCalleeContext(methodDescriptor,ectx)
+rasterFilter != null
+block.postdominator=block
+new Setting<>("repositories.s3.secret_key",CLOUD_S3.SECRET_SETTING,Function.identity(),Property.NodeScope)
+mcGroup.getGroupName()
+userImpFactor.add(userFactors.row(userIdx,false))
+mController.getMaxConnectionState(device)
+c < 0xe000
+DEFAULT_ALLOW_CALLS=false
+logger.warning("Unable to load image using DDS loader!")
+GL20.glUniformMatrix4(location,transpose,value)
+">>> Started two caches bound to '" + POLICY_20MB_EVICTION + "' memory region."
+public NetworkLibraryItem libraryItem(){   TreeMap<Integer,String> urlMap=new TreeMap<Integer,String>();   urlMap.put(NetworkCatalogItem.URL_CATALOG,getLink(URL_MAIN));   return new OPDSCatalogItem(this,getTitle(),getSummary(),getIcon(),urlMap,myExtraData); } 
+new AnAction(){   @Override public void actionPerformed(  AnActionEvent e){     if (myResultsPreviewTable != null && myContent.getSelectedIndex() == RESULTS_PREVIEW_TAB_INDEX) {       navigateToSelectedUsage(myResultsPreviewTable);     }   } } .registerCustomShortcutSet(CommonShortcuts.getEditSource(),comboBox)
+partCount=0
+ContainerUtil.list("origin/remote_branch")
+buf.readableBytes()
+new ConnectionError(sm.getString("http2Parser.processFrameSettings.ackWithNonZeroPayload"),Http2Error.FRAME_SIZE_ERROR)
+resolve(propName,originalPath,settings,configPath,mustBeValid)
+getProxyClient(proxyPort).stop()
+safeRefs.addAll(safeRefs)
+_buildTemplateWithGradle("portlet-toolbar-contributor","contributor-dependency-management","--dependency-management-enabled","true")
+Assert.assertTrue(_clusterInvokeAcceptor.accept(context))
+mucUser.getDecline() != null
+lock.lock()
+julLogger.info("Hello world")
+public TokenStream create(TokenStream input){   return new NGramTokenFilter(input,minGramSize,maxGramSize); } 
+DecodeException e
+agentUri.getPath()
+tile.getUrn().getResourceName()
+verifyViewMethodsNotDeclaredFinal(sessionBeanClass,remoteBusinessInterfaces)
+CommandLineTransformer.transform("-i","-np","-v","-J-Xmx1g","-J-Xms1m","\"c:\\path to\\русский каталог\"")
+ExternalSystemModulePropertyManager.getInstance(module).seExternalModuleType(GradleConstants.GRADLE_SOURCE_SET_MODULE_TYPE_KEY)
+baseExpr instanceof ClassExpression
+knownType != null
+response.getHits().getAt(0).field("s_obj2_arr2").value()
+SearchFragment.newInstance(s)
+manager.setExact(AlarmManager.RTC_WAKEUP,alarmTime,pi)
+asList(CUBRID,DERBY,FIREBIRD,ORACLE,SQLSERVER,SYBASE)
+contact.getName()
+Validate.notEmpty("Cookie name must not be empty")
+config.setFast(true)
+HashMap<String,AstyanaxOrderedKeyColumnValueStore>
+new ChunkedUploadRemoteFileOperation(mContext,mFile.getStoragePath(),mFile.getRemotePath(),mFile.getMimetype(),mFile.getEtagInConflict(),timeStamp)
+RLP.unwrapList(data)
+Validator.isNull(location)
+return availableAudioEncodings; 
+KafkaInput.class
+NUMBER_OF_IDS_PER_THREAD=400001
+LOAD_FACTOR=1000
+!message.containsKey(key)
+offsets == null
+format.getId()
+AvroSource<T>
+IFrameWebUpgrade.class
+getLastNonConfigurationInstance() == null
+button.actionId()
+token.substring(0,p).trim().toLowerCase()
+result.length() > 15
+Settings.Secure.getInt(mContext.getContentResolver(),Settings.Secure.LOCKDOWN_IN_POWER_MENU,0)
+public Object getSourceSection(){   return sourceSection; } 
+GenerationUtils.compileFilesGetGenerationState(fileAndExhaust.getExhaust(),Collections.singletonList(fileAndExhaust.getJetFile()))
+hazelcastFactory.newHazelcastInstance()
+this.getClass()
+deferredSyntaxAllowedAsLiteralValue=value
+logger.info(String.format("connection attempt will timeout after %d",timeout))
+wxService.tagAddUsers(tagId,userIds)
+id=15803
+@Override public Object clone(){   BooleanProperty prop=(BooleanProperty)super.clone();   prop.value=value;   return prop; } 
+defaultRequestConfig.getConnectionRequestTimeout()
+pressedView.postDelayed(new Runnable(){   @Override public void run(){     if (pressedView != null) {       pressedView.setPressed(false);     }   } } ,100)
+fd.mkdir()
+movementComponent.collider.setInterpolationWorldTransform(new Transform(new Matrix4f(new Quat4f(0,0,0,1),newPos,1.0f)))
+log.warn("Error extracting callable results",e)
+module != null
+retval=(x + y + constValue == x + y)
+ImmutableMap.<String,Boolean>builder().put("C# language server",false).put("Exec",false)
+stat == null
+LayoutLocalServiceUtil.getLayouts(groupId,false,LayoutConstants.DEFAULT_PARENT_LAYOUT_ID,0,1)
+new LengthFieldBasedFrameDecoder(1024,3,2,1,0)
+private final View view; 
+JDBCUtils.safeGetBoolean(dbResult,"COLUMN_IS_NULLABLE")
+taskOutput.getState().isDone()
+type == SplineType.CatmullRom
+MessageNotifier.updateNotification(context,masterSecret,true,reminderCount + 1)
+new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).buildServiceRegistry()
+@Specialization(guards="escapingValue == null") protected Object escapingNull(@SuppressWarnings("unused") Object escapingValue,@SuppressWarnings("unused") LLVMInteropType.Structured type){   return LLVMTruffleObject.createNullPointer(); } 
+checkRequiredCaps(Caps.GLSL100,Caps.GLSL150)
+new IllegalArgumentException("cannot use driverClassName and dataSourceClassName together.")
+Arrays.asList("spring-boot-starter-tomcat-","tomcat-embed-core-","tomcat-embed-el-","tomcat-embed-logging-juli-","tomcat-embed-websocket-")
+getIntent().getStringArrayExtra(EXTRA_ADD_ACCOUNT_AUTH_TOKEN_TYPE_STRING)
+new byte[10]
+new GeneralDataCoding(false,false,MessageClass.CLASS1,Alphabet.ALPHA_DEFAULT)
+20 < statuses.size()
+assertThat(throttledLines(Duration.milliseconds(100))).doesNotHaveDuplicates().haveAtLeast(9,containsApplicationLog).haveAtMost(12,containsApplicationLog)
+new StackManager(new File(stackRoot),null,osFamily,true,metaInfoDao,actionMetadata,stackDao)
+_connector.getResponses("GET /foo?data=102400 HTTP/1.0\n\n")
+config.getProperty("peer.p2p.pingInterval",5)
+Double.parseDouble(value)
+new ByteBuddy().subclass(Foo.class).method(named(FOO)).intercept(MethodDelegation.to(Foo.class).appendParameterBinder(TargetMethodAnnotationDrivenBinder.ParameterBinder.ForFixedValue.OfConstant.of(Bar.class,value))).make().load(Foo.class.getClassLoader(),ClassLoadingStrategy.Default.WRAPPER).getLoaded().getConstructor()
+ensureInChild(parent,FooImpl.class,FooBar.class,Foo.class)
+!_remote && !_allowed.contains(path) && (!from.equals("localhost") && !from.startsWith("127.") && from.indexOf(":1") < 0 || !to.equals("localhost") && !to.startsWith("127.0.0.") && to.indexOf(":1") < 0)
+defaultListenerAccess != null
+referencingEntity(other).get()
+/**   * @deprecated do not use  */ @Deprecated public final Object getRootImmediately(){   if (!root.isValid()) {     root.set(getValidRoot());   }   return root.get(); } 
+Beans.newDuration(tgc.getRememberMeMaxAge()).toMillis()
+expectedHigh=27860.0
+Drawable.scaleFromDensity(sourcePadding.top,sourceDensity,targetDensity,false)
+new SSLConnectionSocketFactory(sslContext())
+!okToShowLocked(r)
+(b & 0x80) > 0
+new Requirement(Skill.MINING,53)
+fullIdeArtifact.getVersion()
+public class RegExpParseTest extends BaseParseTestCase2 {   private ByteArrayOutputStream myOut;   enum Result {  OK,   ERR} static class Test {     String pattern;     boolean showWarnings=true;     boolean showInfo=false;     Result expectedResult;     String regExpHost=null;     Test(    String pattern,    Result result,    boolean warn,    boolean info,    String host){       this.pattern=pattern;       expectedResult=result;       showWarnings=warn;       showInfo=info;       regExpHost=host;     }   }   private final Map<String,Test> myMap=new LinkedHashMap<String,Test>();   @Override protected void setUp() throws Exception {     final Document document=new SAXBuilder().build(new File(getTestDataRoot(),"/RETest.xml"));     final List<Element> list=XPath.selectNodes(document.getRootElement(),"//test");     int i=0;     for (    Element element : list) {       final String name;       final Element parent=(Element)element.getParent();       final String s=parent.getName();       final String t=parent.getAttribute("id") == null ? "" : parent.getAttribute("id").getValue() + "-";       if (!"tests".equals(s)) {         name=s + "/test-" + t+ ++i+ ".regexp";       }  else {         name="test-" + t + ++i+ ".regexp";       }       final Result result=Result.valueOf((String)XPath.selectSingleNode(element,"string(expected)"));       final boolean warn=!"false".equals(element.getAttributeValue("warning"));       final boolean info="true".equals(element.getAttributeValue("info"));       final String host=element.getAttributeValue("host");       final String pattern=(String)XPath.selectSingleNode(element,"string(pattern)");       myMap.put(name,new Test(pattern,result,warn,info,host));       if (!"false".equals(element.getAttributeValue("verify")) && host == null) {         try {           Pattern.compile(pattern);           if (result == Result.ERR) {             System.out.println("Incorrect FAIL value for " + pattern);           }         }  catch (        PatternSyntaxException e) {           if (result == Result.OK) {             System.out.println("Incorrect OK value for " + pattern);           }         }       }     }     super.setUp();     myOut=new ByteArrayOutputStream();     System.setErr(new PrintStream(myOut));   }   @Override protected String getTestDataPath(){     return super.getTestDataPath() + "/gen/";   }   public void testSimple() throws Exception {     doTest("simple/");   }   public void testQuantifiers() throws Exception {     doTest("quantifiers/");   }   public void testGroups() throws Exception {     doTest("groups/");   }   public void testCharclasses() throws Exception {     doTest("charclasses/");   }   public void testEscapes() throws Exception {     doTest("escapes/");   }   public void testAnchors() throws Exception {     doTest("anchors/");   }   public void testNamedchars() throws Exception {     doTest("namedchars/");   }   public void testBackrefs() throws Exception {     doTest("backrefs/");   }   public void testComplex() throws Exception {     doTest("complex/");   }   public void testIncomplete() throws Exception {     doTest("incomplete/");   }   public void testRealLife() throws Exception {     doTest("real-life/");   }   public void testRegressions() throws Exception {     doTest("regressions/");   }   public void testBugs() throws Exception {     doTest("bug/");   }   public void testFromXML() throws Exception {     doTest(null);   }   private void doTest(  String prefix) throws IOException {     int n=0;     int failed=0;     for (    String name : myMap.keySet()) {       if (prefix == null && name.contains("/")) {         continue;       }       if (prefix != null && !name.startsWith(prefix)) {         continue;       }       System.out.print("filename = " + name);       n++;       final RegExpParseTest.Test test=myMap.get(name);       try {         if (test.regExpHost != null) {           final Class<RegExpLanguageHost> aClass=(Class<RegExpLanguageHost>)Class.forName(test.regExpHost);           final RegExpLanguageHost host=aClass.newInstance();           RegExpLanguageHosts.setRegExpHost(host);         }         try {           myFixture.configureByText(RegExpFileType.INSTANCE,test.pattern);           myFixture.testHighlighting(test.showWarnings,true,test.showInfo);         }   finally {           RegExpLanguageHosts.setRegExpHost(null);         }         if (test.expectedResult == Result.ERR) {           System.out.println("  FAILED. Expression incorrectly parsed OK: " + test.pattern);           failed++;         }  else {           System.out.println("  OK");         }       }  catch (      Throwable e) {         if (test.expectedResult == Result.ERR) {           System.out.println("  OK");         }  else {           e.printStackTrace(System.out);           System.out.println("  FAILED. Expression = " + test.pattern);           if (myOut.size() > 0) {             String line;             final BufferedReader reader=new BufferedReader(new StringReader(myOut.toString()));             do {               line=reader.readLine();             }  while (line != null && (line.trim().length() == 0 || line.trim().equals("ERROR:")));             if (line != null) {               if (line.matches(".*java.lang.Error: junit.framework.AssertionFailedError:.*")) {                 System.out.println("ERROR: " + line.replace("java.lang.Error: junit.framework.AssertionFailedError:",""));               }             }  else {               System.out.println("ERROR: " + myOut.toString());             }           }           failed++;         }       }       myOut.reset();     }     System.out.println("");     System.out.println(n + " Tests executed, " + failed+ " failed");     assertFalse(failed > 0);   } } 
+scopeGroup.isRegularSite()
+new PagesListInitNewPageRecord(cacheId,nextId,io.getType(),io.getVersion(),nextId,pageId,0L)
+thumbView.setTag(Video.getUrl(trailer))
+super.createItem(item)
+HashMap<String,HashMap<String,ASTNode>>
+CLOSE_PANEL_WHEN_EMPTIED && !hasActiveNotifications() && !mNotificationPanel.isTracking()
+in_memory_compaction_limit_in_mb=256
+!rootScanned
+resp.addHeader("Access-Control-Allow-Origin",origin)
+connectionQueueMap.get(peerStatus)
+WebSettings.setTextSize(WebSettings.TextSize.LARGEST)
+BeanParamUtil.getInteger(user,actionRequest,"prefixId")
+logger.error("Error while matching regex [" + matcher.toLowerCase() + "] for string ["+ matched.toLowerCase()+ "] "+ pse.getMessage())
+new EnterStringDialog(shell,Messages.getString("RepositoryExplorerDialog.Directory.Create.AskName.Title"),Messages.getString("RepositoryExplorerDialog.Directory.Create.AskName.Default"),Messages.getString("RepositoryExplorerDialog.Directory.Create.AskName.Message"))
+layout.createFolder(BOTTOM_BOTTOM_LEFT,IPageLayout.BOTTOM,0.8f,FOLDER_NAVIGATION)
+ServiceHelper.startService(jmx)
+new IndexWriter(dir,new KeywordAnalyzer(),true)
+changeAffiliationByOwner(jid,"admin")
+getWrappedEngine().release()
+clazz.getSuperclass()
+acceptHeaderValues != null
+platform.map(version::compareTo).orElse(0) > 0
+DEFAULT_LOCK_TIMEOUT=60000
+assertEquals(3,map2.keySet().size())
+parentTag == null
+readIdentifierWithSchema()
+instruction.getHatLiteral()
+WindowedValue.valueInEmptyWindows(4,PaneInfo.NO_FIRING)
+Arrays.asList(RFXComValueSelector.RAW_DATA,RFXComValueSelector.SIGNAL_LEVEL,RFXComValueSelector.COMMAND)
+ArrayList<Integer>
+mask.isColumnVector()
+IWorkbenchPartSite.class
+tempMat4.multLocal(worldMatrix)
+Optional.of(((IndicesRequest)message).indices())
+FileUtil.loadFile(txtFile)
+Iterable<ObjectType>
+new ProgressDialog(lvApp.getContext(),mThemeId)
+new RuntimeException("Cannot initialize dumper",e)
+public class XpathRegressionJavadocVariableTest extends AbstractXpathTestSupport {   @Test public void testOne() throws Exception {     final String checkName=JavadocVariableCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionJavadocVariableOne.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(JavadocVariableCheck.class);     final String[] expectedViolation={"5:5: " + getCheckMessage(JavadocVariableCheck.class,JavadocVariableCheck.MSG_JAVADOC_MISSING)};     final List<String> expectedXpathQueries=Arrays.asList("/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableOne']/OBJBLOCK" + "/VARIABLE_DEF[@text='age']","/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableOne']/OBJBLOCK" + "/VARIABLE_DEF[@text='age']/MODIFIERS","/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableOne']/OBJBLOCK" + "/VARIABLE_DEF[@text='age']/MODIFIERS/LITERAL_PRIVATE");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   }   @Test public void testTwo() throws Exception {     final String checkName=JavadocVariableCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionJavadocVariableTwo.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(JavadocVariableCheck.class);     final String[] expectedViolation={"6:9: " + getCheckMessage(JavadocVariableCheck.class,JavadocVariableCheck.MSG_JAVADOC_MISSING)};     final List<String> expectedXpathQueries=Arrays.asList("/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableTwo']/OBJBLOCK" + "/CLASS_DEF[@text='InnerInner2']/OBJBLOCK/VARIABLE_DEF[@text='fData']","/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableTwo']/OBJBLOCK" + "/CLASS_DEF[@text='InnerInner2']/OBJBLOCK/VARIABLE_DEF[@text='fData']/MODIFIERS","/CLASS_DEF[@text='SuppressionXpathRegressionJavadocVariableTwo']/OBJBLOCK" + "/CLASS_DEF[@text='InnerInner2']/OBJBLOCK/VARIABLE_DEF[@text='fData']/MODIFIERS" + "/LITERAL_PUBLIC");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+seg.acquiredPages.remove(pageId,page)
+Assert.assertEquals(49503930,trace.getReceipt().getEnergyFee())
+new VelocityTemplate(new MockTemplateResource(_WRONG_TEMPLATE_ID),new MockTemplateResource(_TEMPLATE_FILE_NAME),null,_velocityEngine,_templateContextHelper)
+ClassLoader.class.getMethod("findLibrary",new Class[]{String.class})
+new IntentPickerSheetView.ActivityInfo(customDrawable,"Custom mix-in",MainActivity.class)
+Integer.valueOf(time.split(":")[0])
+sp[Z] < zbuffer[offset + x]
+error("Failed to resolve default logging config file: " + DFLT_CONFIG_PATH)
+mVideoCallListener=null
+StateManagementUtils.createClearForkedExecutionMojoBinding()
+localImageSize != null
+parentAccessibilityViewId != AccessibilityNodeInfo.UNDEFINED_ITEM_ID
+topLevelBuildData.getJobName()
+private SettingsFactory _mockSettingsFactory; 
+logger.trace("[monitor] rescheduling check for [{}]. last access time is [{}]",lastSeenAccessTime)
+new RuntimeException(String.format("File \"%1$s\" has no indentation comment or its format " + "malformed. Error on line: %2$d(%3$s)",aFileName,lineNumber,line))
+requestedProvider.get().verify(service)
+file != null
+final PatternBasedPackageSet packageSet=(PatternBasedPackageSet)currentScopes[descriptor.getIdx()].getValue(); 
+Arrays.asList("d","D","s","S","w","W","b","B","A","G","Z","z","Q","E","t","n","r","f","a","e","h","H","v","V","R","X")
+utils.removeJobExecutions()
+StreamUtil.copy(inputStream,out,remaining)
+subscriptionSender.setContextAttributes("[$ENTRY_ID$]",entry.getEntryId(),"[$ENTRY_TITLE$]",entry.getTitle(),"[$ENTRY_TYPE$]","[$ENTRY_URL$]",entry.getUrl(),"[$PORTLET_NAME$]",LanguageUtil.get(locale,(entry.isAlert() ? "alert" : "announcement")))
+ServiceLoader.load(WorkerFactory.class)
+new IndexWriter(runData.getDirectory(),config.get("autocommit",DEFAULT_AUTO_COMMIT),runData.getAnalyzer(),false)
+debugProcess.isAttached()
+zoomScale(im,w,h)
+"Can't have more than 32767 vertices per batch: " + maxTriangles
+item.setState(new StringType(modeString))
+new PackageConfig()
+engine == null
+new SvnRollbackProvider(selectedRevisions,mySvnVcs,containsExcluded)
+delegates.tabs.findTabMapEntry(transMeta)
+messageType.set(message2,"message","Hello World")
+Boolean.valueOf(System.getProperty("cassandra.native.epoll.enabled","true"))
+JournalArticleLocalServiceUtil.updateArticle(userId,groupId,0,journalArticleId,journalArticle.getVersion(),getMap(articleDefaultLocale,title),descriptionMap,content,"general",ddmStructureKey,ddmTemplateKey,StringPool.BLANK,1,1,2010,0,0,0,0,0,0,0,true,0,0,0,0,0,true,indexable,smallImage,smallImageURL,null,new HashMap<String,byte[]>(),StringPool.BLANK,serviceContext)
+DLStoreUtil.addFile(kbArticle.getCompanyId(),CompanyConstants.SYSTEM_STRING,GroupConstants.DEFAULT_PARENT_GROUP_ID,CompanyConstants.SYSTEM,newDirName + StringPool.SLASH + shortFileName,0,StringPool.BLANK,serviceContext.getModifiedDate(null),serviceContext,bytes)
+expr.and(right)
+AssetTagFinderUtil.filterCountByG_C_N(_scopeGroup.getGroupId(),classNameId,assetTagName)
+new KeyValuePair(LanguageUtil.get(locale,"no-workflow"),"no-workflow")
+this.uncollectedPointCreater
+toolchainBuilder.addCompilerFlag("-isystem%ndk%/usr/include".replace("%ndk%",ndkPaths.createBuiltinSysroot()))
+pushExecutor.submit(new NamedRunnable("OkHttp %s Push Data[%s]",hostName,streamId){   @Override public void execute(){     try {       boolean cancel=pushObserver.onData(streamId,buffer,byteCount,inFinished);       if (cancel)       frameWriter.rstStream(streamId,ErrorCode.CANCEL);       if (cancel || inFinished) { synchronized (SpdyConnection.this) {           currentPushRequests.remove(streamId);         }       }     }  catch (    IOException ignored) {     }   } } )
+TIMEOUT_SECONDS=5
+cs[c].set0(r,rng.nextFloat() > _createFrame.binary_ones_fraction ? 0 : 1)
+new LinearLayoutManager(mContext)
+FileUtils.deleteDirectory(store.directory())
+key.rewind()
+Multimap<Feature<?>,Feature<?>>
+surfaceChanged
+COMPONENT_RAM_MB=512
+LocalInspectionToolWrapper wrapper=new LocalInspectionToolWrapper((LocalInspectionTool)tool); 
+mNotificationsUtilsWrapper.mapJsonToFormattablbeContent(bodyArray.getJSONObject(i + 1))
+mRS.nScriptIntrinsicBLAS_Double(getID(mRS),RsBlas_strsm,TransA,0,Side,Uplo,Diag,B.getType().getY(),B.getType().getX(),0,alpha,A.getID(mRS),B.getID(mRS),0,0,0,0,0,0)
+InspectionGadgetsBundle.message("unnecessarily.qualified.static.usage.problem.descriptor")
+data.dropNull()
+metadata.getValue(TagMetadata.TAG_UUID) > 0
+!debugProcess.isDetached()
+node.getLifecycleService().terminate()
+new FileInputStream(props)
+new NullOutputOperatorFactory(operatorId,sourceType)
+assertEquals("throughput",88.275334,model.getThroughput(),0.00000001)
+new DateTime(getMillis())
+settings.getDirection()
+assertThat(this.context.getBean(FilterChainProxy.class).getFilterChains()).hasSize(5)
+fixture.checkResultByFile(after,true)
+serializer.serializeForInsert(metadata,entity,columns,values,subQuery)
+Messages.getString(key,param1,param2)
+new ColorPickerField("paramValue",paramVale,Color.class){   @Override public IConverter getConverter(  Class type){     return new IConverter(){       public String convertToString(      Object value,      Locale locale){         String input=(String)value;         if (input.startsWith("#"))         return input.substring(1);  else         return input;       }       public Object convertToObject(      String value,      Locale locale){         if (value.equals(""))         return value;         return "#" + value;       }     } ;   } } 
+TimeValue.timeValueMillis(2)
+LinkMode linkMode
+UsbManager.containsFunction(persisted,UsbManager.USB_FUNCTION_MTP)
+startIndex + startIndex
+@SuppressWarnings("unused") public Schema list(int version,JobsV3 s){   Job[] jobs=Job.jobs();   s.jobs=new JobV3[jobs.length];   int i=0;   for (  Job j : jobs) {     if (j instanceof ModelBuilder) {       s.jobs[i]=new ModelBuilderJobV3().fillFromImpl((ModelBuilder)j);     }  else {       try {         s.jobs[i]=(JobV3)Schema.schema(version,j).fillFromImpl(j);       }  catch (      H2ONotFoundArgumentException e) {         s.jobs[i]=new JobV3().fillFromImpl(j);       }     }     i++;   }   return s; } 
+readHex(in,28,false)
+lookup.getLookupStart() < offset
+focusedTopActivity != null
+row.length < 0
+elm.getTagName()
+resolveName(resolvedName.toString(),nestedParameter,exchange).map(arg -> {   if ("".equals(arg) && namedValueInfo.defaultValue != null) {     arg=resolveStringValue(namedValueInfo.defaultValue);   }   arg=applyConversion(arg,namedValueInfo,parameter,bindingContext,exchange);   handleResolvedValue(arg,namedValueInfo.name,parameter,model,exchange);   return arg; } ).otherwiseIfEmpty(getDefaultValue(namedValueInfo,parameter,bindingContext,model,exchange))
+tool.getShortName().equals(shortName)
+assertEquals(10,carEncoder.getSpeed(iter.getFlags()))
+dockedBounds.right + adjustment
+TypedItemActivity.class
+d.setAutoMirrored(true)
+mService.subscribe(clientId,subscribeConfig,new WifiAwareDiscoverySessionCallbackProxy(this,looper,false,callback,clientId))
+log.logError(BaseMessages.getString(PKG,"JobUnZip.Error.Label"),BaseMessages.getString(PKG,"JobUnZip.ErrorUnzip.Label",realFilenameSource,e.getMessage()))
+mAuthStatusText=failedStatusText
+mPm.getPackageUid(callingPackage,PackageManager.MATCH_ENCRYPTION_AWARE_AND_UNAWARE | PackageManager.MATCH_UNINSTALLED_PACKAGES)
+ISODateTimeFormat.dateTime().withZone(DateTimeZone.UTC)
+items[24]
+new MockResponse().setBody("A").setSocketPolicy(SHUTDOWN_INPUT_AT_END)
+(sms.getUserData() == null) && (SmsEnvelope.TELESERVICE_MWI != teleService)
+mContext.bindServiceAsUser(mIntent,mServiceConnection,flags,new UserHandle(mUserId))
+public Exception getException(){   return exception; } 
+new LLVMInsertDoubleValueNode(resultAggregate,sourceAggregate,size,offset,(LLVMDoubleNode)valueToInsert)
+/**   * set if this item is selected  * @param selected true if this item is selected  * @return  */ @Override public T withSetSelected(boolean selected){   this.mSelected=selected;   return (T)this; } 
+TileEntity tile=getTile(o); 
+updateCrumbs()
+worldVertices.length < localVertices.length
+scanFeatures(getCamelKarafFeatureUrl(),"camel-core","camel-spring","camel-test")
+doReturn(new Hashtable<String,String>()).when(bundle).getHeaders()
+new RebalanceStealInfo(0,(int)Math.random() * 5,partition,Arrays.asList("testStoreName"),(int)Math.random() * 3).toString()
+populateWatchlistUi()
+/**   * Line number filter.   */ private CSVFilter lineFilter; 
+new WebdavEntry(resp.getResponses()[i])
+if (showMultiWindowTimeBar) {   Timeline timeline=player.getCurrentTimeline();   int windowCount=timeline.getWindowCount();   long remainingMs=position;   for (int i=0; i < windowCount; i++) {     timeline.getWindow(i,window);     if (!timeline.getPeriod(window.firstPeriodIndex,period).isAd) {       long windowDurationMs=window.getDurationMs();       if (windowDurationMs == C.TIME_UNSET) {         break;       }       if (i == windowCount - 1 && remainingMs >= windowDurationMs) {         seekTo(i,windowDurationMs);         break;       }       if (remainingMs < windowDurationMs) {         seekTo(i,remainingMs);         break;       }       remainingMs-=windowDurationMs;     }   } }  else {   seekTo(position); } 
+expand("serializedforms/CronTriggerImplSerializationTest.testFired.{?}.ser","JDK16","JDK17")
+greaterThanOrEqualTo(0L)
+adapter.item(R.string.layer_recordings).selected(SHOW_RECORDINGS.get() ? 1 : 0).icons(R.drawable.ic_action_audio_dark,R.drawable.ic_action_audio_light).listen(listener).position(7)
+event.getY()
+Thread.sleep(500)
+right >= sourceWidth
+AbstractCompanySettingsVerifyProcess.class
+LOGGER.warn("Groovy script [{}] returned no value for username attribute. Fallback to default [{}]",principal.getId())
+alertDialogBuilder.setPositiveButton(resources.getString(R.string.title_deny),new DialogInterface.OnClickListener(){   @Override public void onClick(  DialogInterface dialog,  int which){     result.restricted=true;     if (!cbWhitelist.isChecked() && !cbWhitelistExtra.isChecked()) {       mSelectCategory=cbCategory.isChecked();       mSelectOnce=cbOnce.isChecked();     }     if (cbWhitelist.isChecked())     onDemandWhitelist(restriction,null,result,hook);  else     if (cbWhitelistExtra.isChecked())     onDemandWhitelist(restriction,getXExtra(restriction,hook),result,hook);  else     if (cbOnce.isChecked())     onDemandOnce(restriction,result);  else     onDemandChoice(restriction,cbCategory.isChecked(),true);     latch.countDown();   } } )
+!properties.exists(MainVcsLogUiProperties.BEK_SORT_TYPE)
+random.randomValues().nextTextArray()
+AdviceWithTasks.removeByToString(route,toString,selectLast,selectFirst,selectFrom,selectTo,maxDeep)
+getActivity().getSupportFragmentManager() != null
+Applications.class
+Convolution.pooling2D(input,kernel[0],kernel[1],strides[0],strides[1],pad[0],pad[1],dilation[0],dilation[1],convolutionMode == ConvolutionMode.Same,Pooling2D.Pooling2DType.AVG,0.0,outH,outW,output)
+nodeData.getAttributes() == null
+schedulerConfig.equals(BOUNDED_FCFS_ALGORITHM)
+GlobalSearchScope.projectScope(project)
+tableHasColumn("KBArticle","kbTemplateId")
+AssetTagFinderUtil.filterFindByG_C_N(_scopeGroup.getGroupId(),classNameId,assetTagName,QueryUtil.ALL_POS,QueryUtil.ALL_POS,null)
+new IllegalArgumentException()
+list.isPrivate()
+_log.info("Skipping parameter with key " + key + " because of invalid value "+ kvp[1],e)
+RandomStringUtils.random(50)
+windowStart=1
+preferences.getString("cityAdminLevel","8")
+element == null
+new ClientAdminThread(null,null,sendBuffer)
+new PriorityQueue<>(new HeapObjectComparator())
+assertEquals(11,visitor.getConditions().size())
+getNode(indexConfigPrefix + "/nrtMode",false) != null
+requestReceived.await()
+modelName + "." + signatureEntry.getKey()
+MathUtils.random(height)
+filterNotTypes.size()
+myChangeListManager.ensureUpToDate()
+fileLock != null
+tokens.get().match('(','[','=',',',':',';')
+in.readParcelable(MilestoneModel.class.getClassLoader())
+entry.leadershipTermId != leadershipTermId
+PsiModifierListOwner element
+reset(channel,logTemplate,logBufferLength)
+!GetterUtil.getBoolean(serviceContext.getAttribute("updatePageCount"),true)
+MESSAGES.unknownMessageListenerType(resourceAdapterName,messageListenerInterface.getName())
+lc + pb
+LLVMAMD64WriteAddressRegisterNodeGen.create(from,frame)
+length > 4
+LAST_VERSION=169
+checkCallingPermission(android.Manifest.permission.MANAGE_ACTIVITY_STACKS)
+dir.isDirectory() && !"target".equals(dir.getName())
+Log.w(TAG,"Skipped " + skippedFrames + " frames!  "+ "The application may be doing too much work on its main thread.")
+DEFAULT_BG_LOW_JOB_COUNT=2
+new UnsupportedOperationException("ExifInterface does not support saving attributes for the current input.")
+dlFileShortcut.getFolderId()
+file == null
+log.error("Cannot retrieve roles for {} from {} due to {}",user.getName(),ab.getType(),e.toString())
+onDetachedFromWindows()
+events == null
+waitForJobExecutorToProcessAllJobsAndExecutableTimerJobs(10000,200)
+lockFileAccess.length() < INFORMATION_REGION_POS
+new DistributedRowMatrix(outPath,outputTmpPath,numRows,other.numCols())
+RouteContext key
+strategiesBuilder::messageReader
+!typeDescription.represents(void.class)
+animation == mHeaderOutAnimation
+H2O.CLOUD.free_mem() / 4
+HTREEMAP_DIR_SHIFT=6
+runner != null
+get_params()._score_training_samples != ftrain.numRows()
+new IOException(ExceptionMessage.BLOCK_NOT_LOCALLY_AVAILABLE.getMessage(mBlockId))
+getDecoder().decode(detectorResult.getBits())
+new IllegalArgumentException("Could not inspect meta data for database type.  You have to supply it explicitly.")
+snapshot != null
+-1
+type != null
+"mvn:" + DEFAULT_COORDINATES + "/"
+msgLog.warn("Exception occurred while starting the datasource. Attempting to close things down.",e,true)
+reader.release()
+Schedulers.computation()
+actionAdapter.execute(null,null,null,null)
+Map<Long,Double>
+id=15866
+partitionKey.getType().toString()
+ThemeUtils.fontColor()
+new IndexWriter(dir,false,new WhitespaceAnalyzer(),false,policy)
+gen.setHead(true)
+public static final JPQLTemplates DEFAULT=new DataNucleusTemplates(); 
+PRODUCT_FORMATS.size() + 3
+originalSchemaUserObjects.getName().isEmpty()
+logger.debug("Queue length is {} - deferring HEAL.")
+public SELF setJvmArguments(String... jvmArguments){   operationParamsBuilder.setJvmArguments(jvmArguments);   return getThis(); } 
+minZ != 0f && maxZ != 0f
+lookup(parseName(name))
+typeDefinition.getGroovyMethods()
+Objects.deepEquals(mServiceDataUuid,other.mServiceDataUuid)
+result.getState() != Promise.State.PENDING
+Configuration.getInt(PropertyKey.MASTER_TTL_CHECKER_INTERVAL_MS)
+floatVal(doc)
+new RuntimeException("builtin library initialization failed previously: " + initializationFailed,initializationFailed)
+TestEmployeeTable.class.getCanonicalName()
+public abstract <T>SctpChannel setOption(SctpSocketOption<T> name,T value) throws IOException ; 
+channelIdle(ctx,IdleState.ALL_IDLE,lastReadTime)
+doTestHighlighting()
+Beans.newDuration(casProperties.getAuthn().getOauth().getAccessToken().getMaxTimeToLiveInSeconds()).toMillis()
+new File(mantleThemeCss)
+final DeletionRetentionStrategy deletionRetentionStrategy=clusterConfigService.get(DeletionRetentionStrategy.class); 
+if (DBG) {   Log.d(LOG_TAG,"hasBgCall: " + hasBgCall + "sameChannel:"+ sameChannel); } 
+input.getPosition()
+promise.setFailure(cause)
+new PebbleMisfitSample(timestamp + i * 60,userId,deviceId,sample & 0xffff)
+OAuthConstants.BEARER_TOKEN_TYPE.equals(tokenType)
+drawable != null
+assertEquals(12,url.getPort())
+containerLog.error(sm.getString("dataSourceRealm.getPassword.exception",username))
+applied
+DEFAULT_ADDRESS_BBOX_RADIUS * 10
+_buildTemplateWithGradle("portlet-provider","provider-dependency-management","--dependency-management-enabled","true")
+instrumentation.isRetransformClassesSupported()
+Double returned=factory.newInstance(vars).execute(); 
+hasTimedOut()
+providers.size() >= 0
+case 9: 
+realmFile.exists()
+Log_OC.wtf(TAG,"Trying to share a NULL OCFile")
+public String getPort(){   return this.port; } 
+GraalInternalError.unimplemented()
+compositeBuffer()
+state == _JavaDocLexer.COMMENT_DATA
+String.format(" CH: %6.2fms, without CH: %6.2fms",chTime * 1.e-6 / run,noChTime * 1.e-6 / run)
+FUNC_CODE_OPERAND_BUNDLE
+parseRobotsTxt=false
+r.nextFloat() < 0.1f
+ZipSecurity.isValidZipEntryName(clsName)
+InstrumentationHandler.this.attachSourceListener(this,filter,listener,includeExistingSources)
+STATUS_DRAW=0x2
+new GroovyBugError("The lookup for " + name + " caused a failed compilaton. There should not have been any compilation from this call.")
+Map<K,V>
+composite.isDisposed()
+LOCAL_OPTION.getOpt()
+mKey.equals(other.mKey)
+ContainerUtil.newHashMap()
+new RuntimeException()
+items[28]
+FileMetadataSnapshot.directory()
+serRef != null
+JournalArticleLocalServiceUtil.searchCount(TestPropsValues.getCompanyId(),_group.getGroupId(),folderIds,JournalArticleConstants.CLASSNAME_ID_DEFAULT,null,null,null,null,keyword,"general","","",null,null,status,null,true)
+new BeanDefinitionStoreException(bd.getResourceDescription(),curName,ex.getMessage())
+mCurrIconRow != null & mCurrIconRow.isVisible()
+invoke(args.first(),(args=args.rest()).first(),args.rest())
+DefaultModuleRegistry createModuleRegistry(){   return new DefaultModuleRegistry(); } 
+IOException e
+String.format("/subsystem=elytron/filesystem-realm=%s/identity=%s:add-attribute(name=groups, value=[%s])",name,user.getName(),user.getPassword(),String.join(",",user.getRoles()))
+registerListPreference(settings.PREFERRED_LOCALE,screen,idsPl,valuesPl)
+new Point(bounds.x + bounds.width,0)
+CanaryLog.d(leakInfo)
+mEditSessionTime.setText(String.valueOf(repLimit))
+found.size() == 1
+categories.size() > 0
+sm.getString("aprListener.tcnValid",major + "." + minor+ "."+ patch)
+getPreferences().setProperty(key,value)
+new RotationPersist2Fragment()
+getNotNull(userId).contains(deviceId)
+currentGroupByExprData[cachedLookupIndex] != null
+27 * ClassSize.REFERENCE
+doUpgrade()
+TestResource.class
+QuotaCache.this.tableQuotaCache.contains(table)
+Integer.toString(contentLength)
+highlighter.getTargetArea() != HighlighterTargetArea.LINES_IN_RANGE
+new NullPointerException("profession and name can not be null")
+ConfigurationProperties.logger.info("Exception updating logging level using reflection, likely cause is Logback is not on the classpath")
+Modules messenger
+mImm.setInputMethod(mToken,id)
+length > 70
+U.delete(install)
+XmppStringUtils.parseBareAddress(local)
+new Vector2()
+new NextOccurrenceAction(editorSearchComponent,editorSearchComponent.getSearchTextComponent())
+Identity id=gormMapping.getIdentity(); 
+PushArbitraryData.class
+JBUI.scale(2)
+param.args[1]
+editedGroup.getClass() == KeywordGroup.class
+case EDGE: 
+invoice.getCBAAmount()
+len % (1024 * 1024) / 10
+getConfig().getBoolean(SPIDER_POST_FORM,false)
+DELAY_MILLIS=3000
+out.getVersion().onOrAfter(Version.V_7_0_0_alpha1)
+tradeService.getBittrexOpenOrders()
+new JedisClusterCommand<Set<String>>(connectionHandler,timeout,maxRedirections){   @Override public Set<String> execute(  Jedis connection){     return connection.spop(key,count);   } } 
+case 16: 
+logger.error("",ex)
+assertEquals(12,singlePackageBeanCount)
+new ConcurrentHashMap<String,Boolean>(64)
+UnsafeUtils.set4(_mem,8,bias)
+item == null
+mHandler.removeCallbacks(pae)
+String.format("t(dijk): %6.2f, t(period): %6.2f, t(lazy): %6.2f, t(neighbor): %6.2f",dijkstraTime,periodTime,lazyTime,neighborTime)
+CacheData<NullTypes>
+++modCount
+row.setUserExpanded(true)
+verifyPosition(decoder,text("$PHO0,6091,233606.000,A,0902.9855,N,06944.3654,W,0.0,43.8,141112,,,A/00010,00000/0/224000//"))
+/**   * Returns a wrapper around  {@code ciphertextDestination}, such that any read-operation via the wrapper results in AEAD-decryption of the underlying ciphertext, using  {@code additionalData}as additional authenticated data. <p>The returned InputStream may support  {@code mark()}/ {@code reset()}, but does not have to do it --  {@code markSupported()} provides the corresponding info.<p>The returned InputStream supports  {@code skip()}, yet possibly in an inefficient way, i.e. by reading a sequence of blocks until the desired position. If a more efficient  {@code skip()}-functionality is needed, the Channel-based API can be used.  */ OutputStream newEncryptingStream(OutputStream ciphertextDestination,byte[] associatedData) throws GeneralSecurityException, IOException ; 
+new Color(pixels[i])
+_contextHandler.getBaseResource() == null
+client.getState().setCredentials(new AuthScope(null,-1,AuthScope.ANY_REALM),defaultcreds)
+TeraSort.class
+16 * 1024
+hz1.getLifecycleService().terminate()
+_connector.getResponses("XXXXXXXXXXXX\n\n")
+getAllprojects()
+MoreTypes.asTypeElement(processingEnv.getTypeUtils(),e.getTypeMirror())
+@NotNull GitBranch source
+String imageUrl
+object.getDatabase()
+GetterUtil.get(request.getParameter(param),locale,defaultValue)
+RecentProjectsManager.getInstance().getRecentProjectsActions()
+bookmarksFolderFinder.findBF_BE_ByG_F(groupId,folderId,queryDefinition)
+new SgdUpdater()
+new CountDownLatch(1)
+message.getDownloadable().getStatus() == Downloadable.STATUS_DELETED
+mbMessage.isDiscussion()
+pgl.loadVertexShader(fragURL)
+windowStart <= messages.length
+this(dataSource,false); 
+user.getWorld().getTime()
+this.principalFactory.createPrincipal(principalFromRest.getId())
+twitter1.getHomeTimeline(new Paging().count(1))
+resourceInfo.getResourceClass()
+new LogVersionMismatchRequest()
+this.maximumSymmetricKeyLength=192
+totalAccounts > 0
+sm.getString("jsseUtil.noVerificationDepth")
+nullabilityOfA.refine(nullabilityOfA)
+buildData.getWorkspaceDir()
+new ThingUID(WEMO_INSIGHT_TYPE_UID,device.getDetails().getSerialNumber())
+spaceLeft == 0
+STUB_VERSION=48
+this.aliasToCTEs.containsKey(alias)
+GridHadoopProcessor hadoop=((GridKernal)grid(0)).context().hadoop(); 
+GAV gav=KieServices.Factory.get().newGav(namespace,"memory","1.0-SNAPSHOT"); 
+PyElement resolved=(PyElement)cref.resolve(); 
+!isObservable
+line.endsWith("warning")
+queryDBObjects(ObjectType.SCALAR_FUNCTION,ObjectType.CLR_SCALAR_FUNCTION,ObjectType.CLR_TABLE_VALUED_FUNCTION,ObjectType.TABLE_VALUED_FUNCTION,ObjectType.STORED_PROCEDURE,ObjectType.CLR_STORED_PROCEDURE,ObjectType.USER_TABLE,ObjectType.SYNONYM,ObjectType.SEQUENCE_OBJECT,ObjectType.FOREIGN_KEY,ObjectType.VIEW)
+threadHandler.get().post(new Runnable(){   public void run(){     long loopFinishTime=SystemClock.uptimeMillis();     if (windowManager != null) {       try {         windowManager.showStrictModeViolation(false);       }  catch (      RemoteException unused) {       }     }     for (int n=0; n < records.size(); ++n) {       ViolationInfo v=records.get(n);       v.violationNumThisLoop=n + 1;       v.durationMillis=(int)(loopFinishTime - v.violationUptimeMillis);       handleViolation(v);     }     records.clear();   } } )
+cs == null
+cookies.columnMap()
+Location location=app.getLocationProvider().getLastKnownLocation(); 
+Thread.sleep(2000)
+new GridConcurrentHashSet<>(entries.size(),U.capacity(entries.size()),1)
+replyMsg.toString().getContentLength()
+mError != null
+Assert.assertEquals(modelAdditionCounters.toString(),5,modelAdditionCounters.size())
+EnumSet.of(UpdateTask.TAGS,UpdateTask.FOLLOWED_BLOGS)
+ChannelBuffers.dynamicBuffer()
+StringBuffer answer=new StringBuffer(); 
+!virtualHostname.equalsIgnoreCase(_LOCALHOST)
+new SpannedString(new CustomSpannable(first),false)
+ImmutableSet.of(UNDERWALL_TUNNEL_16529,UNDERWALL_TUNNEL_16530,STEPPING_STONE_16533,FENCE_16518,ROCKS_16549,ROCKS_16550,WALL_17049,WALL_17050,CRUMBLING_WALL_24222,UNDERWALL_TUNNEL,UNDERWALL_TUNNEL_16528,CREVICE_16543,UNDERWALL_TUNNEL_19032,UNDERWALL_TUNNEL_19036,BROKEN_RAFT,STEPPING_STONE_16513,ROCKS_3790,ROCKS_3791,ROCKS_3803,ROCKS_3804,ROCKS_16523,ROCKS_16524,ROCKS_3748,ROCKS_16545,ROCKS_16521,ROCKS_16522,ROCKS_16464,LOG_BALANCE_16540,LOG_BALANCE_16541,LOG_BALANCE_16542,BROKEN_FENCE,LOG_BALANCE_16546,LOG_BALANCE_16547,LOG_BALANCE_16548,CASTLE_WALL,HOLE_16520,WALL_17047,NULL_31852,ROCKS_16534,ROCKS_16535,STRONG_TREE_17074,STEPPING_STONE_16466,NULL_26884,NULL_26886,STEPPING_STONES,STEPPING_STONES_23646,STEPPING_STONES_23647,A_WOODEN_LOG,SPIKEY_CHAIN,SPIKEY_CHAIN_16538,STRANGE_FLOOR_16544,CREVICE_16539,STEPS_29993,STEPPING_STONE_14918,STEPPING_STONE_14917,ROCKY_HANDHOLDS_26404,ROCKY_HANDHOLDS_26405,ROCKY_HANDHOLDS_26406,ROCKY_HANDHOLDS_26400,ROCKY_HANDHOLDS_26401,ROCKY_HANDHOLDS_26402,LOG_BALANCE_23274,ROCKS_27984,ROCKS_27985,BOULDER_27990,ROCKS_27987,ROCKS_27988,GAP_29326,TUNNEL_30174,TUNNEL_30175,OBSTACLE_PIPE_16509,STRANGE_FLOOR,ROCKS,ROCKS_14106,LOOSE_RAILING_28849,CREVICE_9739,CREVICE_9740,HOLE_31481,HOLE_31482,LADDER_30938,LADDER_30939,LADDER_30940,LADDER_30941,ROPE_ANCHOR,ROPE_ANCHOR_30917,RUBBER_CAP_MUSHROOM,ROCKS_31757,ROCKS_31758,ROCKS_31759,PILLAR_31809,ROPESWING_23568,ROPESWING_23569,VINE_26880,VINE_26882,PIPE_21728,STEPPING_STONE_19040,PIPE_21727,LOG_BALANCE_20882,LOG_BALANCE_20884,STEPPING_STONE_21738,STEPPING_STONE_21739,TIGHTGAP,STILE_12982,MONKEYBARS_23566,OBSTACLE_PIPE_16511,STEPPING_STONE_11768,CREVICE_16465,ROCKS_19849,CROSSBOW_TREE_17062,ROCKS_17042,ROCKS_2231,STEPPING_STONE_29728,STEPPING_STONE_29729,STEPPING_STONE_29730,JUTTING_WALL_17002,ROCKS_16514,ROCKS_16515,LOG_BALANCE_3933,STEPPING_STONE_13504,DARK_TUNNEL_10047,WEATHERED_WALL,WEATHERED_WALL_16526,STEPPING_STONE_19042,ROCKS_16998,ROCKS_16999,ORNATE_RAILING,ORNATE_RAILING_17000,STEPPING_STONE_10663,BALANCING_LEDGE_23548,OBSTACLE_PIPE_23140,MONKEYBARS_23567,PILE_OF_RUBBLE_23563,PILE_OF_RUBBLE_23564,CREVICE_19043,PILLAR_31561,LOG_BALANCE_3931,LOG_BALANCE_3930,LOG_BALANCE_3929,LOG_BALANCE_3932,DENSE_FOREST_3938,DENSE_FOREST_3939,DENSE_FOREST_3998,DENSE_FOREST_3999,DENSE_FOREST,LEAVES,LEAVES_3924,LEAVES_3925,STICKS,TRIPWIRE,GAP,GAP_2831,STEPPING_STONE_5948,STEPPING_STONE_5949,ROCK_16115,CLIMBING_ROCKS_11948,CLIMBING_ROCKS_11949,BROKEN_FENCE_2618,NULL_25337,NULL_29868,NULL_29869,NULL_29870,ICE_CHUNKS_31822,NULL_31823,ICE_CHUNKS_31990,TUNNEL_30959,HOLE_30966,OBSTACLE,OBSTACLE_30767,OBSTACLE_30964,OBSTACLE_30962,LOOSE_RAILING_2186)
+intellijProject == null
+@Child private OptimizedDirectCallNode child=(OptimizedDirectCallNode)runtime.createDirectCallNode(innerTarget); 
+return allChildPermissions; 
+stmt.executeQuery(sqlCommand)
+role != MUCRole.none
+column.createColumnObserver()
+new InterpreterLaunchContext(getJavaProperties(),option,interpreterRunner,id,name)
+table != null
+2 << 8
+((EditorMediaUploadListener)mEditorFragment).onMediaUploadProgress(mediaId,false,count)
+Top top2=new Top(); 
+DLStoreUtil.addFile(serviceContext.getCompanyId(),CompanyConstants.SYSTEM_STRING,GroupConstants.DEFAULT_PARENT_GROUP_ID,CompanyConstants.SYSTEM,dirName + StringPool.SLASH + shortFileName,0,StringPool.BLANK,serviceContext.getModifiedDate(null),serviceContext,bytes)
+id=15806
+for (Object eachToSelect : currentElements) {   if (!currentElements.contains(eachToSelect)) {     runSelection=true;     break;   } } 
+mapillaryControl.setText("",map.getString(R.string.mapillary))
+BundleFactoryOutputRecieverFactory.create(bundleFactory,stage.getComponents(),outputs::add)
+connection.prepareStatement(sql)
+private static Object enhanceHelper(Class cls,Class[] interfaces,final Callback callback,ClassLoader loader,CallbackFilter filter){   Callbacks callbacks=new Callbacks(){     public Callback get(    int type){       return callback;     }   } ;   if (filter == null) {     filter=new SimpleFilter(CallbackUtils.determineType(callback));   }   return enhanceHelper(cls,interfaces,callbacks,loader,filter); } 
+EVICT_ALL + 1
+verify(decoder.decode(null,null,ChannelBuffers.wrappedBuffer(ChannelBufferTools.convertArray(new int[]{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x0a,0x0c,0x02,0x06,0x00,0x00,0x00,0x02,0x0d,0x0a,0x02,0x00,0x00,0x6f,0x4e}))))
+/**   * Adds a query to the scheduler priority queue. This call always succeeds or throws exception if the queues are out of capacity. This will never block for resources to become available.  * @param query query to add to the list of waiters  * @throws OutOfCapacityError if the internal query queues are full  */ void put(@Nonnull SchedulerQueryContext query) throws OutOfCapacityError ; 
+variables.putAll(variables)
+rw.release()
+@Nested private final TestReports reports; 
+new ByteBuddy().subclass(Object.class).method(named("toString")).intercept(FixedValue.value(42).withAssigner(new PrimitiveTypeAwareAssigner(ToStringAssigner.INSTANCE),Assigner.Typing.STATIC)).make().load(getClass().getClassLoader(),ClassLoadingStrategy.Default.WRAPPER).getLoaded().getConstructor()
+newNode.getNodeId()
+mDataAuthorities == null
+LinkedList<>
+valid
+id=48
+containerLog.error(sm.getString("dataSourceRealm.getRoles.exception",username))
+content.getOutputStream()
+doPost("http://localhost:" + PORT + "/the/bookstore/books/convert",500,"application/json","resources/add_book2json_invalid.txt",null)
+getDefaultSystemHandlerActvityPackageLPr(deviceProvisionIntent,userId)
+createHandlerResult(c,principalFactory.createPrincipal(username,attributes),null)
+w.println(padding)
+matches.get(0)
+commitLock.lock()
+mf.verifyMessages(2,false)
+new IndexShardRoutingTable.Builder(new ShardId(WatchStore.INDEX,0),false)
+commitPackageSettings(pkg,pkgSetting,user,policyFlags,(policyFlags & PackageParser.PARSE_CHATTY) != 0)
+new GridQueryPortableFieldsIterator(res.iterator(),cctx,cctx.keepPortable())
+type == TRIANGLES
+in.readInt()
+invocation.pendingResponse == null
+@UnsupportedAppUsage
+deployment.addServletContainerInitalizer(new ServletContainerInitializerInfo(Initializer.class,new ImmediateInstanceFactory<ServletContainerInitializer>(initializer),NO_CLASSES))
+exitCode != 0
+_freemarkerEngineConfiguration.getResourceModificationCheck()
+uid > 0
+args.length < 2
+Measures.RR(results,test)
+new OptionValue<>(30.0D)
+GridHadoopTestUtils.jsonToMap("{type:'tcp', port:" + (GridIpcSharedMemoryServerEndpoint.DFLT_IPC_PORT + 1) + "}")
+classNode.getName()
+new MySqlStatementParser(sql,SQLParserFeature.EnableSQLBinaryOpExprGroup)
+ignite.cache(CACHE_NAME)
+RegexCompiler.class
+si.id == id
+new int[504]
+case 14: 
+rhs == null
+role.equals(NULL_ROLE)
+binary.length < 32
+@Override public ModelMojoWriter getMojo(){   return new Word2VecMojoWriter(this); } 
+config.getReadOnlyBackups()
+_serviceMonitorAdvice.isActive()
+public DerivedBuilder setScheduledExecutorService(ScheduledExecutorService reaper){   configBuilder.setScheduledExecutorService(reaper);   return this; } 
+totalHistogram.getValueAtPercentile(90)
+sm.getString("apr.write.error",Integer.valueOf(-written),Long.valueOf(socket))
+Drawable.scaleFromDensity(sourcePadding.bottom,sourceDensity,targetDensity,false)
+!mIsPipRecentsOverlayShown || !mIsRecentsShown || mIsPipFocusedInRecent
+fs0.create(path,false)
+handleIncomingUser(Binder.getCallingPid(),callingUid,userId,type == ActivityManager.INTENT_SENDER_BROADCAST,true,"getIntentSender",null)
+nServers < 2
+myLocalResolve && localProcessor.processingEncounteredAnyTypeAccess()
+session.sessions().createUserSession(adminRealm,admin,"admin",null,"form",false)
+timer.scheduleAtFixedRate(timerTask,period,period)
+!invoicePayment.isSuccess()
+bytes.write('\n')
+getSession(false)
+blueprintLibraryAchievement=new Achievement("achievement.blueprintLibrary","blueprintLibraryAchievement",15,2,BuildCraftBuilders.libraryBlock,builderAchievement).registerStat()
+status != 0
+head.getNext()
+LOG.warn("Failed to get TachyonStore stream, the block " + currentBlockId + " will not be in TachyonStorage",ioe)
+Integer.valueOf(this.getOptional("kylin.server.auth-user-cache.expire-seconds","300"))
+innerClass.addConstructor(PUBLIC_SYNTHETIC,new Parameter[0],null,null)
+mHwSession.getConfigFlag(flag,(int result,boolean value) -> {   halResult.value=result;   flagState.value=value; } )
+qp.getExclusiveMaximum()
+offset > 0
+public Value emitCompareAndSwap(Value address,Value expectedValue,Value newValue,Value trueValue,Value falseValue){   Variable newValueTemp=newVariable(newValue.getLIRKind());   emitMove(newValueTemp,newValue);   LIRKind kind=newValue.getLIRKind();   assert kind.equals(expectedValue.getLIRKind());   Kind memKind=(Kind)kind.getPlatformKind();   SPARCAddressValue addressValue=asAddressValue(address);   append(new CompareAndSwapOp(asAllocatable(addressValue),asAllocatable(expectedValue),asAllocatable(newValueTemp)));   return emitConditionalMove(memKind,expectedValue,newValueTemp,Condition.EQ,true,trueValue,falseValue); } 
+delaySoFar > mReEnableDelayMillis
+Method.date(type)
+killBillClient.updateSubscriptionBCD(updatedSubscription,DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC,createdBy,reason,comment)
+new IllegalArgumentException("Field is not supported")
+DateTimeParseException e
+15 * 60 * 1000L
+this.cusolverDnSsyevd_bufferSize.invoke(solverDn,jobz,uplo,M,(FloatPointer)xAPointer.getDevicePointer(),M,(FloatPointer)xRPointer.getDevicePointer(),(IntPointer)worksizeBuffer.addressPointer())
+assertEquals(9,fieldNames.size())
+entries == null
+DbException.get(ErrorCode.OBJECT_CLOSED)
+type.getParameterCount() > 0
+SPEC_REGEN_TICKS=51
+logger.info("Intercepted " + method.getFullMethodName())
+value < count
+public Object getOpenSslContext(){   return openSslContext; } 
+currentCall == callId
+IOException expected
+assertFalse(metaInject.init(spyMeta,data))
+commit.getAuthorIdent()
+new StatusBarIconView(getContext(),null)
+MySitesWebUpgrade.class
+getTablename().getBytes()
+logger.info("Session destroyed")
+field.precision != null
+model.getEnum().size() == 2
+offsetRepository != null
+AndroidAssetsInfoApi.class
+List<PsiMethod>
+S.toString(GridTcpDiscoveryNode.class,this,"attrs",attributes())
+embeddable.isMetadataComplete()
+new FormAttachment(100,15)
+Map<String,Long>
+synchronized (mAccounts) {   writeStatusLocked(); } 
+configProps.get(THREAD_SAFE_CLIENT_PROP)
+parent.currentContext()
+AssetVocabularyUtil.findByG_N(groupId,vocabulary.getName())
+PsiUtil.hasDefaultConstructor(value,true)
+this(true,5,5,5,10); 
+_constructor.newInstance(0,0,StringPool.BLANK,_IMAGE_URL,StringPool.BLANK)
+ImmutableSet.of(UNDERWALL_TUNNEL_16529,UNDERWALL_TUNNEL_16530,STEPPING_STONE_16533,FENCE_16518,ROCKS_16549,ROCKS_16550,WALL_17049,WALL_17050,CRUMBLING_WALL_24222,UNDERWALL_TUNNEL,UNDERWALL_TUNNEL_16528,CREVICE_16543,UNDERWALL_TUNNEL_19032,UNDERWALL_TUNNEL_19036,BROKEN_RAFT,STEPPING_STONE_16513,ROCKS_3790,ROCKS_3791,ROCKS_3803,ROCKS_3804,ROCKS_16523,ROCKS_16524,ROCKS_3748,ROCKS_16545,ROCKS_16521,ROCKS_16522,ROCKS_16464,LOG_BALANCE_16540,LOG_BALANCE_16541,LOG_BALANCE_16542,BROKEN_FENCE,LOG_BALANCE_16546,LOG_BALANCE_16547,LOG_BALANCE_16548,CASTLE_WALL,HOLE_16520,WALL_17047,NULL_31852,ROCKS_16534,ROCKS_16535,STRONG_TREE_17074,STEPPING_STONE_16466,NULL_26884,NULL_26886,STEPPING_STONES,STEPPING_STONES_23646,STEPPING_STONES_23647,A_WOODEN_LOG,SPIKEY_CHAIN,SPIKEY_CHAIN_16538,STRANGE_FLOOR_16544,CREVICE_16539,STEPS_29993,STEPPING_STONE_14918,STEPPING_STONE_14917,ROCKY_HANDHOLDS_26404,ROCKY_HANDHOLDS_26405,ROCKY_HANDHOLDS_26406,ROCKY_HANDHOLDS_26400,ROCKY_HANDHOLDS_26401,ROCKY_HANDHOLDS_26402,LOG_BALANCE_23274,ROCKS_27984,ROCKS_27985,BOULDER_27990,ROCKS_27987,ROCKS_27988,GAP_29326,TUNNEL_30174,TUNNEL_30175,OBSTACLE_PIPE_16509,STRANGE_FLOOR,ROCKS,ROCKS_14106,LOOSE_RAILING_28849,CREVICE_9739,CREVICE_9740,HOLE_31481,HOLE_31482,LADDER_30938,LADDER_30939,LADDER_30940,LADDER_30941,ROPE_ANCHOR,ROPE_ANCHOR_30917,RUBBER_CAP_MUSHROOM,ROCKS_31757,ROCKS_31758,ROCKS_31759,PILLAR_31809,ROPESWING_23568,ROPESWING_23569,VINE_26880,VINE_26882,PIPE_21728,STEPPING_STONE_19040,PIPE_21727,LOG_BALANCE_20882,LOG_BALANCE_20884,STEPPING_STONE_21738,STEPPING_STONE_21739,TIGHTGAP,STILE_12982,MONKEYBARS_23566,OBSTACLE_PIPE_16511,STEPPING_STONE_11768,CREVICE_16465,ROCKS_19849,CROSSBOW_TREE_17062,ROCKS_17042,LOOSE_RAILING,ROCKS_2231,STEPPING_STONE_29728,STEPPING_STONE_29729,STEPPING_STONE_29730,JUTTING_WALL_17002,ROCKS_16514,ROCKS_16515,LOG_BALANCE_3933,STEPPING_STONE_13504,DARK_TUNNEL_10047,WEATHERED_WALL,WEATHERED_WALL_16526,STEPPING_STONE_19042,ROCKS_16998,ROCKS_16999,ORNATE_RAILING,ORNATE_RAILING_17000,STEPPING_STONE_10663,BALANCING_LEDGE_23548,OBSTACLE_PIPE_23140,MONKEYBARS_23567,PILE_OF_RUBBLE_23563,PILE_OF_RUBBLE_23564,CREVICE_19043,PILLAR_31561,LOG_BALANCE_3931,LOG_BALANCE_3930,LOG_BALANCE_3929,LOG_BALANCE_3932,DENSE_FOREST_3938,DENSE_FOREST_3939,DENSE_FOREST_3998,DENSE_FOREST_3999,DENSE_FOREST,LEAVES,LEAVES_3924,LEAVES_3925,STICKS,TRIPWIRE,GAP,GAP_2831,STEPPING_STONE_5948,STEPPING_STONE_5949,ROCK_16115,CLIMBING_ROCKS_11948,CLIMBING_ROCKS_11949,BROKEN_FENCE_2618,NULL_25337,NULL_29868,NULL_29869,NULL_29870,ICE_CHUNKS_31822,NULL_31823,ICE_CHUNKS_31990,TUNNEL_30959,HOLE_30966,OBSTACLE,OBSTACLE_30767,OBSTACLE_30964,OBSTACLE_30962,LOOSE_RAILING_2186,LITTLE_BOULDER)
+hintInfo.hintHitProbability >= hintHitProbabilityThresholdForDeoptimizingSnippet()
+createTextAttributesKey("KOTLIN_EXTENSION_PROPERTY")
+doPost("http://localhost:" + PORT + "/the/thebooks/bookstore/books/convert",500,"application/json","resources/add_book2json_invalid.txt",null)
+MAX=4
+new Handler().postDelayed(new Runnable(){   @Override public void run(){     showDonationDialog();   } } ,200)
+defaults.jackson2Decoder(new Jackson2JsonDecoder(objectMapper,EMPTY_MIME_TYPES))
+@RunWith(Parameterized.class) public class ReplicatedMapWriteOrderTest extends ReplicatedMapBaseTest {   int nodeCount;   int operations;   int keyCount;   public ReplicatedMapWriteOrderTest(  int nodeCount,  int operations,  int keyCount){     this.nodeCount=nodeCount;     this.operations=operations;     this.keyCount=keyCount;   }   @Parameterized.Parameters public static Collection<Object[]> data(){     return Arrays.asList(new Object[][]{{2,50,1},{2,50,10},{2,50,50}});   }   @After public void setUp() throws Exception {     HazelcastInstanceFactory.terminateAll();   }   @Test public void testDataIntegrity() throws InterruptedException {     setLoggingLog4j();     System.out.println("nodeCount = " + nodeCount);     System.out.println("operations = " + operations);     System.out.println("keyCount = " + keyCount);     Config config=new Config();     config.getReplicatedMapConfig("test").setReplicationDelayMillis(0);     TestHazelcastInstanceFactory factory=new TestHazelcastInstanceFactory(nodeCount);     final HazelcastInstance[] instances=factory.newInstances(config);     String replicatedMapName="test";     final List<ReplicatedMap> maps=createMapOnEachInstance(instances,replicatedMapName);     ArrayList<Integer> keys=generateRandomIntegerList(keyCount);     Thread[] threads=createThreads(nodeCount,maps,keys,operations);     for (    Thread thread : threads) {       thread.start();     }     for (    Thread thread : threads) {       thread.join();     }     for (int i=0; i < keyCount; i++) {       final String key="foo-" + keys.get(i);       assertTrueEventually(new AssertTask(){         @Override public void run() throws Exception {           System.out.println("---------------------");           System.out.println("key = " + key);           printValues();           assertValuesAreEqual();         }         private void printValues() throws Exception {           for (int j=0; j < maps.size(); j++) {             ReplicatedMap map=maps.get(j);             System.out.println("value[" + j + "] = "+ map.get(key)+ " , store version : "+ getStore(map,key).getVersion());           }         }         private void assertValuesAreEqual(){           for (int i=0; i < maps.size() - 1; i++) {             ReplicatedMap map1=maps.get(i);             ReplicatedMap map2=maps.get(i + 1);             Object v1=map1.get(key);             Object v2=map2.get(key);             assertNotNull(v1);             assertNotNull(v2);             assertEquals(v1,v2);           }         }       } ,120);     }   }   private Thread[] createThreads(  int count,  List<ReplicatedMap> maps,  ArrayList<Integer> keys,  int operations){     Thread[] threads=new Thread[count];     for (int i=0; i < count; i++) {       threads[i]=createPutOperationThread(maps.get(i),keys,operations);     }     return threads;   }   private Thread createPutOperationThread(  final ReplicatedMap<String,Object> map,  final ArrayList<Integer> keys,  final int operations){     return new Thread(new Runnable(){       @Override public void run(){         Random random=new Random();         int size=keys.size();         for (int i=0; i < operations; i++) {           int index=i % size;           String key="foo-" + keys.get(index);           map.put(key,random.nextLong());           boolean containsKey=map.containsKey(key);           assert containsKey;         }       }     } );   } } 
+/**   * Helper method, has same effect as <pre>return enhance(cls, interfaces, ih, loader, null);</pre>  * @see #enhance(Class,Class[],MethodInterceptor,ClassLoader,Method,MethodFilter)  */ public static Object enhance(Class cls,Class interfaces[],Callback callback,ClassLoader loader){   return enhanceHelper(cls,interfaces,callback,loader,null); } 
+buf.getShort(buf.readerIndex() + 2)
+timeout=5000
+payload.intPayload[3]
+ev.mTimeSamples.length < NT
+new OidcClientTokenContextImpl()
+config.get(CONFIG_KEY_READ_TIMEOUT)
+length > string.length()
+assertEquals(true,StringUtils.isAlphanumeric(""))
+DumpUtils.checkDumpPermission(mContext,TAG,fout)
+_lapseConf(card)
+hideIdColumn == null ? false : hideIdColumn
+menu.getLatLon() != null
+type == UNKNOWN_PARAMETER_TYPE
+"Unknown id: " + mCurMethodId
+String.format("%.2f",number)
+1024 * 64
+{port,ioe.toString(),ioe,pid}
+SocialActivitiesWebUpgrade.class
+input != null
+sendAdminCommandLocked(deviceOwner,action,extras,null)
+new GroovyRuntimeException(e)
+contains="doIntrinsicReceiverCachedTruffleObjectCached"
+controller.createAction("component").setDescription("Get the pending tasks, in-progress tasks and the last executed task of a given component (usually a project).<br>" + "Requires one of the following permissions:" + "<ul>"+ "<li>'Administer System'</li>"+ "<li>'Administer' rights on the specified component</li>"+ "</ul>"+ "Either '%s' or '%s' must be provided, not both.<br>"+ "Since 6.1, field \"logs\" is deprecated and its value is always false.")
+messageJournalEnabled=false
+qp.getExclusiveMinimum()
+IR.var(IR.name(shortName),googRequireNode)
+log.debug("PID contains identifier with no assigning authority")
+Validator.isNull(body)
+Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB
+sha3(ephemeralKey.getPubKeyPoint().getEncoded(false),1,32)
+DEFAULT_MIN_PREFS_PER_USER=2
+ExternalSystemBundle.message("orphan.modules.dialog.text",buildSystem)
+CHECKIN_VERSION=31
+faultSerialVersionUID.equals(FaultSerialVersionUID.TIMESTAMP)
+String.format("Role name [%s] is not valid. Please use lowercase and numbers only",role)
+client.getHintArrowTargetType() == HintArrowType.NONE.getValue()
+Preconditions.checkNotNull(options)
+one.setCoordinateIndex(3)
+internalCluster().getInstance(BlobIndicesService.class)
+traceOn
+record == null
+myStartupManager.registerPostStartupActivity(new Runnable(){   public void run(){     runnable.run();   } } )
+element.getChildByName("properties")
+result.getComponents()
+message.getMessageId().setDataLocator(id)
+flags_=0
+trackMotionScroll(delta,delta)
+fault.getDetail() != null
+prefix.add(tmp.substring(1))
+super(ctx,aList,pMarkerFocusedBase,pMarkerHotspot,aOnItemTapListener,pResourceProxy); 
+final FileBasedWikiPage parent
+NodeUtil.getFunctionNameNode(enclosingFunction)
+wms.getGeoServer().getSettings()
+_connector.getResponses("GET http://[:1]/foo HTTP/1.1\nReferer: http://other.site\nUser-Agent: Mozilla/5.0 (test)\n\n")
+((DartUriElement)parentParent).getUriStringAndItsRange().second.getEndOffset()
+propertyValue.toString().matches(regex)
+response.isFailed()
+mpi > -135
+CONSTELLATION_TYPE_SHIFT_WIDTH=3
+!isAutomaticallyAdded()
+@Specialization protected Object fromFloat(float value,@SuppressWarnings("unused") LLVMInteropType.Structured type){   return new LLVMBoxedPrimitive(value); } 
+GL20.glGetActiveUniform(program,index,256,typeTmp)
+new IndexResponse(shardId,"type","id" + i,randomInt(),createdResponse)
+account.getJid().toBareJid() + ": resumption failed but server acknowledged stanza #" + h
+LOGGER.debug("Could not copy cite key",ex)
+NettyAsyncHttpProvider.class
+private final static ExecutorService EXECUTOR=new ThreadPoolExecutor(0,5,60,TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(5)); 
+currentNetworkInfo.getState() == NetworkInfo.State.CONNECTED
+setExpectedMessageCount(messageCount)
+absEdge.getTarget()
+new FeatureItem(R.drawable.whats_new_device_credentials,R.string.whats_new_device_credentials_title,R.string.whats_new_device_credentials_content,VERSION_3_2_0,BETA_VERSION_0,SHOW_ON_UPGRADE,false,false)
+new LayerView(this,0xff00ff00)
+STATE_OPENED_WITH_KEYS=3
+fileName.indexOf('.')
+LOGGER.warn("onStartCommand({}) called while currentCommandExecution = {}",execution,currentCommandExecution)
+setDeletionSystemEventClassNames(DDMStructure.class.getName(),DDMTemplate.class.getName(),JournalArticle.class.getName(),JournalFeed.class.getName())
+onUserBlockedChanged(unblocked.getUid(),true)
+mAuthActivity.unbindService(TokenRefreshServiceConnection.this)
+return ingressStreamId; 
+new Fault("COULD_NOT_REDA_XML_STREAM_CAUSED_BY",LOG,e,e.getMessage())
+DiagnosticGroups.registerGroup("oldCheckTypes",TypeValidator.ALL_DIAGNOSTICS,TypeCheck.ALL_DIAGNOSTICS)
+max_ordinal=79
+imageHolder.getStyleClass().setAll("page")
+nextY < 0
+IllegalArgumentException.class
+Math.max(Runtime.getRuntime().availableProcessors() - 1,1)
+ImmutableList.of(sourcesAsStrings)
+new ProxyClassLoader()
+Network.createServer(5110)
+mTfs.setPin(mTfs.open(path),true)
+parent.getParentFile()
+mService.stopLocalOnlyHotspot()
+sessionInfo != null
+id=15844
+ctx.getSettings().AUDIO_STREAM_GUIDANCE.get() == 0
+configurator.setExcludedImportantEntries("jodd.petite.data.*","jodd.petite.tst3.*","jodd.petite.tst.Ses")
+realPointerIndex > AndroidInput.NUM_TOUCHES
+new SimpleDateFormat(DATE_TIME_FORMAT)
+transitiveClosure.setNumberOfPartitions(6)
+new PartitionParser(stepName,allowStartIfCompletValue)
+version.equals("5") || version.equals("6")
+abstract public Output parseType(Input notation); 
+value.toString().getBytes()
+(Integer)1
+new ClientException(ClientException.ErrorType.CONFIGURATION,"Unable to get an instance of CommonClientConfigKey.NIWSServerListFilterClassName. Configured class:" + niwsClientConfig.getProperty(CommonClientConfigKey.NIWSServerListFilterClassName))
+layout.createSequentialGroup().addGap(0).addComponent(iconLabel,ManagerFrame.STATUS_WIDTH,ManagerFrame.STATUS_WIDTH,ManagerFrame.STATUS_WIDTH).addGap(0).addComponent(label,labelWidth,labelWidth,labelWidth).addPreferredGap(LayoutStyle.ComponentPlacement.RELATED,GroupLayout.PREFERRED_SIZE,Short.MAX_VALUE).addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER).addComponent(installButton,BUTTON_WIDTH,BUTTON_WIDTH,BUTTON_WIDTH).addComponent(progressPanel).addComponent(updateLabel,BUTTON_WIDTH,BUTTON_WIDTH,BUTTON_WIDTH).addComponent(updateButton).addComponent(removeButton)).addGap(16)
+VfsUtil.isAncestor(parent,child,true)
+tableHasColumn("CalendarBooking","vEventUid")
+update(bytes)
+fieldDescription.isAccessibleTo(instrumentedType)
+scope == null
+sku.getName()
+telephony.getVoiceMessageCountForSubscriber(subId)
+infos.isEmpty()
+ftm.registerFileType(StdFileTypes.XML,RNG_EXT)
+OutputStreamAppender<?>
+UnderFileSystemUtils.deleteIfExists(mUfs,mTempCheckpointPath)
+new PsiEllipsisType(mappedComponent)
+HashMap<FrameworkType,FrameworkSupportNode>
+AttributeUtils.getDefault().getMin(column,valuesArray)
+closedChannelException != null
+DiagnosticFactory0<KtTypeParameter>
+CoreMatchers.anyOf(is(NestedTypeVariableType.class.getDeclaredField(FOO).getGenericType().toString()),is("net.bytebuddy.description.type.AbstractTypeDescriptionGenericTest$NestedTypeVariableType<T>$Placeholder"))
+myProgressTailIcon == null
+log.warn("Problem in JSR223 script ",e)
+new ShowHabitMenuBehavior(habitList,habit,taskRunner,screen,system)
+buffer.putInt(0x1)
+tableHasColumn("KBComment","helpful")
+SimpleHandler.getInstance().post(new Runnable(){   @Override public void run(){     guideDownloadThumb();   } } )
+tv.setTextSize(mTextView.getTextSize())
+cache.setColor(style.fontColor == null ? color : Color.tmp.set(color).mul(style.fontColor))
+DEBUG
+one.setCoordinateIndex(LEAF)
+from("direct:start").multicast(new AggregationStrategy(){   public Exchange aggregate(  Exchange oldExchange,  Exchange newExchange){     if (oldExchange == null) {       return newExchange;     }     String body=oldExchange.getIn().getBody(String.class);     oldExchange.getIn().setBody(body + newExchange.getIn().getBody(String.class));     return oldExchange;   } } ).parallelProcessing().timeout(2000)
+failure != null
+matcher.matches()
+target.setField(0,val2)
+id < ForgeDirection.values().length
+LOG.trace("Terminating gRPC server")
+factory.createDataSource(p)
+service.getAllGtasksFromListId(DEFAULT_LIST,false)
+server.addBean(new ErrorHandler(){   @Override protected void handleErrorPage(  HttpServletRequest request,  Writer writer,  int code,  String message) throws IOException {     writer.write("<!DOCTYPE<html><head><title>Error</title></head><html><body>" + code + " - "+ HttpStatus.getMessage(code)+ "</body></html>");   } } )
+scheduler.scheduleRecurring(indexPopulation,countInvocationsJob,1,MILLISECONDS)
+holder.getListener().onCaptureSequenceCompleted(CameraDeviceImpl.this,requestId,lastFrameNumber)
+/**   * Returns an immutable  {@link Message} based on the fields that set in this builder.   */ public abstract T build(); 
+Task jarTask=addTaskBuildWSDLJar(buildWSDLTask,inputFile,compileTask,generateTask); 
+return _keyStoreResource; 
+id=15857
+DownloadIndexActivity.class
+Short.valueOf(value.toString())
+/**   * Pull transitive native deps in as fully linked standalone shared libraries.  This is typically the fastest build-time link strategy, as it requires no top-level context and therefore can shared build artifacts with all other binaries using this strategy.  */ SPEARATE
+assertThat(localInetAddress)
+findModule(name)
+cbWhitelistExtra1.isChecked()
+@Nullable FullPrunedBlockStore vUTXOProvider
+result.confirm()
+pathWrapper.setPoints(points)
+Utilities.LOG14535.info("creating new paths " + System.identityHashCode(fsp2) + " for "+ dirName+ ", childSpec "+ unionPath+ ": tmpPath "+ fsp2.getTmpPath()+ ", task path "+ fsp2.getTaskOutputTempPath(),new Exception())
+JMXEnabledThreadPoolExecutor.class
+getConcept() != null || getConcept().getName() != null
+private Object method; 
+new TBinaryProtocol(transport,false,false)
+new VariableInformation(10,"Total operation time compressor",NibeDataType.S32,Type.Sensor)
+meta.getDatabaseMeta().getSchemaTableCombination(environmentSubstitute(meta.getSchemaName()),environmentSubstitute(meta.getTableName()))
+T
+issuerBuilder.build()
+/**   * {@inheritDoc}  */ @Override public Object clone(){   IntegerProperty prop=(IntegerProperty)super.clone();   prop.value=value;   return prop; } 
+new EnterSelectionDialog(composite.getShell(),props,str,Messages.getString("System.Dialog.SelectEnvironmentVar.Title"),Messages.getString("System.Dialog.SelectEnvironmentVar.Message"))
+new IllegalArgumentException(JSON_BUILDER + "invalid element on the stack",e)
+args[i].charAt(0) == '-'
+id=46
+antClassLoaderClass.isInstance(loader)
+new JavaRecursiveElementWalkingVisitor(){   @Override public void visitDocComment(  PsiDocComment comment){   }   @Override public void visitJspFile(  JspFile file){   }   @Override public void visitMethod(  PsiMethod method){     final PsiModifierList modifierList=method.getModifierList();     if (modifierList.hasModifierProperty(PsiModifier.NATIVE)) {       problems.add(manager.createProblemDescriptor(modifierList,"Native methods aren't allowed in App Engine application",LocalQuickFix.EMPTY_ARRAY,ProblemHighlightType.GENERIC_ERROR_OR_WARNING));     }     super.visitMethod(method);   }   @Override public void visitNewExpression(  PsiNewExpression expression){     final PsiJavaCodeReferenceElement classReference=expression.getClassReference();     if (classReference != null) {       final PsiElement resolved=classReference.resolve();       if (resolved instanceof PsiClass) {         final String qualifiedName=((PsiClass)resolved).getQualifiedName();         if (qualifiedName != null && sdkManager.isMethodInBlacklist(qualifiedName,"new")) {           final String message="App Engine application should not create new instances of '" + qualifiedName + "' class";           problems.add(manager.createProblemDescriptor(classReference,message,LocalQuickFix.EMPTY_ARRAY,ProblemHighlightType.GENERIC_ERROR_OR_WARNING));         }       }     }     super.visitNewExpression(expression);   }   @Override public void visitMethodCallExpression(  PsiMethodCallExpression expression){     final PsiReferenceExpression methodExpression=expression.getMethodExpression();     final PsiElement element=methodExpression.resolve();     if (element instanceof PsiMethod) {       final PsiMethod method=(PsiMethod)element;       if (method.getModifierList().hasModifierProperty(PsiModifier.NATIVE)) {         problems.add(manager.createProblemDescriptor(methodExpression,"App Engine application should not call native methods",LocalQuickFix.EMPTY_ARRAY,ProblemHighlightType.GENERIC_ERROR_OR_WARNING));       }  else {         final PsiClass psiClass=method.getContainingClass();         if (psiClass != null) {           final String qualifiedName=psiClass.getQualifiedName();           final String methodName=method.getName();           if (qualifiedName != null && sdkManager.isMethodInBlacklist(qualifiedName,methodName)) {             final String message="AppEngine application should not call '" + StringUtil.getShortName(qualifiedName) + "."+ methodName+ "' method";             problems.add(manager.createProblemDescriptor(methodExpression,message,LocalQuickFix.EMPTY_ARRAY,ProblemHighlightType.GENERIC_ERROR_OR_WARNING));           }         }       }     }     super.visitMethodCallExpression(expression);   }   @Override public void visitReferenceElement(  PsiJavaCodeReferenceElement reference){     final PsiElement resolved=reference.resolve();     if (resolved instanceof PsiClass) {       final PsiFile psiFile=resolved.getContainingFile();       if (psiFile != null) {         final VirtualFile virtualFile=psiFile.getVirtualFile();         if (virtualFile != null && !fileIndex.isInSource(virtualFile)) {           final List<OrderEntry> list=fileIndex.getOrderEntriesForFile(virtualFile);           for (          OrderEntry entry : list) {             if (entry instanceof JdkOrderEntry) {               final String className=((PsiClass)resolved).getQualifiedName();               if (className != null && !sdkManager.isClassInWhiteList(className)) {                 problems.add(manager.createProblemDescriptor(reference,"Class '" + className + "' is not included in App Engine JRE White List",LocalQuickFix.EMPTY_ARRAY,ProblemHighlightType.GENERIC_ERROR_OR_WARNING));               }             }           }         }       }     }     super.visitReferenceElement(reference);   } } 
+assertThat(container.size()).isEqualTo(39)
+mgr.mergeSegments(cube,500,1500)
+new PluginInfo("_plugin","_plugin_desc","_plugin_version","_plugin_class",Collections.emptyList(),false,false)
+_buildTemplateWithMaven("activator","bar-activator","-DclassName=BarActivator")
+this.repos
+matcher.end()
+variable.getVariables()
+builder().experimentalBuildSettingApi(false).experimentalCcSkylarkApiEnabledPackages(ImmutableList.of()).experimentalEnableAndroidMigrationApis(false).experimentalEnableRepoMapping(false).experimentalRemapMainRepo(false).experimentalPlatformsApi(false).experimentalStarlarkConfigTransitions(false).incompatibleBzlDisallowLoadAfterStatement(false).incompatibleDepsetIsNotIterable(false).incompatibleDepsetUnion(false).incompatibleDisableDeprecatedAttrParams(false).incompatibleDisableObjcProviderResources(false).incompatibleDisallowConflictingProviders(true).incompatibleDisallowDataTransition(false).incompatibleDisallowDictPlus(false).incompatibleDisallowFileType(false).incompatibleDisallowLegacyJavaInfo(false).incompatibleDisallowLoadLabelsToCrossPackageBoundaries(false).incompatibleDisallowOldStyleArgsAdd(false).incompatibleDisallowSlashOperator(true).incompatibleExpandDirectories(false).incompatibleGenerateJavaCommonSourceJar(false).incompatibleNewActionsApi(false).incompatibleNoAttrLicense(false).incompatibleNoOutputAttrDefault(false).incompatibleNoSupportToolsInActionInputs(false).incompatibleNoTargetOutputGroup(false).incompatibleNoTransitiveLoads(false).incompatiblePackageNameIsAFunction(false)
+elementToHighlight == null
+new ByteBuddy(ClassFileVersion.JAVA_V8).subclass(Object.class).implement(Class.forName(DEFAULT_METHOD_INTERFACE)).implement(Class.forName(CONFLICTING_DEFAULT_METHOD_INTERFACE)).method(named("foo")).intercept(DefaultMethodCall.prioritize(Class.forName(DEFAULT_METHOD_INTERFACE))).make().load(getClass().getClassLoader(),ClassLoadingStrategy.Default.WRAPPER).getLoaded().getConstructor()
+err.jspError(start,"jsp.error.attribute.unterminated",watch)
+pathMap.substitute(path,true,null)
+fromRegistries(codecRegistry,fromProviders(provider))
+parts.length > 1
+tupleOrigin != null
+new Error("type=" + type)
+new IndexWriter(dir,new WhitespaceAnalyzer(),create)
+beanFactory.getBeanNamesForType(IntegrationMBeanExporter.class)
+Map<String,RPromise<? extends RRemoteServiceResponse>>
+DevKitBundle.message("inspections.component.not.registered.quickfix.family")
+ois.close()
+oriMenu.isVisible()
+column > 0L
+insertBeforeCursor(editor,context)
+case 3: 
+ClassHelper.make(type.getName())
+props.getBoolean("enable.quota.limiting",false)
+"none".equals(maxItems)
+original.getId() + 1
+targetType instanceof ModuleInducedTargetType
+this.mVelocityX
+logger.warn("Cannot handle control command ({})",e.getMessage())
+_securityHandler.getHandler() == null
+CookieDecoder.decode(aCookieHeader)
+Clock.setTime(2004,Calendar.DECEMBER,10,17,10,15)
+ResourceFilter.class
+++lineCount
+Rule.DEFAULT_WEIGHT * 1.4
+Arrays.asList("onContextStart","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onServiceAdd","onComponentAdd","onEndpointAdd","onComponentRemove","onContextStop")
+TreeUtil.nextLeaf(last)
+(dispatcherMapping & INCLUDE) > 0
+button.getName()
+new IgniteCheckedException("Failed to initialize cache store (data source is not provided).")
+f * w * h
+qryCfg != null
+ElementUtil.isWeakOuterType(element)
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class ListBasicLocalTest extends ListBasicTest {   @Override protected HazelcastInstance[] newInstances(  Config config){     return createHazelcastInstanceFactory(1).newInstances(config);   } } 
+RunnerApi.Trigger.newBuilder().setAfterEndOfWidow(RunnerApi.Trigger.AfterEndOfWindow.newBuilder().setEarlyFirings(subtrigger1).setLateFirings(subtrigger2))
+frameCount < 1
+new PoolBagEntry(null,pool)
+Collection<E>
+log.debug("Article " + title,es)
+Boolean.valueOf(optionsHelper.getOptionValue(OPTION_INCLUDE_CLIENT))
+JetTestUtils.assertAllTestsPresentByMetadata(this.getClass(),new File("idea/idea-completion/testData/handlers/basic/staticMembers"),Pattern.compile("^(.+)\\.kt$"),true)
+TokenSet.create(TEXT,TAG_NAME,MARKDOWN_LINK,MARKDOWN_ESCAPED_CHAR)
+generateRandomStringArray(20,10,false)
+mUserStates.get(i)
+returnType.getSort()
+CONNECTION_TIMEOUT=20000
+content.toHtml()
+MediaMmsMessageRecord mediaMessage=(MediaMmsMessageRecord)message; 
+timeUnit == null
+commit()
+activityManager.getMemoryClass()
+ArrayList<String[]>
+callback.onDownloadFailure()
+routes.BufferResource()
+DEFAULT_CAPACITY=4000
+cudnnSetConvolution2dDescriptor(cudnnContext.convDesc,pad[0],pad[1],strides[0],strides[1],1,1,CUDNN_CROSS_CORRELATION)
+fragment.getView() == null
+gradHidden3[nodeIndex]
+_buildTemplateWithGradle("npm-metaljs-portlet","metaljs-dependency-management","--dependency-management-enabled","true")
+sliceInput.length()
+setIcon(ic)
+net.getDefaultConfiguration()
+i > BY_DYE_DATA.length
+TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,10,a.getResources().getDisplayMetrics())
+Pattern.compile("(--?[a-zA-Z_]+)=(.*)")
+item(MITHRIL_PLATELEGS)
+endFunction("get_column_statistics_by_table: ",statsObj != null)
+i < 10000
+drawPath(g)
+versionNumber < BUKKIT_VERSION
+channel != null
+result.getException() != null
+dst.remaining()
+ServiceManager.addService(Context.DISPLAY_SERVICE,display)
+@Specialization protected Object fromDouble(double value,@SuppressWarnings("unused") LLVMInteropType.Structured type){   return new LLVMBoxedPrimitive(value); } 
+PortletPreferencesFactoryUtil.fromXML(0,ownerId,ownerType,preferences)
+graph.add(new FloatingReadNode(klassNode,location,null,stamp))
+DEFAULT_TIMEOUT_MILLIS=100
+NATCommand.check(externalAddress,InetAddress.getByName(ipv6Str))
+DexFile.getDexOptNeeded(path,isa,compilerFilter,newProfile)
+logger.info(String.format("emitting event %s",args))
+insertComponentImpl(newPublicProjectDto(organizationDto),true,dtoPopulators)
+Boolean.valueOf(getOptional("kylin.query.convert-create-table-to-with","false"))
+this.getString(R.string.shared_string_release).toLowercase()
+mPrivateInput == null
+Log.error(e)
+new WorkerConnector(connName,connector,ctx,lifecycleListener)
+!uploadResult.isCancelled() && !ResultCode.LOCAL_FILE_NOT_FOUND.equals(uploadResult.getCode()) && !uploadResult.getCode().equals(ResultCode.DELAYED_FOR_WIFI)&& !uploadResult.getCode().equals(ResultCode.DELAYED_FOR_CHARGING)
+Integer.valueOf(displayIdStr)
+getUserStateLocked(callingUid)
+c.getLiquid().amount != 0
+targetPositionUs > mediaPlaylist.getEndTimeUs()
+sentence.getTokens()
+T
+slash < 0
+configureTemplateDescriptionAndIcon(template,iconUrl)
+sqle.getErrorCode()
+"com.google.android.talk".equals(callingPackage) || "com.google.android.quicksearchbox".equals(callingPackage)
+mapExprStmt(node)
+final Object firstLineKey=lines.firstKey(); 
+platformJars.contains(classfile)
+new ToggleAutoTestAction()
+SVNURL.parseURIDecoded(myUrl)
+/**   * Returns the next pseudorandom  {@link ArrayValue} of period elements.<p> The length of arrays will be governed by  {@link Configuration#arrayMinLength()} and{@link Configuration#arrayMaxLength()}  * @return the next pseudorandom {@link ArrayValue} of period elements.  */ private ArrayValue nextPeriodArray(){   return Values.durationArray(nextPeriodArrayRaw(minArray(),maxArray())); } 
+mNwService.setInterfaceConfig(mInterfaceName,ifcg)
+commandLineArguments.isLocal()
+assertEquals(1695,res.getWeight(1,2),5)
+clusterType == Unknown
+learnRate=1.0
+@GUIMenuSortOrder(4)
+externalChargeItem.getPlanName()
+new Object[lines.size()][18]
+Messages.OK == result
+data.limit()
+old + 33
+x=1
+new JavaPropertyDescriptor(getContainingDeclaration(),getAnnotations(),getVisibility(),isVar(),getName(),getSource())
+etp.setText(etp.getText())
+ShrinkWrap.create(WebArchive.class).addClass(BatchTestHelper.class).addClass(MyInputRecord.class).addClass(MyItemProcessor.class).addClass(MyItemReader.class).addClass(MyItemWriter.class).addClass(MyOutputRecord.class).addAsWebInfResource(EmptyAsset.INSTANCE,ArchivePaths.create("beans.xml")).addAsManifestResource("META-INF/batch-jobs/myJob.xml","batch-jobs/myJob.xml")
+collection(StreamImpl.class).update(match,modify)
+mockRequest.setHeader("Authorization","bearer " + TGT_ID)
+new InvokedMethod(tr.getTestClass(),tr.getMethod(),new Object[0],true,false,tr.getStartMillis())
+new OnDemandJobScheduler()
+FileUtils.cleanDirectory(localRepoDir)
+assertFalse(Jodd.isModuleLoaded(PETITE))
+NoClassDefFoundError e
+/**   * @author Vitaliy.Bibaev  */ public interface TerminatorStreamCall extends StreamCall, TypeBeforeAwareCall {   @NotNull GenericType getResultType(); } 
+V
+16 << 10
+myPriorityRange.contains(info)
+logger.debug("Removing: {}",r)
+visitedArtifacts.select(Specs.satisfyAll(),transformer.getFromAttributes(),element -> {   return dependencies.contains(element); } ,true)
+terms.facetFilter(standardFilters(range,filter))
+constr.gridy=1
+reBoxg.setMaterial(matRock)
+method != null
+Calendar.getInstance()
+assertCompletionVariants(myProjectPom,"test","org.apache.maven.plugins","org.codehaus.mojo")
+contact.getDefaultContact().getPresenceStatus().getStatus() > PresenceStatus.ONLINE_THRESHOLD
+assertEquals(input.getFieldCount(),3)
+new PrestoException(INVALID_CAST_ARGUMENT,e)
+mEncoder.swithToSoftEncoder()
+new Converter()
+Arrays.asList(CoreAnnotations.TextAnnotation.class,CoreAnnotations.TokensAnnotation.class,CoreAnnotations.SentencesAnnotation.class,CoreAnnotations.CharacterOffsetBeginAnnotation.class,CoreAnnotations.CharacterOffsetEndAnnotation.class,CoreAnnotations.BeforeAnnotation.class,CoreAnnotations.AfterAnnotation.class,CoreAnnotations.TokenBeginAnnotation.class,CoreAnnotations.TokenEndAnnotation.class,CoreAnnotations.IndexAnnotation.class,CoreAnnotations.OriginalTextAnnotation.class,CoreAnnotations.SentenceIndexAnnotation.class,CoreAnnotations.IsNewlineAnnotation.class)
+public class PushOrPullPreventingBuildCacheServiceDecorator extends ForwardingRoleAwareBuildCacheService {   private static final Logger LOGGER=LoggerFactory.getLogger(PushOrPullPreventingBuildCacheServiceDecorator.class);   private final RoleAwareBuildCacheService delegate;   private final boolean pushDisabled;   private final boolean pullDisabled;   public PushOrPullPreventingBuildCacheServiceDecorator(  boolean pushDisabled,  boolean pullDisabled,  RoleAwareBuildCacheService delegate){     this.delegate=delegate;     this.pushDisabled=pushDisabled;     this.pullDisabled=pullDisabled;   }   @Override protected RoleAwareBuildCacheService delegate(){     return delegate;   }   @Override public boolean load(  BuildCacheKey key,  BuildCacheEntryReader reader) throws BuildCacheException {     if (pullDisabled) {       LOGGER.debug("Not loading entry {} because pulling from {} build cache is disabled for the build",key,getRole());       return false;     }     return super.load(key,reader);   }   @Override public void store(  BuildCacheKey key,  BuildCacheEntryWriter writer) throws BuildCacheException {     if (pushDisabled) {       LOGGER.debug("Not storing entry {} because pushing to {} build cache is disabled for the build",key,getRole());     }  else {       super.store(key,writer);     }   } } 
+new IndexShardRoutingTable.Builder(new ShardId(indexName,0),false)
+getParents(directory,owner).first(dir -> Comparing.equal(element,dir))
+new JBList(){   int lastKnownHeight=JBUI.scale(30);   @Override public Dimension getPreferredSize(){     final Dimension size=super.getPreferredSize();     if (size.height == -1) {       size.height=lastKnownHeight;     }  else {       lastKnownHeight=size.height;     }     return new Dimension(Math.max(myBalloon.getSize().width,Math.min(size.width - 2,POPUP_MAX_WIDTH)),myList.isEmpty() ? JBUI.scale(30) : size.height);   }   @Override public void clearSelection(){   }   @Override public Object getSelectedValue(){     try {       return super.getSelectedValue();     }  catch (    Exception e) {       return null;     }   } } 
+input.get(b,off,len)
+DomainSocket.validateSocketPathSecurity0("/foo",0)
+customerResourceLocator(url)
+String.format("Cannot resolve placeholder '%s' in value '%s'",placeholder,replacement)
+theCancelButton.setLabel(BaseMessages.getString(getClass(),"DatabaseExplorer.Button.Ok"))
+tableMetadataBuilder(TPCH_SCHEMA_NAME,TPCH_ORDERS_NAME).column("orderkey",LONG).column("custkey",LONG).column("orderstatus",STRING).column("totalprice",DOUBLE).column("orderdate",STRING).column("orderpriority",STRING).column("clerk",STRING).column("shippriority",STRING)
+ver.isPreRelease()
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class ConditionBasicLocalTest extends ConditionBasicTest {   @Override protected HazelcastInstance[] newInstances(){     return createHazelcastInstanceFactory(1).newInstances();   } } 
+page.getMembersByIdx(1).manageGroupsOpen().manageGroupsSelect("owners").manageGroupsSave().shouldHaveGroups(1)
+(Long)o
+LOGGER.warn(msg.apply())
+getRequestMethod == null
+Assert.assertEquals(e.getCause().getMessage(),getNotAllowedExceptionMessage("hello"))
+Extensions.getExtensions(MODULE_CONFIGURABLES)
+Executors.newCachedThreadPool()
+((SuperColumn)c).cloneMeShallow()
+OptionalIdentifiedType<Type>
+b.append(x)
+dest.writeArray(serviceUuds)
+simple.getFromSentDate()
+stts.readUnsignedIntToInt()
+modelActionsGroup.add(new CommitUsingExecutorAction(executor))
+Simple.of(SkylarkNestedSet.class)
+analysis.getType(windowFunction)
+old + 25
+new LayerView(this,0xff0000ff)
+Simple.of(Boolean.class)
+new Configuration(inputParam,m7zipPath)
+analysis.getTypeWithCoercions(aggregate)
+mDark && mPulsing ? 0.5f : 1
+Packet packet
+accountService.withdrawBitstampFunds(Currency.BTC,new BigDecimal(1).movePointLeft(4),"1PxYUsgKdw75sdLmM7HYP2p74LEq3mxM6L")
+signature != null
+StateManagementUtils.createEndForkedExecutionMojoBinding()
+addViewInLayout(view,index++,ensureLayoutParams(view.getLayoutParams()),true)
+config.getInputShipStrategy(0)
+new SliceReadCommand(table,key,columnFamily,start,count)
+t instanceof EntityExistsException
+{CUSTOM_STUDY_NEW,CUSTOM_STUDY_REV,DECK_OPTIONS,CONTEXT_MENU_STANDARD}
+editor.waitCursorPosition(23,5)
+{(byte)this.getNode().getNodeId(),3,(byte)getCommandClass().getKey(),(byte)SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE}
+res.startsWith("android")
+rats.setConfig(editConfig.getText())
+final String accountExternalKey
+new DartUnitMemberGroupingRule()
+chain.resolveResource(exchange,requestPath,locations).otherwiseIfEmpty(Mono.defer(() -> {   String webJarsResourcePath=findWebJarResourcePath(requestPath);   if (webJarsResourcePath != null) {     return chain.resolveResource(exchange,webJarsResourcePath,locations);   }  else {     return Mono.empty();   } } ))
+button == MouseEvent.RELEASE
+parts.length < 1
+name.equals("getNetworkOperator")
+mReadOwners != null
+serialVersionUID=1506754456
+public TokenStream create(Reader input){   return new EdgeNGramTokenizer(input,side,minGramSize,maxGramSize); } 
+assertTrue(jmsTemplate.isPubSubDomain())
+LOG.error("register druid-driver mbean error",ex)
+testSame("asdf;","var asdf;",VarCheck.NAME_REFERENCE_IN_EXTERNS_ERROR,true)
+session.save(model)
+url.appendPath(branchRelativeUrl,true)
+enter && hasWindowFocus() && isFocused()
+DependencyFilterUtils.classpathFilter(JavaScopes.COMPILE)
+setX((mWidth > 0) ? (mPosition * mWidth) : 0)
+objectManager.markUnusedObject(this)
+resourceList == null
+BuildNumber.fallback()
+id.errorIfMissing()
+context.currentProcessingTime()
+mMipmap=false
+balloon.getShadowBorderSize()
+this.getChildCount() > 1
+originalLanguage != null
+Mockito.doNothing().when(mFileSystemMasterClient).mount(alluxioPath,ufsPath)
+JetTestUtils.navigationMetadata("idea/idea-completion/testData/basic/common/QualifiedSuperMembers.kt")
+i < 500
+new RuntimeException(e)
+Arrays.asList("dn1","dn2","dn3","dn4","dn5","dn6")
+i == 0 && (post.blog.isFullSizeImage() == false && !post.blog.isScaledImage())
+imageUrl.length() >= MAX_FILE_NAME_LENGTH
+configList.size() == 0
+return uniqueRevision; 
+mService == null
+PermissionUtils.isLocationPermissionGranted(this)
+flds.length()
+env.getDirectories().getExecRoot()
+this.setAutoCommitOnClose(false)
+Boolean.valueOf(context.getInitParameter(VALIDATE))
+assertThat(cli.getErrorOutput().length(),equalTo(0))
+new EnterSelectionDialog(shell,props,Condition.getRealOperators(),"Operator","Select the operator:")
+random.nextInt(gap)
+assertCompletionVariants(myProjectPom,"2.0.2")
+position.getFixTime().compareTo(lastPosition.getFixTime()) > 0
+OpenmrsProfileWithoutTest1Module bean=applicationContext.getBean(OpenmrsProfileWithoutTest1Module.class); 
+components.symbolUsageValidator.validateCall(setter,trace,reportOn)
+new DisappearAnimationUtils(context,125,1.2f,0.8f,AnimationUtils.loadInterpolator(mContext,android.R.interpolator.fast_out_linear_in))
+assertTrue(constraints.isEmpty())
+lowerCaseLine.contains("authentication failed") || lowerCaseLine.contains("403 forbidden") || lowerCaseLine.contains("error: 400")
+myFirstComponent.getPreferredSize()
+new ToolbarActionBar(actionBar)
+new EnterSelectionDialog(shell,props,files,"Files read","Files read:")
+off >= buf.length
+new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Error Instantiating " + msg + ", "+ className+ " is not a "+ cast.getName(),false)
+this.route(request).map(RouterFunctions::cast).otherwiseIfEmpty(Mono.defer(() -> other.route(request).map(RouterFunctions::cast)))
+webRequest.getNativeRequest(HttpServletResponse.class)
+logger.error("InterruptedException during playing a notification sound")
+compression.compressor == null
+assertEquals(1,tree.getSelectionCount())
+!PortalUtil.isLayoutFirstPageable(type)
+logger.info("--> checking that _current returns the currently running snapshot",blockedNode)
+labels.slices()
+/**   * Frequency in milliseconds that the consumer offsets are auto-committed to Kafka if 'enable.auto.commit' true.  */ private Long autoCommitInterval; 
+/**   * The lower value in the range.  * @return the lower value in the range.  */ Comparable getFrom(); 
+getRawFieldBlock(i).getSizeInBytes()
+new DTree(_train,_ncols,(char)_nclass,_mtry,_mtry_per_tree,rseed,_parms)
+assertThat(response.content()).contains("\"Compute Engine Database Connection\":","\"Compute Engine State\":","\"Compute Engine Tasks\":","\"Elasticsearch\":","\"State\":\"GREEN\"","\"Elasticsearch State\"")
+"Invalid modules directory: " + modulesDir
+return 1; 
+String.format("Time taken: %02d:%02d:%02d.%03d",hours,minutes,seconds,milliseconds)
+Class.forName(serializerConfigClassname,true,userCodeClassLoader)
+n.getCharno()
+fileObject.hasExt("zip")
+ENABLE_LAUNCH_DESK_DOCK_APP=false
+mono.otherwiseIfEmpty(Mono.error(getRequiredBodyError(bodyParameter)))
+public final class Compare extends Value {   private static final int INPUT_COUNT=2;   private static final int INPUT_X=0;   private static final int INPUT_Y=1;   private static final int SUCCESSOR_COUNT=0;   @Override protected int inputCount(){     return super.inputCount() + INPUT_COUNT;   }   @Override protected int successorCount(){     return super.successorCount() + SUCCESSOR_COUNT;   }   /**   * The instruction that produces the first input to this comparison.  */   public Value x(){     return (Value)inputs().get(super.inputCount() + INPUT_X);   }   public Value setX(  Value n){     return (Value)inputs().set(super.inputCount() + INPUT_X,n);   }   /**   * The instruction that produces the second input to this comparison.  */   public Value y(){     return (Value)inputs().get(super.inputCount() + INPUT_Y);   }   public Value setY(  Value n){     return (Value)inputs().set(super.inputCount() + INPUT_Y,n);   }   Condition condition;   boolean unorderedIsTrue;   /**   * Constructs a new If instruction.  * @param x the instruction producing the first input to the instruction  * @param condition the condition (comparison operation)  * @param y the instruction that produces the second input to this instruction  * @param graph  */   public Compare(  Value x,  Condition condition,  Value y,  Graph graph){     super(CiKind.Illegal,INPUT_COUNT,SUCCESSOR_COUNT,graph);     assert (x == null && y == null) || Util.archKindsEqual(x,y);     this.condition=condition;     setX(x);     setY(y);   }   /**   * Gets the condition (comparison operation) for this instruction.  * @return the condition  */   public Condition condition(){     return condition;   }   /**   * Checks whether unordered inputs mean true or false.  * @return {@code true} if unordered inputs produce true  */   public boolean unorderedIsTrue(){     return unorderedIsTrue;   }   /**   * Swaps the operands to this if and reverses the condition (e.g. > goes to <=).  * @see Condition#mirror()  */   public void swapOperands(){     condition=condition.mirror();     Value t=x();     setX(y());     setY(t);   }   @Override public void accept(  ValueVisitor v){   }   @Override public void print(  LogStream out){     out.print("comp ").print(x()).print(' ').print(condition().operator).print(' ').print(y());   }   @Override public String shortName(){     return "Comp " + condition.operator;   }   @Override public Node copy(  Graph into){     Compare x=new Compare(null,condition,null,into);     x.unorderedIsTrue=unorderedIsTrue;     return x;   } } 
+Iterable<Symbol>
+exchange.addRequestHeader("Authorization",_basicAuth)
+onPackageAppeared(pkgList[i],PACKAGE_TEMPORARY_CHANGE)
+ImmutableList<Class<?>>
+telephony.iccTransmitApduBasicChannel(subId,cla,instruction,p1,p2,p3,data)
+javaLibsByFile.containsKey(javaLibrary)
+headerFilterStrategy.applyFilterToCamelHeaders(entry.getKey(),entry.getValue(),camelExchange)
+!mRequestFilterKeyEvents
+POSITVE_Y(2)
+xOff=3
+minLearningRate=0.01
+classFilter.getAcceptedIDs()
+findClass
+fragmentCollectionPersistence.filterFindByG_LikeN(groupId,_customSQL.keywords(name,WildcardMode.SURROUND)[0],start,end,orderByComparator)
+new ContentDescription(ContentType.SERVICE_JOINED,"",0,true)
+callback.onUploadFailure()
+new InstrumentationSpec(FileTypeSet.of(JavaSemantics.JAVA_SOURCE)).withSourceAttributes("srcs").withDependencyAttributes("deps","data","exports","runtime_deps")
+!canChangeRole
+new AngularUiRouterEdge(node,templateNode)
+rcvdBytesCnt.intValue()
+new RuntimeException()
+validateTree()
+new EmptyBorder(0,2,0,4)
+shardRouting.recoverySource()
+new Error(name)
+Sets.newLinkedHashSet()
+new GroupTest(false)
+members.size() > 1
+OPTION=29
+pt.isReference()
+PVP_BBOUNTY_HUNTER_INFO(WidgetID.PVP_GROUP_ID,WidgetID.Pvp.BOUNTY_HUNTER_INFO)
+Registry.is("ide.hide.excluded.files")
+logger.error(log)
+-120
+getParser().parse(args)
+withModifiers(SynchronizationState.PLAIN)
+StringUtils.isEmpty(obj.getAud())
+versionString(VersionedValue.STATUS_LEFT,Long.toString(expireTime),makeTokenString(tokens))
+serialVersionUID=273958484
+context.getPackageManager().queryIntentActivities(intent,0)
+random.propertyValue()
+packFileName.substring(packFileName.length() - settings.atlasExtension.length())
+fileAccess.updateFile(new Runnable(){   public void run(){     cache.close();   } } )
+assertCompletionVariants(myProjectPom)
+/**   * {@inheritDoc}   */ @Nullable @Override public GridDrPause drPauseState(){   checkDrEnabled();   return ctx.dr().drPauseState(); } 
+!resource.getAtmosphereResourceEvent().isClosedByApplication() && !resource.isCancelled()
+node.getTreeParent() != null
+new LiferayLocalRepository(repositoryId)
+TypeConversionUtil.boxingConversionApplicable(declaredParamType,actualArgType)
+id=15833
+idAnnotation != null
+format("max-age=%s",18_000)
+-frustumNear
+-1175322192
+remainderOfKey.indexOf('.') > -1
+FiltersTopComponent.findInstance().getUiModel().getSelectedQuery()
+LOG.info(brokerService.getBrokerName() + ", no longer able to keep the exclusive lock so giving up being a master")
+GridTestUtils.getFieldValue(grid(j).cachex(DATA_CACHE_NAME),"ctx")
+avatar.init(Screen.dp(56),24)
+new ProtoFile("descriptor.proto",null,NO_STRINGS,NO_STRINGS,Arrays.<Type>asList(messageType),NO_SERVICES,map(),NO_EXTEND_DECLARATIONs)
+getPath(tFile).startsWith(MASTER_CONF.TEMPORARY_FOLDER)
+Assert.assertEquals(21,balances.size())
+TfsShell.convertMsToDate(files[2].getCreationTimeMs())
+MAX_TOOLTIP_WIDTH=300
+2 < buf.length - count
+layoutTypePortlet.getPortlets()
+for (AnnotationInstance annotation : excludeDefaultAnnotations) {   final AnnotationTarget target=annotation.target();   if (target instanceof MethodInfo) {     final MethodInfo methodInfo=MethodInfo.class.cast(target);     final MethodIdentifier methodIdentifier=methodIdentifierFromMethodInfo(methodInfo);     componentConfiguration.excludeClassInterceptors(methodIdentifier);   }  else {     throw new DeploymentUnitProcessingException("ExcludeClassInterceptors not applied to method: " + target);   } } 
+assertEquals("Size of " + r,0,r.size())
+Messages.getString(key,param1,param2)
+Status.constructStatuses(get(getBaseURL() + "statuses/retweeted_by_me.json",null,true))
+ApplicationManager.getApplication().invokeLater(new Runnable(){   public void run(){     updateAllEditors();   } } )
+resolutionStrategy.resolveGraphToDetermineTaskDependencies()
+toTypeID != null
+mPtr != 0l
+sa.getInt(com.android.internal.R.styleable.PreferenceHeader_id,(int)HEADER_ID_UNDEFINED)
+BeanFactoryUtils.beanOfType(context.getParent(),ConfigClientProperties.class)
+new PseudoDescription().load()
+v.executeBlocking(fut -> {   try {     v.simulateKill();     fut.complete();   }  catch (  Exception e) {     fut.fail(e);   } } ,ar -> {   if (!ar.succeeded()) {     fail(ar.cause());   } } )
+nextInt(random,0x80,0x800)
+mService.publish(clientId,publishConfig,new WifiAwareDiscoverySessionCallbackProxy(this,looper,true,callback,clientId))
+"Error: Access with origin " + referrer + " denied."
+/**   * {@inheritDoc}   */ @Override public Object clone(){   MapProperty prop=(MapProperty)super.clone();   prop.value=cloneMap();   return prop; } 
+maxWidth == 0
+Values.UPGRADE.equalsIgnoreCase(connection)
+StringUtil.join(modules,new Function<Module,String>(){   @Override public String fun(  Module module){     return module.getName();   } } ,", ")
+SinglePartitionReadCommand.create(command.isForThrift(),command.metadata(),command.nowInSec(),command.columnFilter(),command.rowFilter(),command.limits().forShortReadRetry(toQuery),partitionKey,filter)
+LOG.fatal("Cannot run ThriftServer")
+doTestDefaultParser(true)
+assertEquals(302,t.request().get().getStatus())
+new SpoonBrowser(cTabFolder,spoon,urlString,isURL,false,listener)
+new EnterSelectionDialog(shell,props,Condition.functions,"Functions","Select the function:")
+log.warn("Testing warn(msg,null)",null)
+taskRabbitTask.getLocalTaskData() != null
+new PebbleMorpheuzSample(recording_base_timestamp + index * 600,userId,deviceId,intensity)
+DEFAULT_ADDRESS_BBOX_RADIUS * 10
+new NullPointerException("'font' cannot be null.")
+UNSIGNED_BYTE_MAX_VALUE=256
+logger.warn("Couldn't get interpreter editor setting")
+public DerivedBuilder setRealmScheme(Realm.AuthScheme scheme){   realm().setScheme(scheme);   return this; } 
+Observable.timer(0,1,TimeUnit.SECONDS)
+GlobFileFilter globFileFilter; 
+Database.builder()
+ret == null
+isEmpty(aggregate.getPrincipals())
+mExpandedDialog != null
+!basicFieldMetadata.getForcePopulateChildProperties()
+componentSystems.hasNext()
+checkNotNull(jobName,"The data sink must not be null.")
+"select actionId from ResourceAction where name = '" + oldName + "'"
+return 1; 
+CancelledKeyException e
+block == null
+rs.getLong(1)
+input.slices()
+HttpConnectionParams.setConnectionTimeout(httpParams,socketTimout)
+SECOND_FLOOR != null
+paused.set(false)
+bound.equals(psiClass2)
+(OrderAttribute)obj
+new RuntimeConfigurationError("No nosetest runner found in selected interpreter")
+model.getVisibleColumn(cell.col)
+assertEquals(5,AccessControlClient.getUserPermissions(systemUserConnection,TEST_TABLE.toString()).size())
+assertEquals(actual,expected)
+buffer.getInt8()
+new StringBuilder(639)
+assertEquals(6,beanCount)
+super.writeState(element)
+frustumNear
+header.writeBytes(mask)
+image.getRGB(i,j)
+mFs.mkdirs(new Path(path),null)
+!isDirectPickup(block,blockDamageModifierComponent) && !inventoryManager.giveItem(event.getInstigator(),item)
+new FileMetadataSnapshot(FileType.RegularFile,bfa.lastModifiedTime().toMillis(),bfa.size())
+packageManager.getApplicationInfo(packageName,0)
+FilterBuilders.missingFilter(RuleDocument.FIELD_CHARACTERISTIC_KEY)
+new File(EXPORT_DIR).mkdir()
+new IllegalStateException()
+JAVADOC(OrderRootType.DOCUMENTATION)
+getJndiString(JNDI_JMX_PASSWORD)
+-1
+part != null
+boxedConstant.getKind()
+ENABLE_KERNEL_UPDATES=false
+row == null
+runnable.getResult() != null
+win.mRemoved || !win.mHasSurface
+Timber.e("Creating PROGRESS_DIALOG")
+keyboardFocusManager.removePropertyChangeListener(focusListener)
+edge.setType(EdgeDirection.DIRECTED)
+JetTestUtils.navigationMetadata("idea/idea-completion/testData/basic/common/staticMembers/JavaStaticMethodsNoDuplicatesFromBases.kt")
+getI18NString(key,locale)
+checkExpressionIsAssignableToType(expr,type,problemKey,allowChangeVariableTypeFix ? p : null)
+"Port '" + timeoutSeconds + "' is illegal. Port should not be less than 0"
+twoNewMessages.await(60,TimeUnit.SECONDS)
+telephony.getLteOnCdmaModeForSubscriber(subId)
+dyn.remove("delays")
+TestType_Table.nativeBoolean.isNull()
+tests.add(objectExpressionType.getGenericsTypes()[0].getType())
+StringUtil.in(name,"base","basefont","bgsound","command","link","meta","noframes","style","title")
+new Rect(20,0,20,0)
+DEBUG=false
+UastUtils.isChildOf(((UBinaryExpression)parent).getRightOperand(),expression,false)
+windowedInputCoder instanceof KvCoder
+startNode != null
+CharSequence viewIdResName
+name.equals("getNetworkCountryIso")
+_dlGroupServiceSettings != null
+Dagger_AutoFactoryProcessorComponent.builder()
+4 * 12
+ERROR_MARGIN=10
+DiagnosticType.disabled("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+ConstantLocationNode.create(FINAL_LOCATION,Kind.Int,runtime.getConfig().arrayLengthOffset,g)
+Iterable<Boolean>
+settings.ROUTER_SERVICE.get()
+c.dataFlowInfo.getStableTypes(dataFlowValue)
+referenceDatabase.setObjectQuotingStrategy(ObjectQuotingStrategy.QUOTE_ALL_OBJECTS)
+Integer.toHexString(quality)
+setDefault.isPrivate()
+g.tool.errMgr.grammarError(ErrorType.EMPTY_STRINGS_AND_SETS_NOT_ALLOWED,g.fileName,tree.token)
+REGISTER_BG_SETTINGS=true
+types == null
+assertNumMessagesInQueue("Should be rolled back",connection,dlq,1,1000)
+filter.selectSubTypesToAccept(poiCategory,null)
+new WriteCommandAction(project,null){   protected void run(  final Result result) throws Throwable {     renameClass.run();   } } 
+Math.min(maxSize,layoutParams.height)
+UURIFactory.getInstance(attrValue)
+resources.getResource(path)
+List<Module>
+prep.setBinaryStream(2,new ByteArrayInputStream(buff))
+Assert.assertEquals(last,next)
+telephony.getMergedSubscriberIds()
+mock.expectedMessageCount(2)
+new boolean[nrfields]
+AdviceWithTasks.beforeByToString(route,toString,answer,selectLast,selectFirst,selectFrom,selectTo,maxDeep)
+mBlockStream.remaining()
+args != null
+value | 0xff
+new CrypticClue("A great view - watch the rapidly drying hides get splashed. Check the box you are sitting on.",NULL_1838,new WorldPoint(2523,3493,1),"Almera's House north of Baxtorian Falls, search boxes on the 2nd floor.")
+((IEnergyHandler)source).extractEnergy(o.getOpposite(),energyExtracted,true)
+fraction * (nextValue - prevValue)
+Observable.just(activityFeedButton,currentUserButton,filterExpandMoreButton,filterTextView,loginButton)
+null != entity
+id=20
+@Override public ResponseImpl headers(Map<String,Property> headers){   this.headers=headers;   return this; } 
+checkManageUsersPermission("setupRestrictedProfile")
+c == '['
+AbilityRegistryProxy.setAsRecoverable(itemStack)
+bungee.getTranslation("outdated_server")
+serialVersionUID=71390418
+theiaProjectTree.waitOpenWorkspaceButton()
+mButton != null
+PortletFileRepositoryUtil.addPortletFileEntry(serviceContext.getScopeGroupId(),userId,KBArticle.class.getName(),kbArticle.getClassPK(),PortletKeys.KNOWLEDGE_BASE_ARTICLE,kbArticle.getAttachmentsFolderId(),inputStream,shortFileName,mimeType)
+createUrl(Url.removeTail(url.toDecodedString()))
+StringBuilder content=new StringBuilder(""); 
+pendingElements.size() > 0
+Condition<CommitId>
+docDisplay_.getFileType().isRmd()
+new ConstructingObjectParser<>("realm_info",a -> new RealmInfo((String)a[0],(String)a[1]))
+case T_DOUBLE_DENSE: 
+Integer.compare(o2.order(),o1.order())
+this.applicationContext.register(RootConfig.class,PropertyPlaceholderAutoConfiguration.class,ManagementServerPropertiesAutoConfiguration.class,ServerPropertiesAutoConfiguration.class,EmbeddedServletContainerAutoConfiguration.class,DispatcherServletAutoConfiguration.class,WebMvcAutoConfiguration.class,EndpointWebMvcAutoConfiguration.class)
+DescriptorUtils.getParentOfType(from,ClassDescriptor.class)
+constraintCache.getObject(monitor,schema,null)
+id=33
+super(name,false,new DebugValue(name + "_Flat",true){   @Override public String toString(  long value){     return valueToString(value);   } } ); 
+BookmarksServiceUpgrade.class
+MoreObjects.toStringHelper(this).add("user",getUser()).add("timeZoneKey",timeZoneKey).add("locale",locale).add("startTime",startTime).add("properties",properties)
+prefs.getBoolean("show_system",true)
+doTestWrapMethod(false)
+getDatabase().updateWithOnConflict(table,values,whereClause,whereArgs,SQLiteDatabase.CONFLICT_FAIL)
+this.applicationContext.register(RootConfig.class,DifferentPortConfig.class,PropertyPlaceholderAutoConfiguration.class,EmbeddedServletContainerAutoConfiguration.class,DispatcherServletAutoConfiguration.class,WebMvcAutoConfiguration.class,ManagementServerPropertiesAutoConfiguration.class,EndpointWebMvcAutoConfiguration.class)
+logger.error(String.format("fail to get start offset partitionId: %d, target timestamp: %d",idx,targetTimestamp))
+treeWalk.release()
+(visibility & VISIBILITY_MASK) == VISIBLE
+resources.size() <= maxSuspendResource.get()
+AppLog.e(T.EDITOR,cm.message() + " -- From line " + cm.lineNumber()+ " of "+ cm.sourceId())
+offset=e.startOffset
+indexOf(source,ch,fromIndex)
+dispatchUpdatePluginAction()
+new NetAddress(resolvedHost,resolvedPort,-1)
+new StreamWriterExecOutputHandle(outputStream)
+testNonexistentJarReferences(_netBeansJars,_NETBEANS_XML_FILE_NAME)
+annotationHolder.createErrorAnnotation(expression,message)
+setupExceptions != null
+logger.warn("Cannot add to group ({})",e.getMessage())
+THREADS_PER_CLIENT=8
+!handler.isDifferent(existing)
+AnnotationDescription.Loadable<Annotation>
+@Override public Content detach(){   throw ImmutableElement.immutableError(this); } 
+_buildTemplateWithGradle("service-wrapper","wrapper-dependency-management","--service","com.liferay.portal.kernel.service.UserLocalServiceWrapper","--dependency-management-enabled","true")
+!sender.isPlayer() && !onlinePlayer.getName().equalsIgnoreCase(sender.getPlayer().getName())
+awaitBusy(() -> ALLOWED_OPERATIONS.hasQueuedThreads() && ALLOWED_OPERATIONS.availablePermits() == 0)
+parent != root
+saveStatusLabel != null
+new RuntimeException(e)
+ARCHIEVE
+config != null
+from.getCanonicalPath()
+endTime > startTime
+Assert.assertEquals(e.getCause().getMessage(),getNotAllowedExceptionMessage("helloForNone"))
+i < maxListFill
+result.getReceipt().getEnergyUsageTotal()
+sm.getString("cache.addFail")
+new JpsMavenRepositoryLibraryDescriptor(groupId,artifactId,version)
+TestReadStripedFileWithMissingBlocks.class
+DECK_VERSION=64
+synchronized (this) {   updateDisplayLocked(); } 
+@Override public DBSObject getParentObject(){   return table; } 
+DefaultAsyncHttpClientConfig.class
+text.charAt(current) == '\n'
+error == FingerprintManager.FINGERPRINT_ERROR_USER_CANCELED
+GL20.glUniformMatrix2(location,transpose,toFloatBuffer(value,offset,count << 2))
+statistics.addRemoveTimeNano(System.nanoTime() - start)
+resId == R.string.local_index_unselect_gpx_file
+parser.getName().equals("body") || parser.getDepth() <= depth
+FormatUtils.toString(center.getDate(),false)
+query.rules().toArray(new String[0])
+DataStream<OUT>
+selectedIndicatorHeight != 0
+dlFileVersion.getVersion().equals(DLFileEntryConstants.VERSION_DEFAULT)
+@Input(InputType.Association) LoopBeginNode loopBegin; 
+refresh()
+service.getType()
+{16,inputShape[0],inputShape[1],inputShape[2]}
+@Test public void ioExceptionWhenReaderThrowsIt() throws IOException {   final IOException ioEx=new IOException();   Reader reader=new Reader(){     @Override public int read(    char[] cbuf,    int off,    int len) throws IOException {       throw ioEx;     }     @Override public void close() throws IOException {     }   } ;   Source.Builder<IOException,RuntimeException,RuntimeException> builder=Source.newBuilder(reader).name("unloadable.txt").mimeType("text/plain");   Source s1=null;   try {     s1=builder.build();   }  catch (  IOException e) {     Assert.assertSame(ioEx,e);     return;   }   fail("No source should be created: " + s1); } 
+Lists.newArrayList("match",ignoreGlob,"wholename")
+StringUtil.isEmpty(scheme)
+ldapAuthConfiguration.enabled()
+node.getTextLength() > 0
+new LocatedBlock(b,locations,startOffset,isCorrupt,cachedLocations)
+JiveGlobals.getBooleanProperty("stream.management.active",false)
+"mobi".equals(file.getExtension())
+encoded & 0xFFFF_FFFFl
+DELETE_OUT=true
+Log.w(TAG,"setSubtitleAnchor in MediaPlayer")
+first > 0
+valueRelay.hasObservers()
+BLOCK_LIGHT_SUN_POW=0.8f
+scheduleTask(alarm,taskLatch,this)
+locationNode.text()
+_languageImpl.format(nullableLocale,_LANG_KEY_WITH_ARGUMENT,"31")
+request.getContentType().equals("application/x-www-form-urlencoded")
+Double.class
+il.createGPX("test",0,"GMT")
+new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration)
+cookieValue.isNull()
+new EnterSelectionDialog(shell,props,files,Messages.getString("XMLOutputDialog.OutputFiles.DialogTitle"),Messages.getString("XMLOutputDialog.OutputFiles.DialogMessage"))
+Assert.assertEquals(9500,Utils.calculateHeapSize(10000))
+playable.localFileAvailable()
+inOrder.verify(mockAwareService).subscribe(eq(clientId),eq(subscribeConfig),sessionProxyCallback.capture())
+reply.getJMSMessageID()
+target.addTask(task)
+xml.append(' ').append(adaptiveSimulcast)
+new StepMeta(log,stepID,stepName,tii)
+new GregorianCalendar(TimeZone.getTimeZone("GMT"))
+SuiteResult sr=(SuiteResult)suiteResults.get(propertyFileName); 
+resolveClass(psiClass)
+@NotNull final Match match
+name.equals(SETUP_METHOD_NAME) || name.equals(GET_ROOT_COMPONENT_METHOD_NAME)
+isTop() || isUnknown()
+"locale".equals(element.getKey())
+(inWidth - kW + 2 * padW) / sH
+Constants.JVM_NAME.contains("HotSpot")
+latch.await(60,TimeUnit.SECONDS)
+@Define("tableName") final TableName tableName
+logger.error("moveToStep[" + policy + "] ["+ index.getName()+ "]"+ currentStepKey+ " -> "+ nextStepKey)
+y
+addAnnotations(result,externalName,file,fileData)
+Ports.Binding("0.0.0.0",11022)
+Assert.assertEquals(3,visitor.getConditions().size())
+Thread.sleep(110)
+cache.context().isStatisticsEnabled()
+new Or(src,tmp,dst)
+result.getErrors()
+lightContribution[LIGHT_AMBIENT_R]
+new String(bytes,0,i)
+STATUS.isStatusDefault(mStatus)
+new JSONParseSpec(new TimestampSpec("timestamp","auto"),new DimensionsSpec(Arrays.asList("dim1","dim2"),null,null),JSONParseSpec.JSON)
+children.removeAll(children)
+_wValue instanceof Integer && ((Integer)_wValue > 0)
+new SimpleDateFormat(DATE_FORMAT)
+new CountryListLoadTask(mListener,null,null)
+presence.getTo()
+Log.warn("The given country from the response: " + billToDTO.getAddressCountryCode() + " could not be found"+ " as a country abbreviation in BLC_COUNTRY")
+LOGGER.error("The principal id attribute [{}] is not found. CAS is configured to disallow missing principal attributes")
+JvmDeclarationOriginKt.OtherOrigin(myClass,valueOfFunction)
+searchFacet != null
+metrics.entrySet().stream().filter(e -> e.getKey().startsWith("DIRECTORY")).count() > 50
+am.getRecentTasksForUser(MAX_TASKS,ActivityManager.RECENT_IGNORE_UNAVAILABLE,UserHandle.USER_CURRENT)
+3.0 + (3 * random().nextDouble())
+new LayerVisitor(this,asFlatRegion(region),minimumBlockY(region),maximumBlockY(region),ground)
+amount.precision()
+String.format("Timeout waiting to lock %s. It is currently in use by another Gradle instance.%nOwner PID: %s%nOur PID: %s%nOwner Operation: %s%nOur operation: %s%nLock file: %s",displayName,metaDataProvider.getProcessIdentifier(),ownerPid,ownerOperation,operationDisplayName,lockFile)
+getExpressionTypesFromInput(TEST_SESSION,metadata,SQL_PARSER,INPUT_TYPES,ImmutableList.of(translatedProjection),ImmutableList.of())
+final GeoPoint geoPoint
+intbuf.get()
+newArrayList(10)
+Color.fromRGB(0x41CD34)
+ap.getSsid()
+@Override public Cell deepClone(){   Cell clonedBaseCell=((ExtendedCell)this.cell).deepClone();   return new TagRewriteCell(clonedBaseCell,this.tags); } 
+SpatialIndexPartReader<NativeSchemaValue>
+XmlUtils.readIntAttribute(parser,ATTR_SDK_VERSION)
+mc.theWorld.getScoreboard().func_96509_i(player.name)
+new LeftTuple(f1)
+new Integer(0)
+mFlexItem.setAlignSelf(AlignItems.FLEX_END)
+mDelegate.getView(position,wv.mItem,wv)
+SchedulerFactory.singleton().createOrGetParallelScheduler(PythonInterpreter.class.getName() + this.hashCode(),10)
+XmppStringUtils.parseBareAddress(from)
+HazelcastInstanceFactory.terminateAll()
+QuotaCache.this.namespaceQuotaCache.contains(ns)
+buildFullCategoryHierarchy(document,cache,categoryId)
+BuildData buildData=getBuildData(); 
+stagingTypeSettingsProperties.toSortedString()
+event.world.spawnEntityInWorld(entity)
+asList(CUBRID,DERBY,FIREBIRD)
+interfaces != null
+ConnectorRecordSetProvider.class
+new OptionValue<>(1000)
+StringUtils.isBlank(content)
+new FlywayException("Unable to instantiate class: " + className)
+new MutableDateTime(getMillis())
+mMessageReferences == null
+new IllegalArgumentException()
+log.error(sm.getString("coyoteConnector.protocolHandlerInstantiationFailed",e))
+packetType == AVC_PACKET_TYPE_AVC_NALU
+list.isEmpty()
+mState.mPivotX == pivotX
+DJB_TYPE=0x04
+Util.isSmsTopupSupported(activity,link)
+Exception e
+name="java:jboss/mail"
+FaultSerialVersionUID faultSerialVersionUID=(FaultSerialVersionUID)penv.get(ToolConstants.CFG_FAULT_SERIAL_VERSION_UID); 
+@Override public synchronized AstyanaxOrderedKeyColumnValueStore openDatabase(String name) throws StorageException {   if (openStores.containsKey(name))   return openStores.get(name);  else {     ensureColumnFamilyExists(name);     AstyanaxOrderedKeyColumnValueStore store=new AstyanaxOrderedKeyColumnValueStore(name,keyspaceContext.getClient(),this,retryPolicy);     openStores.put(name,store);     return store;   } } 
+Futures.transformAsync(actionInfoFuture,actionInfo -> uploadInputs(rule.getBuildTarget(),actionInfo))
+Environment.getCurrent().isReloadEnabled()
+mScreenBrightnessDarkConfig > mScreenBrightnessDimConfig
+_discussionComment.isInTrash()
+new String(temp)
+AbstactStoreHandler<DelayedEntry>
+sentence.substring(8,24)
+assertThat(project.getMeasureIntValue("directories")).isEqualTo(3)
+builder.nullField(Fields.SUM)
+sampleFactory.getConstructor()
+final PsiReferenceExpression expression=(PsiReferenceExpression)location; 
+ImageUtils.createResizedImageWithMaxWidth(this,path,3000)
+beanFactory.getBeanNamesForType(CacheAspectSupport.class)
+plugin != null
+id=13308
+new RoutePlannerFrontEnd(false)
+System.setProperty(MODEL_PROVIDER_KEY,provider)
+CamcorderProfile.hasProfile(CamcorderProfile.QUALITY_HIGH)
+productVersion.startsWith("9") || productVersion.startsWith("10")
+database instanceof SybaseASADatabase
+mWindowManager.removeView(mPopupView)
+loadedLibraries.get(libnameversion)
+updatePanel()
+getPropertyAsBoolean(NOTIFY_CHILD_SAMPLER_LISTENERS_FILTERED,false)
+_validation_metrics.auc().maxF1()
+descriptor.superinterfaces.size() > 1
+lightsOut()
+DiagnosticFactory2<KtProperty,EffectiveVisibility,EffectiveVisibility>
+length <= 0
+mapTypeString=R.string.overlay_transparency
+VERSION=5
+myVcsConfiguration.CHANGED_ON_SERVER_INTERVAL * 60000
+ContactModel::getSmsSn
+registerUsageCallback(networkType,subscriberId,thresholdBytes,null)
+new ClusterNodesDecoder()
+uncompressedProto.length < 1700000
+new JSONParseSpec(new TimestampSpec("timestamp","iso"),new DimensionsSpec(Arrays.asList(DIMENSIONS),Arrays.<String>asList(),null),JSONParseSpec.JSON)
+LOG.info("AFTER decResourceRequest:" + " applicationId=" + " priority=" + priority.getPriority() + " resourceName="+ resourceName+ " numContainers="+ resourceRequestInfo.remoteRequest.getNumContainers()+ " #asks="+ ask.size())
+assertEquals(1,functionalTestHelper.removeAnyAutoIndex(map).size())
+myJdkChooser.updateList(selectedJdk,null)
+delegates.size() > 1
+WordVectorSerializer.loadGoogleModelNonNormalized(new File("/ext/GoogleNews-vectors-negative300.bin.gz"),true,false)
+mLineageStore.requestFilePersistence(fileId)
+themeDisplay.getUserId()
+index > templateTypes.size()
+type.resolveMember(name,location,direction,resolveContext)
+!MediaFile.isAudioFileType(fileType) && !MediaFile.isVideoFileType(fileType) && !MediaFile.isImageFileType(fileType)&& !MediaFile.isPlayListFileType(fileType)
+new KeyEvent(SystemClock.uptimeMillis(),eventTime,KeyEvent.ACTION_UP,keyEventCode,0,0,KeyCharacterMap.VIRTUAL_KEYBOARD,0,KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE)
+editor.selectNextTab()
+POLLNIVEACH(890.0,540,13358)
+toArrayHelper(array,1)
+new RuntimeException("Could not lookup jndi name: " + namespaceStrippedJndiName + " in context: "+ jndiContext,ne)
+buffer.append(KEY_NODE_ID + "=").append(id)
+new char[16384]
+new NullPointerException("Mouse or keyboard cannot be null")
+tableIdx == table.array.length()
+location.belongTo(BlockStoreLocation.anyTier())
+(Object)y
+startTime=5
+lastMaxBytes[0]=jvmCurrentBytes
+THashSet<JavaMethod>
+mapCopy.getAbsolutePath()
+textOffset > document.getTextLength()
+in.getVersion().onOrAfter(Version.V_7_0_0_alpha1)
+zzStartRead == zzCurrentPos
+new UnsafeBasedStringCharProvider(UNSAFE,stringValueFieldOffset,str)
+8 - (digits - length)
+setDeploymentStack(contextValue)
+new IllegalStateException("Unrecognized attribute type tag parsed: " + tag)
+Indexer.addMessage(companyId,groupId,categoryId,threadId,messageId,title,content)
+/**   * [Sa * Da, Sc * Dc]   */ MULTIPLY(14)
+matcher.group(12)
+key * randomIntBetween(2,10)
+LOG.warn("Couldn't collect changes between " + oldRevision + " and "+ newRevision,e)
+doTest("class Test {\n" + "  <T> void <caret>sort(T[] a, Comparator<? super T> c) { }\n" + "}\n"+ "class Comparator<X>{}","sort(T[], Comparator)","sort(T[], Comparator<? super T>)")
+MonitoringPortletImpl.isMonitoringPortletActionRequest()
+stsClient.setKeySize(192)
+new BooleanPreference("use_english_names",false,true)
+viewOutlineAlpha=0f
+DEBUG_STARTING_WINDOW=true
+ControllerStatusReportingTask.class.getField(fieldName)
+participantAddresses.get(1)
+new S3DataSegmentMover(mockS3Client)
+seqNoStats.v1()
+GenericSendAndRecieveGateway gateway
+JetTestUtils.navigationMetadata("idea/idea-completion/testData/basic/common/SuperMembers.kt")
+new EnterSelectionDialog(shell,props,CalculatorMetaFunction.calcLongDesc,Messages.getString("CalculatorDialog.SelectCalculationType.Title"),Messages.getString("CalculatorDialog.SelectCalculationType.Message"))
+nextTokenIsFast(b,IDENTIFIER)
+LOGGER.debug("Resolved service [{}] from the authentication request")
+XmppStringUtils.parseBareAddress(connection.getUser())
+BuildRule libraryRule=AndroidLibraryBuilder.createBuilder(buildTarget).addSrc(src).build(graphBuilder); 
+rowKeyColumnIO.writeColumnWith(buffer,0,length,recordBuffer,digest.offset(i),rowKeyColumnIO.getColumnLength(column))
+getChunk(pos)
+{2,3}
+workDir.getCanonicalPath()
+new MapProducerCapabilities(false,false,false,false)
+mediaController.show(0)
+servletRequestContext.getServletRequest()
+StringBuffer output
+!listType.getType().equals(type)
+param.slices()
+type.equals("")
+StringUtils.isBlank(service.getId())
+invoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+out.writeInt(data[0])
+myGutterComponent.convertX(e.getX()) <= myGutterComponent.getWhitespaceSeparatorOffset()
+LOG.isDebugEnabled()
+GraphCommit<CommitId>
+ofSeconds(1)
+result.getWarnings()
+lc.contains("_oceania_")
+tupleInfo.getMessageId() != null
+mIsClickable=true
+TypeParameterDescriptorImpl.createWithDefaultBound(classDescriptor,Collections.<AnnotationDescriptor>emptyList(),true,Variance.OUT_VARIANCE,Name.identifier("T" + (j + 1)),j)
+AUTOCLOSE_NEVER=0
+fileShortcut.getToTitle()
+LOG.error("Couldn't delete {} - does not exist",f)
+id=5
+createCondition.isPrivate()
+startingPosition > limit
+ActionUtil.getProductEntry(renderRequest)
+new SimpleAttributeDefinitionBuilder(CommonAttributes.NAME,ModelType.STRING,false).setXmlName(Attribute.NAME.getLocalName()).setAllowExpression(true)
+List<DataSet>
+string activeTab
+passThruFields != null
+ast.atnState != null
+getSitesCount() == 1
+(registerCount & 0xFFFFFF00) == 0
+args.length == 2
+ParamUtil.getLong(actionRequest,"privateLayoutSetPrototypeId",privateLayoutSet.getLayoutSetPrototypeId())
+"https".equals(protocol)
+Utility.cancelTasks(followOrUnfollowTask)
+knownHandlers.contains(handler)
+Navigation.checkNavigation(Navigation.NOTES)
+externalDependency.resolve()
+log.error("Unable to initialize auth domain {} due to {}",ad,e.toString())
+HELSINKY{   @Override public ServiceNowProducer get(  ServiceNowEndpoint endpoint) throws Exception {     return new HelsinkiServiceNowProducer(endpoint);   } } 
+cursor != null
+result.addEnchantments(getEnchantments())
+checkMatch(inv,x,y,true)
+new PerfBenchmarkDriver(perfBenchmarkDriverConf)
+new DateTime(Long.parseLong(firstTimestamp) * 1000)
+ApplicationPidFileWriter.class

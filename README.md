@@ -1,5 +1,7 @@
 # MSR2021-ProgramRepair
 
+### Paper
+You can find the paper here: https://arxiv.org/abs/2103.11626
 ### Data
 data folder contains multiple folders and files:
 
@@ -17,8 +19,19 @@ data folder contains multiple folders and files:
 2. Clone the repository
     - git clone https://github.com/EhsanMashhadi/MSR2021-ProgramRepair.git
 3. Train the model with MSR data
-    - bash ./scripts/codebert-train.sh
-    - You can change the `size` and `type` variables value to run different experiments (large | small, unique | repetition)
+    - bash ./scripts/codebert/train.sh
 4. Evaluate the model
-    - bash ./scripts/codebert-test.sh 
-    - You can change the `size` and `type` variables value to run different experiments (large | small, unique | repetition)
+    - bash ./scripts/codebert/test.sh 
+        
+### Running Simple LSTM Experiments
+1. Install OpenNMT-py
+    - https://github.com/OpenNMT/OpenNMT-py
+2. Preprocess the MSR data
+    - bash ./scripts/simple-lstm/preprocess.sh
+3. Train the model
+    - bash ./scripts/simple-lstm/train.sh
+4. Evaluate the model
+    - bash ./scripts/simple-lstm/test.sh
+
+### How to run all of experiments?
+   - You can change the `size` and `type` variables value in script files to run different experiments (large | small, unique | repetition)

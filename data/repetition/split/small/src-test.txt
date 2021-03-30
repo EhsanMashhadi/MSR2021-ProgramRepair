@@ -1,0 +1,827 @@
+expectedValue.equals(oldValue)
+obj.setContentEncoding(Mimetypes.MIMETYPE_BINARY_OCTET_STREAM)
+existing.getState()
+libDirectory="."
+factory.getEmbdeddedServletContainer(exampleServletRegistration(),new FilterRegistrationBean(new ExampleFilter()))
+"false".equals(showRelationships)
+reg.put("localhost:" + port,env)
+AsyncHttpClient.class
+/**   * This is the primary connection pool class that provides the basic pooling behavior for HikariCP.  * @author Brett Wooldridge  */ public abstract class BaseHikariPool implements HikariPoolMBean, IBagStateListener {   protected final Logger LOGGER=LoggerFactory.getLogger(getClass());   private static final long ALIVE_BYPASS_WINDOW=Long.getLong("com.zaxxer.hikari.aliveBypassWindow",1000L);   protected static final int POOL_RUNNING=0;   protected static final int POOL_SUSPENDED=1;   protected static final int POOL_SHUTDOWN=2;   public final String catalog;   public final boolean isReadOnly;   public final boolean isAutoCommit;   public int transactionIsolation;   protected final PoolUtilities poolUtils;   protected final HikariConfig configuration;   protected final AtomicInteger totalConnections;   protected final ConcurrentBag<PoolBagEntry> connectionBag;   protected final ThreadPoolExecutor addConnectionExecutor;   protected final ThreadPoolExecutor closeConnectionExecutor;   protected final ScheduledThreadPoolExecutor houseKeepingExecutorService;   protected final boolean isUseJdbc4Validation;   protected final boolean isIsolateInternalQueries;   protected volatile int poolState;   protected volatile long connectionTimeout;   protected volatile long validationTimeout;   private final LeakTask leakTask;   private final DataSource dataSource;   private final GlobalPoolLock suspendResumeLock;   private final IConnectionCustomizer connectionCustomizer;   private final AtomicReference<Throwable> lastConnectionFailure;   private final String username;   private final String password;   private volatile MetricsTracker metricsTracker;   private volatile boolean isRecordMetrics;   /**   * Construct a HikariPool with the specified configuration.  * @param configuration a HikariConfig instance  */   public BaseHikariPool(  HikariConfig configuration){     this(configuration,configuration.getUsername(),configuration.getPassword());   }   /**   * Construct a HikariPool with the specified configuration.  We cache lots of configuration items in class-local final members for speed.  * @param configuration a HikariConfig instance  * @param username authentication username  * @param password authentication password  */   public BaseHikariPool(  HikariConfig configuration,  String username,  String password){     this.username=username;     this.password=password;     this.configuration=configuration;     this.poolUtils=new PoolUtilities(configuration);     this.connectionBag=createConcurrentBag(this);     this.totalConnections=new AtomicInteger();     this.connectionTimeout=configuration.getConnectionTimeout();     this.validationTimeout=configuration.getValidationTimeout();     this.lastConnectionFailure=new AtomicReference<Throwable>();     this.isReadOnly=configuration.isReadOnly();     this.isAutoCommit=configuration.isAutoCommit();     this.suspendResumeLock=configuration.isAllowPoolSuspension() ? new GlobalPoolLock(true) : GlobalPoolLock.FAUX_LOCK;     this.catalog=configuration.getCatalog();     this.connectionCustomizer=initializeCustomizer();     this.transactionIsolation=getTransactionIsolation(configuration.getTransactionIsolation());     this.isIsolateInternalQueries=configuration.isIsolateInternalQueries();     this.isUseJdbc4Validation=configuration.getConnectionTestQuery() == null;     setMetricRegistry(configuration.getMetricRegistry());     setHealthCheckRegistry(configuration.getHealthCheckRegistry());     this.dataSource=poolUtils.initializeDataSource(configuration.getDataSourceClassName(),configuration.getDataSource(),configuration.getDataSourceProperties(),configuration.getDriverClassName(),configuration.getJdbcUrl(),username,password);     this.addConnectionExecutor=createThreadPoolExecutor(configuration.getMaximumPoolSize(),"HikariCP connection filler (pool " + configuration.getPoolName() + ")",configuration.getThreadFactory(),new ThreadPoolExecutor.DiscardPolicy());     this.closeConnectionExecutor=createThreadPoolExecutor(4,"HikariCP connection closer (pool " + configuration.getPoolName() + ")",configuration.getThreadFactory(),new ThreadPoolExecutor.CallerRunsPolicy());     long delayPeriod=Long.getLong("com.zaxxer.hikari.housekeeping.periodMs",TimeUnit.SECONDS.toMillis(30L));     ThreadFactory threadFactory=configuration.getThreadFactory() != null ? configuration.getThreadFactory() : new DefaultThreadFactory("Hikari Housekeeping Timer (pool " + configuration.getPoolName() + ")",true);     this.houseKeepingExecutorService=new ScheduledThreadPoolExecutor(1,threadFactory,new ThreadPoolExecutor.DiscardPolicy());     this.houseKeepingExecutorService.scheduleAtFixedRate(getHouseKeeper(),delayPeriod,delayPeriod,TimeUnit.MILLISECONDS);     this.houseKeepingExecutorService.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);     this.leakTask=(configuration.getLeakDetectionThreshold() == 0) ? LeakTask.NO_LEAK : new LeakTask(configuration.getLeakDetectionThreshold(),houseKeepingExecutorService);     setRemoveOnCancelPolicy(houseKeepingExecutorService);     poolUtils.setLoginTimeout(dataSource,connectionTimeout);     registerMBeans(configuration,this);     initializeConnections();   }   /**   * Get a connection from the pool, or timeout after connectionTimeout milliseconds.  * @return a java.sql.Connection instance  * @throws SQLException thrown if a timeout occurs trying to obtain a connection  */   public final Connection getConnection() throws SQLException {     return getConnection(connectionTimeout);   }   /**   * Get a connection from the pool, or timeout after the specified number of milliseconds.  * @param hardTimeout the maximum time to wait for a connection from the pool  * @return a java.sql.Connection instance  * @throws SQLException thrown if a timeout occurs trying to obtain a connection  */   public final Connection getConnection(  final long hardTimeout) throws SQLException {     suspendResumeLock.acquire();     long timeout=hardTimeout;     final long start=System.currentTimeMillis();     final MetricsContext metricsContext=(isRecordMetrics ? metricsTracker.recordConnectionRequest(start) : MetricsTracker.NO_CONTEXT);     try {       do {         final PoolBagEntry bagEntry=connectionBag.borrow(timeout,TimeUnit.MILLISECONDS);         if (bagEntry == null) {           break;         }         final long now=System.currentTimeMillis();         if (bagEntry.evicted || (now - bagEntry.lastAccess > ALIVE_BYPASS_WINDOW && !isConnectionAlive(bagEntry.connection))) {           closeConnection(bagEntry,"(connection evicted or dead)");           timeout=hardTimeout - elapsedTimeMs(start);         }  else {           metricsContext.setConnectionLastOpen(bagEntry,now);           metricsContext.stop();           return ProxyFactory.getProxyConnection((HikariPool)this,bagEntry,leakTask.start(bagEntry));         }       }  while (timeout > 0L);     }  catch (    InterruptedException e) {       throw new SQLException("Interrupted during connection acquisition",e);     }  finally {       suspendResumeLock.release();     }     logPoolState("Timeout failure ");     throw new SQLTimeoutException(String.format("Timeout after %dms of waiting for a connection.",elapsedTimeMs(start)),lastConnectionFailure.getAndSet(null));   }   /**   * Release a connection back to the pool, or permanently close it if it is broken.  * @param bagEntry the PoolBagEntry to release back to the pool  */   public final void releaseConnection(  final PoolBagEntry bagEntry){     metricsTracker.recordConnectionUsage(bagEntry);     if (bagEntry.evicted) {       LOGGER.debug("Connection returned to pool {} is broken or evicted.  Closing connection.",configuration.getPoolName());       closeConnection(bagEntry,"(connection broken or evicted)");     }  else {       connectionBag.requite(bagEntry);     }   }   /**   * Shutdown the pool, closing all idle connections and aborting or closing active connections.  * @throws InterruptedException thrown if the thread is interrupted during shutdown  */   public final void shutdown() throws InterruptedException {     if (poolState != POOL_SHUTDOWN) {       poolState=POOL_SHUTDOWN;       LOGGER.info("HikariCP pool {} is shutting down.",configuration.getPoolName());       logPoolState("Before shutdown ");       connectionBag.close();       softEvictConnections();       houseKeepingExecutorService.shutdown();       addConnectionExecutor.shutdownNow();       houseKeepingExecutorService.awaitTermination(5L,TimeUnit.SECONDS);       addConnectionExecutor.awaitTermination(5L,TimeUnit.SECONDS);       final ExecutorService assassinExecutor=createThreadPoolExecutor(configuration.getMaximumPoolSize(),"HikariCP connection assassin",configuration.getThreadFactory(),new ThreadPoolExecutor.CallerRunsPolicy());       final long start=System.currentTimeMillis();       do {         softEvictConnections();         abortActiveConnections(assassinExecutor);       }  while (getTotalConnections() > 0 && elapsedTimeMs(start) < TimeUnit.SECONDS.toMillis(5));       assassinExecutor.shutdown();       assassinExecutor.awaitTermination(5L,TimeUnit.SECONDS);       closeConnectionExecutor.shutdown();       closeConnectionExecutor.awaitTermination(5L,TimeUnit.SECONDS);       logPoolState("After shutdown ");       unregisterMBeans(configuration,this);       metricsTracker.close();     }   }   /**   * Evict a connection from the pool.  * @param proxyConnection the connection to evict  */   public final void evictConnection(  IHikariConnectionProxy proxyConnection){     closeConnection(proxyConnection.getPoolBagEntry(),"(connection evicted by user)");   }   /**   * Get the wrapped DataSource.  * @return the wrapped DataSource  */   public final DataSource getDataSource(){     return dataSource;   }   /**   * Get the pool configuration object.  * @return the {@link HikariConfig} for this pool  */   public final HikariConfig getConfiguration(){     return configuration;   }   @Override public String toString(){     return configuration.getPoolName();   }   /**   * {@inheritDoc}   */   @Override public final int getActiveConnections(){     return connectionBag.getCount(STATE_IN_USE);   }   /**   * {@inheritDoc}   */   @Override public final int getIdleConnections(){     return connectionBag.getCount(STATE_NOT_IN_USE);   }   /**   * {@inheritDoc}   */   @Override public final int getTotalConnections(){     return connectionBag.size() - connectionBag.getCount(STATE_REMOVED);   }   /**   * {@inheritDoc}   */   @Override public final int getThreadsAwaitingConnection(){     return connectionBag.getPendingQueue();   }   /**   * {@inheritDoc}   */   @Override public final void suspendPool(){     if (suspendResumeLock == GlobalPoolLock.FAUX_LOCK) {       throw new IllegalStateException("Pool " + configuration.getPoolName() + " is not suspendable");     }  else     if (poolState != POOL_SUSPENDED) {       suspendResumeLock.suspend();       poolState=POOL_SUSPENDED;     }   }   /**   * {@inheritDoc}   */   @Override public final void resumePool(){     if (poolState == POOL_SUSPENDED) {       poolState=POOL_RUNNING;       addBagItem();       suspendResumeLock.resume();     }   }   public void setMetricRegistry(  Object metricRegistry){     this.isRecordMetrics=metricRegistry != null;     if (isRecordMetrics) {       this.metricsTracker=new CodaHaleMetricsTracker(this,(MetricRegistry)metricRegistry);     }  else {       this.metricsTracker=new MetricsTracker(this);     }   }   public void setHealthCheckRegistry(  Object healthCheckRegistry){     if (healthCheckRegistry != null) {       CodahaleHealthChecker.registerHealthChecks(this,(HealthCheckRegistry)healthCheckRegistry);     }   }   /**   * {@inheritDoc}   */   @Override public Future<Boolean> addBagItem(){     FutureTask<Boolean> future=new FutureTask<Boolean>(new Runnable(){       public void run(){         long sleepBackoff=200L;         final int minimumIdle=configuration.getMinimumIdle();         final int maxPoolSize=configuration.getMaximumPoolSize();         while (poolState == POOL_RUNNING && totalConnections.get() < maxPoolSize && getIdleConnections() <= minimumIdle && !addConnection()) {           quietlySleep(sleepBackoff);           sleepBackoff=Math.min(connectionTimeout / 2,(long)((double)sleepBackoff * 1.5));         }       }     } ,true);     addConnectionExecutor.execute(future);     return future;   }   /**   * Create and add a single connection to the pool.  */   protected final boolean addConnection(){     if (totalConnections.incrementAndGet() <= configuration.getMaximumPoolSize()) {       Connection connection=null;       try {         connection=(username == null && password == null) ? dataSource.getConnection() : dataSource.getConnection(username,password);         if (isUseJdbc4Validation && !poolUtils.isJdbc4ValidationSupported(connection)) {           throw new SQLException("JDBC4 Connection.isValid() method not supported, connection test query must be configured");         }         final int originalTimeout=poolUtils.getAndSetNetworkTimeout(connection,connectionTimeout);         transactionIsolation=(transactionIsolation < 0 ? connection.getTransactionIsolation() : transactionIsolation);         poolUtils.setupConnection(connection,isAutoCommit,isReadOnly,transactionIsolation,catalog);         connectionCustomizer.customize(connection);         poolUtils.executeSql(connection,configuration.getConnectionInitSql(),isAutoCommit);         poolUtils.setNetworkTimeout(connection,originalTimeout);         connectionBag.add(new PoolBagEntry(connection,this));         lastConnectionFailure.set(null);         return true;       }  catch (      Exception e) {         lastConnectionFailure.set(e);         if (poolState == POOL_RUNNING) {           LOGGER.debug("Connection attempt to database {} failed: {}",configuration.getPoolName(),e.getMessage(),e);         }         poolUtils.quietlyCloseConnection(connection,"(exception during connection creation)");       }     }     totalConnections.decrementAndGet();     return false;   }   /**   * Fill pool up from current idle connections (as they are perceived at the point of execution) to minimumIdle connections.  */   protected void fillPool(){     final int connectionsToAdd=configuration.getMinimumIdle() - getIdleConnections();     for (int i=0; i < connectionsToAdd; i++) {       addBagItem();     }     if (connectionsToAdd > 0 && LOGGER.isDebugEnabled()) {       addConnectionExecutor.execute(new Runnable(){         public void run(){           logPoolState("After fill ");         }       } );     }   }   /**   * Permanently close the real (underlying) connection (eat any exception).  * @param connectionProxy the connection to actually close  */   protected abstract void closeConnection(  final PoolBagEntry bagEntry,  final String closureReason);   /**   * Check whether the connection is alive or not.  * @param connection the connection to test  * @return true if the connection is alive, false if it is not alive or we timed out  */   protected abstract boolean isConnectionAlive(  final Connection connection);   /**   * Attempt to abort() active connections on Java7+, or close() them on Java6.  * @param assassinExecutor   * @throws InterruptedException   */   protected abstract void abortActiveConnections(  final ExecutorService assassinExecutor) throws InterruptedException ;   /**   * Create the JVM version-specific ConcurrentBag instance used by the pool.  * @param listener the IBagStateListener instance  * @return a ConcurrentBag instance  */   protected abstract ConcurrentBag<PoolBagEntry> createConcurrentBag(  IBagStateListener listener);   /**   * Create the JVM version-specific Housekeeping runnable instance used by the pool.  * @return the HouseKeeper instance  */   protected abstract Runnable getHouseKeeper();   /**   * Fill the pool up to the minimum size.  */   private void initializeConnections(){     if (configuration.isInitializationFailFast()) {       try {         try {           if (!addConnection()) {             shutdown();             throw new PoolInitializationException(lastConnectionFailure.getAndSet(null));           }           ConnectionProxy connection=(ConnectionProxy)getConnection();           connection.getPoolBagEntry().evicted=(configuration.getMinimumIdle() == 0);           connection.close();         }  catch (        SQLException e) {           shutdown();           throw new PoolInitializationException(e);         }       }  catch (      InterruptedException ie) {         throw new PoolInitializationException(ie);       }     }     fillPool();   }   /**   * Construct the user's connection customizer, if specified.  * @return an IConnectionCustomizer instance  */   @SuppressWarnings("deprecation") private IConnectionCustomizer initializeCustomizer(){     if (configuration.getConnectionCustomizerClassName() != null) {       return createInstance(configuration.getConnectionCustomizerClassName(),IConnectionCustomizer.class);     }     return configuration.getConnectionCustomizer();   }   public final void logPoolState(  String... prefix){     if (LOGGER.isDebugEnabled()) {       LOGGER.debug("{}pool stats {} (total={}, inUse={}, avail={}, waiting={})",(prefix.length > 0 ? prefix[0] : ""),configuration.getPoolName(),getTotalConnections(),getActiveConnections(),getIdleConnections(),getThreadsAwaitingConnection());     }   } } 
+new S3DataSegmentMover(mockS3Client)
+globalExecutionStats.getSplits()
+cached.get(walCacheLock)
+test(externs,js,(String)null,ConstCheck.CONST_REASSIGNED_VALUE_ERROR,null)
+op.get("address").set("host",host)
+mSizeOnTier.containsKey(tierAlias) ? mSizeOnTier.get(tierAlias) : 0
+new ClobTypeHandler()
+LOG.info("Finding components in url: {}",url)
+-1
+assertEquals(id3,new Twitter(id3,pass3).verifyCredentials().getName())
+LOGGER.log(Level.SEVERE,LocalizationMessages.ERROR_COMMITTING_OUTPUT_STREAM())
+monochrome=false
+return softDepend; 
+constructor.getTypeParameters()
+assertThat(converter.getSupportedMediaTypes()).containsExactly(MediaTypes.HAL_JSON)
+new ClientBuilderImpl().serviceUrl(getPulsarBrokerUrl()).ioThreads(2)
+HashMap<String,ASTNode>
+LOG.info("Storage directory " + rootPath + " does not exist")
+waitForJobExecutorToProcessAllJobsAndExecutableTimerJobs(10000,200)
+configuration.addClientInterceptor(method,factory,InterceptorOrder.View.COMPONENT_DISPATCHER)
+IOConverter.toInputStream(s)
+patientState.getState().getId()
+analysis.getType(expression)
+ssl.has(CommonAttributes.CA_CERTIFICATE_FILE)
+Thread.sleep(50)
+level <= RF_STATUS_HIGH_SIGNAL
+return false; 
+"Stream " + importer
+camelContext.getComponent(component)
+Thread.currentThread().isInterrupted()
+return true; 
+listeners != null
+new Date(0)
+LOG.error("Failed to transit standby cluster to " + SyncReplicationState.DOWNGRADE_ACTIVE)
+IllegalArgumentException iae
+new BadRequestException()
+assertSame(conf,(Configuration)serializeDeserialize(conf))
+new RuntimeException("Could not create TypeInformation for type " + data[0].getClass().getName() + "; please specify the TypeInformation manually via "+ "StreamExecutionEnvironment#fromElements(Collection, TypeInformation)")
+request.getContentType().equals("application/x-www-form-urlencoded")
+suiteMethod.invoke(null,(Object[])new Class[0])
+new FlinkRuntimeException("Unexpected list element deserialization failure")
+view.getClusteredLayerInDegree(absNode)
+setNetworkTimeout(connection,networkTimeout)
+database.FindProduct(node.getManufacturer(),node.getDeviceType(),node.getDeviceId())
+id=21
+mime == null
+AbstractRanking.refreshMinMax(this,graph)
+mock.expectedMessageCount(1)
+jarName.endsWith(".jar")
+RawUDPInput.class
+findDelegate(name)
+endFunction("write_column_statistics: ",ret != false)
+BlockMasterClient.class
+new TelnetServerPipelineFactory()
+EnterpriseMapPublisherCreateWithValueCodec.decodeResponse(response).entries
+GL20.glGetUniform(program,location,params)
+p.getFileSystem(conf).delete(p)
+JavaConversions.asIterable(logManager.allLogs())
+findDelegate(name)
+s.count()
+assertEquals(fStopwatch.runtime(MILLISECONDS),800d,250d)
+http2.setInitialStreamSendWindow(initialStreamSendWindow)
+mListView.getChildAt(index)
+Status.constructStatuses(get(getBaseURL() + "statuses/public_timeline.json",null,new Paging((long)sinceID).asPostParameterList(Paging.S),false))
+element.getNodeName()
+websocketComponent.setMaxThreads(11)
+this.thrown.equals("File must exist")
+contentType != null
+Thread.sleep(2000)
+RexUtil.simplify(rexBuilder,node)
+LOG.error("OpenTracing: Failed to capture tracing data",t)
+Arrays.asList(CoreAnnotations.TextAnnotation.class,CoreAnnotations.TokensAnnotation.class,CoreAnnotations.CharacterOffsetBeginAnnotation.class,CoreAnnotations.CharacterOffsetEndAnnotation.class,CoreAnnotations.IsNewlineAnnotation.class)
+nlDataOutNodes != null & nlDataOutNodes.getLength() > 0
+fields.contains(name)
+Exception exception
+this.comparator
+view.getCurrentMode()
+getCurrCapacity()
+LOG.isInfoEnabled()
+new JobConf(config_)
+edge.setType(type)
+HazelcastInstanceFactory.terminateAll()
+mock.expectedBodiesReceived("Hello World 2")
+GL20.glUniformMatrix3(location,transpose,value)
+assertTrue(exitStatuses.contains(status.getExitStatus()))
+bindings.get()
+testSame("asdf;","var asdf;",VarCheck.NAME_REFERENCE_IN_EXTERNS_ERROR,true)
+activeFrom.getTime()
+Exception e
+chain.filter(exchange).compose((call) -> filter(exchange,call))
+DEFAULT_ALLOW_SPILLING=false
+IllegalStateException ex
+c.write("[you] " + msg + '\n')
+ps.createRelationship(rel)
+exchange.addRequestHeader(HttpHeaders.AUTHORIZATION,"OAuth " + currentToken)
+addListenerMethod1.addScopedInterceptor(NettyConstants.INTERCEPTOR_CHANNEL_PROMISE_ADD_LISTENER,NettyConstants.SCOPE,ExecutionPolicy.BOUNDARY)
+CHECK_TEXT.get("Properties")
+new StormClientHandler(client)
+exchange.getOut()
+LOG.error("Async Kafka commit failed.",cause)
+Math.min(1000L,connectionTimeout)
+Arrays.asList("spring-boot-starter-tomcat-","tomcat-embed-core-","tomcat-embed-el-","tomcat-embed-logging-juli-")
+LOG.warn("Exception while fetching metrics.",e)
+createMessageConsumer(session,destinationName,messageSelector,topic,durableSubscriptionId,true)
+String pattern=this.prefix; 
+BiMap<Integer,String>
+mLineageStore.requestFilePersistence(fileId)
+Thread.sleep(200)
+assertClusterSize(2,h2)
+TimeUtils.nanoTime()
+new StringBuilder(247)
+connection.setFollowRedirects(httpRequest.getFollowRedirects())
+Integer.valueOf(p.getProperty("numberid.id"))
+OpenmrsProfileWithoutTest1Module bean=applicationContext.getBean(OpenmrsProfileWithoutTest1Module.class); 
+server.getSegment(segment.getIdentifier()) != null && peon.getSegmentsToLoad().contains(segment)
+(outputFolder + File.separator + modelFolder).replaceAll("/",File.separator)
+CsvReporter.forRegistry(registry).convertDurationsTo(getDurationUnit()).convertDurationsTo(getRateUnit())
+grammar.getTokenNames()
+ReferenceCountUtil.safeRelease(holder)
+NoopChatHandlerProvider.class
+Assert.assertEquals(1145,details.get(1).getAbsolutePosition())
+!returnValue
+body.endsWith("6")
+i > 0
+runningTasks.get(assignedTask)
+List<String>
+getRequestMethod == null
+id=15863
+finishChannel(channel.getPipeline().getContext(NettyAsyncHttpProvider.class))
+Throwable t
+GL.glBindTextureEXT(target,texture)
+interceptors.addFirst(newAInterceptor(a))
+Configuration.getLong(PropertyKey.USER_NETWORK_NETTY_TIMEOUT_MS)
+Arrays.asList("ls","pwd")
+mTfs.delete(mTfs.open(path))
+type == TokenTypes.CLASS_DEF
+routeList == null
+UriBuilder.fromResource(StreamAlertConditionResource.class).path("{conditionId}").build(alertCondition.getId())
+context.reloadRequired()
+knownType != null
+new RuntimeException(msg.getMessage())
+this(type,0); 
+synchronized (this) {   if (transformed == null) {     transformed=initializer.initializeBroadcastVariable(data);     data=null;   }   return transformed; } 
+statistics.addGetTimeNano(System.nanoTime() - start)
+name="java:/ConnectionFactory"
+Bytes.toBytesBinary(tableNameOrRegionName)
+Object... pathParams
+Exception exception
+Arrays.asList("abstract","continue","for","new","switch","assert","default","if","package","synchronized","boolean","do","goto","private","this","break","double","implements","protected","throw","byte","else","import","public","throws","case","enum","instanceof","return","transient","catch","extends","int","short","try","char","final","interface","static","void","class","finally","long","strictfp","volatile","const","float","native","super","while")
+lockForRegularUsage()
+new StringBuilder(561)
+isNodeHealing(node.getNodeId())
+Arrays.asList("Java","CSharp")
+getOrCreateContainer().unlock(dataKey,caller,threadId)
+spanEvent.getNextSpanId() == -1
+id=50
+"unable to parse " + abstractOption
+minZ != 0f && maxZ != 0f
+getTimeout()
+32 * 1024 * 1024
+clearFromMember.start()
+refreshableViewWrapper.addView(newEmptyView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+(AST)child
+new PoolBagEntry(null,pool)
+new SimpleAttributeDefinition("ha",new ModelNode().set(HornetQClient.DEFAULT_HA),ModelType.BOOLEAN,false)
+factory.get(sResultWildcard,NO_ANNOTATIONS,retrofit)
+to("direct:foo")
+dstPath.getPath()
+start.expectedMessageCount(6)
+CONCURRENT_THREAD_COUNT=300
+User.createCursorSupportUserList(http.get("http://yusuke.homeip.net/twitter4j/en/testcases/statuses/friends/T4J_hudson.json"))
+tempBlock.getCommitPath()
+getOrCreateContainer().unlock(dataKey,caller,threadId)
+ChannelBuffers.dynamicBuffer()
+Status.constructStatuses(get(getBaseURL() + "statuses/user_timeline/" + id+ ".json",null,paging.asPostParameterList(),http.isAuthenticationEnabled()))
+bodyParts != null
+from("jms:queue2:parallelLoanRequestQueue").process(new CreditAgency()).multicast(new BankResponseAggregationStrategy().setAggregatingOutMessage(true)).setParallelProcessing(true)
+logger.trace("Trying to map {} to {}",t,path)
+LinkedList<>
+header.writeBytes(mask)
+size * 1.75f
+view.getCurrentMode()
+HashMap<String,HashMap<String,ASTNode>>
+invocation.logger.warning("Asking if operation execution has been started: " + invocation)
+Configuration.getLong(PropertyKey.USER_NETWORK_NETTY_TIMEOUT_MS)
+new DefaultPropertyNamePatternsMatcher(delimeters,"aaa","bbbb","ccccc")
+factory.get(sResponseWildcard,NO_ANNOTATIONS,retrofit)
+IOException e
+this.referenceId == referenceId
+getHttpConnectionManager()
+new DynamicAwareEntry("https://localhost/test",null,null)
+julianDateFloor(range,(int)date + EPOCH_JULIAN,true)
+mesh.getNumVertices() / 2
+beansXml.createAlternatives()
+mTestStream.getBytesFlushed()
+Math.min(RETRY_INTERVAL,timeout.timeLeft().toMillis())
+isTestOnBorrow()
+mPersistedFiles.removeAll(mPersistedFiles)
+lastFailureException instanceof ConnectException
+count <= 0
+new ScheduledJob(job,jobName,period)
+assertEquals(expectedPlan,actualPlan)
+Arrays.asList(CoreAnnotations.TextAnnotation.class,CoreAnnotations.TokensAnnotation.class,CoreAnnotations.CharacterOffsetBeginAnnotation.class,CoreAnnotations.CharacterOffsetEndAnnotation.class,CoreAnnotations.BeforeAnnotation.class,CoreAnnotations.AfterAnnotation.class,CoreAnnotations.TokenBeginAnnotation.class,CoreAnnotations.TokenEndAnnotation.class,CoreAnnotations.PositionAnnotation.class,CoreAnnotations.IndexAnnotation.class,CoreAnnotations.OriginalTextAnnotation.class,CoreAnnotations.ValueAnnotation.class)
+scrollbarsOnTop && scrollX
+streamTokenizer.ttype == StreamTokenizer.TT_WORD
+cursor.retry()
+lexer.token == Token.HINT
+name == null
+pieces.length <= wordColumn
+AstUtils.hasLeastOneAnnotation(classNode,"MessageEndpoint","EnableIntegrationPatterns")
+Object strongReference
+camelContext.getExecutorServiceManager().shutdownNow(timeoutCheckerExecutorService)
+new LogVersionMismatchRequest()
+out.writeObject(entry.getValue())
+assertEquals(2,data.size())
+logger.error("NODE {}: DeleteReturnRoute command failed.")
+DEFAULT_LABEL_MIPMAP=true
+HELSINKY{   @Override public ServiceNowProducer get(  ServiceNowEndpoint endpoint) throws Exception {     return new HelsinkiServiceNowProducer(endpoint);   } } 
+path.toString()
+uri.toString().equalsIgnoreCase(future.getURI().toString())
+boundary.startsWith("\"")
+options.checkProvides.isOn()
+RuntimeGlue optionalGlue
+c * b
+out.writeObject(function)
+System.currentTimeMillis()
+!template.contains(PATH_AUTO_NODE_INDEX) && !template.contains(PATH_AUTO_RELATIONSHIP_INDEX)
+name="java:/TransactionManager"
+ALIAS.addResourceAttributeDescription(resources,keyPrefix,container)
+client.getVertx().setTimer(1,id -> checkExpired())
+cacheConfig.isPopulateCache()
+configList.size() == 0
+new DefaultMemoryManager(totalMemory,numSlots,pageSize)
+elementClass != null
+this.supervisors
+assertEquals(expectedPlan,actualPlan)
+entries.remove(key)
+dir.isDirectory() && !"target".equals(dir.getName())
+ctx.sendDownstream(e)
+HttpRequest.put("http://localhost:8080/ejbws-example/SingletonEndpoint",message,10,SECONDS)
+new CacheCreateConfigOperation(cacheConfig,create,false)
+hashFunction.newHasher().putBytes(littleEndian)
+TIMEOUT=20000L
+group.getId()
+UndertowServletWebServer.class
+items[30]
+serialVersionUID=1L
+Gdx.input.getX()
+StatBuckets.prettyUptime(secs)
+public abstract class AbstractHikariConfig implements HikariConfigMBean {   private static final Logger LOGGER=LoggerFactory.getLogger(HikariConfig.class);   private static final long CONNECTION_TIMEOUT=TimeUnit.SECONDS.toMillis(30);   private static final long VALIDATION_TIMEOUT=TimeUnit.SECONDS.toMillis(5);   private static final long IDLE_TIMEOUT=TimeUnit.MINUTES.toMillis(10);   private static final long MAX_LIFETIME=TimeUnit.MINUTES.toMillis(30);   private static int poolNumber;   private static boolean unitTest;   private volatile long connectionTimeout;   private volatile long validationTimeout;   private volatile long idleTimeout;   private volatile long leakDetectionThreshold;   private volatile long maxLifetime;   private volatile int maxPoolSize;   private volatile int minIdle;   private String catalog;   private String connectionCustomizerClassName;   private String connectionInitSql;   private String connectionTestQuery;   private String dataSourceClassName;   private String dataSourceJndiName;   private String driverClassName;   private String jdbcUrl;   private String password;   private String poolName;   private String transactionIsolationName;   private String username;   private boolean isAutoCommit;   private boolean isReadOnly;   private boolean isInitializationFailFast;   private boolean isIsolateInternalQueries;   private boolean isRegisterMbeans;   private boolean isAllowPoolSuspension;   private DataSource dataSource;   private Properties dataSourceProperties;   private IConnectionCustomizer customizer;   private ThreadFactory threadFactory;   private Object metricRegistry;   private Object healthCheckRegistry;   private Properties healthCheckProperties;   /**   * Default constructor  */   public AbstractHikariConfig(){     dataSourceProperties=new Properties();     healthCheckProperties=new Properties();     connectionTimeout=CONNECTION_TIMEOUT;     validationTimeout=VALIDATION_TIMEOUT;     idleTimeout=IDLE_TIMEOUT;     isAutoCommit=true;     isInitializationFailFast=true;     minIdle=-1;     maxPoolSize=10;     maxLifetime=MAX_LIFETIME;     customizer=new IConnectionCustomizer(){       @Override public void customize(      Connection connection) throws SQLException {       }     } ;     String systemProp=System.getProperty("hikaricp.configurationFile");     if (systemProp != null) {       loadProperties(systemProp);     }   }   /**   * Construct a HikariConfig from the specified properties object.  * @param properties the name of the property file  */   public AbstractHikariConfig(  Properties properties){     this();     PropertyBeanSetter.setTargetFromProperties(this,properties);   }   /**   * Construct a HikariConfig from the specified property file name.  <code>propertyFileName</code> will first be treated as a path in the file-system, and if that fails the  ClassLoader.getResourceAsStream(propertyFileName) will be tried.  * @param propertyFileName the name of the property file  */   public AbstractHikariConfig(  String propertyFileName){     this();     loadProperties(propertyFileName);   }   /**   * Get the default catalog name to be set on connections.  * @return the default catalog name  */   public String getCatalog(){     return catalog;   }   /**   * Set the default catalog name to be set on connections.  * @param catalog the catalog name, or null  */   public void setCatalog(  String catalog){     this.catalog=catalog;   }   /**   * Get the name of the connection customizer class to instantiate and execute on all new connections.  * @return the name of the customizer class, or null  */   @Deprecated public String getConnectionCustomizerClassName(){     return connectionCustomizerClassName;   }   /**   * Set the name of the connection customizer class to instantiate and execute on all new connections.  * @param connectionCustomizerClassName the name of the customizer class  */   @Deprecated public void setConnectionCustomizerClassName(  String connectionCustomizerClassName){     this.connectionCustomizerClassName=connectionCustomizerClassName;     LOGGER.warn("The connectionCustomizerClassName property has been deprecated and may be removed in a future release");   }   /**   * Get the customizer instance specified by the user.  * @return an instance of IConnectionCustomizer  */   @Deprecated public IConnectionCustomizer getConnectionCustomizer(){     return customizer;   }   /**   * Set the connection customizer to be used by the pool.  * @param customizer an instance of IConnectionCustomizer  */   @Deprecated public void setConnectionCustomizer(  IConnectionCustomizer customizer){     this.customizer=customizer;     LOGGER.warn("The connectionCustomizer property has been deprecated and may be removed in a future release");   }   /**   * Get the SQL query to be executed to test the validity of connections.  * @return the SQL query string, or null   */   public String getConnectionTestQuery(){     return connectionTestQuery;   }   /**   * Set the SQL query to be executed to test the validity of connections. Using the JDBC4 <code>Connection.isValid()</code> method to test connection validity can be more efficient on some databases and is recommended.  See  {@link HikariConfig#setJdbc4ConnectionTest(boolean)}.  * @param connectionTestQuery a SQL query string  */   public void setConnectionTestQuery(  String connectionTestQuery){     this.connectionTestQuery=connectionTestQuery;   }   /**   * Get the SQL string that will be executed on all new connections when they are created, before they are added to the pool.  * @return the SQL to execute on new connections, or null  */   public String getConnectionInitSql(){     return connectionInitSql;   }   /**   * Set the SQL string that will be executed on all new connections when they are created, before they are added to the pool.  If this query fails, it will be treated as a failed connection attempt.  * @param connectionInitSql the SQL to execute on new connections  */   public void setConnectionInitSql(  String connectionInitSql){     this.connectionInitSql=connectionInitSql;   }   /**   * {@inheritDoc}   */   @Override public long getConnectionTimeout(){     return connectionTimeout;   }   /**   * {@inheritDoc}   */   @Override public void setConnectionTimeout(  long connectionTimeoutMs){     if (connectionTimeoutMs == 0) {       this.connectionTimeout=Integer.MAX_VALUE;     }  else     if (connectionTimeoutMs < 1000) {       throw new IllegalArgumentException("connectionTimeout cannot be less than 1000ms");     }  else {       this.connectionTimeout=connectionTimeoutMs;     }   }   /**   * {@inheritDoc}   */   @Override public long getValidationTimeout(){     return validationTimeout;   }   /**   * {@inheritDoc}   */   @Override public void setValidationTimeout(  long validationTimeoutMs){     if (validationTimeoutMs < 1000) {       throw new IllegalArgumentException("validationTimeout cannot be less than 1000ms");     }  else {       this.validationTimeout=validationTimeoutMs;     }   }   /**   * Get the  {@link DataSource} that has been explicitly specified to be wrapped by thepool.  * @return the {@link DataSource} instance, or null  */   public DataSource getDataSource(){     return dataSource;   }   /**   * Set a  {@link DataSource} for the pool to explicitly wrap.  This setter is notavailable through property file based initialization.  * @param dataSource a specific {@link DataSource} to be wrapped by the pool  */   public void setDataSource(  DataSource dataSource){     this.dataSource=dataSource;   }   public String getDataSourceClassName(){     return dataSourceClassName;   }   public void setDataSourceClassName(  String className){     this.dataSourceClassName=className;   }   public void addDataSourceProperty(  String propertyName,  Object value){     dataSourceProperties.put(propertyName,value);   }   public String getDataSourceJNDI(){     return this.dataSourceJndiName;   }   public void setDataSourceJNDI(  String jndiDataSource){     this.dataSourceJndiName=jndiDataSource;   }   public Properties getDataSourceProperties(){     return dataSourceProperties;   }   public void setDataSourceProperties(  Properties dsProperties){     dataSourceProperties.putAll(dsProperties);   }   public String getDriverClassName(){     return driverClassName;   }   public void setDriverClassName(  String driverClassName){     try {       Class<?> driverClass=this.getClass().getClassLoader().loadClass(driverClassName);       driverClass.newInstance();       this.driverClassName=driverClassName;     }  catch (    Exception e) {       throw new RuntimeException("driverClassName specified class '" + driverClassName + "' could not be loaded",e);     }   }   /**   * {@inheritDoc}   */   @Override public long getIdleTimeout(){     return idleTimeout;   }   /**   * {@inheritDoc}   */   @Override public void setIdleTimeout(  long idleTimeoutMs){     if (idleTimeoutMs < 0) {       throw new IllegalArgumentException("idleTimeout cannot be negative");     }     this.idleTimeout=idleTimeoutMs;   }   public String getJdbcUrl(){     return jdbcUrl;   }   public void setJdbcUrl(  String jdbcUrl){     this.jdbcUrl=jdbcUrl;   }   /**   * Get the default auto-commit behavior of connections in the pool.  * @return the default auto-commit behavior of connections  */   public boolean isAutoCommit(){     return isAutoCommit;   }   /**   * Set the default auto-commit behavior of connections in the pool.  * @param isAutoCommit the desired auto-commit default for connections  */   public void setAutoCommit(  boolean isAutoCommit){     this.isAutoCommit=isAutoCommit;   }   /**   * Get the pool suspension behavior (allowed or disallowed).  * @return the pool suspension behavior  */   public boolean isAllowPoolSuspension(){     return isAllowPoolSuspension;   }   /**   * Set whether or not pool suspension is allowed.  There is a performance impact when pool suspension is enabled.  Unless you need it (for a redundancy system for example) do not enable it.  * @param isAllowPoolSuspension the desired pool suspension allowance  */   public void setAllowPoolSuspension(  boolean isAllowPoolSuspension){     this.isAllowPoolSuspension=isAllowPoolSuspension;   }   /**   * Get whether or not the construction of the pool should throw an exception if the minimum number of connections cannot be created.  * @return whether or not initialization should fail on error immediately  */   public boolean isInitializationFailFast(){     return isInitializationFailFast;   }   /**   * Set whether or not the construction of the pool should throw an exception if the minimum number of connections cannot be created.  * @param failFast true if the pool should fail if the minimum connections cannot be created  */   public void setInitializationFailFast(  boolean failFast){     isInitializationFailFast=failFast;   }   public boolean isIsolateInternalQueries(){     return isIsolateInternalQueries;   }   public void setIsolateInternalQueries(  boolean isolate){     this.isIsolateInternalQueries=isolate;   }   @Deprecated public boolean isJdbc4ConnectionTest(){     return false;   }   @Deprecated public void setJdbc4ConnectionTest(  boolean useIsValid){     LOGGER.warn("The jdbcConnectionTest property is now deprecated, see the documentation for connectionTestQuery");   }   /**   * Get the Codahale MetricRegistry, could be null.  * @return the codahale MetricRegistry instance  */   public Object getMetricRegistry(){     return metricRegistry;   }   /**   * Set a Codahale MetricRegistry to use for HikariCP.  * @param metricRegistry the Codahale MetricRegistry to set  */   public void setMetricRegistry(  Object metricRegistry){     if (metricRegistry != null) {       if (metricRegistry instanceof String) {         try {           InitialContext initCtx=new InitialContext();           metricRegistry=(MetricRegistry)initCtx.lookup((String)metricRegistry);         }  catch (        NamingException e) {           throw new IllegalArgumentException(e);         }       }       if (!(metricRegistry instanceof MetricRegistry)) {         throw new IllegalArgumentException("Class must be an instance of com.codahale.metrics.MetricRegistry");       }     }     this.metricRegistry=metricRegistry;   }   /**   * Get the Codahale HealthCheckRegistry, could be null.  * @return the Codahale HealthCheckRegistry instance  */   public Object getHealthCheckRegistry(){     return healthCheckRegistry;   }   /**   * Set a Codahale HealthCheckRegistry to use for HikariCP.  * @param healthCheckRegistry the Codahale HealthCheckRegistry to set  */   public void setHealthCheckRegistry(  Object healthCheckRegistry){     if (healthCheckRegistry != null) {       if (healthCheckRegistry instanceof String) {         try {           InitialContext initCtx=new InitialContext();           healthCheckRegistry=(HealthCheckRegistry)initCtx.lookup((String)healthCheckRegistry);         }  catch (        NamingException e) {           throw new IllegalArgumentException(e);         }       }       if (!(healthCheckRegistry instanceof HealthCheckRegistry)) {         throw new IllegalArgumentException("Class must be an instance of com.codahale.metrics.health.HealthCheckRegistry");       }     }     this.healthCheckRegistry=healthCheckRegistry;   }   public Properties getHealthCheckProperties(){     return healthCheckProperties;   }   public void setHealthCheckProperties(  Properties healthCheckProperties){     this.healthCheckProperties.putAll(healthCheckProperties);   }   public void addHealthCheckProperty(  String key,  String value){     healthCheckProperties.setProperty(key,value);   }   public boolean isReadOnly(){     return isReadOnly;   }   public void setReadOnly(  boolean readOnly){     this.isReadOnly=readOnly;   }   public boolean isRegisterMbeans(){     return isRegisterMbeans;   }   public void setRegisterMbeans(  boolean register){     this.isRegisterMbeans=register;   }   /**   * {@inheritDoc}   */   @Override public long getLeakDetectionThreshold(){     return leakDetectionThreshold;   }   /**   * {@inheritDoc}   */   @Override public void setLeakDetectionThreshold(  long leakDetectionThresholdMs){     this.leakDetectionThreshold=leakDetectionThresholdMs;   }   /**   * {@inheritDoc}   */   @Override public long getMaxLifetime(){     return maxLifetime;   }   /**   * {@inheritDoc}   */   @Override public void setMaxLifetime(  long maxLifetimeMs){     this.maxLifetime=maxLifetimeMs;   }   /**   * {@inheritDoc}   */   @Override public int getMaximumPoolSize(){     return maxPoolSize;   }   /**   * {@inheritDoc}   */   @Override public void setMaximumPoolSize(  int maxPoolSize){     if (maxPoolSize < 1) {       throw new IllegalArgumentException("maxPoolSize cannot be less than 1");     }     this.maxPoolSize=maxPoolSize;   }   /**   * {@inheritDoc}   */   @Override public int getMinimumIdle(){     return minIdle;   }   /**   * {@inheritDoc}   */   @Override public void setMinimumIdle(  int minIdle){     if (minIdle < 0) {       throw new IllegalArgumentException("minimumIdle cannot be negative");     }     this.minIdle=minIdle;   }   /**   * Get the default password to use for DataSource.getConnection(username, password) calls.  * @return the password  */   public String getPassword(){     return password;   }   /**   * Set the default password to use for DataSource.getConnection(username, password) calls.  * @param password the password  */   public void setPassword(  String password){     this.password=password;   }   /**   * {@inheritDoc}   */   @Override public String getPoolName(){     return poolName;   }   /**   * Set the name of the connection pool.  This is primarily used for the MBean to uniquely identify the pool configuration.  * @param poolName the name of the connection pool to use  */   public void setPoolName(  String poolName){     this.poolName=poolName;   }   public String getTransactionIsolation(){     return transactionIsolationName;   }   /**   * Set the default transaction isolation level.  The specified value is the constant name from the <code>Connection</code> class, eg.  <code>TRANSACTION_REPEATABLE_READ</code>.  * @param isolationLevel the name of the isolation level  */   public void setTransactionIsolation(  String isolationLevel){     this.transactionIsolationName=isolationLevel;   }   /**   * Get the default username used for DataSource.getConnection(username, password) calls.  * @return the username  */   public String getUsername(){     return username;   }   /**   * Set the default username used for DataSource.getConnection(username, password) calls.  * @param username the username  */   public void setUsername(  String username){     this.username=username;   }   /**   * Get the thread factory used to create threads.  * @return the thread factory (may be null, in which case the default thread factory is used)  */   public ThreadFactory getThreadFactory(){     return threadFactory;   }   /**   * Set the thread factory to be used to create threads.  * @param threadFactory the thread factory (setting to null causes the default thread factory to be used)  */   public void setThreadFactory(  ThreadFactory threadFactory){     this.threadFactory=threadFactory;   }   public void validate(){     Logger logger=LoggerFactory.getLogger(getClass());     validateNumerics();     if (connectionCustomizerClassName != null) {       try {         getClass().getClassLoader().loadClass(connectionCustomizerClassName);       }  catch (      Exception e) {         logger.warn("connectionCustomizationClass specified class '" + connectionCustomizerClassName + "' could not be loaded",e);         connectionCustomizerClassName=null;       }     }     if (driverClassName != null && jdbcUrl == null) {       logger.error("when specifying driverClassName, jdbcUrl must also be specified");       throw new IllegalStateException("when specifying driverClassName, jdbcUrl must also be specified");     }  else     if (driverClassName != null && dataSourceClassName != null) {       logger.error("both driverClassName and dataSourceClassName are specified, one or the other should be used");       throw new IllegalStateException("both driverClassName and dataSourceClassName are specified, one or the other should be used");     }  else     if (jdbcUrl != null) {     }  else     if (dataSource == null && dataSourceClassName == null) {       logger.error("one of either dataSource, dataSourceClassName, or jdbcUrl and driverClassName must be specified");       throw new IllegalArgumentException("one of either dataSource or dataSourceClassName must be specified");     }  else     if (dataSource != null && dataSourceClassName != null) {       logger.warn("both dataSource and dataSourceClassName are specified, ignoring dataSourceClassName");     }     if (transactionIsolationName != null) {       UtilityElf.getTransactionIsolation(transactionIsolationName);     }     if (poolName == null) {       poolName="HikariPool-" + poolNumber++;     }     if (LOGGER.isDebugEnabled() || unitTest) {       logConfiguration();     }   }   private void validateNumerics(){     Logger logger=LoggerFactory.getLogger(getClass());     if (validationTimeout > connectionTimeout && connectionTimeout != 0) {       logger.warn("validationTimeout is greater than connectionTimeout, setting validationTimeout to connectionTimeout.");       validationTimeout=connectionTimeout;     }     if (minIdle < 0 || minIdle > maxPoolSize) {       minIdle=maxPoolSize;     }     if (maxLifetime < 0) {       logger.error("maxLifetime cannot be negative.");       throw new IllegalArgumentException("maxLifetime cannot be negative.");     }  else     if (maxLifetime > 0 && maxLifetime < TimeUnit.SECONDS.toMillis(30)) {       logger.warn("maxLifetime is less than 30000ms, using default {}ms.",MAX_LIFETIME);       maxLifetime=MAX_LIFETIME;     }     if (idleTimeout != 0 && idleTimeout < TimeUnit.SECONDS.toMillis(10)) {       logger.warn("idleTimeout is less than 10000ms, using default {}ms.",IDLE_TIMEOUT);       idleTimeout=IDLE_TIMEOUT;     }  else     if (idleTimeout > maxLifetime && maxLifetime > 0) {       logger.warn("idleTimeout is greater than maxLifetime, setting to maxLifetime.");       idleTimeout=maxLifetime;     }     if (leakDetectionThreshold != 0 && leakDetectionThreshold < TimeUnit.SECONDS.toMillis(2) && !unitTest) {       logger.warn("leakDetectionThreshold is less than 2000ms, setting to minimum 2000ms.");       leakDetectionThreshold=2000L;     }   }   private void logConfiguration(){     LOGGER.debug("HikariCP pool {} configuration:",poolName);     final Set<String> propertyNames=new TreeSet<String>(PropertyBeanSetter.getPropertyNames(HikariConfig.class));     for (    String prop : propertyNames) {       try {         Object value=PropertyBeanSetter.getProperty(prop,this);         if ("dataSourceProperties".equals(prop)) {           Properties dsProps=PropertyBeanSetter.copyProperties(dataSourceProperties);           dsProps.setProperty("password","<masked>");           value=dsProps;         }         value=(prop.contains("password") ? "<masked>" : value);         LOGGER.debug((prop + "................................................").substring(0,32) + (value != null ? value : ""));       }  catch (      Exception e) {         continue;       }     }   }   abstract protected void loadProperties(  String propertyFileName);   public void copyState(  AbstractHikariConfig other){     for (    Field field : AbstractHikariConfig.class.getDeclaredFields()) {       if (!Modifier.isFinal(field.getModifiers())) {         field.setAccessible(true);         try {           field.set(other,field.get(this));         }  catch (        Exception e) {           throw new RuntimeException("Exception copying HikariConfig state: " + e.getMessage(),e);         }       }     }   } } 
+return false; 
+this.isDefaultAutoCommit()
+SLEEP_TIME=500
+listeners != null
+this.registry.getValue().addXAResourceRecovery(recovery)
+error.expectedMessageCount(2)
+target.directory("zk" + id + "data")
+writeUnlock()
+new JedisClusterCommand<Set<String>>(connectionHandler,timeout,maxRedirections){   @Override public Set<String> execute(  Jedis connection){     return connection.spop(key,count);   } } 
+logger.info("Normalizing")
+lookupService.lookupPrincipalByGroupName(user)
+getFirstByType(type,withProxy)
+assertTrueEventually(new AssertTask(){   @Override public void run() throws Exception {     assertFalse(lock.isLocked());   } } ,5)
+mWorkerId + BASE_FILE_NUMBER
+Throwable t2
+implemetationMethodDescriptors.build()
+S3DataSegmentKiller.class
+m_data.getFixString((int)m_length)
+id=15873
+mListView.getChildAt(index)
+Mockito.verify(mRMClient).start()
+id=23
+@PATCH
+LOG.info("Processing changes for pool " + poolName + ": "+ pools.get(poolName))
+id=42
+mapJoinTables != null
+assertTrue(jmsTemplate.isPubSubDomain())
+GL20.glGetUniform(program,location,params)
+id=15872
+attributes == null
+new java.util.Date()
+new StringBuilder(730)
+deploymentInfo.setDefaultEncoding(servletContainer.getDefaultEncoding())
+@Override public Cell deepClone(){   byte[] copy=Bytes.copy(this.bytes,this.offset,this.length);   KeyValue kv=new KeyValue(copy,0,copy.length);   kv.setSequenceId(this.getSequenceId());   return kv; } 
+invoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+name="java:/ConnectionFactory"
+reg.getCounters(transformFilter(filter))
+cache.setColor(style.fontColor == null ? color : Color.tmp.set(color).mul(style.fontColor))
+result.expectedBodiesReceived("A+C+E+G+I","B+D+F+H+J")
+propEditor != null
+30 * 1000
+IllegalStateException ise
+assertEquals(5,AccessControlLists.getTablePermissions(conf,TEST_TABLE).size())
+assertEquals(expectedPlan,actualPlan)
+stopwatch.elapsedMillis()
+context.getContextPath()
+removeBlockInternal(sessionId,blockId,BlockStoreLocation.anyTier())
+Gauge<Object>
+new IntRangeValidator(1,true,true)
+!traceIds.isEmpty()
+assertTrue(found)
+inner.innerSetException(new TimeoutException())
+new SSL((short)0,(short)MIN_SSL_OPTIONS,(short)sslPort)
+assertEquals(expectedResponse,orig.getResponse())
+littleEndian.order()
+getBooleanValue(ASYNC_CLIENT + "acceptAnyCertificate",false)
+T
+getGlobalProperty(OpenmrsConstants.GLOBAL_PROPERTY_LOCALE_ALLOWED_LIST)
+Character.toLowerCase(ch)
+TestSuiteEnvironment.getServerAddress()
+oldOverride.removeParameter("enabled")
+Set<Renderer>
+ObjectHelper.isEmpty(configuration.getClusterService())
+rj.mapProgress()
+@Converter
+buf.clear()
+context.add("exceptionalMethod",123f)
+logger.trace("{} is already cancelled",impl.uuid())
+Thread.sleep(500)
+configureWebDotXmlAtmosphereHandler(sc)
+engine.execute(query).toString()
+assertOpenEventually("responseLatch",responseLatch,5)
+new ASMClassLoader()
+Mockito.any()
+new ModelNode().set(15000)
+activeFrom.getTime()
+new UnderFileStatus("dummy",isDirectory)
+DEFAULT_MAX=1024
+c.getPath() == null
+LOGGER.error("no property for " + type + ", "+ format)
+logger.warn("gave up waiting for query reply from device {}",m_address)
+stopwatch.elapsedMillis()
+Object edge
+analysis.getType(aggregate)
+assertFalse(user.isGeoEnabled())
+field.set(instanceRef,value)
+assertClusterSize(2,nodes[0])
+reg.getCounters(transformFilter(filter))
+sectionStartToken.word()
+public Integer getOlderThan(){   return olderThan; } 
+in.readInt()
+id=17
+triggerManager.getRules(CHANGE,item,newState,oldState)
+getLsResultStr("/testRoot/testDir",files[1].getCreationTimeMs(),0,LsCommand.STATE_FOLDER,testUser,testUser,files[1].getPermission(),files[1].isFolder())
+acquiredChannelCount <= maxConnections
+testSame("var foo = function (a) {}; foo.call(this, 1);","var foo = function () {var a$jscomp$1 = 1;}; foo.call(this);")
+result.expectedMessageCount(3)
+id=14
+0 - originY
+@ConditionalOnEnablednHealthIndicator("mongo")
+JavaConversions.asIterable(kafkaLog.logSegments(committedOffset,Long.MAX_VALUE))
+@IntMethodAnnotation(value=-45)
+!first
+case REPLACE_IS_SAME: 
+GatherGettersAndSetterProperties.gather(compiler,mainRoot)
+log.error("Checking bounds key:[{}, {}) & col:[{}, {}) (expect {} keys)",new Object[]{keyStart,keyEnd,startCol,endCol,expected.size()})
+className.indexOf("org.openmrs.")
+request.getServletPath()
+visitor.visit(this)
+group == null
+Gdx.files.internal(fileName).nameWithoutExtension()
+logger.info("{} exists but cannot be executed even when execute permissions set; " + "check volume for \"noexec\" flag; use -Dio.netty.native.workdir=[path] " + "to set native working directory separately.",tmpFile.getPath())
+new RMNodeImpl(nodeId,rmContext,null,0,0,null,null,null)
+mavenBundle("info.cukes","cucumber-jvm-deps","1.0.4-SNAPSHOT")
+booleanSessionProperty(LEGACY_ORDER_BY,"Use legacy rules for column resolution in ORDER BY clause",false,featuresConfig.isLegacyOrderBy())
+conf.getSearchBaseURL()
+logger.info("Renamed " + instancesRenamed + " instances of "+ propsRenamed+ " properties.")
+mapper.getJsonFactory()
+container.getTimeFormat().equals(TimeFormat.DATE)
+this.originX
+group != null
+new JSONParseSpec(timestampSpec,new DimensionsSpec(dimensions,dimensionExclusions,spatialDimensions),JSONParseSpec.JSON)
+nodeString()
+config.getBroadcasterFactory().lookup(a.broadcaster(),true)
+assertEquals(12,tokens.size())
+EJBException nsee
+new CompilerException(sourceName,e.line,e.getCause())
+result.expectedMessageCount(2)
+new GenerationException(e)
+QuotaCache.this.tableQuotaCache.contains(table)
+LOG.info("Getting synchronous method stub from channel")
+activeCount == maxActive
+buffer.readableBytes() < 4
+logger.info("Strip code")
+instance2.getLifecycleService().terminate()
+node.getLifecycleService().terminate()
+version == null
+websocketComponent.setMaxThreads(11)
+id=15806
+!StringUtils.startsWithIgnoreCase(StringUtils.trim(ddl),"flush") && !StringUtils.startsWithIgnoreCase(StringUtils.trim(ddl),"grant")
+invoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+maxSize > (used / total)
+public Integer getRequestRequiredAcks(){   return requestRequiredAcks; } 
+LOGGER.debug("Unable to process JSON",exception)
+stats.getLastUpdateTime() > lastUpdateTime
+id=15802
+new UnsupportedOperationException()
+new HashMap<>(queryMemoryReservations)
+E extends Model
+undertowHost.getServer().getListeners().get(0).getBinding().getValue().getPort()
+put(v)
+{14,3.0f}
+node1.checkTreeTypeAwareEqualsSilent(node2)
+waitForJobExecutorToProcessAllJobsAndExecutableTimerJobs(10000,200)
+user.getSystemId() == null
+public final TFAgentStatMappter tFAgentStatMappter=new TFAgentStatMappter(); 
+websocketComponent.setMaxThreads(11)
+DEFAULT_USER_AS_DEFAULT_QUEUE=false
+QuotaCache.this.tableQuotaCache.contains(table)
+e.getMessage()
+@Override public ResponseImpl description(String description){   throw new RuntimeException("Not implemented"); } 
+entry.getValue().getManagementInterfaceMinorVersion()
+assertEquals(2,historyService.createHistoricActivityInstanceQuery().processDefinitionId(processInstance.getProcessDefinitionId()).list().size())
+Foundation.NSLog("[info] " + tag + ": "+ message)
+SocketTimeoutException.class
+idGenerator.generateId()
+registered.add(objectName)
+Object edge
+nodeString()
+logger.debug("Removing: {}",r)
+mCurrentBlockLeftByte > tLen
+new S_Command("00FE30",20.0)
+flushAfterDuration(entry.getKey(),entry.getValue())
+CxfEndpointBean.class
+zkWorker.getWorker()
+@Override public ResponseImpl header(String name,Property property){   addHeader(name,property);   return this; } 
+result.expectedMessageCount(3)
+AnimationAdapter<T>
+routes.ExtractorsResource().list(input.getId())
+createMessageConsumer(session,destinationName,messageSelector,true,null,true)
+maxPendingPersists > 0
+new GeneralDataCoding(false,false,MessageClass.CLASS1,Alphabet.ALPHA_DEFAULT)
+assertEquals(1,historyService.createHistoricActivityInstanceQuery().finished().list().size())
+rowsRet <= 0
+entry.getName().startsWith(BOOT_INF_CLASSES)
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class IdGeneratorBasicDistributedTest extends IdGeneratorBasicTest {   @Override protected HazelcastInstance[] newInstances(){     return createHazelcastInstanceFactory(2).newInstances();   } } 
+assertEquals(expectedPlan,actualPlan)
+assertEquals(8,config.getMapConfigs().size())
+getCompletePredicate()
+System.nanoTime()
+Assert.assertFalse(Boolean.valueOf(response.getFirstHeader("serialized").getValue()))
+node.getNodeName()
+future.isCancelled()
+stackTrace.length < depth
+Preconditions.checkNotNull(blockIds)
+GatherGettersAndSetterProperties.update(compiler,externs,root)
+Integer.valueOf(tokens[3])
+Integer.MIN_VALUE + 11
+timeout=120000
+CompletableFuture<Boolean>
+ast.getNextSibling() != null
+Preconditions.checkNotNull(mBlockIdsOnTiers)
+RestartStrategies.fixedDelayRestart(3,0)
+LOG.error("Cannot resolve the host name for " + regionAddress + " because of "+ e)
+!dynamicState.changingBlobs.isEmpty()
+this.isDefaultAutoCommit()
+assertEquals(expectedPlan,actualPlan)
+logger.debug("MyQ binding received command '{}' for item '{}'",command,itemName)
+id=40
+return true; 
+logger.debug("AtmosphereResource {} is resuming",uuid())
+NbPreferences.forModule(DataTableTopComponent.class).getBoolean(DATA_LABORATORY_ONLY_VISIBLE,false)
+executor.scheduleWithFixedDelay(this,period,period,unit)
+allGroupingColumns.isEmpty()
+DataStream<OUT>
+GL20.glUniformMatrix2(location,transpose,toFloatBuffer(value,offset,count << 2))
+Throwable t
+GatherGettersAndSetterProperties.update(compiler,externs,root)
+-1
+expectQueryToFail("UserWith:Colon",ldapUserPassword,INVALID_CREDENTIALS_ERROR)
+removeQuote(timestring.trim())
+s.count()
+DiagnosticGroups.registerGroup("functionParams",FunctionTypeBuilder.OPTIONAL_ARG_AT_END)
+messageHandler.serverAcceptor()
+NoopSegmentPublisher.class
+mapContainer.getMapConfig().getTimeToLiveSeconds() * 1000
+services=8
+TestSuiteEnvironment.getServerAddress()
+new NotSupportedException()
+callTimeoutMs=5000
+GL11.glGetFloat(pname,params)
+lines("Function.prototype.inherits = function(parentCtor) {","  function tempCtor() {};","  tempCtor.prototype = parentCtor.prototype;","  this.superClass_ = parentCtor.prototype;","  this.prototype = new tempCtor();","  this.prototype.constructor = this;","};")
+DiagnosticType.disabled("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+type == VertexDataType.VertexBufferObject
+10 * Constants.SECOND_MS
+StringUtil.in(name,"base","basefont","bgsound","command","link","meta","noframes","style","title")
+config().getSoLinger() > 0
+new Notification(notification)
+Context.getEncounterService().canViewAllEncounterTypes(Context.getAuthenticatedUser())
+return sinkMaxBufferSize; 
+invoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+Foundation.NSLog("[error] " + tag + ": "+ message)
+0xff << shift
+Status.constructStatuses(get(getBaseURL() + "statuses/friends_timeline.json",true))
+detailNode != null
+dis.read(serializedData,0,length)
+p == null
+connection.zrangeByLex(key,max,min)
+getApprovalParameters()
+logger.debug("Removing: {}",r)
+annotatorImplementation.custom(inputProps,customName)
+args.length != 2
+new Entry[0xff]
+defaults.jackson2Encoder(new Jackson2JsonEncoder(objectMapper,EMPTY_MIME_TYPES))
+!segments.add(segment)
+Configuration.getLong(PropertyKey.USER_NETWORK_NETTY_TIMEOUT_MS)
+new StringBuilder(254)
+Foundation.NSLog("[debug] " + tag + ": "+ message)
+"LEVEL".equalsIgnoreCase(ident)
+closeCode < 1002
+@IntMethodAnnotation(-44)
+toHeapData(key)
+future1.get(1,TimeUnit.SECONDS)
+connectPromise.setFailure(t)
+new RuntimeException("should execute connector.connect() first")
+(Node)container
+IDAUTHORITY_RETRY_COUNT_DEFAULT=3
+Assert.assertFalse(Boolean.valueOf(response.getFirstHeader("serialized").getValue()))
+simple.getFromSentDate()
+id=15848
+IRON_SWORD(267,1,59)
+idAnnotation != null
+mTestStream.getBytesFlushed()
+result.expectedMessageCount(2)
+id=15842
+Metric<Integer>
+GL20.glUniform2(location,toIntBuffer(v,offset,count << 1))
+lineageInfo.getParents()
+type != EventType.QUERY
+Calendar.getInstance(JSON.defaultLocale)
+Preconditions.checkNotNull("Streaming Job name should not be null.")
+id=15801
+zController.sendData(doRequestStop())
+obj.getAcceptableTokens()
+!resource.getAtmosphereResourceEvent().isClosedByApplication() && !resource.isCancelled()
+ufsPath.getPath()
+/**   * Frequency in milliseconds that the consumer offsets are auto-committed to Kafka if 'enable.auto.commit' true.  */ private Long autoCommitInterval; 
+hazelcastFactory.newHazelcastClient()
+ProcedureTestingUtility.waitNoProcedureRunning(master.getMasterProcedureExecutor())
+grammar.getTokenNames()
+@UriPath(label="producer",defaultValue="true")
+sizeNeeded >= items.length
+new StringBuilder(239)
+isFieldKept(uniqueField,input)
+Integer.valueOf(tokens[3])
+(outputFolder + File.separator + apiFolder).replaceAll("/",File.separator)
+ImmutableSet.of("testStringRepresentation")
+group.shutdownGracefully()
+address.getHostName()
+clearFromMember.start()
+this.isDefaultAutoCommit()
+SpringBootWebSecurityConfiguration.class
+assertRemoveSubsystemResources(servicesA)
+processInstanceArray.size() == 0
+doMethod("GET","/books/" + bookId,null)
+len % (1024 * 1024) / 10
+NodeTraversal.traverseEs6(compiler,originalRoot,this)
+LOG.info(rootPath + "is not a directory")
+/**   * {@inheritDoc}  */ @Override public AtmosphereResource addAtmosphereResource(AtmosphereResource r){   try {     if (destroyed.get()) {       logger.debug(DESTROYED,getID(),"addAtmosphereResource(AtmosphereResource<?, ?> r");       return r;     }     start();     if (scope == SCOPE.REQUEST && requestScoped.getAndSet(true)) {       throw new IllegalStateException("Broadcaster " + this + " cannot be used as its scope is set to REQUEST");     }     if (maxSuspendResource.get() > 0 && resources.size() >= maxSuspendResource.get()) {       if (policy == POLICY.FIFO) {         AtmosphereResource resource=resources.poll();         try {           logger.warn("Too many resource. Forcing resume of {} ",resource);           resource.resume();         }  catch (        Throwable t) {           logger.warn("failed to resume resource {} ",resource,t);         }       }  else       if (policy == POLICY.REJECT) {         throw new RejectedExecutionException(String.format("Maximum suspended AtmosphereResources %s",maxSuspendResource));       }     }     if (resources.contains(r)) {       return r;     } synchronized (concurrentSuspendBroadcast) {       if (resources.isEmpty()) {         BroadcasterFactory.getDefault().add(this,name);       }       checkCachedAndPush(r,r.getAtmosphereResourceEvent());       if (isAtmosphereResourceValid(r)) {         resources.add(r);       }     }   }   finally {     if (resources.size() > 0) { synchronized (awaitBarrier) {         awaitBarrier.notifyAll();       }     }   }   return r; } 
+location.belongTo(BlockStoreLocation.anyDirInTier(tierAlias))
+subProperties.put(subName,value)
+new StringBuilder()
+v.executeBlocking(fut -> {   try {     v.simulateKill();     fut.complete();   }  catch (  Exception e) {     fut.fail(e);   } } ,ar -> {   if (!ar.succeeded()) {     fail(ar.cause());   } } )
+is("/home/source")
+lock.lock()
+logger.info("Installing Filter {}",servletClassName)
+LOG.info("Creating short circuit output stream for block {} @ {}",blockId,address)
+attribute.getDefinition().getAttributeMarshaller()
+coreThreads.asString()
+sizeNeeded >= items.length
+completionLatch.await(1200,TimeUnit.MILLISECONDS)
+Class.forName(mUfsClz).getConstructor(String.class)
+assertFalse(runtimeOptions.isMonochrome())
+endpointA.expectedBodiesReceived("A blue car!","A blue car, again!")
+from(Constants.PARALLEL_LOANBROKER_URI).process(new CreditScoreProcessor(Constants.CREDITAGENCY_ADDRESS)).multicast(new BankResponseAggregationStrategy()).setParallelProcessing(true)
+Status.constructStatuses(get(getBaseURL() + "statuses/retweets_of_me.json",null,true))
+ImmutableSortedSet.of("p","br","li","dt","dd","td","hr","img","tr","th","td")
+mLockMode == InodeTree.LockMode.READ
+IR.name(TMP_ERROR)
+version == null
+new StringBuilder(246)
+new GZIPOutputStream(outputStream,true)
+LogUtils.initializeDefaultConsoleLogger()
+FSImageFormatProtobuf.class
+assertClusterSize(2,h2)
+conn.getResponseCode() == HttpURLConnection.HTTP_OK
+toHeapData(key)
+Assert.assertEquals(select.size(),1)
+setPin(file,false)
+Bukkit.getOfflinePlayers()
+quoteMatcher.group(0)
+endFunction("get_column_statistics_by_partition: ",statsObj != null)
+TestSuiteEnvironment.getServerAddress()
+NettyAsyncHttpProvider.class
+time.put(delta)
+conf.getSearchBaseURL()
+environmentVariableMode=1
+getSrcPath("checks/javadoc/Input_01.java")
+newroot.length == 1
+ImmutableSet.of(modules)
+-1
+responseCode < OK && MULTIPLE_CHOICES <= responseCode
+executionStats.getSplits()
+DiagnosticType.error("JSC_NAME_REFERENCE_IN_EXTERNS","accessing name {0} in externs has no effect")
+getSslStoreProvider().getKeyStore()
+new JmxEndpointProperties(this.environment)
+LOG.debug("Retrieving location for state={} of job={} from the cache.",jobId,queryableStateName)
+ctx.alloc().heapBuffer()
+authentication.hasDefined(USERS)
+Byte.valueOf(value.toString())
+hz1.getLifecycleService().terminate()
+config.getInputShipStrategy(0)
+stat.st_size.get()
+!WebSocketProtocolStream.class.isAssignableFrom(webSocketProtocol.getClass())
+toHeapData(key)
+distinctValues.put(distinct,distinct)
+/**   * Gets the key of service port.  * @return key of service port  */ public String getPortKey(){   return mPortKey; } 
+serializer.serializeServerFailure(ctx.alloc(),new RuntimeException(msg))
+assertEquals(2,conceptStopWords.size())
+Assert.notNull(jarScanner,"Patterns must not be null")
+row.size() == 0
+binder.bindConstant().annotatedWith(Names.named("servicePort")).to(8081)
+ImmutableSet<ImplemetationMethodDescriptor>
+LOG.error("OpenTracing: Failed to capture tracing data",t)
+return false; 
+mock.expectedMessageCount(2)
+getSsl(ClientAuth.NEED,"password","src/test/resources/test.jks")
+patientExitObs != null
+compare(leftValue,rightValue) < 0
+twitter4j.List.constructListOfLists(get(getApiBaseURL() + V1 + user+ "/lists/memberships.json?cursor="+ cursor,true))
+new StringBuilder(561)
+writeDelaySeconds=2
+VARCHAR.createBlockBuilder(new BlockBuilderStatus(),1)
+new Date(0)
+CamelContextHelper.parseInteger(getCamelContext(),keepAliveTime)
+war.addAsWebInfResource(ClusteredWebTestCase.class.getPackage(),"web.xml")
+factory.getEmbdeddedServletContainer(exampleServletRegistration(),new FilterRegistrationBean(new ExampleFilter()))
+public DerivedBuilder setRealmPassword(String password){   realm().setPassword(password);   return this; } 
+new HashSet<RecordReplicationInfo>()
+tiled != null
+return 18; 
+assertFalse(dr.isFailure())
+NONCONFORMING_LR_RULE(165,"rule <arg> is left recursive but doesn't conform to a pattern ANTLR can handle",ErrorSeverity.ERROR)
+endpoint.getBus().getInInterceptors().size() == 1
+this.getLimit()
+key.equals(OAuthConstants.SCOPE)
+sendMessage() == false
+Assert.assertEquals(masterAddress,new InetSocketAddress("RemoteMaster1",10000))
+pushExecutor.submit(new NamedRunnable("OkHttp %s Push Data[%s]",hostName,streamId){   @Override public void execute(){     try {       boolean cancel=pushObserver.onData(streamId,buffer,byteCount,inFinished);       if (cancel)       frameWriter.rstStream(streamId,ErrorCode.CANCEL);       if (cancel || inFinished) { synchronized (SpdyConnection.this) {           currentPushRequests.remove(streamId);         }       }     }  catch (    IOException ignored) {     }   } } )
+TIMEOUT=15000
+rsWrap.getMobFileCacheAccessCount()
+mock.expectedBodiesReceived("c","b","a")
+{11,6.5f}
+@Converter
+new StringBuilder(561)
+assertEquals(9,set.size())
+connection.zrangeByLex(key,max,min)
+getPath("InputPackageDeclarationDiffDirectoryAtSubpackage.java")
+client.getBulkReply()
+@SuppressWarnings("unused") private final Object strongReference; 
+n <= k
+this.thrown.equals("File must not be null")
+checkpointPath.getPath()
+Math.min(clientCount,1)
+"Using bind address: " + publicAddress
+ShrinkWrap.create(JavaArchive.class).addAsManifestResource(EmptyAsset.INSTANCE,"beans.xml")
+Utils.deserialize(_boltSer,IBatchBolt.class)
+deletionRetentionStrategy == null
+log.debug("Unexpected exception on closing transaction.  Cause: " + e)
+document.tokens().get(10)
+WebAppUtils.getResolvedRMWebAppURLWithoutScheme(conf)
+builder(SingleSignOnDefinition.INSTANCE).addAttributes(SingleSignOnDefinition.DOMAIN,SingleSignOnDefinition.PATH,SingleSignOnDefinition.HTTP_ONLY,SingleSignOnDefinition.SECURE)
+toBeRemovedKeys.clear()
+sb.toString()
+addGroupedInterceptor(filter,interceptorClassName,group,executionPolicy)
+log.error("Error while closing command context",exception)
+put.writeToWAL()
+meta.setContentEncoding(Mimetypes.MIMETYPE_OCTET_STREAM)
+sname.getParent().getSimpleName().substring(9)
+id=15844
+page.getSizeInBytes()
+y / vz
+testError("class Foo extends BaseFoo { method() { Foo.base(this, 'method'); } }",GOOG_BASE_CLASS_ERROR)
+registry.put("kinesisClient",amazonKinesisClient)
+addKeys(externalClasses,DATE_TIME,"org.joda.time.DateTime","org.joda.time.ReadableDateTime","javax.xml.datatype.XMLGregorianCalendar")
+!tableLayoutHandle.getPartitions().isPresent()
+waitForJobExecutorToProcessAllJobsAndExecutableTimerJobs(10000,200)
+connection.subscribe(jedisPubSub,patterns)
+cluster.getTypeFactory().createSqlType(SqlTypeName.DECIMAL,bd.scale(),unscaled.toString().length())
+ReferenceCountUtil.safeRelease(holder)
+val.get(key)
+postAgg.getName().equals(metricName)
+newId > max
+Status.constructStatuses(get(getBaseURL() + "statuses/mentions.json",null,true))
+bits2[1] == false
+assertThat(page1reverse.pagination().getGlobalTotal()).isEqualTo(7)
+/**   * Make sure we don't attempt to recover inline; if the parser successfully recovers, it won't throw an exception.  */ @Override public Token recoverInline(BaseRecognizer recognizer) throws RecognitionException {   throw new RuntimeException(new InputMismatchException(recognizer)); } 
+new DynamicAwareEntry("http://localhost:8080/test",null,null)
+message.getFormattedFields()
+LOG.warn("Promotion of block " + blockId + " failed.",ioe)
+addKeys(externalClasses,DATE,"org.joda.time.LocalDate")
+config.getBroadcasterFactory().lookup(m.broadcaster(),true)
+autoCommit != conn.getAutoCommit()
+getter.getRawReturnType()
+assertEquals(model.getProperties().get(NAME).getType(),"string")
+enabled=false
+ExprEval.of(null)
+queue.size() < 100000
+is("/home/source")
+logger.trace("Receive queue TAKE: Length={}",recvQueue.size())
+this.fs.delete(filePath,false)
+xtw.writeCharacters(customProperty.getSimpleValue())
+new CamelExchangeException("JettyClient failed with state " + exchangeState,exchange)
+!segments.add(segment)
+waitUntil(() -> clusterManager.getNodes().size() == 2,30_000)
+new ModelNode().set(17500)
+bar.setResultWaitTime(3000)
+new IllegalArgumentException()
+Color.fromRGB(0x434343)
+xAmount > 0
+Assert.notNull(groupId,"ArtifactId must not be null")
+IllegalArgumentException e
+LOG.trace("Terminating channel to the remote gRPC server")
+getPath("InputPackageDeclarationDiffDirectoryAtParent.java")
+testClass.getMethod(SUITE_METHODNAME,new Class[0])
+Wt.getSlice(slice).mult(Wt.getSlice(slice).transpose())
+String id=reader.getAttributeValue(null,"id"); 
+return 0; 
+ImmutableList.of(interceptors)
+grammar.getTokenNames()
+new PutBackupOperation(name,dataKey,dataValue,replicationInfo,true)
+@PATCH
+Assert.assertFalse(mFileSystem.getStatus(uri).getInMemoryPercentage() == 100)
+start.set(Calendar.DAY_OF_MONTH,startMonth)
+CsvReporter.forRegistry(registry).convertDurationsTo(getDurationUnit()).convertDurationsTo(getRateUnit())
+Mono.just(entry.getKey()).and(entry.getValue().health().compose(this.timeoutCompose))
+{11,6.5f}
+minZ != 0f && maxZ != 0f
+i >= 0
+dstPath.getPath()
+STANADALONE
+id=15841
+Character.toLowerCase(ch)
+visitNode(node,context)
+getMockEndpoint("mock:test.after.1").expectedMinimumMessageCount(10)
+Color.rgb888ToColor(color,colorInt)
+-1
+GL.glTexSubImage2DEXT(target,level,xoffset,yoffset,width,height,format,type,pixels,Memory.getPosition(pixels))
+engine.execute(cypher).toString()
+status().isMovedTemporarily()
+final StringBuffer result=new StringBuffer(20); 
+private CSVFilter filter; 
+twitter1.getRetweets(18594701629l)
+size=500
+executionJobVertex.getParallelism()
+typeSerializer.getClass()
+preDestroys != null
+warnings.append(LocalizationMessages.HINT_MSG(error.getMessage()))
+ctx.alloc().heapBuffer()
+member.getType(beanDesc.bindingsForBeanType())
+Nd4j.getAffinityManager().getDeviceForThread(Thread.currentThread())
+DefaultChannelFuture.setUseDeadLockChecker(false)
+mWorkerId + BASE_FILE_NUMBER
+GL.glCopyTexSubImage2DEXT(target,level,xoffset,yoffset,x,y,width,height)
+ImmutableSet.Builder<ImplemetationMethodDescriptor>
+LOG.warn("Promotion of block " + blockId + " failed.",ioe)
+id=15804
+new byte[10]
+LOG.warn("Failed to get mount information: {}",e.getMessage())
+left.getQualifierLength()
+config.getMaxRedirects()
+log.debug("Error while closing command context",exception)
+new StringInputRowParser(new JSONParseSpec(new TimestampSpec("timestamp","auto"),new DimensionsSpec(Arrays.asList("dim1","dim2"),null,null)),null,null,null)
+16 << 10
+ExprEval.of(null)
+Status.constructStatuses(get(getBaseURL() + "statuses/user_timeline/" + id+ ".json",http.isAuthenticationEnabled()))
+Status.constructStatuses(get(getBaseURL() + "statuses/retweeted_to_me.json",null,paging.asPostParameterList(),true))
+registerConsumer(newUUIDString(),newUUIDString(),owner,attributes)
+eventJournalConfig.getMapName()
+context.var("double")
+Flux.create(camelSink::set)
+name="java:jboss/mail"
+routes.ExtractorsResource().list(input.getId())
+dbSqlSessionFactory.getDatabaseCatalog() != null
+executorCount--
+ModuleFactory.stopModule(mod)
+getTablename().getBytes()
+logger.debug("Trying to map {} to {}",t,path)
+endFunction("write_partition_column_statistics: ",ret != false)
+pushExecutor.submit(new NamedRunnable("OkHttp %s Push Reset[%s]",hostName,streamId){   @Override public void execute(){     pushObserver.onReset(streamId,errorCode); synchronized (SpdyConnection.this) {       currentPushRequests.remove(streamId);     }   } } )
+active
+Status.constructStatuses(get(getBaseURL() + "favorites/" + id+ ".json","page",String.valueOf(page),true))
+getTaskWriterCount(session) > 1
+event.getColumns()
+total=10000
+AsyncIOWriterAdapter.class
+next.getField(0)
+log.warn("Unable to provision more workers. Current workerCount[%d] maximum workerCount[%d].")
+terms.facetFilter(standardFilters(range,filter))
+configuredScriptEngineNames == null
+logger.debug("Invalid Atmosphere Version {}",javascriptVersion)
+response.set(ROLLED_BACK)
+DataStream<OUT>
+StringUtils.hasLength(secretQuestion) || StringUtils.hasLength(secretAnswer)
+ConfigUtils.absoluteHealthCheckDir(stormConf)
+details.put(CONFIG_HASH_KEY,currentConfigHash)
+expectedMinimumCount == -1
+Assert.assertEquals(2,json.size())
+Color.fromRGB(0x6689D3)
+assertFalse(runtimeOptions.isMonochrome())
+sExecutorService.shutdown()
+assertFalse("reuse-address",networkConfig.isReuseAddress())
+remoteAddressAliases != null
+result.expectedMessageCount(3)
+executor.scheduleWithFixedDelay(this,period,period,unit)
+standardSearchRequest(query,IndexHelper.determineAffectedIndices(indexRangeService,deflector,range))
+scanFeatures(getCamelKarafFeatureUrl(),"camel-core","camel-spring","camel-test")
+connections.get(address)

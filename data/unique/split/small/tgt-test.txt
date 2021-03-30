@@ -1,0 +1,468 @@
+registry.bind("curator",client)
+currentTime.get() / 1_000_000L
+new ModelNode(512)
+d.setDefaultEncoding(servletContainer.getDefaultEncoding())
+getPath("InputGenericWhitespaceEndsTheLine.java")
+!textProto.isEmpty() && textProto.charAt(0) == UTF8_BOM_CODE
+getPath("InputDefaultConfig.java")
+latch.awaitFirst()
+Assert.assertEquals(1144,details.get(1).getAbsolutePosition())
+AtmosphereInterceptorWriter.class
+dir.isDirectory() && !"target".equals(dir.getName()) && !dir.getName().startsWith(".")
+logger.trace("MyQ binding received command '{}' for item '{}'",command,itemName)
+DefaultChannelFuture.setUseDeadLockChecker(true)
+player.playSound(location,soundArg,(float)minimumVolume,(float)pitch)
+return 0; 
+new GeneralDataCoding(false,true,MessageClass.CLASS1,Alphabet.valueOf(submitSm.getDataCoding()))
+@ConditionalOnEnabledHealthIndicator("rabbit")
+(ObjectSerializer)value
+f.getAttrs().getMTime()
+UIPasteboard.getGeneralPasteboard()
+stateHolder.reloadDatapoints()
+Exception ex
+bar.setResultWaitTime(1000)
+executionManager.findChildExecutionsByProcessInstanceId(processInstanceId)
+new Font(edgeFontName,edgeFontStyle,edgeFontSize)
+NullPointerException.class
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class ReliableTopicBasicLocalTest extends ReliableTopicAbstractTest {   @Override protected HazelcastInstance[] newInstances(  Config config){     return createHazelcastInstanceFactory(1).newInstances(config);   } } 
+p + "." + M_GET_KEYS+ "."+ M_ITERATOR
+new SourceMapParseException("Unexpected number of values for entry:" + entryValues)
+JsonRecordHiveMapper.class
+result.addUnsafeEnchantments(getEnchantments())
+clearFromMember.join()
+publisher.publishWanReplicationUpdateBackup(name,view)
+!it.next().hasFinished()
+User.createUsersList(http.get("http://yusuke.homeip.net/twitter4j/en/testcases/statuses/friends/T4J_hudson.json"))
+queueLength.asString()
+new StringLengthValidator(1,true,true)
+adapter.makeCursors(null,index.getDataInterval(),VirtualColumns.EMPTY,Granularities.ALL,false,null)
+serializer.statementResult(mockExecutionResult(map("node",node[0],"rel",rel[0],"path",path,"map",map("n1",node[1],"r1",rel[1]))),false,ResultDataContent.rest)
+filter.setPageSize(1000)
+assertRemoveSubsystemResources(servicesB)
+new ASMClassLoader(ASMSerializerFactory.class.getClassLoader())
+listener.onStatus(new StatusJSONImpl(json))
+localAddress != null && getParent() == null
+atlasFile.name()
+put.getWriteToWAL()
+handlers.length == 0 || handlers[0] == null
+super.getView(position,contextualUndoView.getContentView(),contextualUndoView)
+JSError.make(declNode,TypeCheck.CONFLICTING_SHAPE_TYPE,"struct",className)
+b.getMessage()
+debug=true
+client.get(path,MIMETYPE_XML)
+!isInTransform && !isUDTF && child.getChildCount() > 2
+bindingGroup.get(PORT_OFFSET).asInt() > 0
+taskService.createTaskQuery().or().taskInvolvedUser("involvedUser").taskInvolvedGroupsIn(groups)
+i=1
+Assert.notNull(patterns,"Patterns must not be null")
+assertEquals(String.format("Expected %s results but got %s. Number of evicted entries: %s.",activeEmployees,values.size(),allEmployees - latch.getCount()),activeEmployees,values.size())
+id=16503
+index >= capacity()
+/**   * @see org.openmrs.api.db.ConceptDAO#getCountOfConceptReferenceTerms(java.lang.String,boolean)  */ @Override public Long getCountOfConceptReferenceTerms(String query,ConceptSource conceptSource,boolean includeRetired) throws DAOException {   Criteria criteria=createConceptReferenceTermCriteria(query,conceptSource,includeRetired);   criteria.setProjection(Projections.rowCount());   return (Integer)criteria.uniqueResult(); } 
+port >= 65536
+private CharSequence text; 
+min1 <= min2
+assertTrue("Exit Statuses are supposed to be in: " + exitStatuses + ", but the actual exit status code is: "+ status.getExitStatus(),exitStatuses.contains(status.getExitStatus()))
+DateTimeZone.forID("Asia/Shanghai")
+readBytes > 0
+new TelnetServerInitializer()
+shuttingDown
+RequestBody.create((String)bodyContents,mediaType)
+new StringBuilder(50)
+selector.select(10)
+SimpleAttributeDefinitionBuilder.create("max-level",ModelType.STRING,true)
+jsonArray.toString(1)
+timeoutMs < 1000
+/**   * Converts the given object into a canonical JSON string.  * @param object    an object  * @return {@code object} as a JSON string  * @throws IOException if there is an error writing {@code object} as JSON  */ public static String asJson(Object object) throws IllegalArgumentException {   return JSON.writeValueAsString(object); } 
+IllegalArgumentException ise
+j++
+processor.open(w,request,AtmosphereResponse.newInstance(framework.getAtmosphereConfig(),request,w))
+assertEquals(1000,timeout)
+Long.valueOf(p.getProperty("numberid.id"))
+uncompressedProto.length < 1800000
+left.getRowLength()
+assertEquals(2,visitor.getTables().size())
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class TransactionalSetBasicDistributedTest extends TransactionalSetAbstractTest {   @Override protected HazelcastInstance[] newInstances(  Config config){     return createHazelcastInstanceFactory(2).newInstances(config);   } } 
+getClientConnectionManager()
+testClosureFunction("goog.isArray",ALL_TYPE,ARRAY_TYPE,ALL_TYPE)
+!failureDesc.contains("14807") && !failureDesc.contains("14883") && !failureDesc.contains("11340")
+setExpectedMessageCount(expected)
+config.getOrcStreamBufferSize()
+model.getCurrentResult() != null && graphModel != null
+public class XpathRegressionNPathComplexityTest extends XpathTestSupport {   @Test public void testOne() throws Exception {     final String checkName=NPathComplexityCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionNPathComplexityOne.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(NPathComplexityCheck.class);     moduleConfig.addAttribute("max","0");     final String[] expectedViolation={"4:5: " + getCheckMessage(NPathComplexityCheck.class,NPathComplexityCheck.MSG_KEY,3,0)};     final List<String> expectedXpathQueries=Arrays.asList("/CLASS_DEF[@text='SuppressionXpathRegressionNPathComplexityOne']/OBJBLOCK" + "/METHOD_DEF[@text='test']","/CLASS_DEF[@text='SuppressionXpathRegressionNPathComplexityOne']/OBJBLOCK" + "/METHOD_DEF[@text='test']/MODIFIERS","/CLASS_DEF[@text='SuppressionXpathRegressionNPathComplexityOne']/OBJBLOCK" + "/METHOD_DEF[@text='test']/MODIFIERS/LITERAL_PUBLIC");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   }   @Test public void testTwo() throws Exception {     final String checkName=NPathComplexityCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionNPathComplexityTwo.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(NPathComplexityCheck.class);     moduleConfig.addAttribute("max","0");     final String[] expectedViolation={"4:5: " + getCheckMessage(NPathComplexityCheck.class,NPathComplexityCheck.MSG_KEY,3,0)};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionNPathComplexityTwo']/OBJBLOCK/STATIC_INIT");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+Metric<Integer>
+equal=true
+size=250
+this.logDirsSelector.getLocalPathForWrite(appIdStr + Path.SEPARATOR + containerIdStr,LocalDirAllocator.SIZE_UNKNOWN,this.conf,false)
+registration.registerOperationHandler(CommonAttributes.REMOVE_PROXY,ModClusterRemoveProxy.INSTANCE,removeProxy,false,runtimeOnlyFlags)
+Sets.newLinkedHashSet()
+super.remove(inputState)
+WORKER_BLOCK_HEARTBEAT_TIMEOUT_MS(Name.WORKER_BLOCK_HEARTBEAT_TIMEOUT_MS,60000)
+setLowHighExpected(lowResults,highResults,expectedResults,CONLL_SCORE,53.75,54.00,54.01)
+MessageSerializer.serializeServerFailure(ctx.alloc(),new RuntimeException(msg))
+Collections.sort(scheduledJobs,njec)
+runAllTasks()
+Status.createStatuseList(get(getBaseURL() + "statuses/retweeted_by_me.json",null,paging.asPostParameterList(),true))
+columnType.equalsIgnoreCase("double") || columnType.equalsIgnoreCase("float")
+factory.get(fResponseClass,NO_ANNOTATIONS,retrofit)
+assertThat("Unexpected error: \n" + cli.getErrorOutput(),cli.getErrorOutput().length(),equalTo(0))
+id=19906
+size * 1.8f
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+@InputIntMethodAnnotation(42)
+mapContainer.getMapConfig().getTimeToLiveSeconds() * 1000L
+Assert.assertEquals("Unexpected token type: methodStub",msg)
+routes.IndicesResource().delete(index)
+items[26]
+size=500
+option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION
+id=10808
+offset(5.0)
+ImmutableSet.of("testStringRepresentation","testDataTypeValidationOnProperties")
+@QueryParam("createdTimeInterval")
+s == null && req != null
+LOG.warn("Error in response for blockId: " + recvMsg.getBlockId() + " message: "+ recvMsg.getStatus().getMessage())
+sectionStartTagToken.word()
+/**   * The tested prototype instance  */ private final P testedPrototype; 
+Assert.assertFalse(ec.getRegisteredKryoTypes().contains(java.sql.Date.class))
+getJSDocType(cm,var)
+Protocol.read(inputStream)
+Integer.parseInt(parts[1],16)
+lastPosition <= positionCount
+new Vector2(1,0)
+timeout=120_000L
+new PutBackupOperation(name,dataKey,dataValue,replicationInfo,true,false)
+registry.bind("myConf",new XmlConfiguration(getClass().getResource("/ehcache/ehcache-file-config.xml")))
+userId > 0
+status().isFound()
+LoopContextStateRetrieval retrievalToAdapt
+new NotSupportedException("getResultSetInfo() is not supported by this resource adapter as per spec 15.11.3")
+ImmutableList<Stats>
+HiveFileFormatUtils.getOutputFormatSubstitute(outputFormatClass).getName()
+camelContext.getComponent(component,false)
+new MaterializingOperator(operatorContext,sourceTypes)
+value >> 8
+ModuleIdentifier.fromString(moduleName)
+new StormBoundedExponentialBackoffRetry(Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_INTERVAL)),Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_INTERVAL_CEILING)),Utils.getInt(conf.get(Config.STORM_ZOOKEEPER_RETRY_TIMES)))
+result.expectedMinimumMessageCount(3)
+batteryVp > medium
+c.writeAndFlush("[you] " + msg + '\n')
+sr0.getValue().f2
+v.executeBlocking(fut -> {   try {     v.simulateKill();     fut.complete();   }  catch (  Exception e) {     fut.fail(e);   } } ,false,ar -> {   if (!ar.succeeded()) {     fail(ar.cause());   } } )
+DiagnosticType.warning("JSC_NAME_REFERENCE_IN_EXTERNS","accessing name {0} in externs has no effect")
+new ArrayList<>(3)
+Bytes.toBytes(regionname)
+auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN","USER","ACTUATOR")
+GeneralError.modify(httpRequest,httpResponse,body,requestWrapper,responseWrapper,generalException)
+metricName.toString()
+cache.remove(key)
+ImmutableList.copyOf(interceptors)
+nodeEngine.getSharedService(LockService.SERVICE_NAME)
+new Packet(data,0)
+titleCache.setColors(Color.tmp.set(getColor()).mul(style.titleFontColor))
+new CompilerException(sourcePath,e.line,e.getCause())
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+cacheDirectory.mkdirs()
+/**   * Formatter for the log message.   */ private final AuditEventFormatter formatter; 
+cache.setColors(style.fontColor == null ? color : Color.tmp.set(color).mul(style.fontColor))
+AdviceWithTasks.removeByType(route,type,selectFirst,selectLast,selectFrom,selectTo,maxDeep)
+LOG.warn("Cannot resolve the host name for " + regionAddress + " because of "+ e)
+id=16700
+CalciteTests.createMockSystemSchema(druidSchema,walker,plannerConfig)
+fieldDeser.getPropertyValueDirect(currentObject)
+JedisException e
+failOrAccept(prevAccept,input,closure,t)
+o.toString().getBytes(response.getCharacterEncoding())
+"LEVEL".equalsIgnoreCase(ident) || "CONNECT_BY_ISCYCLE".equalsIgnoreCase(ident)
+Thread.sleep(500)
+Exception t3
+new IllegalArgumentException("the text is null")
+~(1L << n)
+Callable<Long>
+setLowHighExpected(lowResults,highResults,expectedResults,MENTION_F1,55.5,55.7,55.6)
+markChannelNotReadable(channel.getPipeline().getContext(NettyAsyncHttpProvider.class))
+new String(text.getBytes(),0,text.getLength())
+"Stream " + importerName
+Mockito.verify(mRMClient).stop()
+4 * AsyncResource.OPERATION_DURATION * asyncTimeoutMultiplier
+dynamicState.changingBlobs.isEmpty()
+graphVersion.incNodeAndEdgeVersion()
+runOTIafterNTI=false
+r != null
+new SemanticException(TYPE_MISMATCH,node,"%s",e.getMessage())
+isXop
+i < Integer.MAX_VALUE
+EgoBuilder.class
+taken > 50
+qs.equals("")
+newId >= max
+config.getCredentialsProvider() != null
+services=9
+cluster.getRexBuilder().makeCall(retType,calciteOp,childRexNodeLst)
+ArrayList<Item>
+new IncrementalIndexSegment(index,null)
+testWarning("goog.require('a.c');\ngoog.require('a.b')",REQUIRES_NOT_SORTED)
+EventPublishingService<IdentifiedDataSerializable,ReplicatedMessageListener>
+(Long)criteria.uniqueResult()
+case FORWARD: 
+notifierFuture.cancel(false)
+factory.getEmbeddedServletContainer()
+worker.clear()
+req.startAsync(req,res)
+KEY_LENGTH=64
+view.setTextColor(0xffffffff)
+Class.forName(name,false,getClass().getClassLoader())
+ImmutableList<Symbol>
+assertEquals(12,visitor.getConditions().size())
+model.getName()
+matcher.group(1)
+LogUtils.initializeDefaultTestConsoleLogger()
+registry.bind("amazonSQSClient",clientMock)
+new SpriteBatch(5460)
+GL20.glUniformMatrix4fv(location,transpose,value)
+System.currentTimeMillis()
+new Histogram(1,10,100,1000,10 * 1000,100 * 1000)
+eq(0L)
+(ZWaveAssociationCommandClass)node.getCommandClass(CommandClass.ASSOCIATION)
+directoryUrl.getParameter(Constants.GROUP_KEY,"")
+AsyncResult<Inet4Address>
+log.info("activitiy or FailedJobRetryTimerCycleValue is null in job " + jobId + "'. only decrementing retries.")
+Status.createStatuseList(get(getBaseURL() + "statuses/friends_timeline.json",true))
+!rootRescanned
+Context.getAdministrationService().saveGlobalProperty(propToUpdate)
+new byte[17]
+!threads.isEmpty()
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+assertEquals(403,te.getStatusCode())
+this.aliasToCTEs.containsKey(tabIdName)
+{11,7.0f}
+ChronicleEngineEndpoint endpoint=(ChronicleEngineEndpoint)getEndpoint(); 
+hz1.getLifecycleService().shutdown()
+assertThat(converter.getSupportedMediaTypes()).containsExactly(MediaTypes.HAL_JSON,MediaType.parseMediaType(MediaTypes.HAL_JSON_VALUE + ";charset=UTF-8"))
+for (AnnotationInstance annotation : excludeClassAnnotations) {   final AnnotationTarget target=annotation.target();   if (target instanceof MethodInfo) {     final MethodInfo methodInfo=MethodInfo.class.cast(target);     final MethodIdentifier methodIdentifier=methodIdentifierFromMethodInfo(methodInfo);     componentConfiguration.excludeClassInterceptors(methodIdentifier);   }  else {     throw new DeploymentUnitProcessingException("ExcludeClassInterceptors not applied to method: " + target);   } } 
+id=10804
+new IllegalStateException()
+id=46
+ExprEval.ofLong(null)
+assertTrue(user.isGeoEnabled())
+SimpleAttributeDefinitionBuilder.create("min-inclusive",ModelType.BOOLEAN,true)
+DbSegmentPublisher.class
+id=19911
+new HttpParameter("retweets",retweets)
+this.totalBytesWritten+=b
+new java.util.Date(System.currentTimeMillis() - 3600 * 24)
+triggerManager.getRules(CHANGE,item,oldState,newState)
+assertEquals(avDegree,0.5)
+assertTrue(runtimeOptions.isMonochrome())
+Lists.newArrayList("timestamp")
+assertEquals(expected,actual)
+found=false
+mock.expectedMessageCount(4)
+new RuntimeException("Could not create TypeInformation for type " + first.getClass() + "; please specify the TypeInformation manually via "+ "StreamExecutionEnvironment#fromElements(Collection, TypeInformation)",e)
+Base64.encodeBytes(key,Base64.DONT_BREAK_LINES)
+getOrCreateContainer().forceUnlock(dataKey)
+TableNotFoundException e
+pushExecutor.execute(new NamedRunnable("OkHttp %s Push Data[%s]",hostName,streamId){   @Override public void execute(){     try {       boolean cancel=pushObserver.onData(streamId,buffer,byteCount,inFinished);       if (cancel)       frameWriter.rstStream(streamId,ErrorCode.CANCEL);       if (cancel || inFinished) { synchronized (SpdyConnection.this) {           currentPushRequests.remove(streamId);         }       }     }  catch (    IOException ignored) {     }   } } )
+analysis.getType(aggregate)
+new SslContextBuilder(true)
+new ModelNode().set(600000L)
+promise.isDone() || future.isCancelled()
+DefaultManagementMBeanAssembler.class
+items[16]
+ParseUtils.parseS300THHumidity(S300TH_DATA_1)
+resource.getUser(req,AUTHORIZER_NAME,user,"",null)
+Integer.parseInt(matcher.group(1))
+id=11
+public Builder setProxyPassword(String password){   this.proxyPassword=password;   return this; } 
+getEndpoint().getConfig().getIndexType()
+assertEquals(2,beanInfo.getAttributes().length)
+mouseEvent.getModifiersEx()
+Cli.buildCli("presto",Runnable.class).withDefaultCommand(Server.class).withCommand(Server.class).withCommand(Execute.class).withCommand(Console.class).withCommand(Help.class)
+JSError.make(SourceMapInput.SOURCEMAP_RESOLVE_FAILED,sourceMapPath,e.getMessage())
+numThreads.get() >= MAX_THREADS
+from("seda:a").delayer(1000)
+typeConverter.convertTo(XMLStreamReader.class,exchange,createNonXmlFilterReader(exchange,stream))
+order.isCurrent() || order.isFuture()
+graphModel.isMixed()
+graphHeight / 2
+assertResultsPresentInDataResponse(url,asyncJob.getId(),timerJob.getId())
+ignoreUnknownFields=true
+incomingEdges.containsKey(dest)
+ServiceLoader.load(MasterFactory.class,MasterFactory.class.getClassLoader())
+public class XpathRegressionMethodParamPadTest extends XpathTestSupport {   @Test public void testOne() throws Exception {     final String checkName=MethodParamPadCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionMethodParamPadOne.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(MethodParamPadCheck.class);     final String[] expectedViolation={"4:37: " + getCheckMessage(MethodParamPadCheck.class,MethodParamPadCheck.MSG_WS_PRECEDED,"(")};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionMethodParamPadOne']/OBJBLOCK" + "/METHOD_DEF[@text='InputMethodParamPad']/LPAREN");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   }   @Test public void testTwo() throws Exception {     final String checkName=MethodParamPadCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionMethodParamPadTwo.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(MethodParamPadCheck.class);     final String[] expectedViolation={"5:13: " + getCheckMessage(MethodParamPadCheck.class,MethodParamPadCheck.MSG_LINE_PREVIOUS,"(")};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionMethodParamPadTwo']/OBJBLOCK" + "/METHOD_DEF[@text='sayHello']/LPAREN");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   }   @Test public void testThree() throws Exception {     final String checkName=MethodParamPadCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionMethodParamPadThree.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(MethodParamPadCheck.class);     moduleConfig.addAttribute("option","space");     final String[] expectedViolation={"4:25: " + getCheckMessage(MethodParamPadCheck.class,MethodParamPadCheck.MSG_WS_NOT_PRECEDED,"(")};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionMethodParamPadThree']/OBJBLOCK" + "/METHOD_DEF[@text='sayHello']/LPAREN");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+DEFAULT_LABEL_MIPMAP=false
+Color.fromRGB(0x434343)
+field.getFieldName().equalsIgnoreCase(s)
+UnsupportedOperationException.class
+(Double)x
+frameHandler.getClass() != FrameAggregator.class
+checkNoPlanNodeMatches(exchange(),"Expected rules to be fired before 'AddExchanges' optimizer")
+Assert.notNull(artifactId,"ArtifactId must not be null")
+(!client.isFailed()) && (!client.isGone()) && (!client.isClosed())
+ignoreOverriddenMethods && (AnnotationUtility.containsAnnotation(methodDef,"Override") || AnnotationUtility.containsAnnotation(methodDef,"java.lang.Override"))
+Object transformationResult=JsonPath.read(source,JSonPathExpression); 
+id=37
+mListView.getListChildAt(index)
+typeConverter.convertTo(XMLStreamReader.class,exchange,stream)
+item.getName().equals(name)
+new DeleteOptions.Builder()
+nameDefinitionMultimap.keys()
+resources.size() >= maxSuspendResource.get()
+private final PropertyKey mBindHostKey; 
+LOG.debug("Created new Configuration {}",configuration)
+defaults.jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper,EMPTY_MIME_TYPES))
+Context.getVisitService().getAllVisitTypes(true)
+HeartbeatScheduler.await(HeartbeatContext.WORKER_FILESYSTEM_MASTER_SYNC,500,TimeUnit.SECONDS)
+indexOutURI.toString()
+AsteriskActionEnum.valueOf(action)
+Map<List<Object>,T>
+assertEquals(302,status.getStatusCode())
+testWarning(js,ConstCheck.CONST_REASSIGNED_VALUE_ERROR)
+@Override public Response example(String type,Object example){   throw new RuntimeException("Not implemented"); } 
+new PropertiesLoader("classpath:/application.properties","classpath:/application.functional.properties","classpath:/application.functional-local.properties")
+@ConditionalOnEnabledHealthIndicator("elasticsearch")
+assertEquals("val-2",mock.getExchanges().get(1).getIn().getHeader(ChronicleEngineConstants.OLD_VALUE))
+new BindException(newConcept,"concept")
+stores.containsKey(name)
+getClass().getSimpleName() + "[populator:" + populator+ ", descriptor:"+ indexUserDescription+ "]"
+factory.get(fBodyClass,NO_ANNOTATIONS,retrofit)
+new MetaTableLocator().waitMetaRegionLocation(watcher,10000)
+out != null && out.getJmsMessage() != null
+value.length() <= 9
+props.setProperty(JdbcConnectionParams.PROPERTY_URL,saveUrl)
+GlobalConfiguration.getBoolean(MERGE_ITERATION_AUX_TASKS_KEY,false)
+currentPosition < input.size() && (next=this.input.get(currentPosition++)) != null
+text.contentEquals(((TextButton)button).getText())
+o instanceof MkdirsOptions
+public class XpathRegressionNestedIfDepthTest extends XpathTestSupport {   @Test public void testCorrect() throws Exception {     final String checkName=NestedIfDepthCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionNestedIfDepth.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(NestedIfDepthCheck.class);     final String[] expectedViolation={"10:17: " + getCheckMessage(NestedIfDepthCheck.class,NestedIfDepthCheck.MSG_KEY,2,1)};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionNestedIfDepth']/OBJBLOCK" + "/METHOD_DEF[@text='test']/SLIST/LITERAL_IF/SLIST/LITERAL_IF/SLIST/LITERAL_IF");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+new RuntimeException("Error while creating the data flow plan for an iteration: The iteration end was not specified correctly.")
+GL20.glGetProgramiv(program,pname,params)
+assertFalse(found)
+getPath("checks/javadoc/Input_01.java")
+in.readFully(serCondition)
+timeout=10000
+checkpointPath.toString()
+Objects.hashCode(mLocationPolicy,mReadType,mCacheIncompleteBlock)
+OperandTypes.or(OperandTypes.NILADIC,OperandTypes.family(SqlTypeFamily.STRING),OperandTypes.family(SqlTypeFamily.STRING,SqlTypeFamily.STRING))
+!Context.getEncounterService().canViewAllEncounterTypes(Context.getAuthenticatedUser())
+hints.append(LocalizationMessages.HINT_MSG(error.getMessage()))
+IOHelper.getCharsetName(exchange,useDefault)
+id=14240
+CopyOnWriteArrayList<MessageListener<Object>>
+p.getParent()
+10 * 1000
+Integer.parseInt(st.nextToken())
+defaults.jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper,EMPTY_MIME_TYPES))
+GL20.glGetShaderiv(shader,pname,params)
+id=13
+!expr.isGetProp() || !expr.isQualifiedName() || !expr.getLastChild().getString().equals("bind")
+assertEquals(3,historyService.createHistoricActivityInstanceQuery().processInstanceId(processInstance.getId()).list().size())
+fileObject.hasExt("zip") || fileObject.hasExt("ZIP")
+"" + ENVIRONMENT_VARIABLES_MODE_OVERRIDE
+inner.innerSetException(new TimeoutException(),false)
+HttpServletResponse.class.cast(response).sendError(501,"Websocket protocol not supported")
+writeDelaySeconds=10
+id=10856
+items[18]
+new String(bytes2,"UTF8")
+asyncWriteFuture.cancel(false)
+new ObjectTagging(new ArrayList<Tag>())
+calendar.getTimeZone().getRawOffset()
+item < txId
+new Path(bucketPath,"test-" + i + '-'+ j).getPath()
+handoffExecutor != null
+new Path(bucketPath,"part-" + i + '-'+ j).getPath()
+addRegionStateToPut(putB,RegionState.State.CLOSED)
+OptionalIdentifiedDefinition<Type>
+new StringBuilder(194)
+id=19
+new TypeResolver(hasRelatedOfString)
+/**   * Service invocation retry times  * @see Constants#DEFAULT_RETRIES  */ int retries() default 2; 
+MetricRegistry localRegistry
+TIMEOUT_SECONDS=20
+checkNotNull(sink,"The data sink must not be null.")
+FlinkKafkaProducer011.class
+T actor
+Assert.assertEquals(new InetSocketAddress(defaultHostname,defaultPort),masterAddress)
+i <= uri.length() - 2
+new IllegalArgumentException("profession and name can not be null")
+new RuntimeIOException("No input file provided (use -parseFile)",e)
+Class.forName(injectorSourceClassName,true,Thread.currentThread().getContextClassLoader())
+totalConnections.incrementAndGet() > configuration.getMaximumPoolSize()
+parameterIsPrimitiveOrNullable(func,i)
+String.format("/subsystem=elytron/filesystem-realm=%s/identity=%s:add-attribute(name=groups, value=[%s])",name,user.getName(),String.join(",",user.getRoles()))
+secConn != null && secConn.size() > 0
+Thread.sleep(130)
+new ResultSetIterator(conn,generatedKeys,getEndpoint().isUseJDBC4ColumnNameAndLabelSemantics())
+new DefaultPropertyNamePatternsMatcher(delimiters,"aaa","bbbb","ccccc")
+LOG.warn("Storage directory " + rootPath + " does not exist")
+framework.getBroadcasterFactory().lookup(m.broadcaster(),m.path(),true)
+CassandraRecordSetProvider.class
+private final ReloadAction reloadAction; 
+logger.warn("Failed to enumerate network interfaces",e)
+new SimpleAttributeDefinition("ha",new ModelNode().set(HornetQClient.DEFAULT_HA),ModelType.BOOLEAN,true)
+VectorizationContext.isStringFamily(outputType) || outputType.equalsIgnoreCase("binary")
+WebSocketProtocolStream.class.isAssignableFrom(webSocketProtocol.getClass())
+preds2 != null && preds2.size() == 1
+id=52
+parts.length > 1
+path.lastIndexOf("/") <= 0
+content.contains(expected)
+new JavaScriptAggregatorFactory(input,Arrays.asList(input),fnAggregate,fnReset,fnCombine)
+@InputIntMethodAnnotation(value=43)
+id=18
+msg.nextOffset()
+this.reader.comparator.compare(reader.blockIndex.blockKeys[b],0,reader.blockIndex.blockKeys[b].length,key,offset,length)
+assertEquals(3,this.context.getBean(FilterChainProxy.class).getFilterChains().size())
+"Requeuing shutdown because rootScanned: " + rootRescanned + ", numberOfMetaRegions: "+ numberOfMetaRegions.get()+ ", onlineMetaRegions.size(): "+ onlineMetaRegions.size()
+sort.sort(inputRects.items,new Comparator<Rect>(){   public int compare(  Rect o1,  Rect o2){     return o2.width - o1.width;   } } )
+camelContext.getExecutorServiceManager().shutdownNow(timeoutCheckerExecutorService)
+nearCache.invalidate(key)
+/**   * This exception is for stopping retries for S3 calls that shouldn't be retried. For example, "Caused by: com.amazonaws.services.s3.model.AmazonS3Exception: Forbidden (Service: Amazon S3; Status Code: 403 ..."  */ @VisibleForTesting static class UnrecoverableS3OperationException extends IOException {   public UnrecoverableS3OperationException(  Path path,  Throwable cause){     super(format("%s (Path: %s)",cause,path),cause);   } } 
+T extends Model
+@Override public Response description(String description){   throw new RuntimeException("Not implemented"); } 
+HeartbeatScheduler.await(HeartbeatContext.WORKER_FILESYSTEM_MASTER_SYNC,5,TimeUnit.SECONDS)
+LinkedHashMap<String,LinkedHashMap<String,ASTNode>>
+new ModelNode().set(17500L)
+scanFeatures(getCamelKarafFeatureUrl(),"xml-specs-api","camel-core","camel-spring","camel-" + feature)
+IOUtils.closeQuietly(is)
+concurrent(driver,dataSource,30)
+log.debug("Error while closing command context",exception)
+mpline == null || !mpline.contains(boundary)
+mAllowUndeclaredRTE=aFlag
+List<Class<?>>
+config.properties().get(REDIS_SHARED_POOL) != null
+CacheManagerCheck.class
+future.isDone()
+logger.debug("[{}]: Websocket error: {}",connection.getHost(),e.getMessage())
+ALIASES.addOperationParameterDescription(resources,"infinispan.container",op)
+Flux.create(camelSink::set,FluxSink.OverflowStrategy.IGNORE)
+cc.getScalaPlan(verticesPath,edgesPath,resultPath,maxIterations)
+mock.expectedBodiesReceivedInAnyOrder("c","b","a")
+Thread.sleep(1500)
+component.setMaxThreads(20)
+logger.trace("Received MyQ  JSON: {}",dataString)
+new UnsupportedOperationException(getClass().getName())
+stopWatch.taken() < 1000
+response.addHeader(WWW_AUTHENTICATE,value)
+!hasNextChunk()
+Mockito.verify(mFileSystemMasterClient).rename(src,dst,renameOptions)
+RuntimeException.class
+wrappedBuffer(buffer.order(),buffer.array(),buffer.arrayOffset(),buffer.remaining())
+inner.deletedRelationships()
+data.getBytes(response.getCharacterEncoding())
+totalHistogram.getValueAtPercentile(95)
+/**   * Does a deep copy of the contents to a new memory area and returns it as a new cell.  * @return The deep cloned cell  */ ExtendedCell deepClone(); 
+this.separator
+Reflection.methodHandle(bigArrayField.getType(),"sizeOf")
+VERBOSE=false
+mError == null
+value.equals(values[i])
+booleanProperty(DYNAMIC_SCHEDULE_FOR_GROUPED_EXECUTION,"Experimental: Use dynamic schedule for grouped execution when possible",featuresConfig.isDynamicScheduleForGroupedExecutionEnabled(),false)
+ChronicleEngineEndpoint endpoint
+ImmutableList.of(base)
+heartbeatTimeoutIntervalMs > 0L
+Arrays.asList(CoreAnnotations.TextAnnotation.class,CoreAnnotations.TokensAnnotation.class,CoreAnnotations.SentencesAnnotation.class,CoreAnnotations.CharacterOffsetBeginAnnotation.class,CoreAnnotations.CharacterOffsetEndAnnotation.class,CoreAnnotations.PartOfSpeechAnnotation.class,CoreAnnotations.LemmaAnnotation.class,CoreAnnotations.BeforeAnnotation.class,CoreAnnotations.AfterAnnotation.class,CoreAnnotations.TokenBeginAnnotation.class,CoreAnnotations.TokenEndAnnotation.class,CoreAnnotations.IndexAnnotation.class,CoreAnnotations.OriginalTextAnnotation.class,CoreAnnotations.SentenceIndexAnnotation.class,CoreAnnotations.IsNewlineAnnotation.class,CoreAnnotations.TokenIndexAnnotation.class)
+loadingSegments.get(segment.getIdentifier(),server.getTier())
+logger.trace("Adding PropertySource: " + source + " in group: "+ basename)
+cached.get(key)

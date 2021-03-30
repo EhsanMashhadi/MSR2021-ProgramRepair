@@ -1,0 +1,826 @@
+LOG.info("Unable to read HTTP response content",e)
+args[4]
+qp.isExclusiveMinimum()
+dateOfBirth == null || dateOfBirth.getTime() == null || dateOfBirth.getTime().getValue() == null
+logger.debug("Calimero library version {}",Settings.getLibraryVersion())
+((ExecutorService)executor).isTerminated()
+bestState.score()
+i % dictionarySize
+size=500
+ModuleFactory.stopModule(mod,true,true)
+checkpointPath.toString()
+mSizeOnTier.containsKey(tierAlias) ? mSizeOnTier.get(tierAlias) : 0L
+entry.getCheckName().equalsIgnoreCase(checkAlias)
+config.setProxyURL(modelconf.get(CommonAttributes.PROXY_URL).asString())
+Glue optionalGlue
+new StringBuilder(245)
+REPLACE_IF_SAME(7)
+1
+RT.count(s)
+attribute.getDefinition().getMarshaller()
+that.getDomain() == null && getDomain() != null
+MAX_USER_NAME_LENGTH=64
+namespace == null || namespace.equals("")
+size() > this.capacity
+logger.trace("myq ReturnCode: {}",returnCode)
+id=10854
+DiagnosticType.error("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+actor.addListener(listener)
+bufferedBytes < maxBufferedBytes
+!regex.equals(lastRegex) || p == null
+actor.addCaptureListener(listener)
+chain.filter(exchange).transformDeferred((call) -> filter(exchange,call))
+new StringBuilder(256)
+assertEquals(3,historyService.createHistoricActivityInstanceQuery().processInstanceId(processInstance.getId()).list().size())
+getJSDocType(cm,var)
+printLine("Unable to connect due to unrecognised server certificate")
+ticket.notifyAll()
+Thread.sleep(100)
+"A task is in the ABORTED state but stage is " + currentState
+!success
+super.remove(inputState)
+ResponseBody.create(new byte[0],MediaType.get("text/plain"))
+TestSuiteEnvironment.getServerAddressNode1()
+request.getPathInfo()
+current.getLabel().startsWith("ns") && !pre.getLabel().startsWith("ns") && !pre.getValue().equals(Predefine.TAG_BIGIN)
+historicState(item,timestamp,serviceName)
+hazelcastFactory.newHazelcastClient(newClientConfig())
+new InputStreamReader(in,"UTF-8")
+identifier != null
+Assert.assertEquals(getNotAllowedExceptionMessage("helloForNone"),e.getCause().getMessage())
+parent.getRegionNameAsString()
+(byte)0xe2
+GL20.glGetProgramiv(program,pname,params)
+graphVersion.incNodeAndEdgeVersion()
+xtw.writeCData(customProperty.getSimpleValue())
+new JSONParseSpec(new TimestampSpec("timestamp","auto"),new DimensionsSpec(Arrays.asList("dim1","dim2"),null,null))
+GatherGetterAndSetterProperties.update(compiler,externs,root)
+!Boolean.parseBoolean(ac)
+this.loggingSystem.initialize(this.initializationContext,null,null)
+ctx.write(msg,promise)
+twitter1.getPublicTimeline()
+new char[8192]
+buffer.append(KEY_NODE_ID + "=").append(nodeId)
+return 1; 
+config.setAdvertiseSecurityKey(modelconf.get(CommonAttributes.ADVERTISE_SECURITY_KEY).asString())
+logger.fine("Named " + namedCount + " anon functions using "+ bytesUsed+ " bytes")
+/**   * Column number filter.   */ private CsvFilter columnFilter; 
+@Path(PATH_RELATIONSHIP_INDEX_ID)
+DATABASE_TYPE_MSSQL.equals(databaseType)
+preMap.size()
+person.getPersonVoidReason()
+new RuntimeException("to length:" + to.length + " from length:"+ from.length)
+!mapServiceContext.hasRegisteredListener(mapName)
+notifier.isIgnoreExchangeSendingEvents()
+ctx.writeAndFlush("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n")
+optionsOverride.getLambdaRole()
+JsonObject.createObjectMapper().getFactory()
+out.writeInt(this.connectionAddress.getPort())
+GL20.glGetUniformfv(program,location,params)
+jmsManager.removeQueueFromJNDI(queueName)
+return ES8_MODULES; 
+GL20.glUniform1fv(location,v)
+(System.currentTimeMillis() - lastAccessedTime.getTime()) >= timeout
+public class XpathRegressionOuterTypeNumberTest extends XpathTestSupport {   @Test public void testOne() throws Exception {     final String checkName=OuterTypeNumberCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionOuterTypeNumber.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(OuterTypeNumberCheck.class);     moduleConfig.addAttribute("max","0");     final String[] expectedViolation={"1:1: " + getCheckMessage(OuterTypeNumberCheck.class,OuterTypeNumberCheck.MSG_KEY,3,0)};     final List<String> expectedXpathQueries=Collections.singletonList("/PACKAGE_DEF");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+ttl >= 0
+id=16513
+logger.debug("Error connecting to Plex",e)
+Mockito.doNothing().when(mFileSystemMasterClient).mount(alluxioPath,ufsPath,mountOptions)
+channelIdle(ctx,IdleState.ALL_IDLE,lastIoTime)
+10 * 1000
+processEngineConfiguration.getCommandExecutor()
+parent.decrementPrioritizableForTree0(amt)
+logger.fine("Aliasing common strings")
+Long.parseLong(args[1])
+buffer.put(indices,offset,count)
+10 * 1000
+time.put(current)
+this.setAutoCommitOnClose(true)
+TEST_UTIL.waitUntilAllRegionsAssigned(tableName)
+mock.expectedMinimumMessageCount(3)
+logger.warn("Invalid state {}",r)
+new DropTableEvent(tbl,true,deleteData,this)
+new Jackson2HalModule.HalHandlerInstantiator(HalObjectMapperConfiguration.this.relProvider,HalObjectMapperConfiguration.this.curieProvider,null)
+PathUtils.concatPath(homeDir,YML_FILE_DIR)
+new Packet(data,operation.getPartitionId())
+T actor
+startTest(getMethodName())
+websocketComponent.setMaxThreads(20)
+actor.addListener(listener)
+logPageUrl != null && logPageUrl.length() > 0
+GatherGetterAndSetterProperties.update(compiler,externs,root)
+N node
+assertTrue(predicate.apply(pickleEvent))
+LOG.debug("Creating netty input stream for block {} @ {} from client {}",blockId,address,NetworkAddressUtils.getClientHostName())
+processEngineConfiguration.getCommandExecutor()
+currentModelTransform=renderable.modelTransform
+Assert.assertEquals(new InetSocketAddress(defaultHostname,10001),workerAddress)
+LOG.warn("Block of ID " + getCurrentBlockId() + " could not be cached into Tachyon")
+Throwable e
+!exported
+assertTrue(model.getUniqueItems())
+testClass.getMethod(SUITE_METHODNAME)
+public Builder setRealmDomain(String domain){   realm().setDomain(domain);   return this; } 
+input.getDouble(0) < 0.05
+bigEndian.order()
+methodsToImplement(type,methods)
+logger.error("Item not found error while generating chart.",e)
+kryo.readObject(input,JobID.class)
+BeanMapper.mapList(books,BookDto.class)
+bits2[1]
+!config.isAutoRead()
+sliceInput.getRetainedSize()
+"https".equals(protocol) || "wss".equals(protocol)
+createMessageConsumer(session,destinationName,null,false,null)
+timeout(10000)
+GL.glGenTextures(n,toBuffer(textures,offset),0)
+request.getPathInfo()
+infos == null || infos.length == 0
+assertTrueEventually(new AssertTask(){   @Override public void run() throws Exception {     Collection<EventRegistration> regs1=eventService1.getRegistrations(MapService.SERVICE_NAME,mapName);     Collection<EventRegistration> regs2=eventService2.getRegistrations(MapService.SERVICE_NAME,mapName);     assertEquals("there should be only one registration",1,regs1.size());     assertEquals("there should be only one registration",1,regs2.size());   } } )
+mapConfig.getBackupCount()
+resultEndpoint.assertIsSatisfied()
+N node
+getPath("InputGenericWhitespaceEndsTheLine.java")
+Objects.hash(expressions,withOrdinality)
+return this; 
+logger.warn("{} {}",errorCode,message)
+new StringBuilder(560)
+Integer.parseInt(tokens[3])
+logger.warn("Invalid state {}",r)
+new DateTime(Long.parseLong(firstTimestamp) * 1000,DateTimeZone.UTC)
+synchronized (CONFIG) {   ++threadCount;   if (session == null) {     try {       options=BigtableOptionsFactory.fromConfiguration(CONFIG);       session=new BigtableSession(options);       client=session.getDataClient();     }  catch (    IOException e) {       throw new DBException("Error loading options from config: ",e);     }   }  else {     client=session.getDataClient();   }   if (clientSideBuffering) {     heapSizeManager=new HeapSizeManager(Long.parseLong(getProperties().getProperty(ASYNC_MUTATOR_MAX_MEMORY,Long.toString(AsyncExecutor.ASYNC_MUTATOR_MAX_MEMORY_DEFAULT))),Integer.parseInt(getProperties().getProperty(ASYNC_MAX_INFLIGHT_RPCS,Integer.toString(AsyncExecutor.MAX_INFLIGHT_RPCS_DEFAULT))));     asyncExecutor=new AsyncExecutor(client,heapSizeManager);   } } 
+In.forValue(apiKeyAuthConfig.in().toValue())
+20000 * 4 * 4
+id=14
+modelNode.hasDefined(LOCAL)
+getData() ^ 0x7
+names[0]
+Reflection.methodHandle(bigArrayField.getType(),"sizeOf")
+currentStage != NodeStage.DONE && sendMessage() == false
+values[i] == value
+invocation.logger.finest("'is-executing': " + executing + " -> "+ invocation)
+getOrCreateConnectionFactory()
+new GeneralDataCoding(false,true,MessageClass.CLASS1,Alphabet.ALPHA_8_BIT)
+T exception
+toBeRemovedKeys.removeAll(keysToDelete)
+DataStreamSink<OUT>
+ps.saveRelationship(rel)
+CamelCloudServiceCallRoutesAutoConfiguration.class
+GL20.glGetActiveAttrib(program,index,256,size,typeTmp)
+location.add(deltaX / delta,deltaY / delta,deltaZ / delta)
+ufsPath.toString()
+executor.execute(new NamedRunnable("OkHttp Window Update %s stream %d",hostName,streamId){   @Override public void execute(){     try {       frameWriter.windowUpdate(streamId,unacknowledgedBytesRead);     }  catch (    IOException ignored) {     }   } } )
+portNum
+Ordered.LOWEST_PRECEDENCE - 5
+Utils.javaDeserialize(_boltSer,IBatchBolt.class)
+CharSequence text
+Optional.fromNullable(resourceManagement.getStats())
+Assert.assertTrue(System.currentTimeMillis() - now < 5000)
+LOG.debug("Created new Configuration {}",configuration)
+this.thrown.expectMessage("File must exist")
+analysis.getType(windowFunction)
+testerAnnotation.annotationType()
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class AtomicLongBasicDistributedTest extends AtomicLongAbstractTest {   @Override protected HazelcastInstance[] newInstances(){     return createHazelcastInstanceFactory(2).newInstances();   } } 
+file.length() > Integer.MAX_VALUE
+callTimeoutMillis=3000
+program.getUuid()
+!r1
+logger.debug("Could not send module un-availability notification of module " + deploymentModuleIdentifier + " to channel "+ this.channel,e)
+gl.glDeleteRenderbuffer(depthStencilPackedBufferHandle)
+new DataSegment("test",new Interval("2012-02-01/2012-02-02"),new DateTime().toString(),Maps.<String,Object>newHashMap(),Lists.<String>newArrayList(),Lists.<String>newArrayList(),new NoneShardSpec(),1,0)
+statistics.addGetTimeNanos(System.nanoTime() - start)
+LOG.info("Node " + path + " already exists and this is not a "+ "retry")
+LOG.info("recovered from " + StringUtils.stringifyException(e))
+raw.getOutParameters()
+@UnrelatedTwo
+GL.glCopyTexImage2D(target,level,internalformat,x,y,width,height,border)
+cs.getNString(columnIndex)
+assertPlanEquals(expectedPlan,actualPlan)
+result.addUnsafeEnchantment(enchantment,(Integer)entry.getValue())
+superClass == Object.class || superClass == null
+sizeNeeded > items.length
+cleanString(nameAttribute.getValue())
+unkn_parts.addAll(Hive.get().getPartitions(tab))
+entity instanceof ProcessDefinitionEntity
+messageHandler.responder()
+nlDataOutNodes != null && nlDataOutNodes.getLength() > 0
+Exception t
+LOG.warn("I/O error when running rpc",e)
+intBuffer.clear()
+packFileName.substring(0,packFileName.length() - settings.atlasExtension.length())
+runningTasks.remove(assignedTask)
+CompletableFuture<Void>
+entry != null && !DropboxUploadMode.force.equals(mode)
+new Duration(60,TimeUnit.SECONDS)
+-1L
+logger.debug("Cannot retrieve item {} for widget {}",itemName,w.eClass().getInstanceTypeName())
+LOG.debug("Terminating channel to the remote gRPC server")
+status().isFound()
+t3.getSort()
+host.getHost()
+Context.getEncounterService().saveEncounter(encounter)
+Throwable ex
+t.getCause()
+routes.IndicesResource().delete(index)
+PlatformDependent.getByte(array,index)
+LOG.debug("Requesting TaskManager's path for query services failed.",throwable)
+defaultCamelContext.removeRoute(id)
+Base64.encodeBytes(key,Base64.DONT_BREAK_LINES)
+new NullOutputOperatorFactory(operatorId,sourceTypes)
+attribute.startsWith(keyPrefix) && attribute.length() > keyPrefix.length()
+ch == '|' && JdbcConstants.POSTGRESQL.equals(dbType)
+r.getRequest(true)
+statistics.addGetTimeNanos(System.nanoTime() - start)
+ManifestUtils.getOrCreateManifest(archive)
+DataStreamSink<OUT>
+new byte[17]
+cacheConfig.isUseCache()
+source.getAddress()
+Wt.getSlice(slice).plus(Wt.getSlice(slice).transpose())
+drawable != null
+handleSecurityPermissionActions(child,permConfig)
+mapper.getFactory()
+maxSize < (used / total)
+preserve.asString()
+getNonCompilablePath("InputPackageDeclarationDiffDirectory.java")
+List<String>
+DataStreamSink<OUT>
+HiveFileFormatUtils.getOutputFormatSubstitute(outputFormatClass).getName()
+AtmosphereRequest request
+AnnotatedElementUtils.hasAnnotation(type,Validated.class)
+element.getLocalName()
+RequestTokenFactory.createOAuth2Request(null,"foo",null,false,Collections.singleton("ns_admin:read"),null,null,null,null)
+logger.trace("rapidRefreshFutureEnd stopping")
+assertEquals(3,historyService.createHistoricActivityInstanceQuery().processInstanceId(processInstance.getId()).list().size())
+new BindException(newConcept,"concept")
+row("p_comment",null,5.0,0.0,null,null,null)
+-1
+arguments[1]
+nodeEngine.getSharedService(LockService.SERVICE_NAME)
+addRegionStateToPut(putB,RegionState.State.CLOSED)
+stop <= start
+override.asString()
+optionsOverride.getLambdaRole()
+/**   * Returns a duplicate of this resource record.  */ @Override public DnsResource duplicate(){   return new DnsResource(name(),type(),dnsClass(),ttl,content.duplicate()); } 
+DirectMessage.createDirectMessageList(get(getBaseURL() + "direct_messages/sent.json",new PostParameter[0],paging.asPostParameterList(),true))
+initialCapacity > 1 << 30
+child.tagName.equals("base") || child.tagName.equals("script") || child.tagName.equals("link")|| child.tagName.equals("meta")|| child.tagName.equals("title")|| child.tagName.equals("style")|| child.tagName.equals("object")
+lockForRescale()
+!Values.WEBSOCKET.equalsIgnoreCase(upgrade)
+id=10833
+exchange.setRequestHeader(HttpHeaders.AUTHORIZATION,"OAuth " + accessToken)
+-1
+getRawFieldBlock(i).getRegionSizeInBytes(rowIndex,1)
+handles[count]
+items[21]
+!findClass
+LOGGER.error("{} - Failed to execute connection test query. ({})",poolName,e.getMessage())
+@ConditionalOnEnabledHealthIndicator("redis")
+engine.execute(query).dumpToString()
+lookup="java:/queue/myAwesomeQueue"
+factory.getEmbeddedServletContainer()
+new OptiqSemanticException(generateErrorMessage(tabref,"Schema of both sides of union should match: field " + field + ":"+ " appears on the left side of the UNION at column position: "+ getPositionFromInternalName(lInfo.getInternalName())+ ", and on the right side of the UNION at column position: "+ getPositionFromInternalName(rInfo.getInternalName())+ ". Column positions should match for a UNION"))
+2 >= buf.length - count
+instance.managementService.destroy()
+line.toString(charset)
+assertEquals(3,this.context.getBean(FilterChainProxy.class).getFilterChains().size())
+ShrinkWrap.create(WebArchive.class).addClass(MyBatchlet.class).addAsWebInfResource(EmptyAsset.INSTANCE,ArchivePaths.create("beans.xml")).addAsResource("META-INF/batch-jobs/myJob.xml")
+CollectionUtils.isEmpty(elements)
+/**   * Signal the maps/reduces to start.  */ static void signalTasks(MiniDFSCluster dfs,FileSystem fileSys,boolean isMap,String mapSignalFile,String reduceSignalFile) throws Exception {   writeFile(dfs.getNameNode(),fileSys.getConf(),isMap ? new Path(mapSignalFile) : new Path(reduceSignalFile),(short)1); } 
+Integer.toString(9)
+GL20.glUniform4iv(location,toIntBuffer(v,offset,count << 2))
+suiteMethod.invoke(null)
+Status.createStatuseList(get(getBaseURL() + "statuses/home_timeline.json",null,paging.asPostParameterList(),true))
+ConcurrentHashMap<Object,AggregationStrategy>
+graphVersion.incNodeAndEdgeVersion()
+buildPages.getTypesWithoutHash()
+Configuration.getMs(PropertyKey.MASTER_TTL_CHECKER_INTERVAL_MS)
+pId + BASE_FILE_NUMBER
+setParams().xx()
+/**   * The package controller for the current file. Used for performance optimisation.  */ private ImportControl currentLeaf; 
+request.getDueAfter()
+args == null || args.length == 0
+id=19
+result != null && endpointId <= result.getInstances()
+!Objects.equals(builtInVersion,configuredVersion)
+mapEntry.getValue().equals(source)
+context.registerSubsystem(SUBSYSTEM_NAME,1,1)
+prevNerEndIndex != (start - 1) && nextNerStartIndex != end
+mRecomputeLauncherService.shutdown()
+string.length() > 0
+FISHING_ROD(346,1,64)
+type.createBlockBuilder(new BlockBuilderStatus(),4)
+bar.expectedMinimumMessageCount(2)
+noPendingBlockIteration >= MAX_NO_PENDING_BLOCK_ITERATIONS
+websocketComponent.setMaxThreads(20)
+FiltersTopComponent.findInstance().getUiModel().getSelectedRoot()
+assertTrue("map size is : " + map.size(),latch.await(5,TimeUnit.MINUTES))
+TestSuiteEnvironment.getHttpAddress()
+new MapStoreWithStoreCount(expectedStoreCount,300,50)
+page.getRetainedSizeInBytes()
+tfs.ls(Constants.PATH_SEPARATOR,true)
+initialCapacity > 1 << 30
+Status.createStatuseList(get(getBaseURL() + "statuses/retweets_of_me.json",null,paging.asPostParameterList(),true))
+tfs.ls(Constants.PATH_SEPARATOR,true)
+testSame("yz();","function yz() {}",VarCheck.NAME_REFERENCE_IN_EXTERNS_ERROR)
+logger.error("Endpoint {} not found on node {}. Cannot set command classes.",endpointId,this.getNode().getNodeId())
+Foundation.log("[error] " + tag + ": "+ message)
+PropertyValuesAnimationAdapter<T>
+GL20.glGetActiveUniform(program,index,256,size,typeTmp)
+prev.getNextProp()
+mock.message(0).body(String.class)
+!entry.getKey().isEmpty()
+EXTFramebufferObject.glGetFramebufferAttachmentParameterivEXT(target,attachment,pname,params)
+initialCapacity > 1 << 30
+patientExitObs != null && patientExitObs.size() > 0
+new java.util.Date(System.currentTimeMillis() - 24 * 3600 * 1000)
+sExecutorService.shutdownNow()
+Thread.sleep(2000)
+@Override public ExtendedCell deepClone(){   byte[] copy=new byte[this.length];   ByteBufferUtils.copyFromBufferToArray(copy,this.buf,this.offset,0,this.length);   KeyValue kv=new KeyValue(copy,0,copy.length);   kv.setSequenceId(this.getSequenceId());   return kv; } 
+id=15
+builder200.build()
+count < 1
+new IOException(e)
+config.setProxyURL(modelconf.get(CommonAttributes.PROXY_URL).asString())
+pws.getPatientPrograms(patient,program,null,completionDate,enrollmentDate,null,false)
+getMemberships().stream().filter(m -> m.isActive() && m.getPatientId().equals(patient.getPatientId())).findFirst()
+1 << 15
+new Path(bucketPath,"part-" + i + '-'+ j).getPath()
+i < repeatCount
+mock.expectedMinimumMessageCount(10)
+in.readLong()
+new ValueComparator(sortOrderAscending,type)
+factory.terminateAll()
+logger.debug("Cannot retrieve item {} for widget {}",itemName,w.eClass().getInstanceTypeName())
+/**   * {@code "content-security-policy"}  */ public static final AsciiString CONTENT_SECURITY_POLICY=new AsciiString("content-security-policy"); 
+Assert.fail("createDirectory was expected to fail with FileAlreadyExistsException")
+LinkedHashMap<String,Operator<? extends Serializable>>
+metricName.toString()
+w.println(paddingText)
+@UriParam
+!patient.isVoided() && patient.getIdentifiers().size() == 1
+WeakSafeReadWriteLock strongReference
+protected abstract Block getBlock(); 
+buildPages.getTypesWithoutHash()
+identifier != null
+Thread.sleep(500)
+((Number)s.first()).floatValue()
+@Override protected boolean handleResponse(ChannelHandlerContext ctx,Object response) throws Exception {   if (response instanceof HttpResponse) {     if (status != null) {       throw new HttpProxyConnectException(exceptionMessage("too many responses"),null);     }     HttpResponse res=(HttpResponse)response;     status=res.status();     inboundHeaders=res.headers();   }   boolean finished=response instanceof LastHttpContent;   if (finished) {     if (status == null) {       throw new HttpProxyConnectException(exceptionMessage("missing response"),inboundHeaders);     }     if (status.code() != 200) {       throw new HttpProxyConnectException(exceptionMessage("status: " + status),inboundHeaders);     }   }   return finished; } 
+public ByteBuf getBufferFor(int index) throws IndexOutOfBoundsException {   if (index < 0 || index > capacity()) {     throw new IndexOutOfBoundsException("Invalid index: " + index + " - Bytes needed: "+ (index)+ ", maximum is "+ capacity());   }   int componentId=componentId(index);   return components[componentId].duplicate(); } 
+DirectMessage.createDirectMessageList(get(getBaseURL() + "direct_messages.json",true))
+shardDao.insertShard(shard,tableId,null,0,0,0,0)
+registerConsumer(owner,newUUIDString(),newUUIDString(),attributes)
+GL20.glUniform4fv(location,v)
+websocketComponent.setMaxThreads(20)
+log.error("Both session() and unauthenticated() are set for this request, this is a bug, using session id.",new Throwable())
+addListenerMethod2.addScopedInterceptor(NettyConstants.INTERCEPTOR_CHANNEL_PROMISE_ADD_LISTENER,NettyConstants.SCOPE,ExecutionPolicy.BOUNDARY)
+new StringBuilder(256)
+ConversionException e
+Size.kilobytes(6)
+new FileWrapper(token).exists() || new FileWrapper(token).mkdirs()
+saveTaskDefinition(taskDefinition)
+r.locals.ast=locals
+getCode().split("\n",-1)
+dirtyOutputBuffer() || currentPacket != null
+b.getTypeByte()
+"Unsupported filesystem scheme found in the backup target url. Error Message: " + expMsg
+strategiesBuilder::customMessageWriter
+String.valueOf(0.09)
+endsWith("/home/source")
+new StringBuilder(256)
+new StringBuilder(1024)
+Assert.assertTrue("Was not expecting this output " + acc,System.currentTimeMillis() - now < 5000)
+/**   * {@code "x-frame-options"}  */ public static final AsciiString X_FRAME_OPTIONS=new AsciiString("x-frame-options"); 
+new PairPongMsg(getMessageCount(),(byte)0,(byte)0,this.srcAddr,dstAddr)
+LOG.info("Unable to unmarshall exception content",e)
+request.getPathInfo()
+timelineObjectHolder.getObject().getChunk(0).getObject().getMetrics()
+TEST_UTIL.getAdmin()
+ImmutableList.of(base)
+client.getState().setProxyCredentials(new AuthScope(null,-1,AuthScope.ANY_REALM),defaultcreds)
+new StringBuilder(560)
+Arrays.equals(this.element,other.element) || this.score == other.getScore()
+rSocketMessageHandler.responder()
+d.addWelcomePages(file)
+LOG.error("Couldn't upload logs for " + containerId + ". Skipping this container.",e)
+this.configuration.getMappedStatement(id,false)
+numConnections=20
+preds2 != null && preds2.size() == 1
+element.getLocalName()
+new BranchedDataException("Unable to perform a mandatory sanity check due to an IO error.",e)
+@Override public ExtendedCell deepClone(){   return new KeyValue(this); } 
+/**   * TreeTableCellEditor implementation. Component returned is the JTree.  */ private class TreeTableCellEditor extends BaseCellEditor implements TableCellEditor {   @Override public Component getTableCellEditorComponent(  JTable table,  Object value,  boolean isSelected,  int row,  int column){     return tree;   }   /**   * Overridden to return false, and if the event is a mouse event it is forwarded to the tree. <p>The behavior for this is debatable, and should really be offered as a property. By returning false, all keyboard actions are implemented in terms of the table. By returning true, the tree would get a chance to do something with the keyboard events. For the most part this is ok. But for certain keys, such as left/right, the tree will expand/collapse where as the table focus should really move to a different column. Page up/down should also be implemented in terms of the table. By returning false this also has the added benefit that clicking outside of the bounds of the tree node, but still in the tree column will select the row, whereas if this returned true that wouldn't be the case. <p>By returning false we are also enforcing the policy that the tree will never be editable (at least by a key sequence).  * @see TableCellEditor  */   @Override public boolean isCellEditable(  EventObject e){     if (e instanceof MouseEvent) {       for (int counter=getColumnCount() - 1; counter >= 0; counter--) {         if (getColumnClass(counter) == TreeTableModel.class) {           final MouseEvent me=(MouseEvent)e;           final MouseEvent newME=new MouseEvent(tree,me.getID(),me.getWhen(),me.getModifiers(),me.getX() - getCellRect(0,counter,true).x,me.getY(),me.getClickCount(),me.isPopupTrigger());           tree.dispatchEvent(newME);           break;         }       }     }     return false;   } } 
+analysis.getTypeWithCoercions(windowFunction)
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+handshakeFuture == null
+logger.trace("attempting to login")
+VectorizationContext.isStringFamily(outputType) || outputType.equalsIgnoreCase("binary")
+logger.trace("NODE {}: App version requested but Version class not supported",this.getNodeId())
+new StringBuilder(256)
+GL20.glUniform1iv(location,v)
+config.getCredentialsProvider() != null
+views.html.search.noresults.render(currentUser(),q,searchResult,stream)
+wrappersToPrimitives.put(wrapperType,primitiveType)
+JacksonMessageBodyProvider.class
+@Deprecated
+simple.getFromReceivedDate()
+"GET".equalsIgnoreCase(httpMethod)
+result.expectedMinimumMessageCount(3)
+currentTime.get() / 1_000_000L
+initialCapacity > 1 << 30
+logger.trace("Requsting URL {}",url)
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+Objects.hashCode(mLocationPolicy,mReadType,mCacheIncompleteBlock)
+FileAlreadyExistException.class
+!wrapRequest
+new IllegalArgumentException("the name is null")
+TestUtils.randomByte() + 128
+sExecutorService.shutdownNow()
+v.getCreationTime() + timeToLive < now
+decodeLast(ctx,e.getChannel(),replayable,state)
+JSError.make(file.toString(),-1,-1,ModuleLoader.MODULE_CONFLICT,file.toString())
+remoteTableHandle.isPresent()
+logger.trace("Creating Object {}",count.getAndIncrement())
+((ChannelProgressivePromise)promise).tryProgress(progress,-1)
+Byte.parseByte(value.toString())
+UnderFileSystemUtils.deleteFileIfExists(mCheckpointPath)
+items[18]
+(outputFolder + File.separator + modelFolder).replace("/",File.separator)
+mail.getClass().getSimpleName()
+Ordered.LOWEST_PRECEDENCE - 2
+logger.info("defineClass pluginClass:{} cl:{}",className,classLoader)
+Long.valueOf(p.getProperty("numberid.id"))
+DEFAULT_NUMBER_OF_WRITE_BUFFERS=256
+ChannelBuffers.wrappedBuffer(sb.toString().getBytes(bodyCharset))
+PlatformDependent.getByte(array,index)
+/**   * Loads the import control file from a file.  * @param uri the uri of the file to load.  * @return the root {@link PkgControl} object.  * @throws CheckstyleException if an error occurs.  */ public static ImportControl load(final URI uri) throws CheckstyleException {   final InputStream inputStream;   try {     inputStream=uri.toURL().openStream();   }  catch (  final MalformedURLException ex) {     throw new CheckstyleException("syntax error in url " + uri,ex);   } catch (  final IOException ex) {     throw new CheckstyleException("unable to find " + uri,ex);   }   final InputSource source=new InputSource(inputStream);   return load(source,uri); } 
+this.thrown.expectMessage("File must not be null")
+Preconditions.checkNotNull(containerIdGenerator,"containerIdGenerator")
+nodeId.equals(message.getToNode()) || nodeId.equals(message.getRouteId())
+annotations == null || annotations.isEmpty()
+conf.unset("tez.queue.name")
+dfa == null || dfa.states.isEmpty()
+new String(bytes2,"UTF8")
+ctx.writeAndFlush("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n")
+LOG.warn("Failed to write to TachyonStore stream, block " + getCurrentBlockId() + " will not be in TachyonStorage.")
+assertEquals("val-1",mock.getExchanges().get(0).getIn().getBody(String.class))
+StringUtils.hasLength(secretQuestion) && StringUtils.hasLength(secretAnswer)
+setInternal(mapService.getMapServiceContext().toData(entry.getKey(),partitionStrategy),mapService.getMapServiceContext().toData(entry.getValue()),-1,TimeUnit.MILLISECONDS)
+assertPlanEquals(expectedPlan,actualPlan)
+mSizeOnTier.containsKey(tierAlias) ? mSizeOnTier.get(tierAlias) : 0L
+GatherGetterAndSetterProperties.update(compiler,externsRoot,mainRoot)
+intBuffer.clear()
+addResult.getNumRowsInSegment() >= tuningConfig.getMaxRowsPerSegment()
+endsWith("/home/source")
+IllegalStateException.class
+new DynamicAwareEntry("http://localhost/test",null,null,null)
+Subqueries.lt(0L,subquery)
+LOGGER.debug("no property for " + type + ", "+ format)
+getConfig()
+tJvmGcDetailed.getJvmGcNewTime()
+assertEquals(16,rows.size())
+isClosed.get()
+invoke(agentInfo,payload,DEFAULT_FUTURE_TIMEOUT)
+AtmosphereRequest request
+ArrayList<Item>
+Utils.getInt(storm_conf.get(Config.TOPOLOGY_WORKERS),1)
+GL11.glTexParameteriv(target,pname,params)
+Long.parseLong(args[2])
+IntrospectionSupport.getProperties(configuration,params,null,false)
+Context.getEncounterService().saveEncounter(encounter)
+Files.deleteIfExists(file.toPath())
+LOG.debug("Requesting paths for query services failed.",throwable)
+new Path(tblDesc.getLocation(),Warehouse.makePartPath(addPartitionDesc.getPartSpec()))
+DirectMessage.createDirectMessageList(get(getBaseURL() + "direct_messages.json",true))
+bestState.score()
+assertEquals(3,map.size())
+this.totalBytesWritten+=b
+CharSequence text
+times + BASE_FILE_NUMBER
+connection.hlen(key)
+InetAddress.getLocalHost()
+LOG.debug("Exception: ",e)
+tfs.createFile(new TachyonURI("/root/testFile1"))
+LOG.warn("Failed to get TachyonStore stream, the block " + currentBlockId + " will not be in TachyonStorage")
+new DescribeInstances(awsConfig).execute()
+b.getTypeByte()
+port >= 21000
+"Deleting existing file: " + target
+Assert.assertEquals(getNotAllowedExceptionMessage("helloForNone"),e.getCause().getMessage())
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+registry.bind("amazonSQSClient",clientMock)
+SecurityActions.getModuleClassLoader(module)
+runtime.minus(provided)
+this.thrown.expectMessage("File must not be null")
+private final ReplayingDecoderByteBuf replayable=new ReplayingDecoderByteBuf(); 
+id=10803
+logger.debug("Queue length is {} - deferring HEAL.",zController.getSendQueueLength())
+E edge
+(xmin > x && xmin < x + width) && (xmax > x && xmax < x + width)
+this.getNotEmptyWaitThreadCount()
+Calendar.getInstance(JSON.defaultTimeZone,JSON.defaultLocale)
+config.getBroadcasterFactory().lookup(m.broadcaster(),path,true)
+"" + ENVIRONMENT_VARIABLES_MODE_OVERRIDE
+timer.isActive() || (!timer.isActive() && timer.getState() == TimerState.ACTIVE)
+websocketComponent.setMaxThreads(20)
+new InetSocketAddress(configuration.getRestListenUri().getHost(),configuration.getRestListenUri().getPort())
+getConnectionAddOperation(name,outboundSocketBindingRef,username,securityRealm,address)
+GatherGetterAndSetterProperties.update(compiler,externs,root)
+Long olderThan
+timeout=300000
+streamTokenizer.ttype == StreamTokenizer.TT_WORD || streamTokenizer.ttype == '"'
+@SuppressWarnings("unused") private final WeakSafeReadWriteLock strongReference; 
+Calendar.getInstance(JSON.defaultTimeZone,JSON.defaultLocale)
+items[25]
+systemId.length()
+PROTOCOL_VERSION=2
+DefaultBroadcaster.class.cast(resource.getBroadcaster()).broadcasterCache.retrieveFromCache(resource.getBroadcaster().getID(),resource)
+intBuffer.clear()
+case READ_UNCOMMITTED: 
+assertEquals(ChronicleEngineMapEventType.INSERT,mock.getExchanges().get(0).getIn().getHeader(ChronicleEngineConstants.MAP_EVENT_TYPE))
+"A task is in the ABORTED state but stage is " + currentState
+(BeanDefinitionRegistry)beanFactory
+ps.setNString(i,parameter)
+incomingMessage.getMessagePayloadByte(1)
+call.getStartTime()
+IdentifiedDataSerializable event
+javaWriter.emitSingleLineComment("foo")
+@Override public Response headers(Map<String,Property> headers){   this.headers=headers;   return this; } 
+executionJobVertex.getMaxParallelism()
+new OptiqSemanticException(generateErrorMessage(tabref,"Schema of both sides of union should match: Column " + field + " is of type "+ lInfo.getType().getTypeName()+ " on first table and type "+ rInfo.getType().getTypeName()+ " on second table"))
+cache.put(new Element(key,element))
+snapshot.getCount()
+socket != null
+!Objects.isNull(value)
+MessageOutput.Factory<DiscardMessageOutput>
+type.getConstructor(String.class)
+/**   * @return the root {@link PkgControl} object loaded.  */ private ImportControl getRoot(){   return stack.peek(); } 
+Gdx.files.internal(fileName).pathWithoutExtension()
+getJSDocType(cm,var)
+view.setTextColor(0xffffffff)
+routes.InputTypesResource()
+(Double)y
+Time.currentTimeMillis()
+@RunWith(HazelcastSerialClassRunner.class) @Category(QuickTest.class) public class ReplicatedMapTest extends ReplicatedMapAbstractTest {   @Test public void testEmptyMapIsEmpty() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance=nodeFactory.newHazelcastInstance();     ReplicatedMap<Integer,Integer> map=instance.getReplicatedMap(randomName());     assertTrue("map should be empty",map.isEmpty());   }   @Test public void testNonEmptyMapIsNotEmpty() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance=nodeFactory.newHazelcastInstance();     ReplicatedMap<Integer,Integer> map=instance.getReplicatedMap(randomName());     map.put(1,1);     assertFalse("map should not be empty",map.isEmpty());   }   @Test(expected=IllegalArgumentException.class) public void testNegativeTtlThrowsException() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance=nodeFactory.newHazelcastInstance();     ReplicatedMap<Integer,Integer> map=instance.getReplicatedMap(randomName());     map.put(1,1,-1,TimeUnit.DAYS);   }   @Test public void testAddObject() throws Exception {     testAdd(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testAddBinary() throws Exception {     testAdd(buildConfig(InMemoryFormat.BINARY));   }   private void testAdd(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );   }   @Test public void testPutAllObject() throws Exception {     testPutAll(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testPutAllBinary() throws Exception {     testPutAll(buildConfig(InMemoryFormat.BINARY));   }   private void testPutAll(  Config config) throws TimeoutException {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     final Map<String,String> mapTest=new HashMap<String,String>();     for (    String key : keys) {       mapTest.put(key,"bar");     }     map1.putAll(mapTest);     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );   }   @Test public void testClearObject() throws Exception {     testClear(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testClearBinary() throws Exception {     testClear(buildConfig(InMemoryFormat.BINARY));   }   private void testClear(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );     map1.clear();     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         assertEquals(0,map1.size());         assertEquals(0,map2.size());       }     } );   }   @Test public void testAddTtlObject() throws Exception {     testAddTtl(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testAddTtlBinary() throws Exception {     testAddTtl(buildConfig(InMemoryFormat.BINARY));   }   private void testAddTtl(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar",10,TimeUnit.MINUTES);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           ReplicatedRecord<String,String> record=getReplicatedRecord(map1,key);           assertNotNull(record);           assertNotEquals(0,record.getTtlMillis());         }       }     } );     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map2.get(key));           ReplicatedRecord<String,String> record=getReplicatedRecord(map2,key);           assertNotNull(record);           assertNotEquals(0,record.getTtlMillis());         }       }     } );   }   @Test public void testUpdateObject() throws Exception {     testUpdate(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testUpdateBinary() throws Exception {     testUpdate(buildConfig(InMemoryFormat.BINARY));   }   private void testUpdate(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );     for (    String key : keys) {       map2.put(key,"bar2");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar2",map1.get(key));           assertEquals("bar2",map2.get(key));         }       }     } );   }   @Test public void testUpdateTtlObject() throws Exception {     testUpdateTtl(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testUpdateTtlBinary() throws Exception {     testUpdateTtl(buildConfig(InMemoryFormat.BINARY));   }   private void testUpdateTtl(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );     for (    String key : keys) {       map2.put(key,"bar2",10,TimeUnit.MINUTES);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar2",map1.get(key));           ReplicatedRecord<String,String> record=getReplicatedRecord(map1,key);           assertNotNull(record);           assertTrue(record.getTtlMillis() > 0);         }       }     } );     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar2",map2.get(key));           ReplicatedRecord<String,String> record=getReplicatedRecord(map2,key);           assertNotNull(record);           assertTrue(record.getTtlMillis() > 0);         }       }     } );   }   @Test public void testRemoveObject() throws Exception {     testRemove(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testRemoveBinary() throws Exception {     testRemove(buildConfig(InMemoryFormat.BINARY));   }   @Test public void testContainsKey_returnsFalse_onRemovedKeys() throws Exception {     HazelcastInstance node=createHazelcastInstance();     ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     map.put(1,Integer.MAX_VALUE);     map.remove(1);     assertFalse(map.containsKey(1));   }   @Test public void testContainsKey_returnsFalse_onNonexistentKeys() throws Exception {     HazelcastInstance node=createHazelcastInstance();     ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     assertFalse(map.containsKey(1));   }   @Test public void testContainsKey_returnsTrue_onExistingKeys() throws Exception {     HazelcastInstance node=createHazelcastInstance();     ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     map.put(1,Integer.MAX_VALUE);     assertTrue(map.containsKey(1));   }   @Test public void testKeySet_notIncludes_removedKeys() throws Exception {     HazelcastInstance node=createHazelcastInstance();     final ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     map.put(1,Integer.MAX_VALUE);     map.put(2,Integer.MIN_VALUE);     map.remove(1);     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         Set<Integer> keys=new HashSet<Integer>(map.keySet());         assertFalse(keys.contains(1));       }     } ,20);   }   @Test public void testEntrySet_notIncludes_removedKeys() throws Exception {     HazelcastInstance node=createHazelcastInstance();     final ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     map.put(1,Integer.MAX_VALUE);     map.put(2,Integer.MIN_VALUE);     map.remove(1);     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         Set<Entry<Integer,Integer>> entries=map.entrySet();         for (        Entry<Integer,Integer> entry : entries) {           if (entry.getKey().equals(1)) {             fail(String.format("We do not expect an entry which's key equals to %d in entry set",1));           }         }       }     } ,20);   }   private void testRemove(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertEquals("bar",map1.get(key));           assertEquals("bar",map2.get(key));         }       }     } );     for (    String key : keys) {       map2.remove(key);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertFalse(map1.containsKey(key));           assertFalse(map2.containsKey(key));         }       }     } );   }   @Test public void testSizeObject() throws Exception {     testSize(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testSizeBinary() throws Exception {     testSize(buildConfig(InMemoryFormat.BINARY));   }   private void testSize(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     final SimpleEntry<String,String>[] testValues=buildTestValues(keys);     int half=testValues.length / 2;     for (int i=0; i < testValues.length; i++) {       final ReplicatedMap<String,String> map=i < half ? map1 : map2;       final SimpleEntry<String,String> entry=testValues[i];       map.put(entry.getKey(),entry.getValue());     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         assertEquals(keys.size(),map1.size());         assertEquals(keys.size(),map2.size());       }     } );   }   @Test public void testContainsKeyObject() throws Exception {     testContainsKey(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testContainsKeyBinary() throws Exception {     testContainsKey(buildConfig(InMemoryFormat.BINARY));   }   private void testContainsKey(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     for (    String key : keys) {       map1.put(key,"bar");     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertTrue(map1.containsKey(key));           assertTrue(map2.containsKey(key));         }       }     } );   }   @Test public void testContainsValue_returnsFalse_onNonexistentValue() throws Exception {     HazelcastInstance node=createHazelcastInstance();     ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     assertFalse(map.containsValue(1));   }   @Test public void testContainsValueObject() throws Exception {     testContainsValue(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testContainsValueBinary() throws Exception {     testContainsValue(buildConfig(InMemoryFormat.BINARY));   }   private void testContainsValue(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     int half=keys.size() / 2, i=0;     for (    String key : keys) {       final ReplicatedMap<String,String> map=i++ < half ? map1 : map2;       map.put(key,key);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         for (        String key : keys) {           assertTrue(map1.containsValue(key));           assertTrue(map2.containsValue(key));         }       }     } );   }   @Test public void testValuesWithComparator() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance=nodeFactory.newHazelcastInstance();     ReplicatedMap<Integer,Integer> map=instance.getReplicatedMap(randomName());     for (int i=0; i < 100; i++) {       map.put(i,i);     }     Collection<Integer> values=map.values(new DescendingComparator());     int v=100;     for (    Integer value : values) {       assertEquals(--v,(int)value);     }   }   @Test public void testValuesObject() throws Exception {     testValues(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testValuesBinary() throws Exception {     testValues(buildConfig(InMemoryFormat.BINARY));   }   private void testValues(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     int half=keys.size() / 2, i=0;     for (    String key : keys) {       final ReplicatedMap<String,String> map=i++ < half ? map1 : map2;       map.put(key,key);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         assertEquals(keys,new HashSet<String>(map1.values()));         assertEquals(keys,new HashSet<String>(map2.values()));       }     } );   }   @Test public void testKeySetObject() throws Exception {     testKeySet(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testKeySetBinary() throws Exception {     testKeySet(buildConfig(InMemoryFormat.BINARY));   }   private void testKeySet(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     int half=keys.size() / 2, i=0;     for (    String key : keys) {       final ReplicatedMap<String,String> map=i++ < half ? map1 : map2;       map.put(key,key);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         assertEquals(keys,new HashSet<String>(map1.keySet()));         assertEquals(keys,new HashSet<String>(map2.keySet()));       }     } );   }   @Test public void testEntrySetObject() throws Exception {     testEntrySet(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testEntrySetBinary() throws Exception {     testEntrySet(buildConfig(InMemoryFormat.BINARY));   }   private void testEntrySet(  Config config) throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     int half=keys.size() / 2, i=0;     for (    String key : keys) {       final ReplicatedMap<String,String> map=i++ < half ? map1 : map2;       map.put(key,key);     }     assertTrueEventually(new AssertTask(){       @Override public void run() throws Exception {         List<Entry<String,String>> entrySet1=new ArrayList<Entry<String,String>>(map1.entrySet());         List<Entry<String,String>> entrySet2=new ArrayList<Entry<String,String>>(map2.entrySet());         assertEquals(keys.size(),entrySet1.size());         assertEquals(keys.size(),entrySet2.size());         for (        Entry<String,String> e : entrySet1) {           assertTrue(keys.contains(e.getKey()));         }         for (        Entry<String,String> e : entrySet2) {           assertTrue(keys.contains(e.getKey()));         }       }     } );   }   @Test public void testAddListenerObject() throws Exception {     testAddEntryListener(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testAddListenerBinary() throws Exception {     testAddEntryListener(buildConfig(InMemoryFormat.BINARY));   }   private void testAddEntryListener(  Config config) throws TimeoutException {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     SimpleEntryListener listener=new SimpleEntryListener(1,0);     map2.addEntryListener(listener,keys.iterator().next());     for (    String key : keys) {       map1.put(key,"bar");     }     assertOpenEventually(listener.addLatch);   }   @Test public void testEvictionObject() throws Exception {     testEviction(buildConfig(InMemoryFormat.OBJECT));   }   @Test public void testEvictionBinary() throws Exception {     testEviction(buildConfig(InMemoryFormat.BINARY));   }   private void testEviction(  Config config) throws TimeoutException {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(2);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance(config);     HazelcastInstance instance2=nodeFactory.newHazelcastInstance(config);     final ReplicatedMap<String,String> map1=instance1.getReplicatedMap("default");     final ReplicatedMap<String,String> map2=instance2.getReplicatedMap("default");     final int partitionCount=getPartitionService(instance1).getPartitionCount();     final Set<String> keys=generateRandomKeys(instance1,partitionCount);     SimpleEntryListener listener=new SimpleEntryListener(0,100);     map2.addEntryListener(listener);     SimpleEntryListener listenerKey=new SimpleEntryListener(0,1);     map1.addEntryListener(listenerKey,keys.iterator().next());     for (    String key : keys) {       map1.put(key,"bar",3,TimeUnit.SECONDS);     }     assertOpenEventually(listener.evictLatch);     assertOpenEventually(listenerKey.evictLatch);   } private class SimpleEntryListener extends EntryAdapter<String,String> {     CountDownLatch addLatch;     CountDownLatch evictLatch;     SimpleEntryListener(    int addCount,    int evictCount){       addLatch=new CountDownLatch(addCount);       evictLatch=new CountDownLatch(evictCount);     }     @Override public void entryAdded(    EntryEvent event){       addLatch.countDown();     }     @Override public void entryEvicted(    EntryEvent event){       evictLatch.countDown();     }   }   @Test(expected=IllegalArgumentException.class) public void putNullKey() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance();     ReplicatedMap<Object,Object> map1=instance1.getReplicatedMap("default");     map1.put(null,1);   }   @Test(expected=IllegalArgumentException.class) public void removeNullKey() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance();     ReplicatedMap<Object,Object> map1=instance1.getReplicatedMap("default");     map1.remove(null);   }   @Test public void removeEmptyListener() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance();     ReplicatedMap<Object,Object> map1=instance1.getReplicatedMap("default");     assertFalse(map1.removeEntryListener("2"));   }   @Test(expected=IllegalArgumentException.class) public void removeNullListener() throws Exception {     TestHazelcastInstanceFactory nodeFactory=createHazelcastInstanceFactory(1);     HazelcastInstance instance1=nodeFactory.newHazelcastInstance();     ReplicatedMap<Object,Object> map1=instance1.getReplicatedMap("default");     map1.removeEntryListener(null);   }   @Test public void testSizeAfterRemove() throws Exception {     HazelcastInstance node=createHazelcastInstance();     ReplicatedMap<Integer,Integer> map=node.getReplicatedMap("default");     map.put(1,Integer.MAX_VALUE);     map.remove(1);     assertTrue(map.size() == 0);   }   @Test public void testDestroy() throws Exception {     HazelcastInstance instance=createHazelcastInstance();     ReplicatedMap<Object,Object> replicatedMap=instance.getReplicatedMap(randomName());     replicatedMap.put(1,1);     replicatedMap.destroy();     Collection<DistributedObject> objects=instance.getDistributedObjects();     assertEquals(0,objects.size());   } class DescendingComparator implements Comparator<Integer> {     @Override public int compare(    Integer o1,    Integer o2){       return o1 == o2 ? 0 : o1 > o2 ? -1 : 1;     }   } } 
+original.getScreenName().endsWith("new") || original.getName().endsWith("new")
+result.addUnsafeEnchantments(getEnchantments())
+Integer.parseInt(quantifier)
+UriBuilder.fromResource(AlarmCallbackResource.class).path("{alarmCallbackId}").build(streamid,id)
+!status.isDir()
+Character.isWhitespace(origText.charAt(i))
+Status.createStatuseList(get(getBaseURL() + "statuses/retweeted_to_me.json",null,true))
+javaWriter.emitSingleLineComment("foo")
+value & 0xff
+entity instanceof ProcessDefinitionEntity
+sleepAtLeastMillis(1000)
+Context.getVisitService().getAllVisitTypes()
+unitOfWork != null && onCompletions != null
+getTokenDisplayNames()
+this.thrown.expectMessage("File must exist")
+resourceRegistration.registerAdditionalRuntimePackages(RuntimePackageDependency.optional("org.hibernate.search.orm"),RuntimePackageDependency.required("org.hibernate"),RuntimePackageDependency.optional("org.hibernate.envers"))
+new MMUnlockHandler(this)
+value == null
+tokens.getText()
+LOG.debug("Creating short circuit input stream for block {} @ {}",blockId,address)
+rSocketMessageHandler.responder()
+new BinaryWebSocketFrame(finalFragment,rsv,payload)
+WebServicesTestUtils.checkStringEqual("hadoopBuildVersion",VersionInfo.getBuildVersion(),hadoopBuildVersion)
+DiagnosticType.error("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+Context.getVisitService().getAllVisitTypes(true)
+SSOTestBase.executeNoAuthSingleSignOnTest(baseURLNoAuth,baseURLNoAuth,log)
+patientState.getState().getUuid()
+newName.putProp(Node.ORIGINALNAME_PROP,qName)
+option.getJavaType()
+DiagnosticType.disabled("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+srcActivity.getParent() == null || !(srcActivity.getParent() instanceof PvmActivity)
+new ArrayList<FileInputSplit>()
+/**   * Loads the value of a given key. If distributed map doesn't contain the value for the given key then Hazelcast will call implementation's load (key) method to obtain the value. Implementation can use any means of loading the given key; such as an O/R mapping tool, simple SQL or reading a file etc.  * @param key  * @return value of the key  */ V load(K key); 
+new File(resourceArr[i])
+globalSecurityDomain != null && !globalSecurityDomain.isEmpty()
+64 * 1024
+maxLifetime < 120000 && maxLifetime != 0
+isXop
+log.error("Error while closing command context",exception)
+mock.expectedMinimumMessageCount(2)
+resultEndpoint.expectedMinimumMessageCount(2)
+@ConditionalOnEnabledHealthIndicator("redis")
+TestSuiteEnvironment.getHttpAddress()
+new IOException("Test IOException")
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+new StringBuilder(238)
+assertPlanEquals(expectedPlan,actualPlan)
+Assert.assertEquals(1,configs.size())
+new Whitelist().addTags("a","b","blockquote","br","caption","cite","code","col","colgroup","dd","div","dl","dt","em","h1","h2","h3","h4","h5","h6","i","img","li","ol","p","pre","q","small","span","strike","strong","sub","sup","table","tbody","td","tfoot","th","thead","tr","u","ul")
+public Builder setProxyPrincipal(String principal){   this.proxyPrincipal=principal;   return this; } 
+findModule(moduleName)
+mContext.getClass()
+hazelcastFactory.newHazelcastInstance(newConfig())
+{MAGIC_HIGH,MAGIC_LOW,0x02,20,0,0,0,0,0,0,0,0,0,0,0,0}
+nodeEngine.getClusterService()
+timeLeft <= 0
+Preconditions.checkNotNull(mBlockIdsOnTiers,"mBlockIdsOnTiers")
+mock.expectedMinimumMessageCount(2)
+o instanceof XidImpl
+logger.trace("attempting to login")
+JSError.make(REPORT_PATH_IO_ERROR,reportPath,e.getMessage())
+id=10999
+doInvoke(args.first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),(args=args.rest()).first(),args.rest())
+new BindException(newConcept,"concept")
+!super.equals(obj)
+return requires; 
+AtmosphereResponse.newInstance()
+findDelegateForNewObject(name)
+LOG.warn("register druid-driver mbean error",ex)
+Status.createStatuseList(get(getBaseURL() + "favorites.json",new PostParameter[0],true))
+initialCapacity > 1 << 30
+logger.warn("Configuration for influxdb not yet loaded or broken.")
+new StringBuilder(740)
+logger.trace("Adding PropertySource: " + source + " in group: "+ basename)
+new ConversionException("Expected a proto but was: " + body.mimeType())
+config.getBroadcasterFactory().lookup(a.broadcaster(),path,true)
+configuration.addViewInterceptor(method,factory,InterceptorOrder.View.COMPONENT_DISPATCHER)
+form instanceof IObj && !(form instanceof Var) && ((IObj)form).meta() != null
+GL.glDrawArrays(mode,first,count)
+ImmutableList<String>
+!failureDesc.contains("14807") && !failureDesc.contains("14883") && !failureDesc.contains("11340")
+Color.fromRGB(0xD88198)
+assertEquals(SIZE * COUNTDOWN,c1.counts + c2.counts)
+T actor
+c * c
+LOG.debug("Creating short circuit input stream for block {} @ {}",blockId,address)
+log.error("Multiple nodes are set, but execute() was called. This is most likely a bug and you meant to call executeOnAll()!",new Throwable())
+getNonCompilablePath("InputPackageDeclarationDiffDirectoryAtSubpackage.java")
+new StringBuilder(1024)
+LinkedHashMap<String,Operator<? extends Serializable>>
+bigEndian.order()
+selectBoxList.setScrollingDisabled(true,y)
+CompletableFuture<Void>
+ObjectHelper.loadClass(name,loader)
+callTimeout=5000
+Tuple2.of(timeoutPattern2,12L)
+@UriParam(label="producer",defaultValue="true")
+deletionRetentionStrategyConfig == null
+getPath("checks/javadoc/Input_03.java")
+? extends T
+Calendar.getInstance(JSON.defaultTimeZone,JSON.defaultLocale)
+minSize(new Fixed(width),new Fixed(height))
+Assert.assertEquals(21,Context.getAdministrationService().getAllGlobalProperties().size())
+beansXml.getOrCreateAlternatives()
+RequestBody.create((File)bodyContents,mediaType)
+provider.isInBound(itemName) && credentialsMatch(provider,itemName,oauthCredentials) && thermostats.containsKey(provider.getThermostatIdentifier(itemName))
+new ConnectorRefsAttribute(CommonAttributes.STATIC_CONNECTORS,true,true)
+routes.IndicesResource().delete(index)
+!(topicParts.length > 2) || !topicParts[0].equals(TOPIC_PREFIX)
+ProxyHelper.createProxy(endpoint,false,ISay.class)
+getMockEndpoint("mock:event").expectedMessageCount(6)
+realPointerIndex >= AndroidInput.NUM_TOUCHES
+new GrammaticalRelation(Language.UniversalChinese,"nummod","numeric modifier",MODIFIER,"QP|NP|DP",tregexCompiler,"NP|QP < ( QP  =target << M $++ NN|NP|QP)")
+Iterable<? extends IJsonNode>
+-121
+Assert.assertTrue("reload-required".equals(result.get(RESPONSE_HEADERS).get(PROCESS_STATE).asString()))
+return false; 
+Entry<String,Channel>
+graphModel.getDirectedGraphVisible()
+Assert.notNull(cache,"No cache with name '" + cacheName + "' found.")
+LOG.debug("Building gRPC server on " + configuration.getHost() + ":"+ configuration.getPort())
+Configuration.getMs(PropertyKey.MASTER_TTL_CHECKER_INTERVAL_MS)
+1000 * 1000 * 1
+serverSocket == null || !serverSocket.isBound()
+LOG.warn("Block of ID " + getCurrentBlockId() + " could not be cached into Tachyon")
+setTimeToIdleSeconds(Long.valueOf((String)cacheSettings.get("timeToIdleSeconds")).longValue())
+n.getNodeData().getId().toLowerCase().equals(str)
+nodeEngine.getClusterService()
+this.thrown.expectMessage("File must exist")
+Assert.assertEquals(getNotAllowedExceptionMessage("helloForNone"),e.getCause().getMessage())
+itemActionLayout > 0
+BlockStoreContext.releaseBlockWorkerThriftClientHeartbeat(mRpcAddress,client)
+log.infof("started ResourceAdapterService %s",context.getController().getName())
+wrappersToPrimitives.put(wrapperType,primitiveType)
+new StringBuilder(638)
+width - originX
+getLsNoAclResultStr("/testRoot/testDir",files[1].getCreationTimeMs(),1,LsCommand.STATE_FOLDER)
+handleSecurityPermissionEndpoints(child,permConfig)
+converter.tryConvertTo(rightValue.getClass(),leftValue)
+ByteBuf line=buffer(64); 
+cache.putRecord(key,record)
+times + BASE_FILE_NUMBER
+Assert.assertEquals(1456,details.get(6).getAbsolutePosition())
+cSet.getConceptSet()
+Arrays.asList("SuppressWithNearbyCommentFilter.fileContents","SuppressionCommentFilter.fileContents")
+assertClusterSizeEventually(2,nodes[0])
+conn.getResponseCode() == HttpURLConnection.HTTP_OK || conn.getResponseCode() == HttpURLConnection.HTTP_BAD_REQUEST
+assertEquals(2,map2.keySet().size())
+is.read(buffer)
+unlockForRescale()
+new IllegalArgumentException("Could not parse '" + input + "'",e)
+map.tryPut(key,newValue,60,TimeUnit.SECONDS)
+config.getOrcStreamBufferSize()
+CompletableFuture<Void>
+Context.hasPrivilege(OpenmrsConstants.PRIV_EDIT_USERS)
+dictionary.put(words[0],words[2])
+(JobResponse)result
+log.makeAlert(e,"Failed to remove segment")
+setop.getIDLName()
+endsWith("/home/source")
+headerFilterStrategy.applyFilterToExternalHeaders(entry.getKey(),entry.getValue(),camelExchange)
+LOG.info("recovered from " + StringUtils.stringifyException(e))
+assertOpenEventually("responseLatch",responseLatch)
+@RunWith(HazelcastParallelClassRunner.class) @Category({QuickTest.class,ParallelTest.class}) public class ListBasicLocalTest extends ListAbstractTest {   @Override protected HazelcastInstance[] newInstances(  Config config){     return createHazelcastInstanceFactory(1).newInstances(config);   } } 
+client.getState().setProxyCredentials(new AuthScope(null,-1,AuthScope.ANY_REALM),defaultcreds)
+BlockStoreContext.releaseBlockWorkerThriftClientHeartbeat(mRpcAddress,client)
+Assert.assertEquals("Message key '" + retrievedMessage + "' is not valid","unable.open.cause",retrievedMessage)
+raw.getOutParameters()
+? extends T
+Calendar.getInstance(JSON.defaultTimeZone,JSON.defaultLocale)
+LOG.error("DataNode is out of memory. Will retry in 30 seconds.",ie)
+initialCapacity > 1 << 30
+deployment.addServletContainerInitializer(new ServletContainerInitializerInfo(Initializer.class,new ImmediateInstanceFactory<ServletContainerInitializer>(initializer),NO_CLASSES))
+DiagnosticType.error("JSC_GOOG_MODULE_IN_NON_MODULE","goog.module() call must be the first statement in a module.")
+REMOVE_TIME_TAKEN_NANOS_UPDATER.compareAndSet(this,nanos,nanos + duration)
+!config.isAutoRead()
+ImmutableSortedSet.of("a","abbr","acronym","address","area","b","bdo","big","blockquote","br","caption","cite","code","colgroup","dd","del","div","dfn","dl","dt","em","fieldset","font","h1","h2","h3","h4","h5","h6","hr","i","img","ins","kbd","li","ol","p","pre","q","samp","small","span","strong","style","sub","sup","table","tbody","td","tfoot","th","thead","tr","tt","ul")
+path(14)
+c.writeAndFlush("[" + ctx.channel().remoteAddress() + "] "+ msg+ '\n')
+cacheScaled5.setColors(red)
+cacheScaled5.setColors(red)
+configElements[0]
+MockReset.after()
+UrlUtils.getHeartbeat(getUrl())
+log.debug("Performing lookup: %s --> %s",nodeIds,retVal)
+ConfigAssertions.recordDefaults(FeaturesConfig.class).setExperimentalSyntaxEnabled(false).setDistributedIndexJoinsEnabled(false).setDistributedJoinsEnabled(true).setRedistributeWrites(true).setOptimizeMetadataQueries(false).setOptimizeHashGeneration(true).setOptimizeSingleDistinct(true).setPushTableWriteThroughUnion(true)
+GL20.glUniformMatrix3fv(location,transpose,toFloatBuffer(value,offset,count * 9))
+assertEquals(8,data.size())
+assertEquals(156,map.getLocalMapStats().getHeapCost())
+assertThat(page3.pagination().getGlobalTotal()).isEqualTo(5)
+queryIds.remove(deadQuery)
+lc + lp
+fileName.startsWith("/") || fileName.matches("^[A-z]:\\\\\\S+$")
+getOrCreateConnectionFactory()
+JSError.make(SourceMapInput.SOURCEMAP_RESOLVE_FAILED,sourceMapPath,e.getMessage())
+id=16512
+toJSON(item,config)
+!Values.WEBSOCKET.equalsIgnoreCase(upgrade)
+tFAgentStatMapper.map(agentStatBo)
+zwaveCommandClass.handleApplicationCommandRequest(serialMessage,offset + 2,0)
+g.tool.errMgr.grammarError(ErrorType.INVALID_RULE_PARAMETER_REF,g.fileName,y,y.getText(),rref.name,expr)
+new Interval(timeList.get(0).getValue().getMinTime().getMillis(),timeList.get(0).getValue().getMaxTime().getMillis(),ISOChronology.getInstanceUTC())
+id=12
+id=15
+new DynamicAwareEntry("http://localhost:80/test",null,null,null)
+ImmutableList<ObjectType>
+logger.debug("Trying to map {} to {}",t,path)
+TimeUnit.SECONDS.toMillis(4)
+new InstrumentedHttpRequestExecutor(metricRegistry,metricNameStrategy,name)
+id=10858
+new CopyableValueComparator(sortOrderAscending,type)
+new PrestoException(INVALID_CAST_ARGUMENT,"Value cannot be cast to timestamp: " + value.toStringUtf8(),e)
+GL11.glGetTexParameteriv(target,pname,params)
+new NativeCodeGenerator().generate("src","bin:../../gdx/bin","jni")
+caught.isArrayPattern()
+e.toString()
+builder200.build()
+taskService.createTaskQuery().or().taskInvolvedUser("involvedUser").taskInvolvedGroupsIn(groups)
+MAX_ARITY=25
+Foundation.log("[error] " + tag + ": "+ message)
+status == 404
+assertThat(request.getBody().readUtf8()).isIn("<my-object><message>hello world</message><count>10</count></my-object>","<my-object><count>10</count><message>hello world</message></my-object>")
+i < 100
+StringBuilder pattern=new StringBuilder(this.prefix); 
+public class XpathRegressionHiddenFieldTest extends XpathTestSupport {   @Test public void testOne() throws Exception {     final String checkName=HiddenFieldCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionExplicitOne.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(HiddenFieldCheck.class);     final String[] expectedViolation={"10:34: " + getCheckMessage(HiddenFieldCheck.class,HiddenFieldCheck.MSG_KEY,"value")};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionExplicitOne']/OBJBLOCK" + "/INSTANCE_INIT/SLIST/EXPR/METHOD_CALL/ELIST/LAMBDA/PARAMETERS" + "/PARAMETER_DEF[@text='value']/IDENT");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   }   @Test public void testTwo() throws Exception {     final String checkName=HiddenFieldCheck.class.getSimpleName();     final File fileToProcess=new File(getPath(checkName,"SuppressionXpathRegressionExplicitTwo.java"));     final DefaultConfiguration moduleConfig=createModuleConfig(HiddenFieldCheck.class);     final String[] expectedViolation={"8:45: " + getCheckMessage(HiddenFieldCheck.class,HiddenFieldCheck.MSG_KEY,"other")};     final List<String> expectedXpathQueries=Collections.singletonList("/CLASS_DEF[@text='SuppressionXpathRegressionExplicitTwo']/OBJBLOCK" + "/METHOD_DEF[@text='method']/PARAMETERS/PARAMETER_DEF[@text='other']/IDENT");     runVerifications(moduleConfig,fileToProcess,expectedViolation,expectedXpathQueries);   } } 
+SimpleAttributeDefinitionBuilder.create(ModelDescriptionConstants.ANY_ADDRESS,ModelType.BOOLEAN).setAllowExpression(false).setAllowNull(true)
+endTracksTo("main")
+AtmosphereResponse.newInstance()
+public void testJobQueues() throws Exception {   JobClient jc=new JobClient(mrCluster.createJobConf());   String expectedQueueInfo="Maximum Tasks Per Job :: 10";   JobQueueInfo[] queueInfos=jc.getQueues();   assertNotNull(queueInfos);   assertEquals(1,queueInfos.length);   assertEquals("default",queueInfos[0].getQueueName());   assertEquals(QueueState.RUNNING.getStateName(),queueInfos[0].getQueueState());   JobConf conf=mrCluster.createJobConf();   FileSystem fileSys=dfsCluster.getFileSystem();   conf=configureWaitingJob(conf);   conf.setJobName("test-job-queue-info-test");   fileSys.delete(SHARE_DIR,true);   RunningJob rJob=jc.submitJob(conf);   while (rJob.getJobState() != JobStatus.RUNNING) {     UtilsForTests.waitFor(10);   }   int numberOfJobs=0;   for (  JobQueueInfo queueInfo : queueInfos) {     JobStatus[] jobStatusList=jc.getJobsFromQueue(queueInfo.getQueueName());     assertNotNull(queueInfo.getQueueName());     assertNotNull(queueInfo.getSchedulingInfo());     assertEquals(expectedQueueInfo,queueInfo.getSchedulingInfo());     numberOfJobs+=jobStatusList.length;     for (    JobStatus status : jobStatusList) {       assertEquals(JOB_SCHEDULING_INFO,status.getSchedulingInfo());     }   }   assertEquals(1,numberOfJobs);   UtilsForTests.signalTasks(dfsCluster,fileSys,getSignalFile(),getSignalFile(),4); } 
+rSocketMessageHandler.serverResponder()
+SchematronProcessorFactory.newSchematronEngine(endpoint.getRules())
+logger.info("defineClass pluginClass:{} cl:{}",className,classLoader)
+new VariableInformation(1,"Total operation time compressor",NibeDataType.S32,Type.Sensor)
+new JavaScriptAggregatorFactory(input,Arrays.asList(input),fnAggregate,fnReset,fnCombine)
+Thread.currentThread().interrupted()
+conceptAnswer.getAnswerConcept()
+Namespace.CURRENT.getUriString()
+logger.debug("NODE {}: Retry timout: Can't advance",node.getNodeId())
+fields[i] >= 0 && in1 != null
+new SingleInetAddressDns()
+Gdx.input.getX(i)
+stopwatch.elapsed(MILLISECONDS)
+DeploymentDescription.getReplaceDeploymentOperation(locale)
+types.length > Tuple.MAX_ARITY
+DataFormat.PAYLOAD == message.get(DataFormat.class) && params[0] instanceof CxfPayload
+legacyValue.isDefined()
+ctx.nextInboundMessageBuffer()
+registration.registerOperationHandler(CommonAttributes.STOP_CONTEXT,ModClusterStopContext.INSTANCE,stopContext,false,runtimeOnlyFlags)
+loadingSegments.get(segment.getIdentifier(),server.getTier())
+new CacheCreateConfigRequest(cacheConfig,false,partitionId)
+sections.get(section)
+ImmutableList.copyOf(result)
+Error|ClassNotFoundException
+AtmosphereRequest.newInstance()
+typeSerializer.getDeserializedType()
+new IllegalArgumentException("the ast is null")
+initialCapacity > 1 << 30
+LOG.error("Cannot create writer for app " + this.applicationId + ". Skip log upload this time. ",e1)
+instance.managementService.destroy()
+HeartbeatScheduler.await(HeartbeatContext.WORKER_FILESYSTEM_MASTER_SYNC,5,TimeUnit.SECONDS)
+assertEquals("One propagated header is expected.",6,headers.toArray().length)
+toEventData(key)
