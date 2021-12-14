@@ -11,14 +11,14 @@ You can find the paper here: https://arxiv.org/abs/2103.11626
 - `sstubs(Large|Small)-(train|test|val).json` files contain dataset split in JSON format
 - `split/(large|small)` folders contain dataset in text format (what the CodeBERT works with)
 
-### Running CodeBert Experiments
+### Running CodeBERT Experiments
 1. Clone the repository
     - `git lfs install` 
     - `git clone https://github.com/EhsanMashhadi/MSR2021-ProgramRepair.git`
 2. Download the CodeBERT model
     - `cd MSR2021-ProgramRepair`
     - `git clone https://huggingface.co/microsoft/codebert-base`
-    - use the downloaded model's path as `pretrained_model` variable in script files
+    - use the downloaded model's directory path as `pretrained_model` variable in script files
 3. Install dependencies
     - `pip install torch==1.4.0`
     - `pip install transformers==2.5.0`
@@ -28,14 +28,24 @@ You can find the paper here: https://arxiv.org/abs/2103.11626
     - `bash ./scripts/codebert/test.sh`
         
 ### Running Simple LSTM Experiments
-1. Install OpenNMT-py
-    - https://github.com/OpenNMT/OpenNMT-py
+1. Install [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py)
+    - `pip install OpenNMT-py==2.2.0`
 2. Preprocess the MSR data
-    - `bash ./scripts/simple-lstm/preprocess.sh`
+    - `bash ./scripts/simple-lstm/build_vocab.sh`
 3. Train the model
     - `bash ./scripts/simple-lstm/train.sh`
 4. Evaluate the model
     - `bash ./scripts/simple-lstm/test.sh`
+
+#### Running Simple LSTM Experiments using the legacy version of OpenNMT-py
+1. Install [OpenNMT-py legacy](https://github.com/OpenNMT/OpenNMT-py/tree/legacy)
+    - `pip install OpenNMT-py==1.2.0`
+2. Preprocess the MSR data
+    - `bash ./scripts/simple-lstm/legacy/preprocess.sh`
+3. Train the model
+    - `bash ./scripts/simple-lstm/legacy/train.sh`
+4. Evaluate the model
+    - `bash ./scripts/simple-lstm/legacy/test.sh`
 
 ### How to run all of experiments?
    - You can change the `size` and `type` variables value in script files to run different experiments (large | small, unique | repetition).
