@@ -37,7 +37,9 @@ You can find the paper here: https://arxiv.org/abs/2103.11626
 4. Evaluate the model
     - `bash ./scripts/simple-lstm/test.sh`
 
-#### Running Simple LSTM Experiments using the legacy version of OpenNMT-py
+### Running Simple LSTM Experiments using the legacy version of OpenNMT-py
+**(This is the original version used to run the simple LSTM experiments in the paper.)**
+
 1. Install [OpenNMT-py legacy](https://github.com/OpenNMT/OpenNMT-py/tree/legacy)
     - `pip install OpenNMT-py==1.2.0`
 2. Preprocess the MSR data

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 size=small  # Can be: small OR large
-type=repetition  # Can be: repetition OR unique
+type=unique  # Can be: repetition OR unique
 data_config=./scripts/simple-lstm/${type}_${size}_data.yaml
 output_dir=./saved_models/simple-lstm/$type/$size
 
