@@ -1,0 +1,7 @@
+data:
+    corpus:
+        path_src: data/repetition/split/small/src-train.txt
+        path_tgt: data/repetition/split/small/tgt-train.txt
+    valid:
+        path_src: data/repetition/split/small/src-val.txt
+        path_tgt: data/repetition/split/small/tgt-val.txt

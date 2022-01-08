@@ -7,15 +7,14 @@ source_length=510
 target_length=510
 train_steps=50000
 eval_steps=1000
-size=large #Can be: small OR large
-type=unique #Can be: repetition OR unique
-data_dir=../data/$type/split/$size
-output_dir=saved_models/codebert/$type/$size
+size=small  # Can be: small OR large
+type=unique  # Can be: repetition OR unique
+data_dir=./data/$type/split/$size
+output_dir=./saved_models/codebert/$type/$size
 train_file=$data_dir/src-train.txt,$data_dir/tgt-train.txt
 validate_file=$data_dir/src-val.txt,$data_dir/tgt-val.txt
-pretrained_model=./code-bert #CodeBert model path downloaded from Huggingface
-pretrained_model=../../codebert-model/codebert-base
-CodeBERT=../../codebert
+pretrained_model=./codebert-base  # CodeBert model path downloaded from Huggingface
+CodeBERT=./codebert
 
 
 python $CodeBERT/run.py \
