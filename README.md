@@ -30,6 +30,7 @@ You can find the paper here: https://arxiv.org/abs/2103.11626
 ### Running Simple LSTM Experiments
 1. Install [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py)
     - `pip install OpenNMT-py==2.2.0`
+    - If you face conflicts between pytorch and CUDA version, you can follow this [link](https://pytorch.org/get-started/locally/)
 2. Preprocess the MSR data
     - `bash ./scripts/simple-lstm/build_vocab.sh`
 3. Train the model
@@ -49,5 +50,10 @@ You can find the paper here: https://arxiv.org/abs/2103.11626
 4. Evaluate the model
     - `bash ./scripts/simple-lstm/legacy/test.sh`
 
-### How to run all of experiments?
+### How to run all experiments?
    - You can change the `size` and `type` variables value in script files to run different experiments (large | small, unique | repetition).
+
+### Have trouble running on GPU?
+1. Check the `CUDA` and `PyTorch` compatibility
+2. Assign the correct values for `CUDA_VISIBLE_DEVICES`, `gpu_rank`, and `world_size` based on your GPU numbers in all scripts.
+3. Run on GPU by removing the `gpu_rank`, and `world_size` options in all scripts.
