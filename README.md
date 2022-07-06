@@ -3,6 +3,9 @@
 ### Paper
 You can find the paper here: https://arxiv.org/abs/2103.11626
 ### Data
+
+**Note**: If you are facing issues regarding the LFS bandwidth, you can download the dataset from Zenodo: https://zenodo.org/record/6802730.
+
 `data` folder contains multiple folders and files:
 
 - `repetition` folder contains MSR datasets WITH <buggy code, fixed code> duplicate pairs
